@@ -72,7 +72,7 @@ public class Parser {
 	// Format: CLIENT|id|nome|endereço
 	private void parseClient(String line, String[] components) throws BadEntryException {
 		if (components.length != 4)
-		throw new BadEntryException("Invalid number of fields (4) in client description: " + line);
+			throw new BadEntryException("Invalid number of fields (4) in client description: " + line);
 
 		// add code here
 	}
