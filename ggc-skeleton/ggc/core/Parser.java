@@ -1,18 +1,20 @@
-package woo.core;
+//package woo.core;
+package ggc.core;
 
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-import woo.core.exception.BadEntryException;
+//import woo.core.exception.BadEntryException;
+import ggc.core.exception.BadEntryException;
 // add here more imports if needed
 
 public class Parser {
 
-	private Store _store;  // ou outra entidade
+	private Warehouse _warehouse;  // ou outra entidade
 
-	Parser(Store s) {
-		store = s;
+	Parser(Warehouse w) {
+		_warehouse = w;
 	}
 
 	void parseFile(String fileName) throws IOException, BadEntryException /* may have other exceptions */ {
@@ -51,7 +53,7 @@ public class Parser {
 
 			default:
 				throw new BadEntryException("Type of line not supported: " + line);
-				break; 
+				//break; 
 		}
 	}
 

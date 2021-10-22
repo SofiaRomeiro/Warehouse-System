@@ -18,11 +18,32 @@ public class WarehouseManager {
   private String _filename = "";
 
   /** The wharehouse itself. */
-  private Warehouse _warehouse = new Warehouse();
+  private Warehouse _warehouse = new Warehouse(1232021);
 
   //FIXME define other attributes
+
   //FIXME define constructor(s)
+  public WarehouseManager() {
+
+  }
+
   //FIXME define other methods
+
+  public int displayDate() {
+    return _warehouse.getDate();
+  }
+
+  public boolean advanceDate(int days) {
+    return _warehouse.advanceDate(days);
+  }
+
+  public double getAvailableBalance() {
+    return _warehouse.getAvailableBalance();
+  }
+
+  public double getAccountantBalance() {
+    return _warehouse.getAccountantBalance();
+  }
 
   /**
    * @@throws IOException

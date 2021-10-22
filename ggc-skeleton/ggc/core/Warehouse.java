@@ -15,8 +15,31 @@ public class Warehouse implements Serializable {
   private static final long serialVersionUID = 202109192006L;
 
   // FIXME define attributes
+  private Date _date;
+  private Balance _balance;
+
+
   // FIXME define contructor(s)
+  public Warehouse(int date) {
+    _date = new Date(date);
+  }
   // FIXME define methods
+
+  public int getDate() {
+    return _date.getDays();
+  }
+
+  public boolean advanceDate(int days) {
+    return _date.advanceDate(days);
+  }
+
+  public double getAvailableBalance() {
+    return _balance.getCurrentAvailable();
+  }
+
+  public double getAccountantBalance() {
+    return _balance.getCurrentAccountant();
+  }
 
   /**
    * @param txtfile filename to be loaded.
