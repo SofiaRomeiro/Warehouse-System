@@ -3,6 +3,7 @@ package ggc.app.main;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
+import ggc.app.main.Message;
 //FIXME import classes
 
 /**
@@ -18,6 +19,25 @@ class DoSaveFile extends Command<WarehouseManager> {
   @Override
   public final void execute() throws CommandException {
     //FIXME implement command and create a local Form
+
+    if (_receiver.getFilename() /* se ainda nao tiver nome */) {
+
+      /*Form form = new Form();
+      form.addStringField("filename", Message.saveAs());
+      form.parse();
+      String filename = form.stringField("filename") */
+
+      String filename = requestString(Message.saveAs());
+
+      //MYFIXME completar e guardar
+
+    }
+
+    else {
+
+    }
+
+    //tem de saber se ja tiver dado um nome ao ficheiro, tem de ser esse nome, se nao tem de perguntar ao user
   }
 
 }

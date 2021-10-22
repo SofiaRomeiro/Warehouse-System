@@ -18,16 +18,28 @@ public class WarehouseManager {
   private String _filename = "";
 
   /** The wharehouse itself. */
-  private Warehouse _warehouse = new Warehouse(1232021);
+  //private static WarehouseManager _singleton;  //if we use Singleton pattern
 
   //FIXME define other attributes
+  private  Warehouse _warehouse = new Warehouse(1232021); //only for testing
 
   //FIXME define constructor(s)
   public WarehouseManager() {
 
   }
 
+  /*private WarehouseManager() {      //if we use Singleton pattern
+
+  }*/
+
   //FIXME define other methods
+
+  /*public static WarehouseManager getSingleton() {     //if we use Singleton pattern
+    if (_singleton==null) {
+      _singleton = new WarehouseManager();
+    }
+    return _singleton;
+  }*/
 
   public int displayDate() {
     return _warehouse.getDate();
