@@ -10,6 +10,10 @@ public class Date {
 		_days = days;
 	}
 
+	public Date() {
+		this(0);
+	}
+
 	public int difference(Date other) {
 		return other.getDays() - _days;
 	}
