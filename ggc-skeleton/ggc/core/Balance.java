@@ -5,9 +5,9 @@ public class Balance {
 	private double _available;
 	private double _accountant;
 
-	public Balance(double available, double _accountant) {
+	public Balance(double available, double accountant) {
 		_available = available;
-		_accountant = _accountant;
+		_accountant = accountant;
 	}
 
 	public double getCurrentAvailable() {
