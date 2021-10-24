@@ -77,10 +77,10 @@ public class Warehouse implements Serializable {
         else {
 
           if (b1.getPrice() != b2.getPrice()) {
-            return 1.getPrice() - b2.getPrice();
+            return b1.getPrice() - b2.getPrice();
           }
           else {
-            return 1.getStock() - b2.getStock()
+            return b1.getStock() - b2.getStock()
           }
 
         }
