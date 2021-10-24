@@ -20,24 +20,33 @@ class DoSaveFile extends Command<WarehouseManager> {
   public final void execute() throws CommandException {
     //FIXME implement command and create a local Form
 
-    if (_receiver.getFilename() /* se ainda nao tiver nome */) {
+    if (!(_receiver.hasFilename())) {
 
       /*Form form = new Form();
       form.addStringField("filename", Message.saveAs());
       form.parse();
       String filename = form.stringField("filename") */
 
-      String filename = requestString(Message.saveAs());
+      String filename = requestString(Message.newSaveAs());
 
       //MYFIXME completar e guardar
 
     }
 
-    else {
+    /*else {
 
     }
 
-    //tem de saber se ja tiver dado um nome ao ficheiro, tem de ser esse nome, se nao tem de perguntar ao user
+    //tem de saber se ja tiver dado um nome ao ficheiro, tem de ser esse nome, se nao tem de perguntar ao user */
+
+    try (_receiver.save(filename)) {
+
+    }
+
+    catch (CommandException ce) {
+      throw new CommandException(filename);
+    }
+
   }
 
 }

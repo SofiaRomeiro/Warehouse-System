@@ -18,21 +18,26 @@ public class WarehouseManager {
   private String _filename = "";
 
   /** The wharehouse itself. */
+
+   private  Warehouse _warehouse;
+
   //private static WarehouseManager _singleton;  //if we use Singleton pattern
 
+
   //FIXME define other attributes
-  private  Warehouse _warehouse = new Warehouse(1232021); //only for testing
+ 
 
   //FIXME define constructor(s)
   public WarehouseManager() {
-
+    _warehouse = new Warehouse();
   }
 
   /*private WarehouseManager() {      //if we use Singleton pattern
-
   }*/
 
+
   //FIXME define other methods
+
 
   /*public static WarehouseManager getSingleton() {     //if we use Singleton pattern
     if (_singleton==null) {
@@ -57,13 +62,41 @@ public class WarehouseManager {
     return _warehouse.getAccountantBalance();
   }
 
+  public boolean hasFilename() {
+    return !(_filename.equals(""));
+  }
+
   /**
    * @@throws IOException
    * @@throws FileNotFoundException
    * @@throws MissingFileAssociationException
    */
-  public void save() throws IOException, FileNotFoundException, MissingFileAssociationException {
-    //FIXME implement serialization method
+  public void save(String filename) throws IOException, FileNotFoundException, MissingFileAssociationException {
+    //FIXME implement serialization method -> ObjectOut&InStreams ...
+
+    if (!hasFilename()) {
+      _filename = filename;
+    }
+
+    try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
+      objOut.writeObject(_warehouse);
+    }
+
+    catch (FileNotFoundException fnfe) {
+      throw fnfe;
+    }
+
+    catch (MissingFileAssociationException mfae) {
+      throw mfae;
+    }
+
+    catch (IOException e) {
+      throw e;
+    }
+
+    finally {
+      objOut.close();
+    }
   }
 
   /**
@@ -76,6 +109,33 @@ public class WarehouseManager {
     _filename = filename;
     save();
   }
+
+  public String openFile(String filename) throws FileOpenFailedException, IOException {
+
+    try {
+
+      Warehouse warehouse;
+      ObjectInputStream objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+      warehouse  = (Warehouse) objIn.readObject();
+
+      _warehouse = warehouse;
+      _filename = filename;
+
+    }
+
+    catch (FileOpenFailedException fofe) {
+      throw new FileOpenFailedException(filename);
+    }
+
+    catch (IOException e) {
+      throw e;
+    }
+
+    finally {
+      objIn.close();
+    }
+  }
+
 
   /**
    * @@param filename
