@@ -4,6 +4,8 @@ package ggc.core;
 
 import java.io.Serializable;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 
@@ -17,10 +19,15 @@ public class Warehouse implements Serializable {
 
   // FIXME define attributes
   private Date _date;
-  private Balance _balance;
+  private Balance _balance = new Balance();
 
 
   // FIXME define contructor(s)
+  public Warehouse() {
+
+  }
+
+
   public Warehouse(int date) {
     _date = new Date(date);
   }
@@ -99,8 +106,8 @@ public class Warehouse implements Serializable {
           while (fields[5] != null) {
             recipe = fields[5].split("#");
 
-            while(recipe != null) {
-              component = recipe.split(":");
+            for (int i = 0; i < recipe.length; i++) {
+              component = recipe[i].split(":");
 
               componentId = component[0];
               quantity = Integer.parseInt(component[1]);
@@ -122,12 +129,8 @@ public class Warehouse implements Serializable {
 
     }
 
-    catch (BadEntryException | IOException e) {
+    catch (IOException e) {
       throw e;
-    }
-
-    finally {
-      in.close();
     }
 
   }

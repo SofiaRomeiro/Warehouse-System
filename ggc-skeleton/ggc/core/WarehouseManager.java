@@ -3,8 +3,20 @@ package ggc.core;
 //FIXME import classes (cannot import from pt.tecnico or ggc.app)
 
 import java.io.Serializable;
+import java.io.OutputStream;
+import java.io.ObjectOutputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+
+import java.lang.Object;
+
+import ggc.app.exception.FileOpenFailedException;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.ImportFileException;
@@ -19,7 +31,7 @@ public class WarehouseManager {
 
   /** The wharehouse itself. */
 
-   private  Warehouse _warehouse;
+   private Warehouse _warehouse;
 
   //private static WarehouseManager _singleton;  //if we use Singleton pattern
 
@@ -66,12 +78,16 @@ public class WarehouseManager {
     return !(_filename.equals(""));
   }
 
+  public String getFilename() {
+    return _filename;
+  }
+
   /**
    * @@throws IOException
    * @@throws FileNotFoundException
    * @@throws MissingFileAssociationException
    */
-  public void save(String filename) throws IOException, FileNotFoundException, MissingFileAssociationException {
+  public void save(String filename) /*throws FileNotFoundException*/ {
     //FIXME implement serialization method -> ObjectOut&InStreams ...
 
     if (!hasFilename()) {
@@ -82,20 +98,12 @@ public class WarehouseManager {
       objOut.writeObject(_warehouse);
     }
 
-    catch (FileNotFoundException fnfe) {
+    /*catch (FileNotFoundException fnfe) {
       throw fnfe;
-    }
-
-    catch (MissingFileAssociationException mfae) {
-      throw mfae;
-    }
+    } */
 
     catch (IOException e) {
-      throw e;
-    }
-
-    finally {
-      objOut.close();
+      e.printStackTrace();
     }
   }
 
@@ -107,10 +115,10 @@ public class WarehouseManager {
    */
   public void saveAs(String filename) throws MissingFileAssociationException, FileNotFoundException, IOException {
     _filename = filename;
-    save();
+    save(filename);
   }
 
-  public String openFile(String filename) throws FileOpenFailedException, IOException {
+  public String openFile(String filename) throws FileOpenFailedException, IOException, ClassNotFoundException{
 
     try {
 
@@ -123,17 +131,20 @@ public class WarehouseManager {
 
     }
 
-    catch (FileOpenFailedException fofe) {
+    /*catch (FileOpenFailedException fofe) {
       throw new FileOpenFailedException(filename);
+    } */
+
+    catch (ClassNotFoundException cnfe) {
+      throw new ClassNotFoundException();
     }
 
     catch (IOException e) {
       throw e;
     }
 
-    finally {
-      objIn.close();
-    }
+    return filename; // ??????????????????
+
   }
 
 
@@ -152,7 +163,7 @@ public class WarehouseManager {
   public void importFile(String textfile) throws ImportFileException {
     try {
       _warehouse.importFile(textfile);
-    } catch (IOException | BadEntryException | /* ?? ImportFileException ?? */ /* FIXME maybe other exceptions */ e) {
+    } catch (IOException | BadEntryException /*|  ?? ImportFileException ?? */ /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(textfile, e);
     }
   }

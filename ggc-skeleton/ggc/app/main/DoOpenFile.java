@@ -2,9 +2,11 @@ package ggc.app.main;
 
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
+import pt.tecnico.uilib.forms.Form;
 
 import ggc.core.WarehouseManager;
-import ggc.app.exception.ImportFileException;
+import ggc.app.exception.FileOpenFailedException;
+import ggc.core.exception.MissingFileAssociationException;
 
 import java.io.*;
 //FIXME import classes
@@ -26,32 +28,27 @@ class DoOpenFile extends Command<WarehouseManager> {
 
     String filename = stringField("filename");
     
-    try (){
-      //FIXME implement command
-      
-
-      _display.addLine(_receiver.openFile(filename));
-      _display.display();
+    try {
+      //FIXME implement command    
+      _receiver.openFile(filename);
 
     } 
 
-    catch (UnavailableFileException ufe) {
-      throw new FileOpenFailedException(ufe.getFilename());
+    
 
-    } 
-
-    catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    }
+    
 
     catch (FileOpenFailedException fofe) {
       throw new FileOpenFailedException(filename);
-    } 
-
-    finally {
-      objIn.close();
     }
-    
+
+    /*catch (CommandException ce) {
+      throw ce;
+    } */
+
+    catch (ClassNotFoundException | IOException e) {
+      e.printStackTrace();
+    }
   }
 
 }

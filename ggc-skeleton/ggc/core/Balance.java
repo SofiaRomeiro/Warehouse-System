@@ -10,6 +10,11 @@ public class Balance {
 		_accountant = accountant;
 	}
 
+	public Balance() {
+		_available = 0;
+		_accountant = 0;
+	}
+
 	public double getCurrentAvailable() {
 		return _available;
 	}

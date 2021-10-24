@@ -1,7 +1,9 @@
 package ggc.app.main;
 
+
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
+import pt.tecnico.uilib.forms.Form;
 import ggc.core.WarehouseManager;
 import ggc.app.main.Message;
 //FIXME import classes
@@ -10,6 +12,8 @@ import ggc.app.main.Message;
  * Save current state to file under current name (if unnamed, query for name).
  */
 class DoSaveFile extends Command<WarehouseManager> {
+
+  String filename;  
 
   /** @param receiver */
   DoSaveFile(WarehouseManager receiver) {
@@ -27,25 +31,21 @@ class DoSaveFile extends Command<WarehouseManager> {
       form.parse();
       String filename = form.stringField("filename") */
 
-      String filename = requestString(Message.newSaveAs());
+      //String filename = requestString(Message.newSaveAs());
+
+      Form request = new Form();
+      request.addStringField("answer", Message.saveAs());
+      filename = request.parse().stringField("answer");
 
       //MYFIXME completar e guardar
 
     }
 
-    /*else {
-
+    else {
+      filename = _receiver.getFilename();
     }
 
-    //tem de saber se ja tiver dado um nome ao ficheiro, tem de ser esse nome, se nao tem de perguntar ao user */
-
-    try (_receiver.save(filename)) {
-
-    }
-
-    catch (CommandException ce) {
-      throw new CommandException(filename);
-    }
+    _receiver.save(filename);
 
   }
 
