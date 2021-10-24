@@ -5,6 +5,7 @@ package ggc.core;
 import java.io.Serializable;
 import java.io.IOException;
 import ggc.core.exception.BadEntryException;
+import ggc.core.Label;
 
 /**
  * Class Warehouse implements a warehouse.
@@ -48,7 +49,87 @@ public class Warehouse implements Serializable {
    */
   void importFile(String txtfile) throws IOException, BadEntryException /* FIXME maybe other exceptions */ {
     //FIXME implement method
-    
+
+    String[] fields;
+    String[] recipe;
+    String[] component;
+    String id;
+    String name, address;
+    String partner;
+    String componentId;
+    int quantity = 0;
+    double price = 0.00;
+    double alpha = 0.00;
+    int stock = 0;
+
+    try (BufferedReader in = new BufferedReader(new FileReader(txtfile))) {
+
+      String line = in.readLine();
+
+      while (line != null) {
+
+        fields = line.split("|");
+
+        if (fields[0].equals(Label.PARTNER)) {
+          id = fields[1];
+          name = fields[2];
+          address = fields[3];
+
+          // metodo para adicionar parceiro
+
+        }
+
+        else if (fields[0].equals(Label.BATCH_S)) {
+          id = fields[1];
+          partner = fields[2];
+          price = Double.parseDouble(fields[3]);
+          stock = Integer.parseInt(fields[4]);
+
+          // metodo para criar lote de produto simples
+
+        }
+
+        else {
+          id = fields[1];
+          partner = fields[2];
+          price = Double.parseDouble(fields[3]);
+          stock = Integer.parseInt(fields[4]);
+          alpha = Double.parseDouble(fields[5]);
+
+          while (fields[5] != null) {
+            recipe = fields[5].split("#");
+
+            while(recipe != null) {
+              component = recipe.split(":");
+
+              componentId = component[0];
+              quantity = Integer.parseInt(component[1]);
+
+            }
+
+            // criar novo componente da receita e ir acrescentando a um array
+            // do genero:
+            // newComponent = new Component(componentId, quantity);
+            // ArrayList<Component> components = new ArrayList<>();  --> usar isto como variavel, declarar junto das outras
+            // components.add(newComponent)
+          }
+
+          //no fim do 1º while, criar uma nova receita que contém o array de componentes já existente 
+
+        }
+
+      }
+
+    }
+
+    catch (BadEntryException | IOException e) {
+      throw e;
+    }
+
+    finally {
+      in.close();
+    }
+
   }
 
 }
