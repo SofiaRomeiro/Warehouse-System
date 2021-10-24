@@ -17,6 +17,8 @@ class DoShowAllPartners extends Command<WarehouseManager> {
   @Override
   public void execute() throws CommandException {
     //FIXME implement command
+    _display.addLine(_receiver.showAllPartners());
+    _display.display();
   }
 
 }

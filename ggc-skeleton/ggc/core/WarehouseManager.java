@@ -82,6 +82,26 @@ public class WarehouseManager {
     return _filename;
   }
 
+  public String showAllProducts() {
+    return _warehouse.getAllProducts();
+  }
+
+  public String showAllBatches() {
+    return _warehouse.getAllBatches();
+  }
+
+  public String showAllPartners() {
+    return _warehouse.getAllPartners()
+  }
+
+  public String showPartner(String id) {
+    return _warehouse.getPartnerById(id);
+  }
+
+  public void registerPartner(String id, String name, String address) {
+    _warehouse.addPartner(id, name, address);
+  }
+
   /**
    * @@throws IOException
    * @@throws FileNotFoundException

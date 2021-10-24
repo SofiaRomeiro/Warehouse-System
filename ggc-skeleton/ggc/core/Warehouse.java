@@ -49,6 +49,65 @@ public class Warehouse implements Serializable {
     return _balance.getCurrentAccountant();
   }
 
+  public String getAllProducts() {
+    //MYFIXME por implementar
+    return "aa";
+  }
+
+  public String getAllBatches() {
+    //MYFIXME por implementar
+    // adicionar um comparator, do genero:
+    // List<Batches> tmp = <criar nova lista ou wtv com todos os lotes>
+    // Collections.sort(tmp, new BatchesComparator())
+    return "aa";
+  }
+
+  private static class BatchesComparator implements Comparator<Batch> {
+    @Override
+    public int compare(Batch b1, Batch b2) {
+
+      if (b1.getID().compareTo(b2.getId()) != 0) {
+        return b1.getID().compareTo(b2.getName());
+      }
+      else {
+
+        if (b1.getPartner().compareTo(b2.getPartner()) != 0) {
+          return b1.getID().compareTo(b2.getName());
+        } 
+        else {
+
+          if (b1.getPrice() != b2.getPrice()) {
+            return 1.getPrice() - b2.getPrice();
+          }
+          else {
+            return 1.getStock() - b2.getStock()
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  public String getAllPartners() {
+    //MYFIXME implementar metodo
+    return "aa";
+  }
+
+  public String getPartnerById(String id) {
+    //MYFIXME por implementar
+    return "aa";
+  }
+
+  public void addPartner(String id, String name, String address) {
+    // criarParceiro(id, name, address)
+    // adicionar à collection de parceiros
+
+  }
+
+
+
   /**
    * @param txtfile filename to be loaded.
    * @throws IOException
