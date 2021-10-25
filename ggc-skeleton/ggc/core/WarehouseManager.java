@@ -91,7 +91,7 @@ public class WarehouseManager {
   }
 
   public String showAllPartners() {
-    return _warehouse.getAllPartners()
+    return _warehouse.getAllPartners();
   }
 
   public String showPartner(String id) {

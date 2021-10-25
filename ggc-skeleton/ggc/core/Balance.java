@@ -11,6 +11,8 @@ public class Balance {
 	}
 
 	public Balance() {
+		this(0,0);
+		// acho que aqui podemos usar o this
 		_available = 0;
 		_accountant = 0;
 	}

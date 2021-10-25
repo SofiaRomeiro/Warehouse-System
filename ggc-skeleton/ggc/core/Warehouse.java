@@ -9,6 +9,11 @@ import java.io.FileReader;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 
+  // edson 25/10/2021
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Class Warehouse implements a warehouse.
  */
@@ -21,6 +26,11 @@ public class Warehouse implements Serializable {
   private Date _date;
   private Balance _balance = new Balance();
 
+  // edson 25/10/2021
+  private List<Partner> _partners;
+
+  private boolean add;
+
 
   // FIXME define contructor(s)
   public Warehouse() {
@@ -30,6 +40,7 @@ public class Warehouse implements Serializable {
 
   public Warehouse(int date) {
     _date = new Date(date);
+    _partners = new ArrayList<>();
   }
   // FIXME define methods
 
@@ -80,7 +91,7 @@ public class Warehouse implements Serializable {
             return b1.getPrice() - b2.getPrice();
           }
           else {
-            return b1.getStock() - b2.getStock()
+            return b1.getStock() - b2.getStock();
           }
 
         }
@@ -103,6 +114,9 @@ public class Warehouse implements Serializable {
   public void addPartner(String id, String name, String address) {
     // criarParceiro(id, name, address)
     // adicionar à collection de parceiros
+
+    Partner p = new Partner(id, name, address);
+    add = _partners.add(p);
 
   }
 
