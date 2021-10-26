@@ -116,7 +116,7 @@ public class Warehouse implements Serializable {
     // adicionar à collection de parceiros
 
     Partner p = new Partner(id, name, address);
-    add = _partners.add(p);
+    _partners.add(p);
 
   }
 
