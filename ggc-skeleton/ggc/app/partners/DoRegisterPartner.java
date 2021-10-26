@@ -3,6 +3,8 @@ package ggc.app.partners;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
+
+ 
 //FIXME import classes
 
 /**
@@ -20,18 +22,17 @@ class DoRegisterPartner extends Command<WarehouseManager> {
     //FIXME implement command
     try {
 
-      Form form = new Form();
-      form.addStringField("key", Message.requestPartnerKey());
-      form.addStringField("name", Message.requestPartnerName());
-      form.addStringField("address", Message.requestPartnerAddress());
+      addStringField("key", Message.requestPartnerKey());
+      addStringField("name", Message.requestPartnerName());
+      addStringField("address", Message.requestPartnerAddress());
 
-      form.parse();
+      //form.parse();
 
       String key = stringField("key");
       String name = stringField("name");
       String address = stringField("address");
 
-      _receiver.registerPartner(id, name, address);
+      _receiver.registerPartner(key, name, address);
 
     }
 

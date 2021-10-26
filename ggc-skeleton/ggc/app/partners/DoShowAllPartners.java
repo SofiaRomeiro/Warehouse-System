@@ -19,6 +19,7 @@ class DoShowAllPartners extends Command<WarehouseManager> {
     //FIXME implement command
     _display.addLine(_receiver.showAllPartners());
     _display.display();
+
   }
 
 }

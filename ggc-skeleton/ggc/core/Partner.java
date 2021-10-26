@@ -2,7 +2,7 @@ package ggc.core;
 
 public class Partner {
     
-    private String _id;
+    private String _key;
     private String _name;
     private String _address;
 
@@ -14,8 +14,8 @@ public class Partner {
     private float _paidSales;
     
 
-    public Partner (String id, String name, String address, String _status, double points, float purchases, float sales, float paidSales){
-        _id = id;
+    public Partner (String key, String name, String address, String _status, double points, float purchases, float sales, float paidSales){
+        _key = key;
         _name = name;
         _address = address;
         _status = "NORMAL";
@@ -25,8 +25,8 @@ public class Partner {
         _paidSales = paidSales;
     }
 
-    public Partner (String id, String name, String address){
-        this(id, name, address, "NORMAL", 0, 0, 0, 0);
+    public Partner (String key, String name, String address){
+        this(key, name, address, "NORMAL", 0, 0, 0, 0);
     }
 
     

@@ -30,7 +30,6 @@ public class WarehouseManager {
   private String _filename = "";
 
   /** The wharehouse itself. */
-
    private Warehouse _warehouse;
 
   //private static WarehouseManager _singleton;  //if we use Singleton pattern
@@ -156,7 +155,7 @@ public class WarehouseManager {
     } */
 
     catch (ClassNotFoundException cnfe) {
-      throw new ClassNotFoundException();
+      throw cnfe;
     }
 
     catch (IOException e) {

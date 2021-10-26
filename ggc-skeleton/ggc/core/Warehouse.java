@@ -111,11 +111,11 @@ public class Warehouse implements Serializable {
     return "aa";
   }
 
-  public void addPartner(String id, String name, String address) {
+  public void addPartner(String key, String name, String address) {
     // criarParceiro(id, name, address)
     // adicionar à collection de parceiros
 
-    Partner p = new Partner(id, name, address);
+    Partner p = new Partner(key, name, address);
     _partners.add(p);
 
   }
