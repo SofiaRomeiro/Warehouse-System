@@ -41,5 +41,10 @@ public abstract class Product {
 
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
+    @Override
+    public String toString() {
+        return _id + "|" + _maxPrice + "|" + _highestPrice;
+    }
+
 	//public abstract String toString(Product p);
 }

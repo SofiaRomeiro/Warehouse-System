@@ -20,4 +20,9 @@ public class Recipe {
 	public List<Component> getComponents() {
 		return _components;
 	}
+
+	@Override
+	public String toString() {
+		return "|";
+	}
 }

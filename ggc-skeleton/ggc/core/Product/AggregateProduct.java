@@ -15,14 +15,16 @@ public class AggregateProduct extends Product {
     }
 
     public String toString() {
-        String aggregateProduct =  p.getId() + "|" + p.getMaxPrice() + "|" 
-            + p.getCurrentQuantity() + "|" + _recipe.getAlpha();
+
+         
+        /*String aggregateProduct = "|";
 
         List<Component> components = _recipe.getComponents();
 
         for (Component c : components) {
             aggregateProduct += c.toString() + "#";
-        }
+        }*/
+        return super.toString() + _recipe.toString();
 
     }
 }
