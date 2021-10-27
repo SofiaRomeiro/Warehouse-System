@@ -26,6 +26,4 @@ public abstract class Product {
 
     public abstract float checkQuantity(int quantity, Partner p);
 
-    
-
 }

@@ -9,7 +9,6 @@ import java.io.FileReader;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 
-  // edson 25/10/2021
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Collections;
@@ -27,7 +26,6 @@ public class Warehouse implements Serializable {
   private Date _date;
   private Balance _balance = new Balance();
 
-  // edson 25/10/2021
   private Map<String, Partner> _partners;
 
 
@@ -76,7 +74,8 @@ public class Warehouse implements Serializable {
     // Collections.sort(tmp, new BatchesComparator())
     return "aa";
   }
-/*
+
+  /*
   private static class BatchesComparator implements Comparator<Batch> {
     @Override
     public int compare(Batch b1, Batch b2) {
@@ -112,7 +111,7 @@ public class Warehouse implements Serializable {
     return list;
   }
 
-  public String showAllPartners() {
+  /*public String showAllPartners() {
     TreeMap<String, String> partners = new TreeMap<String,String>();
     String displayText = new String();
 
@@ -123,7 +122,17 @@ public class Warehouse implements Serializable {
       displayText += s;
 
     return displayText;
+  }*/
+
+  public TreeMap<String, String> showAllPartners() {
+    TreeMap<String, String> partners = new TreeMap<String,String>();
+
+    for( Partner partner : getAllPartners())
+      partners.put(partner.getKey(), partner.toString());
+
+    return partners;
   }
+
 
   public String getPartnerById(String key) {
     //MYFIXME por implementar

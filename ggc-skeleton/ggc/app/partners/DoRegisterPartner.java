@@ -25,9 +25,6 @@ class DoRegisterPartner extends Command<WarehouseManager> {
     //FIXME implement command
     /*try {
 
-      addStringField("key", Message.requestPartnerKey());
-      addStringField("name", Message.requestPartnerName());
-      addStringField("address", Message.requestPartnerAddress());
 */
       //form.parse();
 
