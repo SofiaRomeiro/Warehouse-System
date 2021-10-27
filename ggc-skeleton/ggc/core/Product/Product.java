@@ -21,23 +21,9 @@ public abstract class Product {
     private int _currentQuantity;
     private List<Component> _components;
 
-    public Product(String id, float maxPrice, float lowestPrice, float highestPrice, int currentQuantity) {
-        _id = id;
-        _maxPrice = maxPrice;
-        _lowestPrice = lowestPrice;
-        _highestPrice = highestPrice;
-        _currentQuantity = currentQuantity;
-    }
-
     public Product (String id) {
-        this (id, 0, 0, 0, 0);
+        _id = id;
     }
 
     public abstract float checkQuantity(int quantity, Partner p);
-
-
-
-
-    
-
 }

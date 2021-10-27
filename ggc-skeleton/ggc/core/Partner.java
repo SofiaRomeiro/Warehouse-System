@@ -5,6 +5,8 @@ import java.util.Locale;
 import java.text.Collator;
 import ggc.core.Notifications;
 
+import java.lang.Math;
+
 
 public class Partner {
 
@@ -24,7 +26,7 @@ public class Partner {
 
     //temos de cria enums para os estatutos
     private String _status;
-    private double _points;
+    private float _points;
     private float _purchases;
     private float _sales;
     private float _paidSales;
@@ -47,7 +49,7 @@ public class Partner {
 
     @Override
     public String toString() {
-        return _key + "|" + _name + "|" + _status + "|" + _points + "|" + _purchases + "|" + _sales + "|" + _paidSales;
+        return _key + "|" + _name + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
     @Override
     public boolean equals(Object o) {

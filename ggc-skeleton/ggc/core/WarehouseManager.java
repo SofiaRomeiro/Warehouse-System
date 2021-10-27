@@ -23,6 +23,11 @@ import ggc.core.exception.ImportFileException;
 import ggc.core.exception.UnavailableFileException;
 import ggc.core.exception.MissingFileAssociationException;
 
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.Collections;
+import java.util.LinkedList;
+
 /** Façade for access. */
 public class WarehouseManager {
 
@@ -89,7 +94,7 @@ public class WarehouseManager {
     return _warehouse.getAllBatches();
   }
 
-  public String showAllPartners() {
+  public TreeMap<String, String> showAllPartners() {
     return _warehouse.showAllPartners();
   }
 
