@@ -1,5 +1,10 @@
 package ggc.core.Product;
 
+import ggc.core.Product.Component;
+import ggc.core.Product.Recipe;
+
+import java.util.List;
+
 public class AggregateProduct extends Product {
 
     private Recipe _recipe;
@@ -9,7 +14,7 @@ public class AggregateProduct extends Product {
         super(id);
     }
 
-    public String toString(Product p) {
+    public String toString() {
         String aggregateProduct =  p.getId() + "|" + p.getMaxPrice() + "|" 
             + p.getCurrentQuantity() + "|" + _recipe.getAlpha();
 
