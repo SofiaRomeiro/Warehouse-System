@@ -3,12 +3,12 @@ package ggc.core;
 import java.util.Comparator;
 import java.util.Locale;
 import java.text.Collator;
-import ggc.core.notification;
+import ggc.core.Notifications;
 
 
 public class Partner {
 
-    public final static Comparator<Partner> KEY_COMPARATOR =new KeyComparator();
+  /*  public final static Comparator<Partner> KEY_COMPARATOR =new KeyComparator();
 
     private static class KeyComparator implements Comparator<Partner>{
         @Override
@@ -16,7 +16,7 @@ public class Partner {
             Collator collator = Collator.getInstance(Locale.getDefault());
             return collator.compare(p1.getkey(), p2.getKey());
         }
-    }
+    }*/
     
     private String _key;
     private String _name;
@@ -28,7 +28,7 @@ public class Partner {
     private float _purchases;
     private float _sales;
     private float _paidSales;
-    private Notification _notifications;
+    private Notifications _notifications;
     
 
     public Partner (String key, String name, String address, String _status, double points, float purchases, float sales, float paidSales){
@@ -40,7 +40,7 @@ public class Partner {
         _purchases = purchases;
         _sales = sales;
         _paidSales = paidSales;
-        _notifications = new Notification();
+        _notifications = new Notifications();
     }
 
     public Partner (String key, String name, String address){

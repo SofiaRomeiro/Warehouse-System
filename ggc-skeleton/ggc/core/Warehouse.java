@@ -76,7 +76,7 @@ public class Warehouse implements Serializable {
     // Collections.sort(tmp, new BatchesComparator())
     return "aa";
   }
-
+/*
   private static class BatchesComparator implements Comparator<Batch> {
     @Override
     public int compare(Batch b1, Batch b2) {
@@ -103,7 +103,7 @@ public class Warehouse implements Serializable {
       }
 
     }
-  }
+  }*/
 
   public LinkedList<Partner> getAllPartners() {
     //MYFIXME implementar metodo

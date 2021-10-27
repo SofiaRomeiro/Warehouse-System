@@ -2,7 +2,7 @@ package ggc.core.Product;
 
 //import exceptions
 
-import ggc.core.Notification;
+import ggc.core.Notifications;
 import ggc.core.Partner;
 
 import java.io.Serializable;
