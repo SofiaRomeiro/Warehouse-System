@@ -3,6 +3,7 @@ package ggc.core.Product;
 import java.util.Comparator;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.text.Collator;
 
@@ -23,6 +24,12 @@ public class Recipe {
 
 	@Override
 	public String toString() {
-		return "|";
+		String components;
+
+		for (Component c : _components) {
+			components.add(c.getId() + ":" + c.getQuantity());
+		}
+
+		return components;
 	}
 }

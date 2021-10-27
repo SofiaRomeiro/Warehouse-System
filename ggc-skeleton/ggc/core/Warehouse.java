@@ -29,6 +29,7 @@ public class Warehouse implements Serializable {
   private Map<String, Partner> _partners;
 
 
+
   // FIXME define contructor(s)
   public Warehouse() {
     _date = new Date(0);

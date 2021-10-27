@@ -9,21 +9,11 @@ public class AggregateProduct extends Product {
 
     private Recipe _recipe;
 
-    
     public AggregateProduct (String id) {
         super(id);
     }
 
-    public String toString() {
-
-         
-        /*String aggregateProduct = "|";
-
-        List<Component> components = _recipe.getComponents();
-
-        for (Component c : components) {
-            aggregateProduct += c.toString() + "#";
-        }*/
+    public String toString() {     
         return super.toString() + _recipe.toString();
 
     }
