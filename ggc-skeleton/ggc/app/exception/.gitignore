@@ -1,0 +1,10 @@
+/DuplicatePartnerKeyException.class
+/FileOpenFailedException.class
+/InvalidDateException.class
+/Message.class
+/UnavailableProductException.class
+/UnknownPartnerKeyException.class
+/UnknownProductKeyException.class
+/UnknownServiceLevelException.class
+/UnknownServiceTypeException.class
+/UnknownTransactionKeyException.class

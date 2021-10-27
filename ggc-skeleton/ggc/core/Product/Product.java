@@ -43,7 +43,7 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return _id + "|" + _maxPrice + "|" + _highestPrice;
+        return _id + "|" + _maxPrice + "|" + _currentQuantity;
     }
 
 	//public abstract String toString(Product p);
