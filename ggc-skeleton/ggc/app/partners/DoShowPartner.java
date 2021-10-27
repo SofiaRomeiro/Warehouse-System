@@ -19,10 +19,14 @@ class DoShowPartner extends Command<WarehouseManager> {
   }
 
   @Override
-  public void execute() throws CommandException {
+  public void execute() throws CommandException, UnknownPartnerKeyException {
     //FIXME implement command
-    String id = stringField("partnerId");
-    _display.addLine(_receiver.showPartner(id));
+    String key = stringField("partnerId");
+
+    if (!_receiver.duplicatePartnerKey(key))
+        throw new UnknownPartnerKeyException(key);
+
+    _display.addLine(_receiver.showPartner(key));
     _display.display();
 
   }

@@ -133,7 +133,6 @@ public class Warehouse implements Serializable {
     return partners;
   }
 
-
   public String getPartnerById(String key) {
     //MYFIXME por implementar
     return _partners.get(key).toString();
