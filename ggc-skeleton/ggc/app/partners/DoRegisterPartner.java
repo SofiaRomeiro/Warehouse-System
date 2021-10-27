@@ -25,22 +25,21 @@ class DoRegisterPartner extends Command<WarehouseManager> {
   @Override
   public void execute() throws CommandException, DuplicatePartnerKeyException {
     //FIXME implement command
-    /*try {*/
-
 
       //form.parse();
+      
 
       String key = stringField("key");
       String name = stringField("name");
       String address = stringField("address");
 
+      if (_receiver.duplicatePartnerKey(key))
+        throw new DuplicatePartnerKeyException(key);
+
       _receiver.registerPartner(key, name, address);
 
     }
 
-    /*catch (DuplicatedPartnerKeyException dpke) {
-      throw new DuplicatedPartnerKeyException(key);
-    }*/
   }
 
 
