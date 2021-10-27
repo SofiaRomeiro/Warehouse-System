@@ -62,6 +62,7 @@ public class WarehouseManager {
     return _singleton;
   }*/
 
+  // Date
   public int displayDate() {
     return _warehouse.getDate();
   }
@@ -70,6 +71,7 @@ public class WarehouseManager {
     return _warehouse.advanceDate(days);
   }
 
+  //Balance
   public double getAvailableBalance() {
     return _warehouse.getAvailableBalance();
   }
@@ -78,6 +80,7 @@ public class WarehouseManager {
     return _warehouse.getAccountantBalance();
   }
 
+  //File
   public boolean hasFilename() {
     return !(_filename.equals(""));
   }
@@ -86,14 +89,16 @@ public class WarehouseManager {
     return _filename;
   }
 
-  public String showAllProducts() {
-    return _warehouse.getAllProducts();
+  // Products
+  public TreeMap<String, String> showAllProducts() {
+    return _warehouse.showAllProducts();
   }
 
   public String showAllBatches() {
     return _warehouse.getAllBatches();
   }
 
+  // Partner
   public TreeMap<String, String> showAllPartners() {
     return _warehouse.showAllPartners();
   }
