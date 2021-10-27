@@ -105,6 +105,10 @@ public class WarehouseManager {
   public void registerPartner(String key, String name, String address) {
     _warehouse.addPartner(key, name, address);
   }
+//add no app
+  public boolean duplicatePartnerKey(String key ){
+    return _warehouse.hasPartner(key);
+  }
 
   /**
    * @@throws IOException

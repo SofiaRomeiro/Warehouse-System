@@ -5,6 +5,8 @@ import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 //FIXME import classes
 
+import ggc.app.exception.UnknownPartnerKeyException;
+
 /**
  * Show partner.
  */
