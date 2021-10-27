@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
+import ggc.core.Product.*;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,12 +28,15 @@ public class Warehouse implements Serializable {
   private Balance _balance = new Balance();
 
   private Map<String, Partner> _partners;
+  private Map<String, Product> _products;
+
 
 
   // FIXME define contructor(s)
   public Warehouse() {
     _date = new Date(0);
     _partners = new TreeMap<>();
+    _products = new TreeMap<>();
 
   }
 
@@ -60,9 +64,23 @@ public class Warehouse implements Serializable {
     return _balance.getCurrentAccountant();
   }
 
-  public String getAllProducts() {
+
+  public LinkedList<Product> getAllProducts() {
+    //MYFIXME implementar metodo
+    LinkedList<Product> list = new LinkedList<Product>();
+    list.addAll(_products.values());
+    return list;
+  }
+
+  public TreeMap<String, String> showAllProducts() {
     //MYFIXME por implementar
-    return "aa";
+
+    TreeMap<String, String> products = new TreeMap<String,String>();
+
+    for( Product product : getAllProducts())
+    products.put(product.getId(), product.toString());
+
+    return products;
   }
 
 
