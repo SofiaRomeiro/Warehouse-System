@@ -8,6 +8,7 @@ import ggc.core.Partner;
 import java.io.Serializable;
 
 import java.util.Comparator;
+import java.util.List;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.text.Collator;
@@ -19,7 +20,6 @@ public abstract class Product {
 	private float _lowestPrice;
 	private float _highestPrice;
 	private int _currentQuantity;
-	private List<Component> _components;
 
 	public Product(String id, float maxPrice, float lowestPrice, float highestPrice, int currentQuantity) {
 		_id = id;
@@ -33,5 +33,13 @@ public abstract class Product {
 		this (id, 0, 0, 0, 0);
 	}
 
-	public abstract float checkQuantity(int quantity, Partner p);
+	//public abstract float checkQuantity(int quantity, Partner p);
+
+	public String getId() { return _id; }
+
+	public float getMaxPrice() { return _maxPrice; }
+
+	public int getCurrentQuantity() { return _currentQuantity; } 
+
+	//public abstract String toString(Product p);
 }
