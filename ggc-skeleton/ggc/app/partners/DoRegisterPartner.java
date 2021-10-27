@@ -20,7 +20,7 @@ class DoRegisterPartner extends Command<WarehouseManager> {
   @Override
   public void execute() throws CommandException {
     //FIXME implement command
-    try {
+    /*try {*/
 
       addStringField("key", Message.requestPartnerKey());
       addStringField("name", Message.requestPartnerName());
@@ -34,11 +34,11 @@ class DoRegisterPartner extends Command<WarehouseManager> {
 
       _receiver.registerPartner(key, name, address);
 
-    }
-
+    /*}*/
+/*
     catch (DuplicatedPartnerKeyException dpke) {
       throw new DuplicatedPartnerKeyException(key);
-    }
+    }*/
   }
 
 }

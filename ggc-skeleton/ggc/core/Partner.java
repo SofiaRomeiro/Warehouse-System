@@ -31,20 +31,16 @@ public class Partner {
     private Notifications _notifications;
     
 
-    public Partner (String key, String name, String address, String _status, double points, float purchases, float sales, float paidSales){
+    public Partner (String key, String name, String address){
         _key = key;
         _name = name;
         _address = address;
         _status = "NORMAL";
-        _points = points;
-        _purchases = purchases;
-        _sales = sales;
-        _paidSales = paidSales;
+        _points = 0;
+        _purchases = 0;
+        _sales = 0;
+        _paidSales = 0;
         _notifications = new Notifications();
-    }
-
-    public Partner (String key, String name, String address){
-        this(key, name, address, "NORMAL", 0, 0, 0, 0);
     }
 
     public String getKey() { return _key; }
