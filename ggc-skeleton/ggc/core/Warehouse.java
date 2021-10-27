@@ -10,9 +10,10 @@ import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 
   // edson 25/10/2021
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.Collections;
+import java.util.LinkedList;
 
 /**
  * Class Warehouse implements a warehouse.
@@ -27,21 +28,22 @@ public class Warehouse implements Serializable {
   private Balance _balance = new Balance();
 
   // edson 25/10/2021
-  private List<Partner> _partners;
-
-  private boolean add;
+  private Map<String, Partner> _partners;
 
 
   // FIXME define contructor(s)
   public Warehouse() {
+    _date = new Date(0);
+    _partners = new TreeMap<>();
 
   }
 
-
+/*
   public Warehouse(int date) {
     _date = new Date(date);
-    _partners = new ArrayList<>();
-  }
+    _partners = new TreeMap<>();
+  } */
+
   // FIXME define methods
 
   public int getDate() {
@@ -64,6 +66,8 @@ public class Warehouse implements Serializable {
     //MYFIXME por implementar
     return "aa";
   }
+
+
 
   public String getAllBatches() {
     //MYFIXME por implementar
@@ -101,23 +105,43 @@ public class Warehouse implements Serializable {
     }
   }
 
-  public String getAllPartners() {
+  public LinkedList<Partner> getAllPartners() {
     //MYFIXME implementar metodo
-    return "aa";
+    LinkedList<Partner> list = new LinkedList<Partner>();
+    list.addAll(_partners.values());
+    return list;
   }
 
-  public String getPartnerById(String id) {
+  public String showAllPartners() {
+    TreeMap<String, String> partners = new TreeMap<String,String>();
+    String displayText = new String();
+
+    for( Partner partner : getAllPartners())
+      partners.put(partner.getKey(), partner.toString());
+
+    for(String s : partners.values())
+      displayText += s;
+
+    return displayText;
+  }
+
+  public String getPartnerById(String key) {
     //MYFIXME por implementar
-    return "aa";
+    return _partners.get(key).toString();
   }
 
   public void addPartner(String key, String name, String address) {
     // criarParceiro(id, name, address)
     // adicionar à collection de parceiros
 
-    Partner p = new Partner(key, name, address);
-    _partners.add(p);
+    Partner partner = new Partner(key, name, address);
+    if (!hasPartner(partner.getKey()))
+      _partners.put(partner.getKey(), partner);
 
+  }
+
+  public boolean hasPartner( String key) {
+    return _partners.containsKey(key);
   }
 
 

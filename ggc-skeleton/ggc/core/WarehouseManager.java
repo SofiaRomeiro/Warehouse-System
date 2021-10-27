@@ -90,15 +90,15 @@ public class WarehouseManager {
   }
 
   public String showAllPartners() {
-    return _warehouse.getAllPartners();
+    return _warehouse.showAllPartners();
   }
 
-  public String showPartner(String id) {
-    return _warehouse.getPartnerById(id);
+  public String showPartner(String key) {
+    return _warehouse.getPartnerById(key);
   }
 
-  public void registerPartner(String id, String name, String address) {
-    _warehouse.addPartner(id, name, address);
+  public void registerPartner(String key, String name, String address) {
+    _warehouse.addPartner(key, name, address);
   }
 
   /**
