@@ -6,8 +6,11 @@ import ggc.core.product.Product;
 import java.util.Comparator;
 import java.lang.Math;
 
-public class Batch {
+import java.io.Serializable;
 
+public class Batch implements Serializable {
+
+	private static final long serialVersionUID = 2021091927689L;
 	private double _price;
 	private int _quantity;
 	private Product _product;
@@ -35,32 +38,5 @@ public class Batch {
 	public String getId() {return _product.getId(); }
 
 
-	protected final static class BatchesComparator implements Comparator<Batch> {
-
-    @Override
-    public int compare(Batch b1, Batch b2) {
-
-      if (b1.getId().compareTo(b2.getId()) != 0) {
-        return b1.getId().compareTo(b2.getId());
-      }
-      else {
-
-        if (b1.getPartnerKey().compareTo(b2.getPartnerKey()) != 0) {
-          return b1.getPartnerKey().compareTo(b2.getPartnerKey());
-        } 
-        else {
-
-          if (b1.getPrice() != b2.getPrice()) {
-            return (int) (b1.getPrice() - b2.getPrice());
-          }
-          else {
-            return (int) (b1.getQuantity() - b2.getQuantity());
-          }
-
-        }
-
-      }
-
-    }
-  }
+	
 }

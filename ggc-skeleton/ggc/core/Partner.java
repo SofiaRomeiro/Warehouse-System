@@ -25,7 +25,8 @@ public class Partner implements Serializable {
             return collator.compare(p1.getkey(), p2.getKey());
         }
     }*/
-    
+    private static final long serialVersionUID = 207564192006L;
+
     private String _key;
     private String _name;
     private String _address;

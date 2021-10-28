@@ -21,7 +21,7 @@ import java.util.Locale;
 import java.text.Collator;
 
 
-public abstract class Product {
+public abstract class Product implements Serializable{
     
 	private String _id;
 	private double _maxPrice;
@@ -95,21 +95,21 @@ public abstract class Product {
 
 			if (b1.getId().compareTo(b2.getId()) != 0) {
 				return b1.getId().compareTo(b2.getId());
-				}
+			}
 
 			else {
 
 				if (b1.getPartnerKey().compareTo(b2.getPartnerKey()) != 0) {
-				  return b1.getPartnerKey().compareTo(b2.getPartnerKey());
+					return b1.getPartnerKey().compareTo(b2.getPartnerKey());
 				} 
 				else {
 
-					  if (b1.getPrice() != b2.getPrice()) {
-					    return (int) (b1.getPrice() - b2.getPrice());
-					  }
-					  else {
-					    return (int) (b1.getQuantity() - b2.getQuantity());
-					  }
+					if (b1.getPrice() != b2.getPrice()) {
+						return (int) (b1.getPrice() - b2.getPrice());
+					}
+					else {
+						return (int) (b1.getQuantity() - b2.getQuantity());
+					}
 				}
 			}
 	    }

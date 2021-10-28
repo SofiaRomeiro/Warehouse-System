@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class Date implements Serializable {
 
 	private int _days;
+	private static final long serialVersionUID = 257349192006L;
 
 	public Date(int days) {
 		_days = days;

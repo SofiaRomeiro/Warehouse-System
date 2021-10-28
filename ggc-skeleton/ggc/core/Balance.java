@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public class Balance implements Serializable{
 
+	private static final long serialVersionUID = 202987692006L;
 	private double _available;
 	private double _accountant;
 

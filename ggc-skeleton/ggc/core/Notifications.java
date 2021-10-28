@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Notifications implements Serializable {
 
 	LinkedList<String> _notifications = new LinkedList<>();
+	private static final long serialVersionUID = 202109190000L;
 
 	public void addNotification(String notification) {
 		_notifications.add(notification);

@@ -7,11 +7,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Locale;
 import java.text.Collator;
+import java.io.Serializable;
 
 import ggc.core.product.Component;
 
-public class Recipe {
+public class Recipe implements Serializable {
 
+	private static final long serialVersionUID = 123409192006L;
 	private double _alpha;
 	private List<Component> _components;
 

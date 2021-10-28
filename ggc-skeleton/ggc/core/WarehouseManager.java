@@ -153,42 +153,24 @@ public class WarehouseManager {
     save(filename);
   }
 
-  public String openFile(String filename) throws FileOpenFailedException, IOException, ClassNotFoundException{
-
-    try {
-
-      Warehouse warehouse;
-      ObjectInputStream objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
-      warehouse  = (Warehouse) objIn.readObject();
-
-      _warehouse = warehouse;
-      _filename = filename;
-
-    }
-
-    /*catch (FileOpenFailedException fofe) {
-      throw new FileOpenFailedException(filename);
-    } */
-
-    catch (ClassNotFoundException cnfe) {
-      throw cnfe;
-    }
-
-    catch (IOException e) {
-      throw e;
-    }
-
-    return filename; // ??????????????????
-
-  }
-
-
   /**
    * @@param filename
    * @@throws UnavailableFileException
    */
-  public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
+  public void load(String filename) throws UnavailableFileException, ClassNotFoundException, IOException  {
     //FIXME implement serialization method
+
+    ObjectInputStream objIn = null;
+      try {
+        objIn = new ObjectInputStream(new FileInputStream(filename));
+        Object anObject = objIn.readObject();
+        _warehouse = (Warehouse) anObject;
+        _filename = filename;
+
+      } finally {
+        if (objIn != null)
+        objIn.close();
+      }
   }
 
   /**

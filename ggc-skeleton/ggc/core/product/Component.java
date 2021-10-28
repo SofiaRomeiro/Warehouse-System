@@ -5,11 +5,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Locale;
+import java.io.Serializable;
 import java.text.Collator;
 
 
-public class Component {
+public class Component implements Serializable{
 
+	private static final long serialVersionUID = 123409186756L;
 	private int _quantity;
 	private Product _product;
 
