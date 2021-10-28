@@ -34,7 +34,7 @@ class DoSaveFile extends Command<WarehouseManager> {
       //String filename = requestString(Message.newSaveAs());
 
       Form request = new Form();
-      request.addStringField("answer", Message.saveAs());
+      request.addStringField("answer", Message.newSaveAs());
       filename = request.parse().stringField("answer");
 
       //MYFIXME completar e guardar
