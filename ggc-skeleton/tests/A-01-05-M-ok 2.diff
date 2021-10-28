@@ -1,0 +1,49 @@
+<<<<<<< HEAD
+*** tests/A-01-05-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-05-M-ok.outhyp	Thu Oct 28 16:59:06 2021
+=======
+*** tests/A-01-05-M-ok.out	2021-10-10 16:59:48.000000000 +0100
+--- tests/A-01-05-M-ok.outhyp	2021-10-28 16:38:34.653247838 +0100
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
+***************
+*** 26,34 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|200|5000
+! OXIGENIO|1200|2500
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+--- 26,32 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+<<<<<<< HEAD
+=======
+***************
+*** 53,62 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|Wellington, New Zealand|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|Lisboa, Portugal|NORMAL|0|0|0|0
+! S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+  3 - Registar parceiro
+--- 51,57 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+  3 - Registar parceiro
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36

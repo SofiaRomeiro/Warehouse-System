@@ -1,0 +1,50 @@
+<<<<<<< HEAD
+*** tests/A-01-07-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-07-M-ok.outhyp	Thu Oct 28 16:59:07 2021
+=======
+*** tests/A-01-07-M-ok.out	2021-10-10 19:30:14.000000000 +0100
+--- tests/A-01-07-M-ok.outhyp	2021-10-28 16:38:35.373607838 +0100
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
+***************
+*** 9,15 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 9,15 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+<<<<<<< HEAD
+=======
+***************
+*** 55,64 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|Wellington, New Zealand|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|Lisboa, Portugal|NORMAL|0|0|0|0
+! S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! XXXXXXXXXXXXXXXXXX|nome|endere|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 55,64 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|NORMAL|0|0|0|0
+! S1|Toshiba|NORMAL|0|0|0|0
+! XXXXXXXXXXXXXXXXXX|nome|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36

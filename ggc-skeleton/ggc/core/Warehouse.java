@@ -218,15 +218,15 @@ public class Warehouse implements Serializable {
           id = fields[1];
           partner = fields[2];
           price = Double.parseDouble(fields[3]);
-          //price = Double.valueOf(fields[3]);
           stock = Integer.parseInt(fields[4]);
-          //stock = Double.valueOf(fields[4]);
 
           // metodo para criar lote de produto simples
-
+          Product p = (SimpleProduct) _products.get(id);
+          Partner partner = _partners.get(partner);
+          p.addNewBatch(new Batch(price, stock, new Product(id), partner));
         }
 
-        else {
+        else if (fields[0].equals(Label.BATCH_M)) {
           id = fields[1];
           partner = fields[2];
           price = Double.parseDouble(fields[3]);
