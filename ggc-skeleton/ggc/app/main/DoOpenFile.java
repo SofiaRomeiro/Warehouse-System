@@ -17,6 +17,8 @@ import java.io.*;
  */
 class DoOpenFile extends Command<WarehouseManager> {
 
+  private String _filename;
+
   /** @param receiver */
   DoOpenFile(WarehouseManager receiver) {
     super(Label.OPEN, receiver);
@@ -26,24 +28,19 @@ class DoOpenFile extends Command<WarehouseManager> {
 
   @Override
   public final void execute() throws CommandException, FileOpenFailedException {
-
-    String filename = stringField("filename");
-    
+   
     try {
-      //FIXME implement command    
-      _receiver.load(filename);
+      //FIXME implement command 
+      _filename = stringField("filename");   
+      _receiver.load(_filename);
 
     }       
 
     catch (UnavailableFileException ufe) {
       throw new FileOpenFailedException(ufe.getFilename());
     }
-
-    /*catch (CommandException ce) {
-      throw ce;
-    } */
     
-    catch (ClassNotFoundException | IOException e) {
+    catch (ClassNotFoundException e) {
       e.printStackTrace();
     }
     
