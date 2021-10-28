@@ -26,6 +26,10 @@ public class Recipe {
 		return _components;
 	}
 
+	public void addComponent(Component c) {
+		_components.add(c);
+	}
+
 	@Override
 	public String toString() {
 

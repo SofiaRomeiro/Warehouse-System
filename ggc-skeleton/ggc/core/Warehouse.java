@@ -16,6 +16,9 @@ import java.util.LinkedList;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 import ggc.core.product.Product;
+import ggc.core.product.SimpleProduct;
+import ggc.core.product.AggregateProduct;
+import ggc.core.product.Batch;
 import ggc.core.Partner;
 
 /**
@@ -222,8 +225,9 @@ public class Warehouse implements Serializable {
 
           // metodo para criar lote de produto simples
           Product p = (SimpleProduct) _products.get(id);
-          Partner partner = _partners.get(partner);
-          p.addNewBatch(new Batch(price, stock, new Product(id), partner));
+          Partner prtnr = _partners.get(partner);
+          p.addNewBatch(new Batch(price, stock, new SimpleProduct(id), prtnr));
+
         }
 
         else if (fields[0].equals(Label.BATCH_M)) {
@@ -234,14 +238,14 @@ public class Warehouse implements Serializable {
           stock = Integer.parseInt(fields[4]);
           //stock = Integer.valueOf(fields[4]);
           alpha = Double.parseDouble(fields[5]);
-          //alpha = Double.valueOf(fields[5]);          
+          //alpha = Double.valueOf(fields[5]); 
+
 
           while (fields[5] != null) {
             recipe = fields[5].split("#");
 
             for (int i = 0; i < recipe.length; i++) {
               component = recipe[i].split(":");
-
               componentId = component[0];
               quantity = Integer.parseInt(component[1]);
 
@@ -250,7 +254,9 @@ public class Warehouse implements Serializable {
             // criar novo componente da receita e ir acrescentando a um array
             // do genero:
             // newComponent = new Component(componentId, quantity);
+            // Component component = new Component(_products.get(componentId), quantity);
             // ArrayList<Component> components = new ArrayList<>();  --> usar isto como variavel, declarar junto das outras
+            
             // components.add(newComponent)
           }
 
