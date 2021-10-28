@@ -1,4 +1,4 @@
-package ggc.core.Product;
+package ggc.core.product;
 
 //import exceptions
 
@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.text.Collator;
 
@@ -20,6 +21,7 @@ public abstract class Product {
 	private float _lowestPrice;
 	private float _highestPrice;
 	private int _currentQuantity;
+	private List<Batch> _batches;
 
 	public Product(String id, float maxPrice, float lowestPrice, float highestPrice, int currentQuantity) {
 		_id = id;
@@ -27,6 +29,7 @@ public abstract class Product {
 		_lowestPrice = lowestPrice;
 		_highestPrice = highestPrice;
 		_currentQuantity = currentQuantity;
+		_batches = new ArrayList<>();
 	}
 
 	public Product (String id) {
@@ -40,6 +43,10 @@ public abstract class Product {
 	public float getMaxPrice() { return _maxPrice; }
 
 	public int getCurrentQuantity() { return _currentQuantity; } 
+
+	public void addNewBatch(Batch b) {
+		_batches.add(b);
+	}
 
     @Override
     public String toString() {

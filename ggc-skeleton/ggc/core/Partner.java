@@ -3,6 +3,7 @@ package ggc.core;
 import java.util.Comparator;
 import java.util.Locale;
 import java.text.Collator;
+import java.util.List;
 import ggc.core.Notifications;
 
 import java.lang.Math;
@@ -31,6 +32,7 @@ public class Partner {
     private float _sales;
     private float _paidSales;
     private Notifications _notifications;
+    private List<Batch> _batches;
     
 
     public Partner (String key, String name, String address){

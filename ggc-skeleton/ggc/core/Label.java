@@ -9,5 +9,8 @@ interface Label {
 	/* String Simple Product Batch */
 	String BATCH_S = "BATCH_S";
 
+	/* String Aggregate Product Batch */
+	String BATCH_M = "BATCH_M";
+
 
 }

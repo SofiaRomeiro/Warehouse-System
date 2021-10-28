@@ -1,4 +1,4 @@
-package ggc.core.Product;
+package ggc.core.product;
 
 public class SimpleProduct extends Product {
 

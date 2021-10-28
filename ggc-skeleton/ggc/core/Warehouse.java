@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.File;
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
 import ggc.core.Product.*;
@@ -181,7 +182,7 @@ public class Warehouse implements Serializable {
   void importFile(String txtfile) throws IOException, BadEntryException /* FIXME maybe other exceptions */ {
     //FIXME implement method
 
-    String[] fields;
+    //String[] fields;
     String[] recipe;
     String[] component;
     String id;
@@ -189,17 +190,18 @@ public class Warehouse implements Serializable {
     String partner;
     String componentId;
     int quantity = 0;
-    double price = 0.00;
-    double alpha = 0.00;
+    double price;
+    double alpha;
     int stock = 0;
 
     try (BufferedReader in = new BufferedReader(new FileReader(txtfile))) {
 
-      String line = in.readLine();
+      
+      String line;
 
-      while (line != null) {
+      while ((line = in.readLine()) != null) {
 
-        fields = line.split("|");
+        String[] fields = line.split("\\|");
 
         if (fields[0].equals(Label.PARTNER)) {
           id = fields[1];
@@ -207,14 +209,16 @@ public class Warehouse implements Serializable {
           address = fields[3];
 
           // metodo para adicionar parceiro
-
+          _partners.put(id, new Partner(id, name, address));         
         }
 
         else if (fields[0].equals(Label.BATCH_S)) {
           id = fields[1];
           partner = fields[2];
           price = Double.parseDouble(fields[3]);
+          //price = Double.valueOf(fields[3]);
           stock = Integer.parseInt(fields[4]);
+          //stock = Double.valueOf(fields[4]);
 
           // metodo para criar lote de produto simples
 
@@ -224,8 +228,11 @@ public class Warehouse implements Serializable {
           id = fields[1];
           partner = fields[2];
           price = Double.parseDouble(fields[3]);
+          //price = Double.valueOf(fields[3]);
           stock = Integer.parseInt(fields[4]);
+          //stock = Integer.valueOf(fields[4]);
           alpha = Double.parseDouble(fields[5]);
+          //alpha = Double.valueOf(fields[5]);          
 
           while (fields[5] != null) {
             recipe = fields[5].split("#");
@@ -236,7 +243,7 @@ public class Warehouse implements Serializable {
               componentId = component[0];
               quantity = Integer.parseInt(component[1]);
 
-            }
+            } 
 
             // criar novo componente da receita e ir acrescentando a um array
             // do genero:
