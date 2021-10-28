@@ -4,6 +4,7 @@ package ggc.core.product;
 
 import ggc.core.Notifications;
 import ggc.core.Partner;
+import ggc.core.product.Batch;
 
 import java.io.Serializable;
 

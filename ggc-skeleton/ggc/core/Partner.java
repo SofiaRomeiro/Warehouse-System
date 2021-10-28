@@ -4,7 +4,9 @@ import java.util.Comparator;
 import java.util.Locale;
 import java.text.Collator;
 import java.util.List;
+
 import ggc.core.Notifications;
+import ggc.core.product.Batch;
 
 import java.lang.Math;
 

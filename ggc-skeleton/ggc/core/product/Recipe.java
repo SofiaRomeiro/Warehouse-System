@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.text.Collator;
 
-import ggc.core.Product.Component;
+import ggc.core.product.Component;
 
 public class Recipe {
 

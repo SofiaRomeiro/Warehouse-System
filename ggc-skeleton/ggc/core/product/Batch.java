@@ -1,5 +1,8 @@
 package ggc.core.product;
 
+import ggc.core.Partner;
+import ggc.core.product.Product;
+
 public class Batch {
 
 	private double _price;
@@ -10,15 +13,11 @@ public class Batch {
 	public Batch(double price, int quantity, Product product, Partner partner) {
 		_price = price;
 		_quantity = quantity;
-		_product = productKey;
-		_partner = partnerKey;
+		_product = product;
+		_partner = partner;
 	}
 
 	public String toString() {
-		return _product.getId() + "|" + _partner.getId() + "|" + _price + "|" + _quantity;
+		return _product.getId() + "|" + _partner.getKey() + "|" + _price + "|" + _quantity;
 	}
-
-
-
-
 }
