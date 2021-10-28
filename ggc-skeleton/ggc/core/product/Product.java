@@ -28,7 +28,7 @@ public abstract class Product implements Serializable{
 	private double _lowestPrice;
 	private double _highestPrice;
 	private int _currentQuantity;
-	private ArrayList<Batch> _batches;
+	private List<Batch> _batches;
 
 	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity) {
 		_id = id;
@@ -72,7 +72,7 @@ public abstract class Product implements Serializable{
 		_batches.add(b);
 	}
 
-	public ArrayList<Batch> getAllBatches() {
+	public List<Batch> getAllBatches() {
 
 		/*ArrayList<String> batches = new ArrayList<>();
 		batches = _batches;
