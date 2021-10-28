@@ -1,0 +1,52 @@
+*** tests/A-01-08-M-ok.out	2021-10-10 19:32:06.000000000 +0100
+--- tests/A-01-08-M-ok.outhyp	2021-10-28 16:38:35.681761837 +0100
+***************
+*** 28,38 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|Wellington, New Zealand|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|Lisboa, Portugal|NORMAL|0|0|0|0
+! S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! XXXXXXXXXXXXXXXXXX|nome|endere|NORMAL|0|0|0|0
+! Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+  3 - Registar parceiro
+--- 28,34 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+  3 - Registar parceiro
+***************
+*** 62,68 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 58,64 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+***************
+*** 73,76 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: 
+\ Sem newline no fim do ficheiro
+--- 69,72 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Fim de entrada de dados (R-EOF): pt.tecnico.uilib.text.RuntimeEOFException: Fim do fluxo de dados de entrada

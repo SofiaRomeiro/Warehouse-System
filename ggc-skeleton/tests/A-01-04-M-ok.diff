@@ -1,0 +1,72 @@
+*** tests/A-01-04-M-ok.out	2021-10-10 16:58:56.000000000 +0100
+--- tests/A-01-04-M-ok.outhyp	2021-10-28 16:38:34.441141837 +0100
+***************
+*** 15,30 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|200|5000
+! OXIGENIO|1200|2500
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|S1|200|5000
+! OXIGENIO|P1|1200|2500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+--- 15,27 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: aa
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+***************
+*** 50,58 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|Wellington, New Zealand|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|Lisboa, Portugal|NORMAL|0|0|0|0
+! S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 47,55 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: MM|John Figueiredo|NORMAL|0|0|0|0
+! P1|Lages do ChC#o|NORMAL|0|0|0|0
+! S1|Toshiba|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+***************
+*** 72,78 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 69,75 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data

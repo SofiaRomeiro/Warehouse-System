@@ -1,0 +1,20 @@
+*** tests/A-04-01-M-ok.out	2021-10-15 19:40:38.000000000 +0100
+--- tests/A-04-01-M-ok.outhyp	2021-10-28 16:38:37.386613838 +0100
+***************
+*** 15,21 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+--- 15,22 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: aa
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
