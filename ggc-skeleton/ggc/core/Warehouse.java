@@ -74,14 +74,14 @@ public class Warehouse implements Serializable {
   }
 
 
-  public LinkedList<Product> getAllProducts() {
+  public List<Product> getAllProducts() {
     //MYFIXME implementar metodo
     LinkedList<Product> list = new LinkedList<Product>();
     list.addAll(_products.values());
     return list;
   }
 
-  public TreeMap<String, String> showAllProducts() {
+  public Map<String, String> showAllProducts() {
     //MYFIXME por implementar
 
     TreeMap<String, String> products = new TreeMap<String,String>();
@@ -94,7 +94,7 @@ public class Warehouse implements Serializable {
 
 
 
-  public ArrayList<String> showAllBatches() {
+  public List<String> showAllBatches() {
     //MYFIXME por implementar
 
     ArrayList<String> allBatches = new ArrayList<>();
@@ -109,7 +109,7 @@ public class Warehouse implements Serializable {
   }
 
   
-  public LinkedList<Partner> getAllPartners() {
+  public List<Partner> getAllPartners() {
     //MYFIXME implementar metodo
     LinkedList<Partner> list = new LinkedList<Partner>();
     list.addAll(_partners.values());
@@ -129,7 +129,7 @@ public class Warehouse implements Serializable {
     return displayText;
   }*/
 
-  public TreeMap<String, String> showAllPartners() {
+  public Map<String, String> showAllPartners() {
     TreeMap<String, String> showPartners = new TreeMap<String,String>();
 
     for( Partner partner : getAllPartners())
