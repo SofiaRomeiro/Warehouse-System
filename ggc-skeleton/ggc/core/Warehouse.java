@@ -161,17 +161,17 @@ public class Warehouse implements Serializable {
   }*/
 
   public TreeMap<String, String> showAllPartners() {
-    TreeMap<String, String> partners = new TreeMap<String,String>();
+    TreeMap<String, String> showPartners = new TreeMap<String,String>();
 
     for( Partner partner : getAllPartners())
-      partners.put(partner.getKey(), partner.toString());
+      showPartners.put(partner.getKey(), partner.toString());
 
-    return partners;
+    return showPartners;
   }
 
   public String getPartnerById(String key) {
     //MYFIXME por implementar
-    return _partners.get(key).toString();
+    return _partners.get(key.toLowerCase()).toString();
   }
 
   public void addPartner(String key, String name, String address) {
@@ -179,13 +179,13 @@ public class Warehouse implements Serializable {
     // adicionar à collection de parceiros
 
     Partner partner = new Partner(key, name, address);
-    if (!hasPartner(partner.getKey()))
-      _partners.put(partner.getKey(), partner);
+    if (!hasPartner(key.toLowerCase()))
+      _partners.put(key.toLowerCase(), partner);
 
   }
 
-  public boolean hasPartner( String key) {
-    return _partners.containsKey(key);
+  public boolean hasPartner(String key) {
+    return _partners.containsKey(key.toLowerCase());
   }
 
 
@@ -225,7 +225,7 @@ public class Warehouse implements Serializable {
           address = fields[3];
 
           // metodo para adicionar parceiro
-          _partners.put(id, new Partner(id, name, address));         
+          _partners.put(id.toLowerCase(), new Partner(id, name, address));         
         }
 
         else if (fields[0].equals(Label.BATCH_S)) {
