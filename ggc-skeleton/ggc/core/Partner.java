@@ -63,7 +63,7 @@ public class Partner implements Serializable {
     public boolean equals(Object o) {
         if (o instanceof Partner) {
             Partner partener = (Partner) o;
-            return _key.equals(partener.getKey());
+            return _key.toLowerCase().equals(partener.getKey().toLowerCase());
         }
         return false;
     }

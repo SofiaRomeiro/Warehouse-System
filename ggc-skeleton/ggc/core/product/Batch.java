@@ -20,4 +20,8 @@ public class Batch {
 	public String toString() {
 		return _product.getId() + "|" + _partner.getKey() + "|" + _price + "|" + _quantity;
 	}
+
+	public String getPartnerKey() {
+		return _partner.getKey();
+	}
 }

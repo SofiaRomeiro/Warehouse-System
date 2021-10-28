@@ -34,15 +34,7 @@ Escolha uma opção: Gestão de Parceiros
 5 - Mostrar compras com parceiro
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
-Escolha uma opção: Identificador do parceiro: Nome do parceiro: Endereço do parceiro: Gestão de Parceiros
-1 - Mostrar parceiro
-2 - Mostrar parceiros
-3 - Registar parceiro
-4 - Activa/desactivar notificações de um produto
-5 - Mostrar compras com parceiro
-6 - Mostrar vendas (e desagregações) com parceiro
-0 - Sair
-Escolha uma opção: Identificador do parceiro: Nome do parceiro: Endereço do parceiro: Registar parceiro: Operação inválida: O parceiro 'YYYYYYYY' já existe.
+Escolha uma opção: Identificador do parceiro: MmMmAa1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros
@@ -51,7 +43,7 @@ Gestão de Parceiros
 5 - Mostrar compras com parceiro
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
-Escolha uma opção: Identificador do parceiro: Nome do parceiro: Endereço do parceiro: Registar parceiro: Operação inválida: O parceiro 'CCCCCCCCP1' já existe.
+Escolha uma opção: Identificador do parceiro: Mostrar parceiro: Operação inválida: O parceiro 'mmmmaa1' não existe.
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros
@@ -60,13 +52,16 @@ Gestão de Parceiros
 5 - Mostrar compras com parceiro
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
-Escolha uma opção: AAAAS1|Toshiba|NORMAL|0|0|0|0
-BBBBW2|Pedraria Fonseca|NORMAL|0|0|0|0
-CCCCCCCCP1|Lages do Chão|NORMAL|0|0|0|0
-DDDDDDP3|ObBrian Rocks|NORMAL|0|0|0|0
-EEEEEER2|Jorge Figueiredo|NORMAL|0|0|0|0
-EFFFFF4|Filomena Figueiredo|NORMAL|0|0|0|0
-YYYYYYYY|wer|NORMAL|0|0|0|0
+Escolha uma opção: Identificador do parceiro: Mostrar parceiro: Operação inválida: O parceiro 'mMmMaA1' não existe.
+Gestão de Parceiros
+1 - Mostrar parceiro
+2 - Mostrar parceiros
+3 - Registar parceiro
+4 - Activa/desactivar notificações de um produto
+5 - Mostrar compras com parceiro
+6 - Mostrar vendas (e desagregações) com parceiro
+0 - Sair
+Escolha uma opção: Identificador do parceiro: Mostrar parceiro: Operação inválida: O parceiro 'MMMMAA1' não existe.
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros

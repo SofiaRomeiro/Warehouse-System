@@ -3,6 +3,9 @@ package ggc.app.products;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
+
+import java.util.List;
+import java.util.ArrayList;
 //FIXME import classes
 
 /**
@@ -17,8 +20,13 @@ class DoShowAvailableBatches extends Command<WarehouseManager> {
   @Override
   public final void execute() throws CommandException {
     //FIXME implement command
-    _display.addLine(_receiver.showAllBatches());
+    ArrayList<String> batches = _receiver.showAllBatches();
+
+    for (String b: batches){
+      _display.addLine(b);
+    }
     _display.display();
+
   }
 
 }

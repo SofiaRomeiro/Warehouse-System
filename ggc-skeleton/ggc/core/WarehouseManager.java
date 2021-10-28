@@ -25,6 +25,8 @@ import ggc.core.exception.MissingFileAssociationException;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -94,8 +96,8 @@ public class WarehouseManager {
     return _warehouse.showAllProducts();
   }
 
-  public String showAllBatches() {
-    return _warehouse.getAllBatches();
+  public ArrayList<String> showAllBatches() {
+    return _warehouse.showAllBatches();
   }
 
   // Partner

@@ -11,6 +11,8 @@ import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import ggc.core.exception.BadEntryException;
@@ -85,19 +87,28 @@ public class Warehouse implements Serializable {
     TreeMap<String, String> products = new TreeMap<String,String>();
 
     for( Product product : getAllProducts())
-    products.put(product.getId(), product.toString());
+      products.put(product.getId(), product.toString());
 
     return products;
   }
 
 
 
-  public String getAllBatches() {
+  public ArrayList<String> showAllBatches() {
     //MYFIXME por implementar
     // adicionar um comparator, do genero:
     // List<Batches> tmp = <criar nova lista ou wtv com todos os lotes>
     // Collections.sort(tmp, new BatchesComparator())
-    return "aa";
+
+    ArrayList<String> allBatches = new ArrayList<>();
+    
+    for (Product p : _products.values()) {
+      for (String b : p.getAllBatches().values()) {
+        allBatches.add(b);
+      }
+    }
+
+    return allBatches;
   }
 
   /*
