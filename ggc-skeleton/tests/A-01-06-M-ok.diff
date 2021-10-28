@@ -1,0 +1,20 @@
+*** tests/A-01-06-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-06-M-ok.outhyp	Thu Oct 28 16:59:06 2021
+***************
+*** 9,16 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir 'a.dat'.
+! Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 9,15 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data

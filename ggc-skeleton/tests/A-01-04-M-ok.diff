@@ -1,0 +1,51 @@
+*** tests/A-01-04-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-04-M-ok.outhyp	Thu Oct 28 16:59:06 2021
+***************
+*** 15,30 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|200|5000
+! OXIGENIO|1200|2500
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|S1|200|5000
+! OXIGENIO|P1|1200|2500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+--- 15,27 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: aa
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+***************
+*** 72,78 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 69,75 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data

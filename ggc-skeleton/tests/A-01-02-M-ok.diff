@@ -1,0 +1,19 @@
+*** tests/A-01-02-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-02-M-ok.outhyp	Thu Oct 28 16:59:06 2021
+***************
+*** 39,45 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 39,45 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Guardar ficheiro como: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data

@@ -49,6 +49,8 @@ public abstract class Product {
 		_batches.add(b);
 	}
 
+	// criar um extra()
+
     @Override
     public String toString() {
         return _id + "|" + _maxPrice + "|" + _currentQuantity;

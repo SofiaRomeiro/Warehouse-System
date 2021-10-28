@@ -1,6 +1,9 @@
 package ggc.core;
 
-public class Balance {
+import java.io.Serializable;
+
+
+public class Balance implements Serializable{
 
 	private double _available;
 	private double _accountant;

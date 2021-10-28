@@ -1,0 +1,19 @@
+*** tests/A-04-02-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-04-02-M-ok.outhyp	Thu Oct 28 16:59:08 2021
+***************
+*** 15,21 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|S1|200|5000
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+--- 15,21 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: aa
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
