@@ -84,7 +84,7 @@ public class WarehouseManager {
 
   //File
   public boolean hasFilename() {
-    return !(_filename.equals(""));
+    return (!_filename.equals(""));
   }
 
   public String getFilename() {
@@ -92,16 +92,16 @@ public class WarehouseManager {
   }
 
   // Products
-  public TreeMap<String, String> showAllProducts() {
+  public Map<String, String> showAllProducts() {
     return _warehouse.showAllProducts();
   }
 
-  public ArrayList<String> showAllBatches() {
+  public List<String> showAllBatches() {
     return _warehouse.showAllBatches();
   }
 
   // Partner
-  public TreeMap<String, String> showAllPartners() {
+  public Map<String, String> showAllPartners() {
     return _warehouse.showAllPartners();
   }
 
