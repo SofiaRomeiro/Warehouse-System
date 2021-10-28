@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+*** tests/A-04-02-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-04-02-M-ok.outhyp	Thu Oct 28 16:59:08 2021
+=======
 *** tests/A-04-02-M-ok.out	2021-10-15 19:42:43.000000000 +0100
 --- tests/A-04-02-M-ok.outhyp	2021-10-28 16:38:37.614727838 +0100
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
 ***************
 *** 15,21 ****
   3 - Visualizar lotes fornecidos por parceiro

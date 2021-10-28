@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+*** tests/A-01-05-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-05-M-ok.outhyp	Thu Oct 28 16:59:06 2021
+=======
 *** tests/A-01-05-M-ok.out	2021-10-10 16:59:48.000000000 +0100
 --- tests/A-01-05-M-ok.outhyp	2021-10-28 16:38:34.653247838 +0100
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
 ***************
 *** 26,34 ****
   3 - Visualizar lotes fornecidos por parceiro
@@ -19,6 +24,8 @@
   1 - Visualizar todos os produtos
   2 - Visualizar todos os lotes
   3 - Visualizar lotes fornecidos por parceiro
+<<<<<<< HEAD
+=======
 ***************
 *** 53,62 ****
   5 - Mostrar compras com parceiro
@@ -39,3 +46,4 @@
   1 - Mostrar parceiro
   2 - Mostrar parceiros
   3 - Registar parceiro
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36

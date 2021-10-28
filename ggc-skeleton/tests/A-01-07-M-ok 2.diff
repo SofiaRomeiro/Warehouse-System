@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+*** tests/A-01-07-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-01-07-M-ok.outhyp	Thu Oct 28 16:59:07 2021
+=======
 *** tests/A-01-07-M-ok.out	2021-10-10 19:30:14.000000000 +0100
 --- tests/A-01-07-M-ok.outhyp	2021-10-28 16:38:35.373607838 +0100
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
 ***************
 *** 9,15 ****
   8 - Menu de Consultas
@@ -17,6 +22,8 @@
   1 - Abrir
   2 - Guardar
   3 - Mostrar Data
+<<<<<<< HEAD
+=======
 ***************
 *** 55,64 ****
   5 - Mostrar compras com parceiro
@@ -40,3 +47,4 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36

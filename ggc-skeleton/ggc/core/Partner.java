@@ -5,13 +5,16 @@ import java.util.Locale;
 import java.text.Collator;
 import java.util.List;
 
+import java.io.Serializable;
+
+
 import ggc.core.Notifications;
 import ggc.core.product.Batch;
 
 import java.lang.Math;
 
 
-public class Partner {
+public class Partner implements Serializable {
 
   /*  public final static Comparator<Partner> KEY_COMPARATOR =new KeyComparator();
 
@@ -47,13 +50,14 @@ public class Partner {
         _sales = 0;
         _paidSales = 0;
         _notifications = new Notifications();
+        //_batches = new 
     }
 
     public String getKey() { return _key; }
 
     @Override
     public String toString() {
-        return _key + "|" + _name + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
+        return _key + "|" + _name + "|" + _address + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
     @Override
     public boolean equals(Object o) {

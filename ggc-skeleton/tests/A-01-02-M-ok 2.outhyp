@@ -17,9 +17,15 @@ Escolha uma opção: Gestão de Parceiros
 5 - Mostrar compras com parceiro
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
+<<<<<<< HEAD
+Escolha uma opção: E4|Filomena Figueiredo|Lisboa, Portugal|NORMAL|0|0|0|0
+P1|Lages|Lisboa, Portugal|NORMAL|0|0|0|0
+R2|Jorge Figueiredo|Lisboa, Portugal|NORMAL|0|0|0|0
+=======
 Escolha uma opção: E4|Filomena Figueiredo|NORMAL|0|0|0|0
 P1|Lages|NORMAL|0|0|0|0
 R2|Jorge Figueiredo|NORMAL|0|0|0|0
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros

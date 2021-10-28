@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+*** tests/A-07-02-M-ok.out	Wed Oct 27 18:55:42 2021
+--- tests/A-07-02-M-ok.outhyp	Thu Oct 28 16:59:08 2021
+=======
 *** tests/A-07-02-M-ok.out	2021-10-16 19:18:14.000000000 +0100
 --- tests/A-07-02-M-ok.outhyp	2021-10-28 16:38:38.451145837 +0100
 ***************
@@ -17,6 +21,7 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
+>>>>>>> 527c7f96c66f34d1382290d86ced60cd105a9d36
 ***************
 *** 43,49 ****
   5 - Mostrar compras com parceiro
