@@ -96,50 +96,19 @@ public class Warehouse implements Serializable {
 
   public ArrayList<String> showAllBatches() {
     //MYFIXME por implementar
-    // adicionar um comparator, do genero:
-    // List<Batches> tmp = <criar nova lista ou wtv com todos os lotes>
-    // Collections.sort(tmp, new BatchesComparator())
 
     ArrayList<String> allBatches = new ArrayList<>();
     
     for (Product p : _products.values()) {
-      for (String b : p.getAllBatches().values()) {
-        allBatches.add(b);
+      for (Batch b : p.getAllBatches()) {
+        allBatches.add(b.toString());
       }
     }
 
     return allBatches;
   }
 
-  /*
-  private static class BatchesComparator implements Comparator<Batch> {
-    @Override
-    public int compare(Batch b1, Batch b2) {
-
-      if (b1.getID().compareTo(b2.getId()) != 0) {
-        return b1.getID().compareTo(b2.getName());
-      }
-      else {
-
-        if (b1.getPartner().compareTo(b2.getPartner()) != 0) {
-          return b1.getID().compareTo(b2.getName());
-        } 
-        else {
-
-          if (b1.getPrice() != b2.getPrice()) {
-            return b1.getPrice() - b2.getPrice();
-          }
-          else {
-            return b1.getStock() - b2.getStock();
-          }
-
-        }
-
-      }
-
-    }
-  }*/
-
+  
   public LinkedList<Partner> getAllPartners() {
     //MYFIXME implementar metodo
     LinkedList<Partner> list = new LinkedList<Partner>();
@@ -188,7 +157,15 @@ public class Warehouse implements Serializable {
     return _partners.containsKey(key.toLowerCase());
   }
 
+  public void addSimpleProduct(String id) {
+    // criarParceiro(id, name, address)
+    // adicionar à collection de parceiros
 
+    if (!(_products.containsKey(id))) {
+      SimpleProduct product = new SimpleProduct(id);
+      _products.put(id, product);
+    }
+  }
 
   /**
    * @param txtfile filename to be loaded.
@@ -235,9 +212,12 @@ public class Warehouse implements Serializable {
           stock = Integer.parseInt(fields[4]);
 
           // metodo para criar lote de produto simples
-          Product p = (SimpleProduct) _products.get(id);
-          Partner prtnr = _partners.get(partner);
-          p.addNewBatch(new Batch(price, stock, new SimpleProduct(id), prtnr));
+          if (!(_products.containsKey(id))) {
+            addSimpleProduct(id);
+          }
+          SimpleProduct product = (SimpleProduct) _products.get(id);
+          Partner prtnr = _partners.get(partner.toLowerCase());
+          product.addNewBatch(new Batch(price, stock, new SimpleProduct(id), prtnr));
 
         }
 
