@@ -103,7 +103,7 @@ public class WarehouseManager {
    * @return
    */
   public boolean hasFilename() {
-    return (!_filename.equals(""));
+    return !"".equals(_filename);
   }
 
   public String getFilename() {
