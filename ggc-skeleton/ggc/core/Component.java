@@ -1,4 +1,4 @@
-package ggc.core.product;
+package ggc.core;
 
 
 import java.util.Comparator;
@@ -27,13 +27,5 @@ public class Component implements Serializable{
 	public String toString() {
 		return _product.getId() + ":" + _quantity;
 	}
-
-	
-
-	
-
-
-
-
 
 }

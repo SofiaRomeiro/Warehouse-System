@@ -1,10 +1,9 @@
-package ggc.core.product;
+package ggc.core;
 
-import ggc.core.Partner;
-import ggc.core.product.Product;
+//import ggc.core.Partner;
+//import ggc.core.Product;
 
 import java.util.Comparator;
-import java.lang.Math;
 
 import java.io.Serializable;
 

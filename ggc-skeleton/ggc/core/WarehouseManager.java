@@ -14,8 +14,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
-import java.lang.Object;
-
 import ggc.app.exception.FileOpenFailedException;
 
 import ggc.core.exception.BadEntryException;

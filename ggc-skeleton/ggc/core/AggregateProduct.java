@@ -1,7 +1,7 @@
-package ggc.core.product;
+package ggc.core;
 
-import ggc.core.product.Component;
-import ggc.core.product.Recipe;
+//import ggc.core.product.Component;
+//import ggc.core.product.Recipe;
 
 import java.util.List;
 

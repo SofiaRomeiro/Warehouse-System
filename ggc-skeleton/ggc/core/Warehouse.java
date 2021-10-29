@@ -17,11 +17,11 @@ import java.util.LinkedList;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.Label;
-import ggc.core.product.Product;
-import ggc.core.product.SimpleProduct;
-import ggc.core.product.AggregateProduct;
-import ggc.core.product.Batch;
-import ggc.core.Partner;
+//import ggc.core.product.Product;
+//import ggc.core.product.SimpleProduct;
+//import ggc.core.product.AggregateProduct;
+//import ggc.core.product.Batch;
+//import ggc.core.Partner;
 
 /**
  * Class Warehouse implements a warehouse.

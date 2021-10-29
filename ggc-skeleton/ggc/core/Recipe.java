@@ -1,4 +1,4 @@
-package ggc.core.product;
+package ggc.core;
 
 import java.util.Comparator;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.text.Collator;
 import java.io.Serializable;
 
-import ggc.core.product.Component;
+//import ggc.core.Component;
 
 public class Recipe implements Serializable {
 

@@ -23,7 +23,7 @@ class DoShowAllPartners extends Command<WarehouseManager> {
   @Override
   public void execute() throws CommandException {
     //FIXME implement command
-    TreeMap<String, String> partners = _receiver.showAllPartners();
+    TreeMap<String, String> partners = new TreeMap<>(_receiver.showAllPartners());
 
     for (String p: partners.values()){
       _display.addLine(p);

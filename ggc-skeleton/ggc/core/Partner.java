@@ -9,9 +9,7 @@ import java.io.Serializable;
 
 
 import ggc.core.Notifications;
-import ggc.core.product.Batch;
-
-import java.lang.Math;
+//import ggc.core.product.Batch;
 
 
 public class Partner implements Serializable {

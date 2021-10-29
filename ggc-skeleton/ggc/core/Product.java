@@ -1,14 +1,12 @@
-package ggc.core.product;
+package ggc.core;
 
 //import exceptions
 
-import ggc.core.Notifications;
-import ggc.core.Partner;
-import ggc.core.product.Batch;
+//import ggc.core.Notifications;
+//import ggc.core.Partner;
+//import ggc.core.Batch;
 
 import java.io.Serializable;
-
-import java.lang.Math;
 
 import java.util.Comparator;
 import java.util.List;

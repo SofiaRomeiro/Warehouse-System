@@ -22,7 +22,7 @@ class DoShowAllProducts extends Command<WarehouseManager> {
   public final void execute() throws CommandException {
     //FIXME implement command
 
-    TreeMap<String, String> products = _receiver.showAllProducts();
+    TreeMap<String, String> products = new TreeMap<>(_receiver.showAllProducts());
 
     for (String p: products.values()){
       _display.addLine(p);

@@ -20,7 +20,7 @@ class DoShowAvailableBatches extends Command<WarehouseManager> {
   @Override
   public final void execute() throws CommandException {
     //FIXME implement command
-    ArrayList<String> batches = _receiver.showAllBatches();
+    List<String> batches = new ArrayList<>(_receiver.showAllBatches());
 
     for (String b: batches){
       _display.addLine(b);
