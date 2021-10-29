@@ -16,7 +16,6 @@ public class Balance implements Serializable{
 
 	public Balance() {
 		this(0,0);
-		// acho que aqui podemos usar o this
 		_available = 0;
 		_accountant = 0;
 	}

@@ -1,10 +1,5 @@
 package ggc.core;
 
-//import ggc.core.Partner;
-//import ggc.core.Product;
-
-import java.util.Comparator;
-
 import java.io.Serializable;
 
 public class Batch implements Serializable {

@@ -15,16 +15,8 @@ class DoDisplayDate extends Command<WarehouseManager> {
 
   @Override
   public final void execute() throws CommandException {
-    //FIXME implement command
-
-    //String dateString;
-
-    /*Integer date = _receiver.displayDate();
-    dateString = Message.currentDate(date);
-    _display.popup(dateString);*/
 
     _display.popup(Message.currentDate(_receiver.displayDate()));
-
   }
 
 }

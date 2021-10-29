@@ -6,7 +6,6 @@ import ggc.core.WarehouseManager;
 
 import java.util.List;
 import java.util.ArrayList;
-//FIXME import classes
 
 /**
  * Show available batches.
@@ -19,14 +18,12 @@ class DoShowAvailableBatches extends Command<WarehouseManager> {
 
   @Override
   public final void execute() throws CommandException {
-    //FIXME implement command
+
     List<String> batches = new ArrayList<>(_receiver.showAllBatches());
 
     for (String b: batches){
       _display.addLine(b);
     }
     _display.display();
-
   }
-
 }

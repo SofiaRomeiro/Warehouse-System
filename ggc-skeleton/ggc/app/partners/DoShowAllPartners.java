@@ -3,13 +3,10 @@ package ggc.app.partners;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
-//FIXME import classes
-
  
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Collections;
-import java.util.LinkedList;
 
 /**
  * Show all partners.
@@ -22,7 +19,7 @@ class DoShowAllPartners extends Command<WarehouseManager> {
 
   @Override
   public void execute() throws CommandException {
-    //FIXME implement command
+
     TreeMap<String, String> partners = new TreeMap<>(_receiver.showAllPartners());
 
     for (String p: partners.values()){

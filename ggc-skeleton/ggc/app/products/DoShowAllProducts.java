@@ -3,7 +3,6 @@ package ggc.app.products;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
-//FIXME import classes
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -20,15 +19,13 @@ class DoShowAllProducts extends Command<WarehouseManager> {
 
   @Override
   public final void execute() throws CommandException {
-    //FIXME implement command
 
-    TreeMap<String, String> products = new TreeMap<>(_receiver.showAllProducts());
+    Map<String, String> products = new TreeMap<>(_receiver.showAllProducts());
 
     for (String p: products.values()){
       _display.addLine(p);
     }
     _display.display();
-
   }
 
 }
