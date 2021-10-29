@@ -42,6 +42,7 @@ public class Warehouse implements Serializable {
 
 
   // FIXME define contructor(s)
+ 
   public Warehouse() {
     _date = new Date(0);
     _partners = new TreeMap<>();
@@ -57,23 +58,43 @@ public class Warehouse implements Serializable {
 
   // FIXME define methods
 
+  /**
+   * 
+   * @return
+   */
   public int getDate() {
     return _date.getDays();
   }
 
+  /**
+   * 
+   * @param days
+   * @return
+   */
   public boolean advanceDate(int days) {
     return _date.advanceDate(days);
   }
 
+  /**
+   * 
+   * @return
+   */
   public double getAvailableBalance() {
     return _balance.getCurrentAvailable();
   }
 
+  /**
+   * 
+   * @return
+   */
   public double getAccountantBalance() {
     return _balance.getCurrentAccountant();
   }
 
-
+  /**
+   * 
+   * @return
+   */
   public List<Product> getAllProducts() {
     //MYFIXME implementar metodo
     LinkedList<Product> list = new LinkedList<Product>();
@@ -81,6 +102,10 @@ public class Warehouse implements Serializable {
     return list;
   }
 
+  /**
+   * 
+   * @return
+   */
   public Map<String, String> showAllProducts() {
     //MYFIXME por implementar
 
@@ -92,8 +117,10 @@ public class Warehouse implements Serializable {
     return products;
   }
 
-
-
+  /**
+   * 
+   * @return
+   */
   public List<String> showAllBatches() {
     //MYFIXME por implementar
 
@@ -108,7 +135,10 @@ public class Warehouse implements Serializable {
     return allBatches;
   }
 
-  
+  /**
+   * 
+   * @return
+   */
   public List<Partner> getAllPartners() {
     //MYFIXME implementar metodo
     LinkedList<Partner> list = new LinkedList<Partner>();
@@ -129,6 +159,10 @@ public class Warehouse implements Serializable {
     return displayText;
   }*/
 
+  /**
+   * 
+   * @return
+   */
   public Map<String, String> showAllPartners() {
     TreeMap<String, String> showPartners = new TreeMap<String,String>();
 
@@ -138,11 +172,22 @@ public class Warehouse implements Serializable {
     return showPartners;
   }
 
+  /**
+   * 
+   * @param key
+   * @return
+   */
   public String getPartnerById(String key) {
     //MYFIXME por implementar
     return _partners.get(key.toLowerCase()).toString();
   }
 
+  /**
+   * 
+   * @param key
+   * @param name
+   * @param address
+   */
   public void addPartner(String key, String name, String address) {
     // criarParceiro(id, name, address)
     // adicionar à collection de parceiros
@@ -153,10 +198,19 @@ public class Warehouse implements Serializable {
 
   }
 
+  /**
+   * 
+   * @param key
+   * @return
+   */
   public boolean hasPartner(String key) {
     return _partners.containsKey(key.toLowerCase());
   }
 
+  /**
+   * 
+   * @param id
+   */
   public void addSimpleProduct(String id) {
     // criarParceiro(id, name, address)
     // adicionar à collection de parceiros
@@ -167,11 +221,12 @@ public class Warehouse implements Serializable {
     }
   }
 
-  /**
-   * @param txtfile filename to be loaded.
-   * @throws IOException
-   * @throws BadEntryException
-   */
+   /**
+    * 
+    * @param txtfile
+    * @throws IOException
+    * @throws BadEntryException
+    */
   void importFile(String txtfile) throws IOException, BadEntryException /* FIXME maybe other exceptions */ {
     //FIXME implement method
 

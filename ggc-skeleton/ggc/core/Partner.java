@@ -24,7 +24,7 @@ public class Partner implements Serializable {
         }
     }*/
     private static final long serialVersionUID = 207564192006L;
-
+    
     private String _key;
     private String _name;
     private String _address;
@@ -38,7 +38,18 @@ public class Partner implements Serializable {
     private Notifications _notifications;
     private List<Batch> _batches;
     
-
+/**
+ * 
+ * @param key
+ * @param name
+ * @param address
+ */
+    /**
+     * 
+     * @param key
+     * @param name
+     * @param address
+     */
     public Partner (String key, String name, String address){
         _key = key;
         _name = name;
@@ -52,6 +63,10 @@ public class Partner implements Serializable {
         //_batches = new 
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getKey() { return _key; }
     
 

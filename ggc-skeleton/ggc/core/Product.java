@@ -28,6 +28,14 @@ public abstract class Product implements Serializable{
 	private int _currentQuantity;
 	private List<Batch> _batches;
 
+	/**
+	 * 
+	 * @param id
+	 * @param maxPrice
+	 * @param lowestPrice
+	 * @param highestPrice
+	 * @param currentQuantity
+	 */
 	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity) {
 		_id = id;
 		_maxPrice = maxPrice;
@@ -37,22 +45,44 @@ public abstract class Product implements Serializable{
 		_batches = new ArrayList<>();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 */
 	public Product (String id) {
 		this (id, 0, 0, 0, 0);
 	}
 
 	//public abstract double checkQuantity(int quantity, Partner p);
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getId() { return _id; }
 
-
-
+	/**
+	 * 
+	 * @return
+	 */
 	public double getMaxPrice() { return _maxPrice; }
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
+	/**
+	 * 
+	 * @param quantity
+	 */
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
+	/**
+	 * 
+	 * @param price
+	 */
 	private void updatePrices(double price) {
 		if (price > _maxPrice) { 
 			_maxPrice = price;
@@ -64,20 +94,21 @@ public abstract class Product implements Serializable{
 		}
 	}
 
+	/**
+	 * 
+	 * @param b
+	 */
 	public void addNewBatch(Batch b) {
 		updateCurrentQuantity(b.getQuantity());
 		updatePrices(b.getPrice());
 		_batches.add(b);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Batch> getAllBatches() {
-
-		/*ArrayList<String> batches = new ArrayList<>();
-		batches = _batches;
-
-		for (Batch b : batches) {
-			batches.add(b);
-		}*/
 
 		Collections.sort(_batches, new BatchesComparator());
 

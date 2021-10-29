@@ -63,24 +63,45 @@ public class WarehouseManager {
   }*/
 
   // Date
+  /**
+   * 
+   * @return
+   */
   public int displayDate() {
     return _warehouse.getDate();
   }
 
+  /**
+   * 
+   * @param days
+   * @return
+   */
   public boolean advanceDate(int days) {
     return _warehouse.advanceDate(days);
   }
 
   //Balance
+  /**
+   * 
+   * @return
+   */
   public double getAvailableBalance() {
     return _warehouse.getAvailableBalance();
   }
 
+  /**
+   * 
+   * @return
+   */
   public double getAccountantBalance() {
     return _warehouse.getAccountantBalance();
   }
 
   //File
+  /**
+   * 
+   * @return
+   */
   public boolean hasFilename() {
     return (!_filename.equals(""));
   }
