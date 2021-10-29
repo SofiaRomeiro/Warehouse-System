@@ -1,11 +1,12 @@
 package ggc.core;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.LinkedList;
 
 public class Notifications implements Serializable {
 
-	LinkedList<String> _notifications = new LinkedList<>();
+	List<String> _notifications = new LinkedList<>();
 	private static final long serialVersionUID = 202109190000L;
 
 	public void addNotification(String notification) {
