@@ -4,6 +4,9 @@ package ggc.app.main;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import pt.tecnico.uilib.forms.Form;
+
+import java.io.IOException;
+
 import ggc.core.WarehouseManager;
 
 /**
@@ -34,6 +37,10 @@ class DoSaveFile extends Command<WarehouseManager> {
       filename = _receiver.getFilename();
     }
 
+    try{
     _receiver.save(filename);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }

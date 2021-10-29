@@ -118,8 +118,7 @@ public class WarehouseManager {
    * @@throws FileNotFoundException
    * @@throws MissingFileAssociationException
    */
-  public void save(String filename) /*throws FileNotFoundException*/ {
-    //FIXME implement serialization method -> ObjectOut&InStreams ...
+  public void save(String filename) throws IOException, FileNotFoundException {
 
     if (!hasFilename()) {
       _filename = filename;
@@ -127,9 +126,9 @@ public class WarehouseManager {
 
     try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
       objOut.writeObject(_warehouse);
-    }
-
-    catch (IOException e) {
+    } catch (FileNotFoundException fnfe) { 
+      throw fnfe; 
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
@@ -150,7 +149,6 @@ public class WarehouseManager {
    * @@throws UnavailableFileException
    */
   public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
-    //FIXME implement serialization method
 
       try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
         Object anObject = objIn.readObject();

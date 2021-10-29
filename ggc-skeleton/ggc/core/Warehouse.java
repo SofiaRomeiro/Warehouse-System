@@ -258,12 +258,11 @@ public class Warehouse implements Serializable {
           while (fields[5] != null) {
             recipe = fields[5].split("#");
 
-            for (int i = 0; i < recipe.length; i++) {
-              component = recipe[i].split(":");
+            for (String c: recipe) {
+              component = c.split(":");
               componentId = component[0];
               quantity = Integer.parseInt(component[1]);
-
-            } 
+            }
           }
         }
 

@@ -13,8 +13,6 @@ import ggc.core.exception.UnavailableFileException;
  */
 class DoOpenFile extends Command<WarehouseManager> {
 
-  private String _filename;
-
   /**
    * 
    * @param receiver
@@ -26,10 +24,12 @@ class DoOpenFile extends Command<WarehouseManager> {
 
   @Override
   public final void execute() throws CommandException, FileOpenFailedException {
-   
+    
+    String filename;
+
     try {
-      _filename = stringField("filename");   
-      _receiver.load(_filename);
+      filename = stringField("filename");   
+      _receiver.load(filename);
     } catch (UnavailableFileException ufe) {
       throw new FileOpenFailedException(ufe.getFilename());
     } catch (ClassNotFoundException e) {
