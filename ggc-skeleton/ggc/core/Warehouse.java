@@ -15,6 +15,10 @@ import ggc.core.exception.BadEntryException;
 
 /**
  * Class Warehouse implements a warehouse and is responsible for all business management.
+ * 
+ * @author Edson da Veiga 100731
+ * @author Sofia Romeiro 98968
+ * @version 1.0
  */
 public class Warehouse implements Serializable {
 
@@ -27,7 +31,9 @@ public class Warehouse implements Serializable {
   private Map<String, Partner> _partners;
   private Map<String, Product> _products;
 
-
+  /**
+   * Constructor.
+   */
   public Warehouse() {
     _date = new Date(0);
     _partners = new TreeMap<>();
@@ -35,28 +41,59 @@ public class Warehouse implements Serializable {
 
   }
 
+  /**
+   * Returns the date.
+   * 
+   * @return
+   */
   public int getDate() {
     return _date.getDays();
   }
 
+  /**
+   * Advance a certain number of days.
+   * 
+   * @param days
+   * @return
+   */
   public boolean advanceDate(int days) {
     return _date.advanceDate(days);
   }
 
+  /**
+   * Returns available balance.
+   * 
+   * @return
+   */
   public double getAvailableBalance() {
     return _balance.getCurrentAvailable();
   }
 
+  /**
+   * Returns account balance.
+   * 
+   * @return
+   */
   public double getAccountantBalance() {
     return _balance.getCurrentAccountant();
   }
 
+  /**
+   * Returns a list of all produts in the warehouse.
+   * 
+   * @return
+   */
   public List<Product> getAllProducts() {
     LinkedList<Product> list = new LinkedList<Product>();
     list.addAll(_products.values());
     return list;
   }
 
+  /**
+   * Returns a map of all produts description order by the product id.
+   * 
+   * @return
+   */
   public Map<String, String> showAllProducts() {
 
     TreeMap<String, String> products = new TreeMap<String,String>();
@@ -67,6 +104,11 @@ public class Warehouse implements Serializable {
     return products;
   }
 
+  /**
+   * Returns a list of all batches description.
+   * 
+   * @return
+   */
   public List<String> showAllBatches() {
 
     ArrayList<String> allBatches = new ArrayList<>();
@@ -80,14 +122,22 @@ public class Warehouse implements Serializable {
     return allBatches;
   }
 
-
+  /**
+   * Returns a list of all partners.
+   * 
+   * @return
+   */
   public List<Partner> getAllPartners() {
     LinkedList<Partner> list = new LinkedList<Partner>();
     list.addAll(_partners.values());
     return list;
   }
 
- 
+  /**
+   *    
+   * * Returns a map of all partners description order by the partner key.
+   * @return
+   */
   public Map<String, String> showAllPartners() {
     TreeMap<String, String> showPartners = new TreeMap<String,String>();
 
@@ -97,11 +147,23 @@ public class Warehouse implements Serializable {
     return showPartners;
   }
 
+  /**
+   * Returns the partner according to the key.
+   * 
+   * @param key
+   * @return
+   */
   public String getPartnerById(String key) {
     return _partners.get(key.toLowerCase()).toString();
   }
 
-
+  /**
+   * Add new partner.
+   * 
+   * @param key
+   * @param name
+   * @param address
+   */
   public void addPartner(String key, String name, String address) {
    
     Partner partner = new Partner(key, name, address);
@@ -110,11 +172,20 @@ public class Warehouse implements Serializable {
 
   }
 
+  /**
+   * Checks for the existence of a partner with a given key.
+   * 
+   * @param key
+   * @return
+   */
   public boolean hasPartner(String key) {
     return _partners.containsKey(key.toLowerCase());
   }
 
-
+  /**
+   * Add a new simple product.
+   * @param id
+   */
   public void addSimpleProduct(String id) {
    
     if (!(_products.containsKey(id))) {

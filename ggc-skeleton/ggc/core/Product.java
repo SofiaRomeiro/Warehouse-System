@@ -9,7 +9,12 @@ import java.util.Collections;
 
 
 /**
+ * Classe Product
+ * This class presents the behavior of a Product.
  * 
+ * @author Edson da Veiga 100731
+ * @author Sofia Romeiro 98968
+ * @version 1.0
  */
 public abstract class Product implements Serializable{
     
@@ -21,6 +26,7 @@ public abstract class Product implements Serializable{
 	private List<Batch> _batches;
 
 	/**
+	 * Constructor.
 	 * 
 	 * @param id
 	 * @param maxPrice
@@ -38,6 +44,7 @@ public abstract class Product implements Serializable{
 	}
 
 	/**
+	 * Constructor.
 	 * 
 	 * @param id
 	 */
@@ -54,6 +61,7 @@ public abstract class Product implements Serializable{
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
 	/**
+	 * Update the product prices
 	 * 
 	 * @param price
 	 */
@@ -69,6 +77,7 @@ public abstract class Product implements Serializable{
 	}
 
 	/**
+	 * Add a new product batch
 	 * 
 	 * @param b
 	 */
@@ -79,6 +88,8 @@ public abstract class Product implements Serializable{
 	}
 
 	/**
+	 * Returns a list of all Batches order by: 
+	 * batch id->partner Key->price->quantity
 	 * 
 	 * @return
 	 */
@@ -115,7 +126,13 @@ public abstract class Product implements Serializable{
 	    }
   	}
 
-	@Override
+	/**
+	 * Returns the string representing a Product.
+	 * idProduto|preco-maximo|stock-actual-total
+	 * 
+	 * @Override
+	 * @return a string representing a Product.
+	 */
     public String toString() {
         return _id + "|" + Math.round(_maxPrice) + "|" + _currentQuantity;
     }

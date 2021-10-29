@@ -5,13 +5,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.Serializable;
 
-
+/**
+ * Classe Recipe
+ * This class presents the behavior of a Recipe.
+ * 
+ * @author Edson da Veiga 100731
+ * @author Sofia Romeiro 98968
+ * @version 1.0
+ */
 public class Recipe implements Serializable {
 
 	private static final long serialVersionUID = 123409192006L;
 	private double _alpha;
 	private List<Component> _components;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param alpha
+	 */
 	public Recipe(double alpha) {
 		_alpha = alpha;
 		_components = new ArrayList<>();

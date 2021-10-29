@@ -8,6 +8,12 @@ public class Component implements Serializable{
 	private int _quantity;
 	private Product _product;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param quantity
+	 * @param product
+	 */
 	public Component(int quantity, Product product) {
 		_quantity = quantity;
 		_product = product;

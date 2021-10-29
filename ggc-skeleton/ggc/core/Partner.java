@@ -7,7 +7,14 @@ import java.io.Serializable;
 
 import ggc.core.Notifications;
 
-
+/**
+ * Classe Partner
+ * This class presents the behavior of a Partner.
+ * 
+ * @author Edson da Veiga 100731
+ * @author Sofia Romeiro 98968
+ * @version 1.0
+ */
 public class Partner implements Serializable {
 
     private static final long serialVersionUID = 207564192006L;
@@ -24,6 +31,7 @@ public class Partner implements Serializable {
     private List<Batch> _batches;
     
     /**
+     * Constructor.
      * 
      * @param key
      * @param name
@@ -44,7 +52,13 @@ public class Partner implements Serializable {
 
     public String getKey() { return _key; }
     
-    @Override
+    /**
+	 * Returns the string representing a Partner.
+	 * id|nome|enderecco|estatuto|pontos|valor-compras|valor-vendas-efectuadas|valor-vendas-pagas
+	 * 
+	 * @Override
+	 * @return a string representing a Partner.
+	 */    
     public String toString() {
         return _key + "|" + _name + "|" + _address + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
