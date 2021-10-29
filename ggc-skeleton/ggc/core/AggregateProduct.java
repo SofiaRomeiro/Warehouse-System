@@ -1,7 +1,5 @@
 package ggc.core;
 
-import java.util.List;
-
 public class AggregateProduct extends Product {
 
     private Recipe _recipe;

@@ -69,7 +69,6 @@ public class Parser {
 	private void parseClient(String line, String[] components) throws BadEntryException {
 		if (components.length != 4)
 			throw new BadEntryException("Invalid number of fields (4) in client description: " + line);
-
 	}
 
 	// Format: BOX|id|tipo-de-serviço|id-fornecedor|preço|valor-crítico|exemplares
@@ -77,7 +76,6 @@ public class Parser {
 		if (components.length != 7)
 			throw new BadEntryException("wrongr number of fields in box description  (7) " + line);
 
-		// ...
 		int price = Integer.parseInt(components[4]);
 	}
 
@@ -85,7 +83,6 @@ public class Parser {
 	private void parseBook(String line, String[] components) throws BadEntryException {
 		if (components.length != 9)
 			throw new BadEntryException("Invalid number of fields (9) in box description: " + line);
-
 	}
 
 	// Format: CONTAINER|id|tipo-de-serviço|nível-de-serviço|id-fornecedor|preço|valor-crítico|exemplares

@@ -1,27 +1,17 @@
 package ggc.core;
 
-// FIXME import classes (cannot import from pt.tecnico or ggc.app)
-
 import java.io.Serializable;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.File;
 
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 import ggc.core.exception.BadEntryException;
-import ggc.core.Label;
-//import ggc.core.product.Product;
-//import ggc.core.product.SimpleProduct;
-//import ggc.core.product.AggregateProduct;
-//import ggc.core.product.Batch;
-//import ggc.core.Partner;
 
 /**
  * Class Warehouse implements a warehouse.
@@ -31,7 +21,6 @@ public class Warehouse implements Serializable {
   /** Serial number for serialization. */
   private static final long serialVersionUID = 202109192006L;
 
-  // FIXME define attributes
   private Date _date;
   private Balance _balance = new Balance();
 
@@ -39,24 +28,12 @@ public class Warehouse implements Serializable {
   private Map<String, Product> _products;
 
 
-
-
-  // FIXME define contructor(s)
- 
   public Warehouse() {
     _date = new Date(0);
     _partners = new TreeMap<>();
     _products = new TreeMap<>();
 
   }
-
-/*
-  public Warehouse(int date) {
-    _date = new Date(date);
-    _partners = new TreeMap<>();
-  } */
-
-  // FIXME define methods
 
   /**
    * 
@@ -96,7 +73,6 @@ public class Warehouse implements Serializable {
    * @return
    */
   public List<Product> getAllProducts() {
-    //MYFIXME implementar metodo
     LinkedList<Product> list = new LinkedList<Product>();
     list.addAll(_products.values());
     return list;
@@ -107,7 +83,6 @@ public class Warehouse implements Serializable {
    * @return
    */
   public Map<String, String> showAllProducts() {
-    //MYFIXME por implementar
 
     TreeMap<String, String> products = new TreeMap<String,String>();
 
@@ -122,7 +97,6 @@ public class Warehouse implements Serializable {
    * @return
    */
   public List<String> showAllBatches() {
-    //MYFIXME por implementar
 
     ArrayList<String> allBatches = new ArrayList<>();
     
@@ -140,24 +114,10 @@ public class Warehouse implements Serializable {
    * @return
    */
   public List<Partner> getAllPartners() {
-    //MYFIXME implementar metodo
     LinkedList<Partner> list = new LinkedList<Partner>();
     list.addAll(_partners.values());
     return list;
   }
-
-  /*public String showAllPartners() {
-    TreeMap<String, String> partners = new TreeMap<String,String>();
-    String displayText = new String();
-
-    for( Partner partner : getAllPartners())
-      partners.put(partner.getKey(), partner.toString());
-
-    for(String s : partners.values())
-      displayText += s;
-
-    return displayText;
-  }*/
 
   /**
    * 
@@ -178,7 +138,6 @@ public class Warehouse implements Serializable {
    * @return
    */
   public String getPartnerById(String key) {
-    //MYFIXME por implementar
     return _partners.get(key.toLowerCase()).toString();
   }
 
@@ -189,9 +148,7 @@ public class Warehouse implements Serializable {
    * @param address
    */
   public void addPartner(String key, String name, String address) {
-    // criarParceiro(id, name, address)
-    // adicionar à collection de parceiros
-
+   
     Partner partner = new Partner(key, name, address);
     if (!hasPartner(key.toLowerCase()))
       _partners.put(key.toLowerCase(), partner);
@@ -212,9 +169,7 @@ public class Warehouse implements Serializable {
    * @param id
    */
   public void addSimpleProduct(String id) {
-    // criarParceiro(id, name, address)
-    // adicionar à collection de parceiros
-
+   
     if (!(_products.containsKey(id))) {
       SimpleProduct product = new SimpleProduct(id);
       _products.put(id, product);
@@ -227,10 +182,8 @@ public class Warehouse implements Serializable {
     * @throws IOException
     * @throws BadEntryException
     */
-  void importFile(String txtfile) throws IOException, BadEntryException /* FIXME maybe other exceptions */ {
-    //FIXME implement method
+  void importFile(String txtfile) throws IOException, BadEntryException {
 
-    //String[] fields;
     String[] recipe;
     String[] component;
     String id;
@@ -280,11 +233,8 @@ public class Warehouse implements Serializable {
           id = fields[1];
           partner = fields[2];
           price = Double.parseDouble(fields[3]);
-          //price = Double.valueOf(fields[3]);
           stock = Integer.parseInt(fields[4]);
-          //stock = Integer.valueOf(fields[4]);
           alpha = Double.parseDouble(fields[5]);
-          //alpha = Double.valueOf(fields[5]); 
 
 
           while (fields[5] != null) {
@@ -296,18 +246,7 @@ public class Warehouse implements Serializable {
               quantity = Integer.parseInt(component[1]);
 
             } 
-
-            // criar novo componente da receita e ir acrescentando a um array
-            // do genero:
-            // newComponent = new Component(componentId, quantity);
-            // Component component = new Component(_products.get(componentId), quantity);
-            // ArrayList<Component> components = new ArrayList<>();  --> usar isto como variavel, declarar junto das outras
-            
-            // components.add(newComponent)
           }
-
-          //no fim do 1º while, criar uma nova receita que contém o array de componentes já existente 
-
         }
 
       }

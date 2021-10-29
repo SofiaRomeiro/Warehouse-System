@@ -1,7 +1,5 @@
 package ggc.core;
 
-//FIXME import classes (cannot import from pt.tecnico or ggc.app)
-
 import java.io.Serializable;
 import java.io.OutputStream;
 import java.io.ObjectOutputStream;
@@ -37,30 +35,9 @@ public class WarehouseManager {
   /** The wharehouse itself. */
    private Warehouse _warehouse;
 
-  //private static WarehouseManager _singleton;  //if we use Singleton pattern
-
-
-  //FIXME define other attributes
- 
-
-  //FIXME define constructor(s)
   public WarehouseManager() {
     _warehouse = new Warehouse();
   }
-
-  /*private WarehouseManager() {      //if we use Singleton pattern
-  }*/
-
-
-  //FIXME define other methods
-
-
-  /*public static WarehouseManager getSingleton() {     //if we use Singleton pattern
-    if (_singleton==null) {
-      _singleton = new WarehouseManager();
-    }
-    return _singleton;
-  }*/
 
   // Date
   /**
@@ -131,7 +108,7 @@ public class WarehouseManager {
   public void registerPartner(String key, String name, String address) {
     _warehouse.addPartner(key, name, address);
   }
-//add no app
+
   public boolean duplicatePartnerKey(String key ){
     return _warehouse.hasPartner(key);
   }
@@ -151,10 +128,6 @@ public class WarehouseManager {
     try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
       objOut.writeObject(_warehouse);
     }
-
-    /*catch (FileNotFoundException fnfe) {
-      throw fnfe;
-    } */
 
     catch (IOException e) {
       e.printStackTrace();
@@ -197,7 +170,7 @@ public class WarehouseManager {
   public void importFile(String textfile) throws ImportFileException {
     try {
       _warehouse.importFile(textfile);
-    } catch (IOException | BadEntryException /*|  ?? ImportFileException ?? */ /* FIXME maybe other exceptions */ e) {
+    } catch (IOException | BadEntryException e) {
       throw new ImportFileException(textfile, e);
     }
   }

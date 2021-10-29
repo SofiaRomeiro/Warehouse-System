@@ -1,15 +1,10 @@
 package ggc.core;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.Locale;
-import java.text.Collator;
 import java.io.Serializable;
 
-//import ggc.core.Component;
 
 public class Recipe implements Serializable {
 
@@ -44,7 +39,6 @@ public class Recipe implements Serializable {
 				recipe += "#";
 			break; 
 		}
-
 		return "|" + recipe;
 	}
 }

@@ -1,22 +1,12 @@
 package ggc.core;
 
-//import exceptions
-
-//import ggc.core.Notifications;
-//import ggc.core.Partner;
-//import ggc.core.Batch;
-
 import java.io.Serializable;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.LinkedList;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Collections;
-import java.util.TreeMap;
-import java.util.Locale;
-import java.text.Collator;
+
 
 
 public abstract class Product implements Serializable{
@@ -53,30 +43,12 @@ public abstract class Product implements Serializable{
 		this (id, 0, 0, 0, 0);
 	}
 
-	//public abstract double checkQuantity(int quantity, Partner p);
-
-	/**
-	 * 
-	 * @return
-	 */
 	public String getId() { return _id; }
 
-	/**
-	 * 
-	 * @return
-	 */
 	public double getMaxPrice() { return _maxPrice; }
 
-	/**
-	 * 
-	 * @return
-	 */
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
-	/**
-	 * 
-	 * @param quantity
-	 */
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
 	/**
@@ -111,11 +83,8 @@ public abstract class Product implements Serializable{
 	public List<Batch> getAllBatches() {
 
 		Collections.sort(_batches, new BatchesComparator());
-
 		return _batches;
 	}
-
-	// criar um extra()
 
 	protected final static class BatchesComparator implements Comparator<Batch> {
 
@@ -144,12 +113,8 @@ public abstract class Product implements Serializable{
 	    }
   	}
 
-
-
 	@Override
     public String toString() {
         return _id + "|" + Math.round(_maxPrice) + "|" + _currentQuantity;
     }
-
-	//public abstract String toString(Product p);
 }
