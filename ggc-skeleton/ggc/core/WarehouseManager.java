@@ -179,20 +179,13 @@ public class WarehouseManager {
   public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
     //FIXME implement serialization method
 
-    ObjectInputStream objIn = null;
-      try {
-        objIn = new ObjectInputStream(new FileInputStream(filename));
+      try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
         Object anObject = objIn.readObject();
         _warehouse = (Warehouse) anObject;
         _filename = filename;
-        objIn.close();
-      }
-
-      catch (ClassNotFoundException cnfe) {
+      } catch (ClassNotFoundException cnfe) {
         throw cnfe;
-      }
-
-      catch (IOException e) {
+      } catch (IOException e) {
         throw new UnavailableFileException(filename);
       }
   }
