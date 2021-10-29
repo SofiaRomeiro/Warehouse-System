@@ -83,5 +83,10 @@ public class Partner implements Serializable {
         return false;
     }
 
+    @Override
+    public int hashCode() {
+        return _key.hashCode();
+    }
+
 
 }
