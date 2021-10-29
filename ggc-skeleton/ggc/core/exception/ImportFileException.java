@@ -12,7 +12,6 @@ public class ImportFileException extends Exception {
    * Default constructor
    */
   public ImportFileException() {
-    // do nothing
   }
 
   /**

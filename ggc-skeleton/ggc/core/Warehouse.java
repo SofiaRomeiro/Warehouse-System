@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import ggc.core.exception.BadEntryException;
 
 /**
- * Class Warehouse implements a warehouse.
+ * Class Warehouse implements a warehouse and is responsible for all business management.
  */
 public class Warehouse implements Serializable {
 
@@ -35,53 +35,28 @@ public class Warehouse implements Serializable {
 
   }
 
-  /**
-   * 
-   * @return
-   */
   public int getDate() {
     return _date.getDays();
   }
 
-  /**
-   * 
-   * @param days
-   * @return
-   */
   public boolean advanceDate(int days) {
     return _date.advanceDate(days);
   }
 
-  /**
-   * 
-   * @return
-   */
   public double getAvailableBalance() {
     return _balance.getCurrentAvailable();
   }
 
-  /**
-   * 
-   * @return
-   */
   public double getAccountantBalance() {
     return _balance.getCurrentAccountant();
   }
 
-  /**
-   * 
-   * @return
-   */
   public List<Product> getAllProducts() {
     LinkedList<Product> list = new LinkedList<Product>();
     list.addAll(_products.values());
     return list;
   }
 
-  /**
-   * 
-   * @return
-   */
   public Map<String, String> showAllProducts() {
 
     TreeMap<String, String> products = new TreeMap<String,String>();
@@ -92,10 +67,6 @@ public class Warehouse implements Serializable {
     return products;
   }
 
-  /**
-   * 
-   * @return
-   */
   public List<String> showAllBatches() {
 
     ArrayList<String> allBatches = new ArrayList<>();
@@ -109,20 +80,14 @@ public class Warehouse implements Serializable {
     return allBatches;
   }
 
-  /**
-   * 
-   * @return
-   */
+
   public List<Partner> getAllPartners() {
     LinkedList<Partner> list = new LinkedList<Partner>();
     list.addAll(_partners.values());
     return list;
   }
 
-  /**
-   * 
-   * @return
-   */
+ 
   public Map<String, String> showAllPartners() {
     TreeMap<String, String> showPartners = new TreeMap<String,String>();
 
@@ -132,21 +97,11 @@ public class Warehouse implements Serializable {
     return showPartners;
   }
 
-  /**
-   * 
-   * @param key
-   * @return
-   */
   public String getPartnerById(String key) {
     return _partners.get(key.toLowerCase()).toString();
   }
 
-  /**
-   * 
-   * @param key
-   * @param name
-   * @param address
-   */
+
   public void addPartner(String key, String name, String address) {
    
     Partner partner = new Partner(key, name, address);
@@ -155,19 +110,11 @@ public class Warehouse implements Serializable {
 
   }
 
-  /**
-   * 
-   * @param key
-   * @return
-   */
   public boolean hasPartner(String key) {
     return _partners.containsKey(key.toLowerCase());
   }
 
-  /**
-   * 
-   * @param id
-   */
+
   public void addSimpleProduct(String id) {
    
     if (!(_products.containsKey(id))) {
@@ -176,12 +123,12 @@ public class Warehouse implements Serializable {
     }
   }
 
-   /**
-    * 
-    * @param txtfile
-    * @throws IOException
-    * @throws BadEntryException
-    */
+  /**
+   * 
+   * @param txtfile
+   * @throws IOException
+   * @throws BadEntryException
+   */
   void importFile(String txtfile) throws IOException, BadEntryException {
 
     String[] recipe;

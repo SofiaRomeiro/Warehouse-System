@@ -2,14 +2,11 @@ package ggc.app.main;
 
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-import pt.tecnico.uilib.forms.Form;
 
 import ggc.core.WarehouseManager;
 import ggc.app.exception.FileOpenFailedException;
 import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.UnavailableFileException;
-
-import java.io.*;
 
 /**
  * Open existing saved state.

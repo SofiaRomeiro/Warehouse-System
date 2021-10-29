@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-
+/**
+ * 
+ */
 public abstract class Product implements Serializable{
     
 	private String _id;
