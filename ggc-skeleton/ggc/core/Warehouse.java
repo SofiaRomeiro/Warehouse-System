@@ -99,7 +99,7 @@ public class Warehouse implements Serializable {
     TreeMap<String, String> products = new TreeMap<String,String>();
 
     for( Product product : getAllProducts())
-      products.put(product.getId(), product.toString());
+      products.put(product.getId().toLowerCase(), product.toString());
 
     return products;
   }
