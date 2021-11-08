@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.io.Serializable;
 
-import ggc.core.Notifications;
 
 /**
  * Classe Partner
@@ -15,7 +14,7 @@ import ggc.core.Notifications;
  * @author Sofia Romeiro 98968
  * @version 1.0
  */
-public class Partner implements Serializable {
+public class Partner implements Serializable, Observer {
 
     private static final long serialVersionUID = 207564192006L;
     
@@ -27,7 +26,8 @@ public class Partner implements Serializable {
     private float _purchases;
     private float _sales;
     private float _paidSales;
-    private Notifications _notifications;
+    /*private Notifications _notifications;*/
+    private List<String> _notifications;
     private List<Batch> _batches;
     
     /**
@@ -46,7 +46,7 @@ public class Partner implements Serializable {
         _purchases = 0;
         _sales = 0;
         _paidSales = 0;
-        _notifications = new Notifications();
+        _notifications = new ArrayList<>();
         _batches = new ArrayList<>();
     }
 
@@ -62,6 +62,11 @@ public class Partner implements Serializable {
     public String toString() {
         return _key + "|" + _name + "|" + _address + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
+
+    public void update (String notification) {
+        _notifications.add(notification);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof Partner) {

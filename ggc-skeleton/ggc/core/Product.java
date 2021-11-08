@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
+import java.util.HashSet;
 
 
 /**
@@ -24,6 +26,8 @@ public abstract class Product implements Serializable {
 	private double _highestPrice;
 	private int _currentQuantity;
 	private List<Batch> _batches;
+	private Set<Observer> _observers = new HashSet<>();
+
 
 	/**
 	 * Constructor.
@@ -60,6 +64,20 @@ public abstract class Product implements Serializable {
 
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
+	public boolean add(Observer obs) {
+		return _observers.add(obs);
+	  }
+	  
+	public boolean remove(Observer obs) {
+		return _observers.remove(obs);
+	  }
+	
+	  // may be public or private
+	  private void notifyObservers(String notification) {
+		for (Observer obs : _observers)
+		  obs.update(notification);
+	  }
+
 	/**
 	 * Update the product prices
 	 * 
@@ -73,6 +91,7 @@ public abstract class Product implements Serializable {
 
 		if (price < _lowestPrice) {
 			_lowestPrice = price;
+			notifyObservers(bargainNotificationToString());
 		}
 	}
 
@@ -136,4 +155,12 @@ public abstract class Product implements Serializable {
     public String toString() {
         return _id + "|" + Math.round(_maxPrice) + "|" + _currentQuantity;
     }
+
+	public String newNotificationToString() {
+		return "NEW|" + _id + "|" + Math.round(_lowestPrice);
+	}
+
+	public String bargainNotificationToString() {
+		return "BARGAIN|" + _id + "|" + Math.round(_lowestPrice);
+	}
 }
