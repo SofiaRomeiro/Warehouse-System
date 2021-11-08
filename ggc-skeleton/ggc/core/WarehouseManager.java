@@ -53,8 +53,8 @@ public class WarehouseManager {
    * @param days
    * @return
    */
-  public boolean advanceDate(int days) {
-    return _warehouse.advanceDate(days);
+  public void advanceDate(int days) {
+    _warehouse.advanceDate(days);
   }
 
   //Balance

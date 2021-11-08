@@ -59,8 +59,8 @@ public class Warehouse implements Serializable {
    * @param days
    * @return
    */
-  public boolean advanceDate(int days) {
-    return _date.advanceDate(days);
+  public void advanceDate(int days) {
+    _date.advanceDate(days);
   }
 
   /**

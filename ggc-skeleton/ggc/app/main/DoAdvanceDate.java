@@ -3,6 +3,7 @@ package ggc.app.main;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.app.exception.InvalidDateException;
+import ggc.core.exception.NotValidDateException;
 
 import ggc.core.WarehouseManager;
 
@@ -22,9 +23,17 @@ class DoAdvanceDate extends Command<WarehouseManager> {
 	public final void execute() throws CommandException, InvalidDateException {
 		
 		Integer days = integerField("days");
-
+/*
 		if (!(_receiver.advanceDate(days))) {
 		  throw new InvalidDateException(days);
 		}
+*/
+		try {
+			_receiver.advanceDate(days);
+		}
+		catch (NotValidDateException e){
+			throw new InvalidDateException(days);
+		}
+
 	}
 }

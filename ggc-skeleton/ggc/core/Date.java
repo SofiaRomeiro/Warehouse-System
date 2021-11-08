@@ -1,6 +1,7 @@
 package ggc.core;
 
 import java.io.Serializable;
+import ggc.core.exception.NotValidDateException;
 
 /**
  * Classe Date
@@ -35,14 +36,12 @@ public class Date implements Serializable {
 		// ??????
 	}
 
-	public boolean advanceDate(int days) {
+	public void advanceDate(int days) {
 		if (days < _days || days < 0) {
-			return false;
+			throw new NotValidDateException();
 		}
-		else {
+
 			_days += days; 
-		}
-		return true;
 	}
 
 
