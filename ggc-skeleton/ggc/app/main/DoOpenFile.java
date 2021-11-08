@@ -5,7 +5,6 @@ import pt.tecnico.uilib.menus.CommandException;
 
 import ggc.core.WarehouseManager;
 import ggc.app.exception.FileOpenFailedException;
-import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.UnavailableFileException;
 
 /**
