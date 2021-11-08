@@ -1,0 +1,31 @@
+*** testsFinal/A-05-03-M-ok.out	2021-11-08 16:51:37.257588529 +0000
+--- testsFinal/A-05-03-M-ok.outhyp	2021-11-08 19:36:00.420817853 +0000
+***************
+*** 15,27 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: ROLHA|R1|20|500
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 15,27 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar

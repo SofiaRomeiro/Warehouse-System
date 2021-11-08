@@ -16,7 +16,7 @@ import java.util.Collections;
  * @author Sofia Romeiro 98968
  * @version 1.0
  */
-public abstract class Product implements Serializable{
+public abstract class Product implements Serializable {
     
 	private String _id;
 	private double _maxPrice;

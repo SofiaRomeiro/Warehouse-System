@@ -1,0 +1,92 @@
+*** testsFinal/A-14-03-M-ok.out	2021-11-08 16:51:37.277598530 +0000
+--- testsFinal/A-14-03-M-ok.outhyp	2021-11-08 19:36:02.384817932 +0000
+***************
+*** 16,29 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Data limite de pagamento: Identificador do produto: Quantidade: Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Data limite de pagamento: Identificador do produto: Quantidade: Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+--- 16,64 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+***************
+*** 45,54 ****
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 80,90 ----
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar

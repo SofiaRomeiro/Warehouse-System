@@ -1,0 +1,27 @@
+*** testsFinal/A-13-03-M-ok.out	2021-11-08 16:51:37.277598530 +0000
+--- testsFinal/A-13-03-M-ok.outhyp	2021-11-08 19:36:02.148817923 +0000
+***************
+*** 13,23 ****
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Preço: HIDROGENIO|S1|200|5000
+! ROLHA|M1|30|500
+! ROLHA|R1|20|500
+! SAL|S1|1000|500
+! VIDRO|M1|1000|500
+  Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+--- 13,23 ----
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Consultas
+! 1 - Produtos com Preço Abaixo de Limite
+! 2 - Facturas pagas por parceiro
+! 0 - Sair
+! Escolha uma opção: Opção inválida!
+  Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro

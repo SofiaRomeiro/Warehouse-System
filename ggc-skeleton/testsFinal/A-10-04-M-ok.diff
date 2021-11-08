@@ -1,0 +1,57 @@
+*** testsFinal/A-10-04-M-ok.out	2021-11-08 16:51:37.265592529 +0000
+--- testsFinal/A-10-04-M-ok.outhyp	2021-11-08 19:36:01.148817882 +0000
+***************
+*** 16,22 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+--- 16,40 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+***************
+*** 43,49 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 61,66 ----
+***************
+*** 62,68 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 79,84 ----

@@ -15,6 +15,7 @@ public class Balance implements Serializable{
 	private static final long serialVersionUID = 202987692006L;
 	private double _available;
 	private double _accountant;
+	private static Balance _balance;
 
 	/**
 	 * Constructor.
@@ -22,20 +23,17 @@ public class Balance implements Serializable{
 	 * @param available
 	 * @param accountant
 	 */
-	public Balance(double available, double accountant) {
-		_available = available;
-		_accountant = accountant;
-	}
-
-	/**
-	 * 	Parameterless Constructor.
-	 */
-	public Balance() {
-		this(0,0);
+	private Balance() {
 		_available = 0;
 		_accountant = 0;
 	}
 
+	public static Balance getBalance() {
+		if (_balance == null) {
+			_balance = new Balance();
+		}
+		return _balance;
+	}
 	/**
 	 * Returns the current available balance.
 	 * 

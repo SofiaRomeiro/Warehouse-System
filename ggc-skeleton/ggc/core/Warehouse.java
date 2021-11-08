@@ -30,8 +30,7 @@ public class Warehouse implements Serializable {
   private static final long serialVersionUID = 202109192006L;
 
   private Date _date;
-  private Balance _balance = new Balance();
-
+  private Balance _balance;
   private Map<String, Partner> _partners;
   private Map<String, Product> _products;
 
@@ -39,7 +38,8 @@ public class Warehouse implements Serializable {
    * Constructor.
    */
   public Warehouse() {
-    _date = new Date(0);
+    _date = _date.now();
+    _balance = _balance.getBalance();
     _partners = new TreeMap<>();
     _products = new TreeMap<>();
 
@@ -183,6 +183,13 @@ public class Warehouse implements Serializable {
     }
   }
 
+  public void addAggregateProduct(String id, Recipe recipe) {
+    if (!(_products.containsKey(id))) {
+      AggregateProduct product = new AggregateProduct(id, recipe);
+      _products.put(id, product);
+    }
+  }
+
   /**
    * 
    * @param txtfile
@@ -191,8 +198,8 @@ public class Warehouse implements Serializable {
    */
   void importFile(String txtfile) throws IOException, BadEntryException {
 
-    String[] recipe;
-    String[] component;
+    String[] recipeComponent;
+    String[] componentArray;
     String id;
     String name, address;
     String partner;
@@ -243,16 +250,29 @@ public class Warehouse implements Serializable {
           stock = Integer.parseInt(fields[4]);
           alpha = Double.parseDouble(fields[5]);
 
+          Recipe recipe = new Recipe(alpha);
 
-          while (fields[5] != null) {
-            recipe = fields[5].split("#");
+          while (fields[6] != null) {
+            recipeComponent = fields[6].split("\\#");
 
-            for (String c: recipe) {
-              component = c.split(":");
-              componentId = component[0];
-              quantity = Integer.parseInt(component[1]);
+            for (String comp: recipeComponent) {
+              componentArray = comp.split(":");             
+              componentId = componentArray[0];
+              quantity = Integer.parseInt(componentArray[1]);
+              Component c = new Component(quantity, new SimpleProduct(componentId));
+              recipe.addComponent(c);
             }
           }
+
+          //criar o produto derivado
+          if (!(_products.containsKey(id))) { //se ainda nao foi criado
+            addAggregateProduct(id, recipe);
+          }
+          AggregateProduct product = (AggregateProduct) _products.get(id);
+          Partner prtnr = _partners.get(partner.toLowerCase());
+          product.addNewBatch(new Batch(price, stock, new AggregateProduct(id, recipe), prtnr));
+
+
         }
 
       }
