@@ -73,7 +73,7 @@ public class Partner implements Serializable {
 
     @Override
     public int hashCode() {
-        return _key.hashCode();
+        return _key.toLowerCase().hashCode();
     }
 
 

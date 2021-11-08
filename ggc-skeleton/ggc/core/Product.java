@@ -104,13 +104,13 @@ public abstract class Product implements Serializable{
 	    @Override
 	    public int compare(Batch b1, Batch b2) {
 
-			if (b1.getId().compareTo(b2.getId()) != 0) {
+			if (b1.getId().toLowerCase().compareTo(b2.getId().toLowerCase()) != 0) {
 				return b1.getId().toLowerCase().compareTo(b2.getId().toLowerCase());
 			}
 
 			else {
 
-				if (b1.getPartnerKey().compareTo(b2.getPartnerKey()) != 0) {
+				if (b1.getPartnerKey().toLowerCase().compareTo(b2.getPartnerKey().toLowerCase()) != 0) {
 					return b1.getPartnerKey().toLowerCase().compareTo(b2.getPartnerKey().toLowerCase());
 				} 
 				else {
