@@ -15,6 +15,7 @@ import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.ProductComparator;
 
 /**
@@ -97,13 +98,6 @@ public class Warehouse implements Serializable {
     return list;
   }
 
-  /*private class ProductComparator implements Comparator<Product> {
-    @Override
-    public int compare(Product p1, Product p2) {
-      return p1.getId().toLowerCase().compareTo(p2.getId().toLowerCase());
-    }
-  }*/
-
   /**
    * Returns a list of all batches description.
    * 
@@ -135,6 +129,10 @@ public class Warehouse implements Serializable {
     return list;
   }
 
+  public boolean hasPartner(String key) {
+    return _partners.containsKey(key.toLowerCase());
+  }
+
  
   /**
    * Returns the partner according to the key.
@@ -153,23 +151,16 @@ public class Warehouse implements Serializable {
    * @param name
    * @param address
    */
-  public void addPartner(String key, String name, String address) {
-   
+  public void addPartner(String key, String name, String address) throws DuplPartnerKeyException {
+
+    if (_partners.containsKey(key.toLowerCase())) {
+      throw new DuplPartnerKeyException();
+    }
+
     Partner partner = new Partner(key, name, address);
-    if (!hasPartner(key.toLowerCase()))
-      _partners.put(key.toLowerCase(), partner);
-
+    _partners.put(key.toLowerCase(), partner);
   }
 
-  /**
-   * Checks for the existence of a partner with a given key.
-   * 
-   * @param key
-   * @return
-   */
-  public boolean hasPartner(String key) {
-    return _partners.containsKey(key.toLowerCase());
-  }
 
   /**
    * Add a new simple product.
@@ -240,7 +231,6 @@ public class Warehouse implements Serializable {
           SimpleProduct product = (SimpleProduct) _products.get(id);
           Partner prtnr = _partners.get(partner.toLowerCase());
           product.addNewBatch(new Batch(price, stock, new SimpleProduct(id), prtnr));
-
         }
 
         else if (fields[0].equals(Label.BATCH_M)) {

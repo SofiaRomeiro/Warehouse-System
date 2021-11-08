@@ -19,6 +19,7 @@ import ggc.core.exception.ImportFileException;
 import ggc.core.exception.UnavailableFileException;
 import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.DuplPartnerKeyException;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -106,7 +107,7 @@ public class WarehouseManager {
     return _warehouse.getPartnerById(key);
   }
 
-  public void registerPartner(String key, String name, String address) {
+  public void registerPartner(String key, String name, String address) throws DuplPartnerKeyException {
     _warehouse.addPartner(key, name, address);
   }
 
