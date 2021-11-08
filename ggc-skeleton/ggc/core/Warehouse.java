@@ -39,8 +39,8 @@ public class Warehouse implements Serializable {
    * Constructor.
    */
   public Warehouse() {
-    _date = _date.now();
-    _balance = _balance.getBalance();
+    _date = Date.now();
+    _balance = Balance.getBalance();
     _partners = new TreeMap<>();
     _products = new TreeMap<>();
 
