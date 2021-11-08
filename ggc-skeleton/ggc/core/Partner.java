@@ -76,5 +76,8 @@ public class Partner implements Serializable {
         return _key.toLowerCase().hashCode();
     }
 
+    
+
+
 
 }

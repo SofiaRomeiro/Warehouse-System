@@ -88,7 +88,7 @@ public class WarehouseManager {
   }
 
   // Products
-  public Map<String, String> showAllProducts() {
+  public List<String> showAllProducts() {
     return _warehouse.showAllProducts();
   }
 
@@ -97,7 +97,7 @@ public class WarehouseManager {
   }
 
   // Partner
-  public Map<String, String> showAllPartners() {
+  public List<String> showAllPartners() {
     return _warehouse.showAllPartners();
   }
 

@@ -10,8 +10,11 @@ import java.util.TreeMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Comparator;
+import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
+import ggc.core.ProductComparator;
 
 /**
  * Class Warehouse implements a warehouse and is responsible for all business management.
@@ -79,30 +82,26 @@ public class Warehouse implements Serializable {
   }
 
   /**
-   * Returns a list of all produts in the warehouse.
+   * Returns a list of all produts in the warehouse, ordered by product id.
    * 
    * @return
    */
-  public List<Product> getAllProducts() {
-    LinkedList<Product> list = new LinkedList<Product>();
-    list.addAll(_products.values());
+  public List<String> showAllProducts() {
+    List<String> list = new LinkedList<String>();
+    List<Product> toSort = new LinkedList<Product>(_products.values());
+    Collections.sort(toSort, new ProductComparator());
+    for (Product p : toSort){
+      list.add(p.toString());
+    }
     return list;
   }
 
-  /**
-   * Returns a map of all produts description order by the product id.
-   * 
-   * @return
-   */
-  public Map<String, String> showAllProducts() {
-
-    TreeMap<String, String> products = new TreeMap<String,String>();
-
-    for( Product product : getAllProducts())
-      products.put(product.getId().toLowerCase(), product.toString());
-
-    return products;
-  }
+  /*private class ProductComparator implements Comparator<Product> {
+    @Override
+    public int compare(Product p1, Product p2) {
+      return p1.getId().toLowerCase().compareTo(p2.getId().toLowerCase());
+    }
+  }*/
 
   /**
    * Returns a list of all batches description.
@@ -127,26 +126,15 @@ public class Warehouse implements Serializable {
    * 
    * @return
    */
-  public List<Partner> getAllPartners() {
-    LinkedList<Partner> list = new LinkedList<Partner>();
-    list.addAll(_partners.values());
+  public List<String> showAllPartners() {
+    LinkedList<String> list = new LinkedList<String>();
+    for (Partner p : _partners.values()){
+      list.add(p.toString());
+    }
     return list;
   }
 
-  /**
-   *    
-   * * Returns a map of all partners description order by the partner key.
-   * @return
-   */
-  public Map<String, String> showAllPartners() {
-    TreeMap<String, String> showPartners = new TreeMap<String,String>();
-
-    for( Partner partner : getAllPartners())
-      showPartners.put(partner.getKey(), partner.toString());
-
-    return showPartners;
-  }
-
+ 
   /**
    * Returns the partner according to the key.
    * 

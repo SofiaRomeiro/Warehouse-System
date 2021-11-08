@@ -4,8 +4,8 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
+import java.util.LinkedList;
 import java.util.Collections;
 
 /**
@@ -20,9 +20,9 @@ class DoShowAllProducts extends Command<WarehouseManager> {
   @Override
   public final void execute() throws CommandException {
 
-    Map<String, String> products = new TreeMap<>(_receiver.showAllProducts());
+    List<String> products = new LinkedList<>(_receiver.showAllProducts());
 
-    for (String p: products.values()){
+    for (String p: products){
       _display.addLine(p);
     }
     _display.display();
