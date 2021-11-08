@@ -198,8 +198,8 @@ public class Warehouse implements Serializable {
    */
   void importFile(String txtfile) throws IOException, BadEntryException {
 
-    String[] recipeComponent;
-    String[] componentArray;
+    String[] components;
+    String[] idAndQuantity;
     String id;
     String name, address;
     String partner;
@@ -252,18 +252,16 @@ public class Warehouse implements Serializable {
 
           Recipe recipe = new Recipe(alpha);
 
-          while (fields[6] != null) {
-            recipeComponent = fields[6].split("\\#");
+          components = fields[6].split("#"); //contains each part of the division "<id> : <quantity>"          
 
-            for (String comp: recipeComponent) {
-              componentArray = comp.split(":");             
-              componentId = componentArray[0];
-              quantity = Integer.parseInt(componentArray[1]);
-              Component c = new Component(quantity, new SimpleProduct(componentId));
-              recipe.addComponent(c);
-            }
+          for (String component: components) {
+            idAndQuantity = component.split(":");   
+            componentId = idAndQuantity[0];
+            quantity = Integer.parseInt(idAndQuantity[1]);
+            Component c = new Component(quantity, new SimpleProduct(componentId));
+            recipe.addComponent(c);
           }
-
+        
           //criar o produto derivado
           if (!(_products.containsKey(id))) { //se ainda nao foi criado
             addAggregateProduct(id, recipe);
@@ -271,7 +269,6 @@ public class Warehouse implements Serializable {
           AggregateProduct product = (AggregateProduct) _products.get(id);
           Partner prtnr = _partners.get(partner.toLowerCase());
           product.addNewBatch(new Batch(price, stock, new AggregateProduct(id, recipe), prtnr));
-
 
         }
 

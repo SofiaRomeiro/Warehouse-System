@@ -48,8 +48,7 @@ public class Recipe implements Serializable {
 		while (iter.hasNext()) {
 			recipe += iter.next().toString();
 			if (iter.hasNext())
-				recipe += "#";
-			break; 
+				recipe += "#"; 
 		}
 		return "|" + recipe;
 	}
