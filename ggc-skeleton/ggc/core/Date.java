@@ -36,7 +36,8 @@ public class Date implements Serializable {
 		// ??????
 	}
 
-	public void advanceDate(int days) {
+	public void advanceDate(int days) throws NotValidDateException {
+
 		if (days < _days || days < 0) {
 			throw new NotValidDateException();
 		}

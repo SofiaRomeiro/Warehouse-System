@@ -18,6 +18,7 @@ import ggc.core.exception.BadEntryException;
 import ggc.core.exception.ImportFileException;
 import ggc.core.exception.UnavailableFileException;
 import ggc.core.exception.MissingFileAssociationException;
+import ggc.core.exception.NotValidDateException;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -53,7 +54,7 @@ public class WarehouseManager {
    * @param days
    * @return
    */
-  public void advanceDate(int days) {
+  public void advanceDate(int days) throws NotValidDateException {
     _warehouse.advanceDate(days);
   }
 

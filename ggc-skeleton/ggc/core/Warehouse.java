@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
+import ggc.core.exception.NotValidDateException;
 import ggc.core.ProductComparator;
 
 /**
@@ -59,7 +60,7 @@ public class Warehouse implements Serializable {
    * @param days
    * @return
    */
-  public void advanceDate(int days) {
+  public void advanceDate(int days) throws NotValidDateException {
     _date.advanceDate(days);
   }
 

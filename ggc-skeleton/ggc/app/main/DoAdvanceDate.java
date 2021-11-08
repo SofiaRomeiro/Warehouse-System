@@ -23,15 +23,11 @@ class DoAdvanceDate extends Command<WarehouseManager> {
 	public final void execute() throws CommandException, InvalidDateException {
 		
 		Integer days = integerField("days");
-/*
-		if (!(_receiver.advanceDate(days))) {
-		  throw new InvalidDateException(days);
-		}
-*/
+
 		try {
 			_receiver.advanceDate(days);
 		}
-		catch (NotValidDateException e){
+		catch (NotValidDateException nvde){
 			throw new InvalidDateException(days);
 		}
 
