@@ -26,6 +26,9 @@ class DoShowPartner extends Command<WarehouseManager> {
         throw new UnknownPartnerKeyException(key);
 
     _display.addLine(_receiver.showPartner(key));
+    for(String notification: _receiver.showParterNotifications(key)) {
+      _display.addLine(notification);
+    }
     _display.display();
 
   }

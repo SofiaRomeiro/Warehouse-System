@@ -144,6 +144,10 @@ public class Warehouse implements Serializable {
     return _partners.get(key.toLowerCase()).toString();
   }
 
+  public List<String> getPartnerNotificationsById(String key) {
+    return _partners.get(key.toLowerCase()).getAllNotifications();
+  }
+
   /**
    * Add new partner.
    * 

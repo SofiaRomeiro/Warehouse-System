@@ -26,7 +26,6 @@ public class Partner implements Serializable, Observer {
     private float _purchases;
     private float _sales;
     private float _paidSales;
-    /*private Notifications _notifications;*/
     private List<String> _notifications;
     private List<Batch> _batches;
     
@@ -65,6 +64,10 @@ public class Partner implements Serializable, Observer {
 
     public void update (String notification) {
         _notifications.add(notification);
+    }
+
+    public List<String> getAllNotifications(){
+        return _notifications;
     }
 
     @Override

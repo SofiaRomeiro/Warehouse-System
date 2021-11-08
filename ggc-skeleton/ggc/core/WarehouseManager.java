@@ -107,6 +107,10 @@ public class WarehouseManager {
     return _warehouse.getPartnerById(key);
   }
 
+  public List<String> showParterNotifications(String key) {
+    return _warehouse.getPartnerNotificationsById(key);
+  }
+
   public void registerPartner(String key, String name, String address) throws DuplPartnerKeyException {
     _warehouse.addPartner(key, name, address);
   }
