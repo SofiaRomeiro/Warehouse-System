@@ -150,8 +150,7 @@ public class Warehouse implements Serializable {
   }
 
   public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException{
-
-    if (_products.containsKey(productKey.toLowerCase())) {
+    if (!_products.containsKey(productKey.toLowerCase())) {
       throw new UnkProductKeyException();
     }
     _products.get(productKey.toLowerCase()).toggleNotifications(_partners.get(partnerKey.toLowerCase()));;
