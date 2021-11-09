@@ -137,6 +137,12 @@ public class WarehouseManager {
     return _warehouse.hasPartner(key);
   }
 
+  // Transaction
+
+  public void registerAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException{
+    _warehouse.addNewAcquisitionTransaction(partnerKey, productKey, price, Amount);
+  }
+
   /**
    * @@throws IOException
    * @@throws FileNotFoundException

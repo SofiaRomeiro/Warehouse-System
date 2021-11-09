@@ -264,6 +264,18 @@ public class Warehouse implements Serializable {
     }
   }
 
+
+  // Transaction
+
+  public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException{
+    if (!_partners.containsKey(partnerKey.toLowerCase())) {
+      throw new UnkPartnerKeyException();
+    }
+    
+  }
+
+
+
   /**
    * 
    * @param txtfile
