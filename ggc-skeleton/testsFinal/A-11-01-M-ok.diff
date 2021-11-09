@@ -1,46 +1,22 @@
 *** testsFinal/A-11-01-M-ok.out	2021-11-08 16:51:37.265592529 +0000
---- testsFinal/A-11-01-M-ok.outhyp	2021-11-09 18:58:53.198969509 +0000
+--- testsFinal/A-11-01-M-ok.outhyp	2021-11-09 19:24:29.859031383 +0000
 ***************
-*** 9,15 ****
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
+*** 28,34 ****
   0 - Sair
-! Escolha uma opção: Ficheiro a abrir: Menu Principal
-  1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
---- 9,16 ----
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir 'esgotado.ggc'.
-! Menu Principal
-  1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
-***************
-*** 26,35 ****
-  3 - Visualizar lotes fornecidos por parceiro
-  4 - Visualizar lotes de um dado produto
-  0 - Sair
-! Escolha uma opção: HIDROGENIO|2|5000
-! ROLHA|2|500
+  Escolha uma opção: HIDROGENIO|2|5000
+  ROLHA|2|500
 ! SAL|1|0
-! VIDRO|1|500
+  VIDRO|1|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
-  2 - Visualizar todos os lotes
---- 27,36 ----
-  3 - Visualizar lotes fornecidos por parceiro
-  4 - Visualizar lotes de um dado produto
+--- 28,34 ----
   0 - Sair
-! Escolha uma opção: HIDROGENIO|200|5000
-! ROLHA|30|1000
-! SAL|1000|500
-! VIDRO|1000|500
+  Escolha uma opção: HIDROGENIO|2|5000
+  ROLHA|2|500
+! SAL|1|10
+  VIDRO|1|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
-  2 - Visualizar todos os lotes
 ***************
 *** 54,67 ****
   4 - Registar compra
@@ -57,7 +33,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 55,70 ----
+--- 54,69 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -83,7 +59,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 72,78 ----
+--- 71,77 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -93,7 +69,7 @@
   2 - Registar desagregação
 ***************
 *** 77,82 ****
---- 80,92 ----
+--- 79,91 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -139,7 +115,7 @@
   1 - Abrir
   2 - Guardar
   3 - Mostrar Data
---- 98,105 ----
+--- 97,104 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair

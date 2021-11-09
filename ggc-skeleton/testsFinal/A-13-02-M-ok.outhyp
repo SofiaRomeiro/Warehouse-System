@@ -9,8 +9,7 @@ Menu Principal
 8 - Menu de Consultas
 9 - Ver Saldo Global
 0 - Sair
-Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir 'esgotado.ggc'.
-Menu Principal
+Escolha uma opção: Ficheiro a abrir: Menu Principal
 1 - Abrir
 2 - Guardar
 3 - Mostrar Data
@@ -27,7 +26,11 @@ Escolha uma opção: Gestão de Produtos
 3 - Visualizar lotes fornecidos por parceiro
 4 - Visualizar lotes de um dado produto
 0 - Sair
-Escolha uma opção: Gestão de Produtos
+Escolha uma opção: HIDROGENIO|2|5000
+ROLHA|2|500
+SAL|1|10
+VIDRO|1|500
+Gestão de Produtos
 1 - Visualizar todos os produtos
 2 - Visualizar todos os lotes
 3 - Visualizar lotes fornecidos por parceiro
@@ -48,7 +51,11 @@ Escolha uma opção: Consultas
 1 - Produtos com Preço Abaixo de Limite
 2 - Facturas pagas por parceiro
 0 - Sair
-Escolha uma opção: Preço: Consultas
+Escolha uma opção: Preço: HIDROGENIO|S1|2|5000
+ROLHA|M1|2|500
+SAL|S1|1|10
+VIDRO|M1|1|500
+Consultas
 1 - Produtos com Preço Abaixo de Limite
 2 - Facturas pagas por parceiro
 0 - Sair
