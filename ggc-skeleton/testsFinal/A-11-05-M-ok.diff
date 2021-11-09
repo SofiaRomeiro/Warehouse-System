@@ -1,5 +1,5 @@
-*** testsFinal/A-11-05-M-ok.out	2021-11-08 16:51:37.273596530 +0000
---- testsFinal/A-11-05-M-ok.outhyp	2021-11-09 03:04:10.077107997 +0000
+*** testsFinal/A-11-05-M-ok.out	Sun Nov  7 16:04:59 2021
+--- testsFinal/A-11-05-M-ok.outhyp	Tue Nov  9 13:09:35 2021
 ***************
 *** 16,29 ****
   4 - Registar compra
@@ -75,7 +75,7 @@
 ! 7 - Gestão de Transacções
 ! 8 - Menu de Consultas
 ! 9 - Ver Saldo Global
-! 0 - Sair
+  0 - Sair
 ! Escolha uma opção: Gestão de Parceiros
 ! 1 - Mostrar parceiro
 ! 2 - Mostrar parceiros
@@ -83,7 +83,7 @@
 ! 4 - Activa/desactivar notificações de um produto
 ! 5 - Mostrar compras com parceiro
 ! 6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
+! 0 - Sair
 ! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|24000|0|0
 ! Gestão de Parceiros
 ! 1 - Mostrar parceiro

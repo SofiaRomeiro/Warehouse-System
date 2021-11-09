@@ -17,6 +17,7 @@ import ggc.app.exception.FileOpenFailedException;
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.ImportFileException;
 import ggc.core.exception.UnavailableFileException;
+import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.NotValidDateException;
 import ggc.core.exception.DuplPartnerKeyException;
@@ -116,7 +117,7 @@ public class WarehouseManager {
     _warehouse.addPartner(key, name, address);
   }
 
-  public void toggleProductNotifications(String partnerKey, String productKey) throws UnkProductKeyException {
+  public void toggleProductNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException {
     _warehouse.toggleNotifications(partnerKey, productKey);
   }
 

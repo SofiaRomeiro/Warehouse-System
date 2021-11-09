@@ -5,7 +5,9 @@ import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.app.exception.UnknownProductKeyException;
 import ggc.core.exception.UnkProductKeyException;
+import ggc.core.exception.UnkPartnerKeyException;
 
 /**
  * Toggle product-related notifications.
@@ -19,7 +21,7 @@ class DoToggleProductNotifications extends Command<WarehouseManager> {
   }
 
   @Override
-  public void execute() throws CommandException, UnknownPartnerKeyException {
+  public void execute() throws CommandException, UnknownProductKeyException, UnknownPartnerKeyException {
     String partnerKey = stringField("partnerKey");
     String productKey = stringField("productKey");
 
@@ -27,6 +29,8 @@ class DoToggleProductNotifications extends Command<WarehouseManager> {
       _receiver.toggleProductNotifications(partnerKey, productKey);
     }
     catch (UnkProductKeyException upke) {
+      throw new UnknownProductKeyException(productKey);
+    }catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(productKey);
     }
   }

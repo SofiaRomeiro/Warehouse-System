@@ -15,6 +15,7 @@ import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.ProductComparator;
@@ -149,9 +150,12 @@ public class Warehouse implements Serializable {
     return _partners.get(key.toLowerCase()).getAllNotifications();
   }
 
-  public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException{
+  public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException{
     if (!_products.containsKey(productKey.toLowerCase())) {
       throw new UnkProductKeyException();
+    }
+    if (!_partners.containsKey(partnerKey.toLowerCase())) {
+      throw new UnkPartnerKeyException();
     }
     _products.get(productKey.toLowerCase()).toggleNotifications(_partners.get(partnerKey.toLowerCase()));;
   }

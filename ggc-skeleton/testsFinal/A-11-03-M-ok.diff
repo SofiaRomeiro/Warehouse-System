@@ -1,7 +1,7 @@
-*** testsFinal/A-11-03-M-ok.out	2021-11-08 16:51:37.269594529 +0000
---- testsFinal/A-11-03-M-ok.outhyp	2021-11-09 03:04:09.893107990 +0000
+*** testsFinal/A-11-03-M-ok.out	Sun Nov  7 16:04:59 2021
+--- testsFinal/A-11-03-M-ok.outhyp	Tue Nov  9 13:09:35 2021
 ***************
-*** 16,33 ****
+*** 16,29 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -16,11 +16,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
-  3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
---- 16,50 ----
+--- 16,31 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -37,10 +33,12 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
-  3 - Registar venda
-+ 4 - Registar compra
-+ 5 - Receber pagamento de venda
-+ 0 - Sair
+***************
+*** 31,36 ****
+--- 33,53 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
 + Escolha uma opção: Opção inválida!
 + Gestão de Transacções
 + 1 - Visualizar
@@ -53,6 +51,9 @@
 + 1 - Visualizar
 + 2 - Registar desagregação
 + 3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
++ 4 - Registar compra
++ 5 - Receber pagamento de venda
++ 0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar

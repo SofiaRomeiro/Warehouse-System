@@ -30,7 +30,6 @@ class DoRegisterPartner extends Command<WarehouseManager> {
       try {
         _receiver.registerPartner(key, name, address);
       }
-
       catch (DuplPartnerKeyException dpke) {
         throw new DuplicatePartnerKeyException(key);
       }

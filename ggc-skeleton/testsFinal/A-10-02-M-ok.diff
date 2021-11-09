@@ -1,44 +1,19 @@
-*** testsFinal/A-10-02-M-ok.out	2021-11-08 16:51:37.261590529 +0000
---- testsFinal/A-10-02-M-ok.outhyp	2021-11-09 03:04:09.273107965 +0000
+*** testsFinal/A-10-02-M-ok.out	Sun Nov  7 16:04:59 2021
+--- testsFinal/A-10-02-M-ok.outhyp	Tue Nov  9 13:09:34 2021
 ***************
-*** 17,49 ****
+*** 26,32 ****
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Activa/desactivar notificações de um produto: Operação inválida: O produto 'DEDE' não existe.
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Activa/desactivar notificações de um produto: Operação inválida: O parceiro 'MM1' não existe.
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: 
-\ Sem newline no fim do ficheiro
---- 17,20 ----
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 26,32 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: 
-\ Sem newline no fim do ficheiro
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Activa/desactivar notificações de um produto: Operação inválida: O produto 'SAL' não existe.
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
