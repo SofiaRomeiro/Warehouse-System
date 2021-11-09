@@ -21,8 +21,10 @@ import java.util.HashSet;
 public abstract class Product implements Serializable {
     
 	private String _id;
+	// _maxPrice ever existed
 	private double _maxPrice;
 	private double _lowestPrice;
+	// _highestPrice is the current maxPrice of existing products
 	private double _highestPrice;
 	private int _currentQuantity;
 	private List<Batch> _batches;
