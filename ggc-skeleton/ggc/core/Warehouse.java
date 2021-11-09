@@ -18,7 +18,7 @@ import ggc.core.exception.NotValidDateException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
-import ggc.core.ProductComparator;
+
 
 /**
  * Class Warehouse implements a warehouse and is responsible for all business management.
@@ -34,8 +34,10 @@ public class Warehouse implements Serializable {
 
   private Date _date;
   private Balance _balance;
+  private int _transactionsIds;
   private Map<String, Partner> _partners;
   private Map<String, Product> _products;
+  private List<Transaction> _transations;
 
   /**
    * Constructor.
@@ -43,8 +45,10 @@ public class Warehouse implements Serializable {
   public Warehouse() {
     _date = Date.now();
     _balance = Balance.getBalance();
+    _transactionsIds = 0;
     _partners = new TreeMap<>();
     _products = new TreeMap<>();
+    _transations = new ArrayList<>();
 
   }
 
@@ -267,10 +271,19 @@ public class Warehouse implements Serializable {
 
   // Transaction
 
-  public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException{
+  public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException, UnkProductKeyException{
+    
     if (!_partners.containsKey(partnerKey.toLowerCase())) {
       throw new UnkPartnerKeyException();
     }
+
+    if (!_products.containsKey(productKey.toLowerCase())) {
+      throw new UnkProductKeyException();
+    }
+
+    Batch batch = new Batch(price, Amount, _products.get(productKey), _partners.get(partnerKey));
+    _products.get(productKey).addNewBatch(batch);
+
     
   }
 

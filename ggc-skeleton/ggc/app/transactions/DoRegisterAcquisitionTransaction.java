@@ -9,6 +9,9 @@ import ggc.core.WarehouseManager;
 
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.core.exception.UnkProductKeyException;
+
+
 /**
  * Register order.
  */
@@ -35,6 +38,10 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
     }
     catch (UnkPartnerKeyException upke){
 			throw new UnknownPartnerKeyException(partnerKey);
+		} 
+    catch (UnkProductKeyException upke){
+			addStringField("answer", Message.requestAddRecipe());
+
 		} 
 
   }
