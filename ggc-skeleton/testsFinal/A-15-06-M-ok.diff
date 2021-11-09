@@ -1,5 +1,5 @@
 *** testsFinal/A-15-06-M-ok.out	2021-11-08 16:51:37.277598530 +0000
---- testsFinal/A-15-06-M-ok.outhyp	2021-11-09 18:01:17.030118455 +0000
+--- testsFinal/A-15-06-M-ok.outhyp	2021-11-09 18:39:43.238923205 +0000
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -27,6 +27,20 @@
   1 - Visualizar
   2 - Registar desagregação
 ***************
+*** 43,50 ****
+--- 52,62 ----
+  0 - Sair
+  Escolha uma opção: GARRAFA|200|5|ROLHA:1#SAL:5#VIDRO:10
+  HIDROGENIO|200|5000
++ ROLHA|0|1
+  ROLHA|2|500
++ SAL|0|5
+  SAL|16|500
++ VIDRO|0|10
+  VIDRO|10|500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+***************
 *** 70,77 ****
   4 - Registar compra
   5 - Receber pagamento de venda
@@ -36,7 +50,7 @@
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
---- 79,85 ----
+--- 82,88 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -80,4 +94,4 @@
   2 - Guardar
   3 - Mostrar Data
   4 - Avançar Data
---- 88,93 ----
+--- 91,96 ----

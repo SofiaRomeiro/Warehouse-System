@@ -128,11 +128,11 @@ public class Warehouse implements Serializable {
 
     ArrayList<String> batches = new ArrayList<>();    
 
-    if (!(_products.containsKey(key))) {
+    if (!(_products.containsKey(key.toLowerCase()))) {
       throw new UnkProductKeyException();        
     }
 
-    Product p = _products.get(key);
+    Product p = _products.get(key.toLowerCase());
     
     for (Batch b : p.getAllBatches()) {
       batches.add(b.toString());
@@ -145,11 +145,11 @@ public class Warehouse implements Serializable {
 
     ArrayList<String> batches = new ArrayList<>();
 
-    if (!(_partners.containsKey(key))) {
+    if (!(_partners.containsKey(key.toLowerCase()))) {
       throw new UnkPartnerKeyException();
     }
 
-    Partner partner = _partners.get(key);
+    Partner partner = _partners.get(key.toLowerCase());
 
     for (Batch b : partner.getAllBatches()) {
         batches.add(b.toString());
@@ -226,16 +226,16 @@ public class Warehouse implements Serializable {
    */
   public void addSimpleProduct(String id) {
    
-    if (!(_products.containsKey(id))) {
+    if (!(_products.containsKey(id.toLowerCase()))) {
       SimpleProduct product = new SimpleProduct(id);
-      _products.put(id, product);
+      _products.put(id.toLowerCase(), product);
     }
   }
 
   public void addAggregateProduct(String id, Recipe recipe) {
-    if (!(_products.containsKey(id))) {
+    if (!(_products.containsKey(id.toLowerCase()))) {
       AggregateProduct product = new AggregateProduct(id, recipe);
-      _products.put(id, product);
+      _products.put(id.toLowerCase(), product);
     }
   }
 
@@ -286,7 +286,7 @@ public class Warehouse implements Serializable {
           if (!(_products.containsKey(id))) {
             addSimpleProduct(id);
           }
-          SimpleProduct product = (SimpleProduct) _products.get(id);
+          SimpleProduct product = (SimpleProduct) _products.get(id.toLowerCase());
           Partner prtnr = _partners.get(partner.toLowerCase());
           Batch b = new Batch(price, stock, new SimpleProduct(id), prtnr);
           product.addNewBatch(b);
@@ -320,7 +320,7 @@ public class Warehouse implements Serializable {
           if (!(_products.containsKey(id))) { //se ainda nao foi criado
             addAggregateProduct(id, recipe);
           }
-          AggregateProduct product = (AggregateProduct) _products.get(id);
+          AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
           Partner prtnr = _partners.get(partner.toLowerCase());
           Batch b = new Batch(price, stock, new AggregateProduct(id, recipe), prtnr);
           product.addNewBatch(b);

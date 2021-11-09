@@ -26,9 +26,9 @@ public class DoShowBatchesByProduct  extends Command<WarehouseManager> {
     String key = stringField("key");
 
     try {
-        ArrayList<String> batchesByPartner = new ArrayList<>(_receiver.showBatchesByProduct(key));
+        ArrayList<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByProduct(key));
 
-        for (String b : batchesByPartner) {
+        for (String b : batchesByProduct) {
           _display.addLine(b);
         }
         _display.display();

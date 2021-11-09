@@ -52,8 +52,11 @@ Escolha uma opção: Gestão de Produtos
 0 - Sair
 Escolha uma opção: GARRAFA|200|5|ROLHA:1#SAL:5#VIDRO:10
 HIDROGENIO|200|5000
+ROLHA|0|1
 ROLHA|2|500
+SAL|0|5
 SAL|16|500
+VIDRO|0|10
 VIDRO|10|500
 Gestão de Produtos
 1 - Visualizar todos os produtos
