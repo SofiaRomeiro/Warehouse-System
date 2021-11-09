@@ -9,6 +9,8 @@ public class AggregateProduct extends Product {
         _recipe = recipe;
     }
 
+    public String getRecipe() { return _recipe.toString(); }
+
     public String toString() {     
         return super.toString() + _recipe.toString();
 
