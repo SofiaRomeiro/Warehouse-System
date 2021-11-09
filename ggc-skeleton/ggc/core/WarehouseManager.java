@@ -104,6 +104,10 @@ public class WarehouseManager {
     return _warehouse.showBatchesByProduct(key);
   }
 
+  public List<String> showBatchesByPartner(String key) throws UnkPartnerKeyException {
+    return _warehouse.showBatchesByPartner(key);
+  }
+
   // Partner
   public List<String> showAllPartners() {
     return _warehouse.showAllPartners();

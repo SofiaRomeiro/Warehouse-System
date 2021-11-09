@@ -50,6 +50,10 @@ public class Partner implements Serializable, Observer {
     }
 
     public String getKey() { return _key; }
+
+    public List<Batch> getAllBatches() { return _batches; }
+
+    public void addBatch(Batch b) { _batches.add(b); }
     
     /**
 	 * Returns the string representing a Partner.

@@ -141,6 +141,25 @@ public class Warehouse implements Serializable {
     return batches;
   }
 
+  public List<String> showBatchesByPartner(String key) throws UnkPartnerKeyException {
+
+    ArrayList<String> batches = new ArrayList<>();
+
+    if (!(_partners.containsKey(key))) {
+      throw new UnkPartnerKeyException();
+    }
+
+    Partner partner = _partners.get(key);
+
+    for (Batch b : partner.getAllBatches()) {
+        batches.add(b.toString());
+    }
+
+    return batches;
+
+
+  }
+
   /**
    * Returns a list of all partners.
    * 
@@ -269,7 +288,12 @@ public class Warehouse implements Serializable {
           }
           SimpleProduct product = (SimpleProduct) _products.get(id);
           Partner prtnr = _partners.get(partner.toLowerCase());
-          product.addNewBatch(new Batch(price, stock, new SimpleProduct(id), prtnr));
+          Batch b = new Batch(price, stock, new SimpleProduct(id), prtnr);
+          product.addNewBatch(b);
+
+          //adicionar o lote ao parceiro
+          Partner p = _partners.get(partner.toLowerCase());
+          p.addBatch(b);
         }
 
         else if (fields[0].equals(Label.BATCH_M)) {
@@ -298,7 +322,12 @@ public class Warehouse implements Serializable {
           }
           AggregateProduct product = (AggregateProduct) _products.get(id);
           Partner prtnr = _partners.get(partner.toLowerCase());
-          product.addNewBatch(new Batch(price, stock, new AggregateProduct(id, recipe), prtnr));
+          Batch b = new Batch(price, stock, new AggregateProduct(id, recipe), prtnr);
+          product.addNewBatch(b);
+
+          //adicionar o lote ao parceiro
+          Partner p = _partners.get(partner.toLowerCase());
+          p.addBatch(b);
 
         }
 
