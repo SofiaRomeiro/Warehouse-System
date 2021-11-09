@@ -1,7 +1,7 @@
 *** testsFinal/A-16-01-M-ok.out	2021-11-08 16:51:37.281600530 +0000
---- testsFinal/A-16-01-M-ok.outhyp	2021-11-09 19:24:31.587031453 +0000
+--- testsFinal/A-16-01-M-ok.outhyp	2021-11-09 23:25:27.476115881 +0000
 ***************
-*** 16,41 ****
+*** 16,29 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -13,41 +13,39 @@
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador da transacção: Receber pagamento de venda: Operação inválida: A transacção '-1' não existe.
-! Gestão de Transacções
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 16,30 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Registar compra: Operação inválida: O parceiro 'SAL' não existe.
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 31,38 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador da transacção: Receber pagamento de venda: Operação inválida: A transacção '2' não existe.
-  Gestão de Transacções
+! Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
+--- 32,45 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
---- 16,70 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
 ! Escolha uma opção: Gestão de Transacções
 ! 1 - Visualizar
 ! 2 - Registar desagregação
@@ -59,28 +57,3 @@
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Opção inválida!
-  Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-+ 4 - Registar compra
-+ 5 - Receber pagamento de venda
-+ 0 - Sair
-+ Escolha uma opção: Gestão de Transacções
-+ 1 - Visualizar
-+ 2 - Registar desagregação
-+ 3 - Registar venda
-+ 4 - Registar compra
-+ 5 - Receber pagamento de venda
-+ 0 - Sair
-+ Escolha uma opção: Gestão de Transacções
-+ 1 - Visualizar
-+ 2 - Registar desagregação
-+ 3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair

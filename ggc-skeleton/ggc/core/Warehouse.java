@@ -316,7 +316,6 @@ public class Warehouse implements Serializable {
     int stock = 0;
 
     try (BufferedReader in = new BufferedReader(new FileReader(txtfile))) {
-
       
       String line;
 
@@ -340,12 +339,13 @@ public class Warehouse implements Serializable {
           stock = Integer.parseInt(fields[4]);
 
           // metodo para criar lote de produto simples
-          if (!(_products.containsKey(id))) {
+          if (!(_products.containsKey(id.toLowerCase()))) {
             addSimpleProduct(id);
           }
+
           SimpleProduct product = (SimpleProduct) _products.get(id.toLowerCase());
           Partner prtnr = _partners.get(partner.toLowerCase());
-          Batch b = new Batch(price, stock, new SimpleProduct(id), prtnr);
+          Batch b = new Batch(price, stock, product, prtnr);
           product.addNewBatch(b);
 
           //adicionar o lote ao parceiro
@@ -368,13 +368,17 @@ public class Warehouse implements Serializable {
             idAndQuantity = component.split(":");   
             componentId = idAndQuantity[0];            
             quantity = Integer.parseInt(idAndQuantity[1]);
-            addSimpleProductWithQuantity(componentId, quantity);
+
+            if (!(_products.containsKey(componentId.toLowerCase()))) {
+              addSimpleProductWithQuantity(componentId, quantity);
+            }    
+
             Component c = new Component(quantity, new SimpleProduct(componentId));
             recipe.addComponent(c);
           }
         
           //criar o produto derivado
-          if (!(_products.containsKey(id))) { //se ainda nao foi criado
+          if (!(_products.containsKey(id.toLowerCase()))) { //se ainda nao foi criado
             addAggregateProduct(id, recipe);
           }
           AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());

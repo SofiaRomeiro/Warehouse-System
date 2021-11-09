@@ -1,86 +1,77 @@
 *** testsFinal/A-10-01-M-ok.out	2021-11-08 16:51:37.261590529 +0000
---- testsFinal/A-10-01-M-ok.outhyp	2021-11-09 19:24:29.295031361 +0000
+--- testsFinal/A-10-01-M-ok.outhyp	2021-11-09 23:25:25.383069792 +0000
 ***************
-*** 33,46 ****
+*** 33,98 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
---- 33,82 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
 ! 1 - Visualizar
 ! 2 - Registar desagregação
 ! 3 - Registar venda
 ! 4 - Registar compra
 ! 5 - Receber pagamento de venda
 ! 0 - Sair
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
 ! 0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
+! Escolha uma opção: Gestão de Parceiros
+! 1 - Mostrar parceiro
+! 2 - Mostrar parceiros
+! 3 - Registar parceiro
+! 4 - Activa/desactivar notificações de um produto
+! 5 - Mostrar compras com parceiro
+! 6 - Mostrar vendas (e desagregações) com parceiro
 ! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
+! Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! Gestão de Parceiros
+! 1 - Mostrar parceiro
+! 2 - Mostrar parceiros
+! 3 - Registar parceiro
+! 4 - Activa/desactivar notificações de um produto
+! 5 - Mostrar compras com parceiro
+! 6 - Mostrar vendas (e desagregações) com parceiro
 ! 0 - Sair
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-***************
-*** 75,81 ****
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
 ! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|97000|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 111,117 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
+! Gestão de Parceiros
+! 1 - Mostrar parceiro
+! 2 - Mostrar parceiros
+! 3 - Registar parceiro
+! 4 - Activa/desactivar notificações de um produto
+! 5 - Mostrar compras com parceiro
+! 6 - Mostrar vendas (e desagregações) com parceiro
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: 
+\ Sem newline no fim do ficheiro
+--- 33,36 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
+\ Sem newline no fim do ficheiro

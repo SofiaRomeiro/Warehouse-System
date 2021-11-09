@@ -1,81 +1,100 @@
 *** testsFinal/A-11-02-M-ok.out	2021-11-08 16:51:37.269594529 +0000
---- testsFinal/A-11-02-M-ok.outhyp	2021-11-09 19:24:29.987031389 +0000
+--- testsFinal/A-11-02-M-ok.outhyp	2021-11-09 23:25:25.919337815 +0000
 ***************
-*** 16,22 ****
+*** 16,104 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
---- 16,40 ----
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: Gestão de Produtos
+! 1 - Visualizar todos os produtos
+! 2 - Visualizar todos os lotes
+! 3 - Visualizar lotes fornecidos por parceiro
+! 4 - Visualizar lotes de um dado produto
+! 0 - Sair
+! Escolha uma opção: HIDROGENIO|200|5000
+! ROLHA|30|1100
+! SAL|1000|500
+! VIDRO|1000|500
+! Gestão de Produtos
+! 1 - Visualizar todos os produtos
+! 2 - Visualizar todos os lotes
+! 3 - Visualizar lotes fornecidos por parceiro
+! 4 - Visualizar lotes de um dado produto
+! 0 - Sair
+! Escolha uma opção: HIDROGENIO|S1|200|5000
+! ROLHA|M1|20|500
+! ROLHA|M1|25|100
+! ROLHA|M1|30|500
+! SAL|S1|1000|500
+! VIDRO|M1|1000|500
+! Gestão de Produtos
+! 1 - Visualizar todos os produtos
+! 2 - Visualizar todos os lotes
+! 3 - Visualizar lotes fornecidos por parceiro
+! 4 - Visualizar lotes de um dado produto
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: Gestão de Parceiros
+! 1 - Mostrar parceiro
+! 2 - Mostrar parceiros
+! 3 - Registar parceiro
+! 4 - Activa/desactivar notificações de um produto
+! 5 - Mostrar compras com parceiro
+! 6 - Mostrar vendas (e desagregações) com parceiro
+! 0 - Sair
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|2500|0|0
+! Gestão de Parceiros
+! 1 - Mostrar parceiro
+! 2 - Mostrar parceiros
+! 3 - Registar parceiro
+! 4 - Activa/desactivar notificações de um produto
+! 5 - Mostrar compras com parceiro
+! 6 - Mostrar vendas (e desagregações) com parceiro
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: 
+\ Sem newline no fim do ficheiro
+--- 16,19 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-***************
-*** 41,47 ****
-  4 - Visualizar lotes de um dado produto
-  0 - Sair
-  Escolha uma opção: HIDROGENIO|200|5000
-! ROLHA|30|1100
-  SAL|1000|500
-  VIDRO|1000|500
-  Gestão de Produtos
---- 59,65 ----
-  4 - Visualizar lotes de um dado produto
-  0 - Sair
-  Escolha uma opção: HIDROGENIO|200|5000
-! ROLHA|30|1000
-  SAL|1000|500
-  VIDRO|1000|500
-  Gestão de Produtos
-***************
-*** 52,58 ****
-  0 - Sair
-  Escolha uma opção: HIDROGENIO|S1|200|5000
-  ROLHA|M1|20|500
-- ROLHA|M1|25|100
-  ROLHA|M1|30|500
-  SAL|S1|1000|500
-  VIDRO|M1|1000|500
---- 70,75 ----
-***************
-*** 81,87 ****
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|2500|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 98,104 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
+\ Sem newline no fim do ficheiro

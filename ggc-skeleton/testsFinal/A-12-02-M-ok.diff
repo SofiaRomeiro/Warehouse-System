@@ -1,56 +1,46 @@
 *** testsFinal/A-12-02-M-ok.out	2021-11-08 16:51:37.273596530 +0000
---- testsFinal/A-12-02-M-ok.outhyp	2021-11-09 19:24:30.499031409 +0000
+--- testsFinal/A-12-02-M-ok.outhyp	2021-11-09 23:25:26.391573835 +0000
 ***************
-*** 16,22 ****
+*** 16,50 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
---- 16,40 ----
+! 1 - Visualizar
+! 2 - Registar desagregação
+! 3 - Registar venda
+! 4 - Registar compra
+! 5 - Receber pagamento de venda
+! 0 - Sair
+! Escolha uma opção: Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: Saldo disponível: -20000
+! Saldo contabilístico: -20000
+! Menu Principal
+! 1 - Abrir
+! 2 - Guardar
+! 3 - Mostrar Data
+! 4 - Avançar Data
+! 5 - Gestão de Produtos
+! 6 - Gestão de Parceiros
+! 7 - Gestão de Transacções
+! 8 - Menu de Consultas
+! 9 - Ver Saldo Global
+! 0 - Sair
+! Escolha uma opção: 
+\ Sem newline no fim do ficheiro
+--- 16,19 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-***************
-*** 34,41 ****
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-! Escolha uma opção: Saldo disponível: -20000
-! Saldo contabilístico: -20000
-  Menu Principal
-  1 - Abrir
-  2 - Guardar
---- 52,59 ----
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-! Escolha uma opção: Saldo disponível: 0
-! Saldo contabilístico: 0
-  Menu Principal
-  1 - Abrir
-  2 - Guardar
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
+\ Sem newline no fim do ficheiro
