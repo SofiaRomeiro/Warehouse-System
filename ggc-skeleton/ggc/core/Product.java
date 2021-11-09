@@ -71,6 +71,12 @@ public abstract class Product implements Serializable {
 	public boolean remove(Observer obs) {
 		return _observers.remove(obs);
 	  }
+
+	public void toggleNotifications(Observer obs) {
+		if (add(obs))
+			return;
+		remove(obs);
+	}
 	
 	  // may be public or private
 	  private void notifyObservers(String notification) {
