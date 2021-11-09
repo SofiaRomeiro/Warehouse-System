@@ -22,7 +22,7 @@ class DoShowPartner extends Command<WarehouseManager> {
 
     String key = stringField("partnerId");
 
-    if (!_receiver.duplicatePartnerKey(key))
+    if (!(_receiver.hasPartner(key)))
         throw new UnknownPartnerKeyException(key);
 
     _display.addLine(_receiver.showPartner(key));

@@ -259,8 +259,9 @@ public class Warehouse implements Serializable {
 
           for (String component: components) {
             idAndQuantity = component.split(":");   
-            componentId = idAndQuantity[0];
+            componentId = idAndQuantity[0];            
             quantity = Integer.parseInt(idAndQuantity[1]);
+            addSimpleProductWithQuantity(componentId, quantity);
             Component c = new Component(quantity, new SimpleProduct(componentId));
             recipe.addComponent(c);
           }
@@ -283,6 +284,14 @@ public class Warehouse implements Serializable {
       throw e;
     }
 
+  }
+
+  private void addSimpleProductWithQuantity(String id, int quantity) {
+   
+    if (!(_products.containsKey(id))) {
+      SimpleProduct product = new SimpleProduct(id, quantity);
+      _products.put(id, product);
+    }
   }
 
 }

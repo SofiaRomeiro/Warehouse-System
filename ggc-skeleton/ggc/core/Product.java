@@ -56,6 +56,10 @@ public abstract class Product implements Serializable {
 		this (id, 0, 0, 0, 0);
 	}
 
+	public Product (String id, int quantity) {
+		this (id, 0, 0, 0, quantity);
+	}
+
 	public String getId() { return _id; }
 
 	public double getMaxPrice() { return _maxPrice; }

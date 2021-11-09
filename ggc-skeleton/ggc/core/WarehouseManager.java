@@ -120,7 +120,7 @@ public class WarehouseManager {
     _warehouse.toggleNotifications(partnerKey, productKey);
   }
 
-  public boolean duplicatePartnerKey(String key ){
+  public boolean hasPartner(String key ){
     return _warehouse.hasPartner(key);
   }
 
