@@ -1,5 +1,5 @@
 *** testsFinal/A-13-02-M-ok.out	2021-11-08 16:51:37.277598530 +0000
---- testsFinal/A-13-02-M-ok.outhyp	2021-11-09 18:39:42.654923182 +0000
+--- testsFinal/A-13-02-M-ok.outhyp	2021-11-09 18:58:54.174969548 +0000
 ***************
 *** 9,15 ****
   8 - Menu de Consultas
@@ -40,25 +40,22 @@
   2 - Visualizar todos os lotes
   3 - Visualizar lotes fornecidos por parceiro
 ***************
-*** 51,59 ****
+*** 51,60 ****
   1 - Produtos com Preço Abaixo de Limite
   2 - Facturas pagas por parceiro
   0 - Sair
 ! Escolha uma opção: Preço: HIDROGENIO|S1|2|5000
 ! ROLHA|M1|2|500
 ! VIDRO|M1|1|500
-  Consultas
-  1 - Produtos com Preço Abaixo de Limite
-  2 - Facturas pagas por parceiro
---- 48,58 ----
+! Consultas
   1 - Produtos com Preço Abaixo de Limite
   2 - Facturas pagas por parceiro
   0 - Sair
-! Escolha uma opção: Consultas
-! 1 - Produtos com Preço Abaixo de Limite
-! 2 - Facturas pagas por parceiro
-! 0 - Sair
-! Escolha uma opção: Opção inválida!
-  Consultas
+--- 48,54 ----
   1 - Produtos com Preço Abaixo de Limite
   2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Preço: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair

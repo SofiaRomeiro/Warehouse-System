@@ -141,6 +141,11 @@ public class Warehouse implements Serializable {
     return batches;
   }
 
+  /**
+   * Returns a list of all batches by partner.
+   * 
+   * @return
+   */
   public List<String> showBatchesByPartner(String key) throws UnkPartnerKeyException {
 
     ArrayList<String> batches = new ArrayList<>();
@@ -156,7 +161,27 @@ public class Warehouse implements Serializable {
     }
 
     return batches;
+  }
 
+  /**
+   * Returns a list of all batches under given price.
+   * 
+   * @return
+   */
+  public List<String> showBatchesUnderPrice(double price) {
+
+    ArrayList<String> batchesUnderPrice = new ArrayList<>();
+
+    
+    for (Product p : _products.values()) {
+      for (Batch b : p.getAllBatches()) {
+        if (b.getPrice() < price) {
+          batchesUnderPrice.add(b.toString());
+        }        
+      }
+    }
+
+    return batchesUnderPrice;
 
   }
 

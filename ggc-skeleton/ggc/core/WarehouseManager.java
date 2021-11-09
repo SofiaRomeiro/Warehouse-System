@@ -108,6 +108,10 @@ public class WarehouseManager {
     return _warehouse.showBatchesByPartner(key);
   }
 
+  public List<String> showBatchesUnderPrice(double price) {
+    return _warehouse.showBatchesUnderPrice(price);
+  }
+
   // Partner
   public List<String> showAllPartners() {
     return _warehouse.showAllPartners();
