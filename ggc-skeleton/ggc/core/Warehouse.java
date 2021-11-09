@@ -119,6 +119,29 @@ public class Warehouse implements Serializable {
   }
 
   /**
+   * Returns a list of all batches description by product.
+   * 
+   * @return
+   */
+
+  public List<String> showBatchesByProduct(String key) throws UnkProductKeyException {
+
+    ArrayList<String> batches = new ArrayList<>();    
+
+    if (!(_products.containsKey(key))) {
+      throw new UnkProductKeyException();        
+    }
+
+    Product p = _products.get(key);
+    
+    for (Batch b : p.getAllBatches()) {
+      batches.add(b.toString());
+    }
+
+    return batches;
+  }
+
+  /**
    * Returns a list of all partners.
    * 
    * @return

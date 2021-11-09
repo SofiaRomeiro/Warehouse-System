@@ -1,7 +1,7 @@
-*** testsFinal/A-03-08-M-ok.out	Sun Nov  7 16:04:59 2021
---- testsFinal/A-03-08-M-ok.outhyp	Tue Nov  9 13:09:33 2021
+*** testsFinal/A-03-08-M-ok.out	2021-11-08 16:51:37.257588529 +0000
+--- testsFinal/A-03-08-M-ok.outhyp	2021-11-09 17:32:26.738363627 +0000
 ***************
-*** 43,89 ****
+*** 43,105 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -30,13 +30,13 @@
 ! 7 - Gestão de Transacções
 ! 8 - Menu de Consultas
 ! 9 - Ver Saldo Global
-  0 - Sair
+! 0 - Sair
 ! Escolha uma opção: Gestão de Produtos
 ! 1 - Visualizar todos os produtos
 ! 2 - Visualizar todos os lotes
 ! 3 - Visualizar lotes fornecidos por parceiro
 ! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
+  0 - Sair
 ! Escolha uma opção: HIDROGENIO|2|5000
 ! ROLHA|2|500
 ! SAL|1|0
@@ -49,7 +49,23 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
---- 43,78 ----
+  2 - Guardar
+  3 - Mostrar Data
+- 4 - Avançar Data
+- 5 - Gestão de Produtos
+- 6 - Gestão de Parceiros
+- 7 - Gestão de Transacções
+- 8 - Menu de Consultas
+- 9 - Ver Saldo Global
+- 0 - Sair
+- Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+- 1 - Abrir
+- 2 - Guardar
+- 3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros
+--- 43,83 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -86,22 +102,8 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
-***************
-*** 96,110 ****
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-- Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
-- 1 - Abrir
-- 2 - Guardar
-- 3 - Mostrar Data
-- 4 - Avançar Data
-- 5 - Gestão de Produtos
-- 6 - Gestão de Parceiros
-- 7 - Gestão de Transacções
-- 8 - Menu de Consultas
-- 9 - Ver Saldo Global
-- 0 - Sair
-  Escolha uma opção: 
-\ No newline at end of file
---- 85,88 ----
+  2 - Guardar
+  3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros
