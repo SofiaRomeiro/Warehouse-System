@@ -28,6 +28,7 @@ public class Partner implements Serializable, Observer {
     private float _paidSales;
     private List<String> _notifications;
     private List<Batch> _batches;
+    private List<Transaction> _transactions;
     
     /**
      * Constructor.
@@ -47,6 +48,7 @@ public class Partner implements Serializable, Observer {
         _paidSales = 0;
         _notifications = new ArrayList<>();
         _batches = new ArrayList<>();
+        _transactions = new ArrayList<>();
     }
 
     public String getKey() { return _key; }
@@ -54,6 +56,8 @@ public class Partner implements Serializable, Observer {
     public List<Batch> getAllBatches() { return _batches; }
 
     public void addBatch(Batch b) { _batches.add(b); }
+
+    public void addTransation(Transaction t) { _transactions.add(t);}
     
     /**
 	 * Returns the string representing a Partner.

@@ -22,7 +22,6 @@ import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.NotValidDateException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
-import ggc.core.exception.NeedToCreateProductException;
 
 import java.util.Map;
 import java.util.TreeMap;

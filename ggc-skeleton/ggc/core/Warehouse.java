@@ -271,6 +271,13 @@ public class Warehouse implements Serializable {
 
   // Transaction
 
+  public void registerNewAcquisitionTransaction(int transactionDate, double baseValue, int quantity, Product product, Partner partner) {
+    _transactionsIds++;
+    Transaction transaction = new Acquisition(_transactionsIds, transactionDate, baseValue, quantity, product, partner);
+    _transations.add(transaction);
+    partner.addTransation(transaction);
+  }
+
   public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException, UnkProductKeyException{
     
     if (!_partners.containsKey(partnerKey.toLowerCase())) {
@@ -283,8 +290,8 @@ public class Warehouse implements Serializable {
 
     Batch batch = new Batch(price, Amount, _products.get(productKey), _partners.get(partnerKey));
     _products.get(productKey).addNewBatch(batch);
-
-    
+    _partners.get(partnerKey).addBatch(batch);
+    registerNewAcquisitionTransaction(_date.getDays(), price, Amount, _products.get(productKey),_partners.get(partnerKey));
   }
 
 
