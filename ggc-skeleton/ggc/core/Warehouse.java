@@ -38,6 +38,7 @@ public class Warehouse implements Serializable {
   private Map<String, Partner> _partners;
   private Map<String, Product> _products;
   private List<Transaction> _transations;
+  private List<Notification> _notifications;
 
   /**
    * Constructor.
@@ -49,6 +50,7 @@ public class Warehouse implements Serializable {
     _partners = new TreeMap<>();
     _products = new TreeMap<>();
     _transations = new ArrayList<>();
+    _notifications = new ArrayList<>();
 
   }
 
@@ -294,7 +296,9 @@ public class Warehouse implements Serializable {
     registerNewAcquisitionTransaction(_date.getDays(), price, Amount, _products.get(productKey),_partners.get(partnerKey));
   }
 
-
+  public void registNotification(Notification notification) {
+    _notifications.add(notification);
+  }
 
   /**
    * 

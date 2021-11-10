@@ -5,6 +5,8 @@ import java.util.List;
 
 import java.io.Serializable;
 
+import ggc.core.Notification;
+
 
 /**
  * Classe Partner
@@ -26,7 +28,7 @@ public class Partner implements Serializable, Observer {
     private float _purchases;
     private float _sales;
     private float _paidSales;
-    private List<String> _notifications;
+    private List<Notification> _notifications;
     private List<Batch> _batches;
     private List<Transaction> _transactions;
     
@@ -70,19 +72,30 @@ public class Partner implements Serializable, Observer {
         return _key + "|" + _name + "|" + _address + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
 
-    public void update (String notification) {
+    public void update(Notification notification) {
         _notifications.add(notification);
     }
 
+    private void clearNotifications() {
+        _notifications.clear();
+    }
+
     public List<String> getAllNotifications(){
-        return _notifications;
+
+        ArrayList<String> notsToString = new ArrayList<>();
+
+        for (Notification n : _notifications) {
+            notsToString.add(n.toString());
+        }        
+
+        return notsToString;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof Partner) {
-            Partner partener = (Partner) o;
-            return _key.toLowerCase().equals(partener.getKey().toLowerCase());
+            Partner p = (Partner) o;
+            return _key.toLowerCase().equals(p.getKey().toLowerCase());
         }
         return false;
     }

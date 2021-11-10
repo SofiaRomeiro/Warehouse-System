@@ -1,5 +1,6 @@
 package ggc.core;
 
+
 import java.io.Serializable;
 
 import java.util.Comparator;
@@ -9,6 +10,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
 
+import ggc.core.NotificationType;
 
 /**
  * Classe Product
@@ -28,7 +30,7 @@ public abstract class Product implements Serializable {
 	private double _highestPrice;
 	private int _currentQuantity;
 	private List<Batch> _batches;
-	private Set<Observer> _observers = new HashSet<>();
+	private Set<Observer> _observers;
 
 
 	/**
@@ -47,6 +49,7 @@ public abstract class Product implements Serializable {
 		_highestPrice = highestPrice;
 		_currentQuantity = currentQuantity;
 		_batches = new ArrayList<>();
+		_observers = new HashSet<>();
 	}
 
 	/**
@@ -66,15 +69,17 @@ public abstract class Product implements Serializable {
 
 	public double getMaxPrice() { return _maxPrice; }
 
+	public double getLowestPrice() { return _lowestPrice; }
+
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
-	public boolean add(Observer obs) {
+	private boolean add(Observer obs) {
 		return _observers.add(obs);
 	  }
 	  
-	public boolean remove(Observer obs) {
+	private boolean remove(Observer obs) {
 		return _observers.remove(obs);
 	  }
 
@@ -85,7 +90,7 @@ public abstract class Product implements Serializable {
 	}
 	
 	  // may be public or private
-	  private void notifyObservers(String notification) {
+	  private void notifyObservers(Notification notification) {
 		for (Observer obs : _observers)
 		  obs.update(notification);
 	  }
@@ -96,14 +101,16 @@ public abstract class Product implements Serializable {
 	 * @param price
 	 */
 	private void updatePrices(double price) {
+
 		if (price > _maxPrice) { 
 			_maxPrice = price;
 			_highestPrice = price;
 		}
 
 		if (price < _lowestPrice) {
-			_lowestPrice = price;
-			notifyObservers(bargainNotificationToString());
+			_lowestPrice = price;			
+			Notification brg = new Notification(NotificationType.BARGAIN, this);
+			notifyObservers(brg);
 		}
 	}
 
@@ -168,11 +175,13 @@ public abstract class Product implements Serializable {
         return _id + "|" + Math.round(_maxPrice) + "|" + _currentQuantity;
     }
 
-	public String newNotificationToString() {
-		return "NEW|" + _id + "|" + Math.round(_lowestPrice);
+	public String newNotification() {
+		Notification newNot = new Notification(NotificationType.NEW, this);
+		return newNot.toString();
 	}
 
-	public String bargainNotificationToString() {
-		return "BARGAIN|" + _id + "|" + Math.round(_lowestPrice);
+	public String bargainNotification() {
+		Notification bargainNot = new Notification(NotificationType.BARGAIN, this);
+		return bargainNot.toString();
 	}
 }
