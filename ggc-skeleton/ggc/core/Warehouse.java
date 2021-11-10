@@ -60,7 +60,7 @@ public class Warehouse implements Serializable {
    * @return
    */
   public int getDate() {
-    return _date.getDays();
+    return _date.getDate();
   }
 
   /**
@@ -70,7 +70,7 @@ public class Warehouse implements Serializable {
    * @return
    */
   public void advanceDate(int days) throws NotValidDateException {
-    _date.advanceDate(days);
+    _date.advance(days);
   }
 
   /**
@@ -296,7 +296,7 @@ public class Warehouse implements Serializable {
     _products.get(productKey).addNewBatch(batch);
     _partners.get(partnerKey).addBatch(batch);
     _transactionsIds++;
-    Transaction transaction = new Acquisition(_transactionsIds, _date.getDays(), price, amount, _products.get(productKey), _partners.get(partnerKey));
+    Transaction transaction = new Acquisition(_transactionsIds, _date.getDate(), price, amount, _products.get(productKey), _partners.get(partnerKey));
     _transations.add(transaction);
     _partners.get(partnerKey).addTransation(transaction);
   }
