@@ -271,29 +271,34 @@ public class Warehouse implements Serializable {
   }
 
 
-  // Transaction
-
-  public void registerNewAcquisitionTransaction(int transactionDate, double baseValue, int quantity, Product product, Partner partner) {
-    _transactionsIds++;
-    Transaction transaction = new Acquisition(_transactionsIds, transactionDate, baseValue, quantity, product, partner);
-    _transations.add(transaction);
-    partner.addTransation(transaction);
+  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) {
+    Recipe recipe = new Recipe(alpha);
+    for (int i = 0; i < componentsProductAmount.size(); i++) {
+      recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i))));
+    }
+    addAggregateProduct(productKey, recipe);
   }
 
-  public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException, UnkProductKeyException{
-    
-    if (!_partners.containsKey(partnerKey.toLowerCase())) {
+
+  // Transaction
+
+  public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
+    if (!_partners.containsKey(partnerKey.toLowerCase())) 
       throw new UnkPartnerKeyException();
-    }
 
-    if (!_products.containsKey(productKey.toLowerCase())) {
+    if (!_products.containsKey(productKey.toLowerCase())) 
       throw new UnkProductKeyException();
-    }
+  }
 
-    Batch batch = new Batch(price, Amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+  public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
+
+    Batch batch = new Batch(price, amount, _products.get(productKey), _partners.get(partnerKey));
     _products.get(productKey).addNewBatch(batch);
     _partners.get(partnerKey).addBatch(batch);
-    registerNewAcquisitionTransaction(_date.getDays(), price, Amount, _products.get(productKey.toLowerCase()),_partners.get(partnerKey.toLowerCase()));
+    _transactionsIds++;
+    Transaction transaction = new Acquisition(_transactionsIds, _date.getDays(), price, amount, _products.get(productKey), _partners.get(partnerKey));
+    _transations.add(transaction);
+    _partners.get(partnerKey).addTransation(transaction);
   }
 
   public void registNotification(Notification notification) {
