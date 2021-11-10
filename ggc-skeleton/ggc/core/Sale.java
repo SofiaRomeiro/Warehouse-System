@@ -9,5 +9,9 @@ public abstract class Sale extends Transaction {
     } 
     
     public double getValuePaid() { return _valuePaid;}
+
+    public double getValueToBePaid() {
+        
+    }
     
 }

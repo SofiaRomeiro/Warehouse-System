@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 *** testsFinal/A-15-02-M-ok.out	Wed Nov 10 21:22:28 2021
 --- testsFinal/A-15-02-M-ok.outhyp	Wed Nov 10 21:53:28 2021
+=======
+*** testsFinal/A-15-02-M-ok.out	2021-11-08 16:51:37.277598530 +0000
+--- testsFinal/A-15-02-M-ok.outhyp	2021-11-10 21:57:17.232969952 +0000
+>>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
 ***************
 *** 16,29 ****
   4 - Registar compra

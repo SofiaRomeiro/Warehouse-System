@@ -16,4 +16,8 @@ Escolha uma opção: Gestão de Transacções
 4 - Registar compra
 5 - Receber pagamento de venda
 0 - Sair
+<<<<<<< HEAD
 Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Registar receita? 
+=======
+Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
+>>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
