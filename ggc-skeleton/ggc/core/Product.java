@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import ggc.core.NotificationType;
 
@@ -123,6 +124,16 @@ public abstract class Product implements Serializable {
 		updateCurrentQuantity(b.getQuantity());
 		updatePrices(b.getPrice());
 		_batches.add(b);
+	}
+
+	public void removeEmptyBatch() {
+		Iterator<Batch> iter = _batches.iterator();
+		while (iter.hasNext()) {
+			if (iter.next().getQuantity() == 0) {
+				iter.remove();
+			}
+		}
+
 	}
 
 	/**
