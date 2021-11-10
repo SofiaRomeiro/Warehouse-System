@@ -112,6 +112,14 @@ public class WarehouseManager {
     return _warehouse.showBatchesUnderPrice(price);
   }
 
+  public void createSimpleProduct(String productKey) {
+    _warehouse.addSimpleProduct(productKey);
+  }
+
+  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) {
+    _warehouse.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
+  }
+
   // Partner
   public List<String> showAllPartners() {
     return _warehouse.showAllPartners();
@@ -139,8 +147,12 @@ public class WarehouseManager {
 
   // Transaction
 
-  public void registerAcquisitionTransaction(String partnerKey, String productKey, double price, int Amount) throws UnkPartnerKeyException, UnkProductKeyException{
-    _warehouse.addNewAcquisitionTransaction(partnerKey, productKey, price, Amount);
+  public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
+    _warehouse.validateParameters(partnerKey, productKey);
+  }
+
+  public void registerAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
+    _warehouse.addNewAcquisitionTransaction(partnerKey, productKey, price, amount);
   }
 
   /**
