@@ -299,7 +299,7 @@ public class Warehouse implements Serializable {
     _products.get(productKey.toLowerCase()).addNewBatch(batch);
     _partners.get(partnerKey.toLowerCase()).addBatch(batch);
     _transactionsIds++;
-    Transaction transaction = new Acquisition(_transactionsIds, _date.getDate(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _transations.add(transaction);
     _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
   }
