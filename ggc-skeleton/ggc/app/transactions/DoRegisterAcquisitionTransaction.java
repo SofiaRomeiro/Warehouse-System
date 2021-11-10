@@ -3,6 +3,9 @@ package ggc.app.transactions;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import javax.sound.midi.Receiver;
 
 import ggc.core.WarehouseManager;
@@ -31,18 +34,38 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
     String partnerKey = stringField("partnerKey");
     String productKey = stringField("productKey");
     Double price = realField("price");
-    Integer Amount = integerField("Amount");
+    Integer amount = integerField("amount");
 
     try {
-    _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, Amount);
+      _receiver.validateParameters(partnerKey, productKey);
+      _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
     }
     catch (UnkPartnerKeyException upke){
-			throw new UnknownPartnerKeyException(partnerKey);
-		} 
+      throw new UnknownPartnerKeyException(partnerKey);
+    } 
     catch (UnkProductKeyException upke){
-			addStringField("answer", Message.requestAddRecipe());
+      addStringField("answer", Message.requestAddRecipe());
+      String answer = stringField("answer");
+      if (answer.toLowerCase().equals("n"))
+        _receiver.createSimpleProduct(productKey);
+      else {
+        addIntegerField("numComponents", Message.requestNumberOfComponents());
+        addRealField("alpha", Message.requestAlpha());
+        Integer numComponents = integerField("numComponents");
+        Double alpha = realField("alpha");
+        List<String> componentsProductKey = new ArrayList<>();
+        List<Integer> componentsProductAmount = new ArrayList<>();
 
-		} 
+        for (int i = 0; i < numComponents; i++) {
+          addStringField("componentsKey", Message.requestProductKey());
+          addIntegerField("componentAmount", Message.requestAmount());
+          componentsProductKey.add(stringField("componentsKey"));
+          componentsProductAmount.add(integerField("componentAmount"));
+        }
+        _receiver.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
+      }
+      _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
+    } 
 
   }
 
