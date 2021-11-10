@@ -15,29 +15,29 @@ public class Date implements Serializable {
 
 	private static Date _now = new Date();
 	private final int _date;
-	private final int _deadlinePayment;
+	private int _deadlinePayment;
 	private static final long serialVersionUID = 257349192006L;
 
 	/**
 	 * Constructor.
 	 * @param days
 	 */
+
 	public Date() {
 		_date = 0;
+		_deadlinePayment = 0;
 	}
 
 	public Date(int days) {
 		_date = days;
-	}
-
-	public Date(int days, int deadlinePayment) {
-		_date = days;
-		_deadlinePayment = deadlinePayment;
+		_deadlinePayment = 0;
 	}
 
 	public static Date now() { return _now; }
 
 	public int getDate() { return _date; }
+
+	public void setDeadlinePayment(int date) { _deadlinePayment = date; }
 
 	public int getDealinePayment() { return _deadlinePayment; }
 
