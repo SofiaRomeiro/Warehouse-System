@@ -32,7 +32,7 @@ public class Warehouse implements Serializable {
   /** Serial number for serialization. */
   private static final long serialVersionUID = 202109192006L;
 
-  private Date _date;
+  private static Date _date;
   private Balance _balance;
   private int _transactionsIds;
   private Map<String, Partner> _partners;
@@ -70,7 +70,7 @@ public class Warehouse implements Serializable {
    * @return
    */
   public void advanceDate(int days) throws NotValidDateException {
-    _date.advance(days);
+    _date = _date.advance(days);
   }
 
   /**

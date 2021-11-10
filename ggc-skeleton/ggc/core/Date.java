@@ -43,14 +43,13 @@ public class Date implements Serializable {
 
 	public int difference(Date other) { return other.getDate() - _date; }
 
-	public static void advance(int days) throws NotValidDateException {
+	public static Date advance(int days) throws NotValidDateException {
 
 		if (days < 0) {
 			throw new NotValidDateException();
-		}
+		}		
 
-		_now = new Date(_now.getDate() + days);
-
+		return _now = new Date(_now.getDate() + days);	
 
 	}
 
