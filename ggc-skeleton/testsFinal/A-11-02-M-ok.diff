@@ -1,105 +1,19 @@
-<<<<<<< HEAD
-*** testsFinal/A-11-02-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-11-02-M-ok.outhyp	Wed Nov 10 21:53:26 2021
-=======
 *** testsFinal/A-11-02-M-ok.out	2021-11-08 16:51:37.269594529 +0000
---- testsFinal/A-11-02-M-ok.outhyp	2021-11-10 21:57:15.768969893 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-11-02-M-ok.outhyp	2021-11-10 22:51:40.921101366 +0000
 ***************
-*** 16,104 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
+*** 81,87 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: HIDROGENIO|200|5000
-! ROLHA|30|1100
-! SAL|1000|500
-! VIDRO|1000|500
-! Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: HIDROGENIO|S1|200|5000
-! ROLHA|M1|20|500
-! ROLHA|M1|25|100
-! ROLHA|M1|30|500
-! SAL|S1|1000|500
-! VIDRO|M1|1000|500
-! Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
 ! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|2500|0|0
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: 
-\ No newline at end of file
---- 16,19 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 81,87 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
-\ No newline at end of file
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros

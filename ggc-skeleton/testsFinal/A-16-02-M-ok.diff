@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-*** testsFinal/A-16-02-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-16-02-M-ok.outhyp	Wed Nov 10 21:53:29 2021
-=======
 *** testsFinal/A-16-02-M-ok.out	2021-11-08 16:51:37.281600530 +0000
---- testsFinal/A-16-02-M-ok.outhyp	2021-11-10 21:57:17.556969965 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-16-02-M-ok.outhyp	2021-11-10 22:51:42.649101435 +0000
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -73,7 +68,7 @@
   2 - Registar desagregação
   3 - Registar venda
 ***************
-*** 86,107 ****
+*** 86,112 ****
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair
@@ -96,7 +91,12 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
---- 87,97 ----
+  2 - Guardar
+  3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros
+--- 87,114 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair
@@ -108,17 +108,8 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
-***************
-*** 114,117 ****
---- 104,119 ----
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-+ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '0'.
-+ Menu Principal
-+ 1 - Abrir
-+ 2 - Guardar
-+ 3 - Mostrar Data
+  2 - Guardar
+  3 - Mostrar Data
 + 4 - Avançar Data
 + 5 - Gestão de Produtos
 + 6 - Gestão de Parceiros
@@ -126,5 +117,11 @@
 + 8 - Menu de Consultas
 + 9 - Ver Saldo Global
 + 0 - Sair
-  Escolha uma opção: 
-\ No newline at end of file
++ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '0'.
++ Menu Principal
++ 1 - Abrir
++ 2 - Guardar
++ 3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros

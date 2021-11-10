@@ -1,168 +1,42 @@
-<<<<<<< HEAD
-*** testsFinal/A-10-05-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-10-05-M-ok.outhyp	Wed Nov 10 21:53:26 2021
-=======
 *** testsFinal/A-10-05-M-ok.out	2021-11-08 16:51:37.265592529 +0000
---- testsFinal/A-10-05-M-ok.outhyp	2021-11-10 21:57:15.512969883 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-10-05-M-ok.outhyp	2021-11-10 22:51:40.653101355 +0000
 ***************
-*** 16,167 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
+*** 43,49 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! BARGAIN|SAL|50
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! BARGAIN|SAL|50
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: HIDROGENIO|200|5000
-! ROLHA|2000|500
-! SAL|100|513
-! VIDRO|1000|500
-! Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! BARGAIN|SAL|2
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! BARGAIN|SAL|2
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: 
-\ No newline at end of file
---- 16,19 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 43,48 ----
+***************
+*** 53,59 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
-\ No newline at end of file
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 52,57 ----
+***************
+*** 134,140 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|2
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 132,137 ----
+***************
+*** 144,150 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|2
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 141,146 ----

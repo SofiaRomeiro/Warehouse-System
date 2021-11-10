@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-*** testsFinal/A-03-08-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-03-08-M-ok.outhyp	Wed Nov 10 21:53:24 2021
-=======
 *** testsFinal/A-03-08-M-ok.out	2021-11-09 19:24:17.831030899 +0000
---- testsFinal/A-03-08-M-ok.outhyp	2021-11-10 21:57:14.308969834 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-03-08-M-ok.outhyp	2021-11-10 22:51:39.437101306 +0000
 ***************
-*** 43,89 ****
+*** 43,105 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -35,13 +30,13 @@
 ! 7 - Gestão de Transacções
 ! 8 - Menu de Consultas
 ! 9 - Ver Saldo Global
-  0 - Sair
+! 0 - Sair
 ! Escolha uma opção: Gestão de Produtos
 ! 1 - Visualizar todos os produtos
 ! 2 - Visualizar todos os lotes
 ! 3 - Visualizar lotes fornecidos por parceiro
 ! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
+  0 - Sair
 ! Escolha uma opção: HIDROGENIO|2|5000
 ! ROLHA|2|500
 ! SAL|1|0
@@ -54,7 +49,23 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
---- 43,78 ----
+  2 - Guardar
+  3 - Mostrar Data
+- 4 - Avançar Data
+- 5 - Gestão de Produtos
+- 6 - Gestão de Parceiros
+- 7 - Gestão de Transacções
+- 8 - Menu de Consultas
+- 9 - Ver Saldo Global
+- 0 - Sair
+- Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+- 1 - Abrir
+- 2 - Guardar
+- 3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros
+--- 43,83 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -91,22 +102,8 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
-***************
-*** 96,110 ****
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
-  0 - Sair
-- Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
-- 1 - Abrir
-- 2 - Guardar
-- 3 - Mostrar Data
-- 4 - Avançar Data
-- 5 - Gestão de Produtos
-- 6 - Gestão de Parceiros
-- 7 - Gestão de Transacções
-- 8 - Menu de Consultas
-- 9 - Ver Saldo Global
-- 0 - Sair
-  Escolha uma opção: 
-\ No newline at end of file
---- 85,88 ----
+  2 - Guardar
+  3 - Mostrar Data
+  4 - Avançar Data
+  5 - Gestão de Produtos
+  6 - Gestão de Parceiros

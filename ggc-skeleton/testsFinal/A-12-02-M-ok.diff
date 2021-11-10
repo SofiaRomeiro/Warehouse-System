@@ -1,51 +1,21 @@
-<<<<<<< HEAD
-*** testsFinal/A-12-02-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-12-02-M-ok.outhyp	Wed Nov 10 21:53:27 2021
-=======
 *** testsFinal/A-12-02-M-ok.out	2021-11-08 16:51:37.273596530 +0000
---- testsFinal/A-12-02-M-ok.outhyp	2021-11-10 21:57:16.320969915 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-12-02-M-ok.outhyp	2021-11-10 22:51:41.425101386 +0000
 ***************
-*** 16,50 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
+*** 34,41 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
 ! Escolha uma opção: Saldo disponível: -20000
 ! Saldo contabilístico: -20000
-! Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: 
-\ No newline at end of file
---- 16,19 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
+  Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 34,41 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
-\ No newline at end of file
+! Escolha uma opção: Saldo disponível: 0
+! Saldo contabilístico: 0
+  Menu Principal
+  1 - Abrir
+  2 - Guardar

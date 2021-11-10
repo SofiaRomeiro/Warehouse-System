@@ -1,90 +1,48 @@
-<<<<<<< HEAD
-*** testsFinal/A-14-02-M-ok.out	Wed Nov 10 21:22:28 2021
---- testsFinal/A-14-02-M-ok.outhyp	Wed Nov 10 21:53:28 2021
-=======
 *** testsFinal/A-14-02-M-ok.out	2021-11-08 16:51:37.277598530 +0000
---- testsFinal/A-14-02-M-ok.outhyp	2021-11-10 21:57:16.992969942 +0000
->>>>>>> ee1cb16a9655cf55cf6679550c5e10cf8e45dace
+--- testsFinal/A-14-02-M-ok.outhyp	2021-11-10 22:51:42.137101415 +0000
 ***************
-*** 16,89 ****
+*** 48,55 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
 ! Escolha uma opção: Identificador da transacção: COMPRA|0|M1|SAL|10|100|0
 ! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Consultas
-! 1 - Produtos com Preço Abaixo de Limite
-! 2 - Facturas pagas por parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: Consultas
-! 1 - Produtos com Preço Abaixo de Limite
-! 2 - Facturas pagas por parceiro
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: 
-\ No newline at end of file
---- 16,19 ----
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+--- 48,54 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
-\ No newline at end of file
+! Escolha uma opção: Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda
+***************
+*** 58,82 ****
+  0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+- 2 - Guardar
+- 3 - Mostrar Data
+- 4 - Avançar Data
+- 5 - Gestão de Produtos
+- 6 - Gestão de Parceiros
+- 7 - Gestão de Transacções
+- 8 - Menu de Consultas
+- 9 - Ver Saldo Global
+- 0 - Sair
+- Escolha uma opção: Consultas
+- 1 - Produtos com Preço Abaixo de Limite
+- 2 - Facturas pagas por parceiro
+- 0 - Sair
+- Escolha uma opção: Identificador do parceiro: Consultas
+- 1 - Produtos com Preço Abaixo de Limite
+- 2 - Facturas pagas por parceiro
+- 0 - Sair
+- Escolha uma opção: Menu Principal
+- 1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+  4 - Avançar Data
+--- 57,62 ----
