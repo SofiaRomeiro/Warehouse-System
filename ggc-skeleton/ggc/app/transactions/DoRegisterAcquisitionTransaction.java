@@ -2,6 +2,7 @@ package ggc.app.transactions;
 
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
+import pt.tecnico.uilib.forms.Form;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
     addStringField("partnerKey", Message.requestPartnerKey());
     addStringField("productKey", Message.requestProductKey());
     addRealField("price", Message.requestPrice());
-    addIntegerField("Amount", Message.requestAmount());
+    addIntegerField("amount", Message.requestAmount());
   }
 
   @Override
@@ -44,23 +45,30 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
       throw new UnknownPartnerKeyException(partnerKey);
     } 
     catch (UnkProductKeyException upke){
-      addStringField("answer", Message.requestAddRecipe());
-      String answer = stringField("answer");
-      if (answer.toLowerCase().equals("n"))
+
+      Form request = new Form();
+      request.addStringField("answer", Message.requestAddRecipe());
+      String answer = request.parse().stringField("answer");
+      if (answer.toUpperCase().equals("N"))
         _receiver.createSimpleProduct(productKey);
       else {
-        addIntegerField("numComponents", Message.requestNumberOfComponents());
-        addRealField("alpha", Message.requestAlpha());
-        Integer numComponents = integerField("numComponents");
-        Double alpha = realField("alpha");
+        Form request1 = new Form();
+        Form request2 = new Form();
+
+        request1.addIntegerField("numComponents", Message.requestNumberOfComponents());
+        request2.addRealField("alpha", Message.requestAlpha());
+        Integer numComponents = request1.parse().integerField("numComponents");
+        Double alpha = request2.parse().realField("alpha");
         List<String> componentsProductKey = new ArrayList<>();
         List<Integer> componentsProductAmount = new ArrayList<>();
 
         for (int i = 0; i < numComponents; i++) {
-          addStringField("componentsKey", Message.requestProductKey());
-          addIntegerField("componentAmount", Message.requestAmount());
-          componentsProductKey.add(stringField("componentsKey"));
-          componentsProductAmount.add(integerField("componentAmount"));
+          Form request3 = new Form();
+          Form request4 = new Form();
+          request3.addStringField("componentsKey", Message.requestProductKey());
+          request4.addIntegerField("componentAmount", Message.requestAmount());
+          componentsProductKey.add(request3.parse().stringField("componentsKey"));
+          componentsProductAmount.add(request4.parse().integerField("componentAmount"));
         }
         _receiver.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
       }

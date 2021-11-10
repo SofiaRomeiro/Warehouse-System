@@ -1,5 +1,5 @@
-*** testsFinal/A-16-02-M-ok.out	2021-11-08 16:51:37.281600530 +0000
---- testsFinal/A-16-02-M-ok.outhyp	2021-11-10 20:41:54.172787828 +0000
+*** testsFinal/A-16-02-M-ok.out	Wed Nov 10 21:22:28 2021
+--- testsFinal/A-16-02-M-ok.outhyp	Wed Nov 10 21:53:29 2021
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -68,7 +68,7 @@
   2 - Registar desagregação
   3 - Registar venda
 ***************
-*** 86,112 ****
+*** 86,107 ****
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair
@@ -91,12 +91,7 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
-  4 - Avançar Data
-  5 - Gestão de Produtos
-  6 - Gestão de Parceiros
---- 87,114 ----
+--- 87,97 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair
@@ -108,8 +103,17 @@
   0 - Sair
   Escolha uma opção: Menu Principal
   1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
+***************
+*** 114,117 ****
+--- 104,119 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
++ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '0'.
++ Menu Principal
++ 1 - Abrir
++ 2 - Guardar
++ 3 - Mostrar Data
 + 4 - Avançar Data
 + 5 - Gestão de Produtos
 + 6 - Gestão de Parceiros
@@ -117,11 +121,5 @@
 + 8 - Menu de Consultas
 + 9 - Ver Saldo Global
 + 0 - Sair
-+ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '0'.
-+ Menu Principal
-+ 1 - Abrir
-+ 2 - Guardar
-+ 3 - Mostrar Data
-  4 - Avançar Data
-  5 - Gestão de Produtos
-  6 - Gestão de Parceiros
+  Escolha uma opção: 
+\ No newline at end of file

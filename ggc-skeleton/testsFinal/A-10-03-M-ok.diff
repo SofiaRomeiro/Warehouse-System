@@ -1,5 +1,5 @@
-*** testsFinal/A-10-03-M-ok.out	2021-11-08 16:51:37.265592529 +0000
---- testsFinal/A-10-03-M-ok.outhyp	2021-11-10 20:41:52.172787748 +0000
+*** testsFinal/A-10-03-M-ok.out	Wed Nov 10 21:22:28 2021
+--- testsFinal/A-10-03-M-ok.outhyp	Wed Nov 10 21:53:25 2021
 ***************
 *** 16,76 ****
   4 - Registar compra
@@ -63,10 +63,10 @@
 ! 9 - Ver Saldo Global
 ! 0 - Sair
 ! Escolha uma opção: 
-\ Sem newline no fim do ficheiro
+\ No newline at end of file
 --- 16,19 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Preço: Quantidade: 
-\ Sem newline no fim do ficheiro
+\ No newline at end of file
