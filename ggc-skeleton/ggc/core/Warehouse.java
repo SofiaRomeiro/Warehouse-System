@@ -274,7 +274,10 @@ public class Warehouse implements Serializable {
   public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) {
     Recipe recipe = new Recipe(alpha);
     for (int i = 0; i < componentsProductAmount.size(); i++) {
-      recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i))));
+      if (!_products.containsKey(productKey.toLowerCase())) {
+        addSimpleProduct(productKey);
+      }
+      recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i).toLowerCase())));
     }
     addAggregateProduct(productKey, recipe);
   }
@@ -292,13 +295,13 @@ public class Warehouse implements Serializable {
 
   public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
 
-    Batch batch = new Batch(price, amount, _products.get(productKey), _partners.get(partnerKey));
-    _products.get(productKey).addNewBatch(batch);
-    _partners.get(partnerKey).addBatch(batch);
+    Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    _products.get(productKey.toLowerCase()).addNewBatch(batch);
+    _partners.get(partnerKey.toLowerCase()).addBatch(batch);
     _transactionsIds++;
-    Transaction transaction = new Acquisition(_transactionsIds, _date.getDate(), price, amount, _products.get(productKey), _partners.get(partnerKey));
+    Transaction transaction = new Acquisition(_transactionsIds, _date.getDate(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _transations.add(transaction);
-    _partners.get(partnerKey).addTransation(transaction);
+    _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
   }
 
   public void registNotification(Notification notification) {
