@@ -13,8 +13,8 @@ import ggc.core.exception.NotValidDateException;
  */
 public class Date implements Serializable {
 
-	private int _days;
-	private static Date _date;
+	private Date _now = new Date();
+	private final int _date;
 	private static final long serialVersionUID = 257349192006L;
 
 	/**
@@ -22,31 +22,28 @@ public class Date implements Serializable {
 	 * @param days
 	 */
 	private Date() {
-		_days = 0;
+		_date = 0;
 	}
 
-	public static Date now() {
-		if (_date == null) {
-			_date = new Date();
-		}
-
-		return _date;
+	private Date(int days) {
+		_date = days;
 	}
 
-	public int difference(Date other) {
-		return other.getDays() - _days;
-	}
+	private static Date now() { return _now; }
 
-	public int getDays() {
-		return _days;
-	}
+	public int getDate() { return _date; }
 
-	public void advanceDate(int days) throws NotValidDateException {
+	public int difference(Date other) { return other.getDate() - _date; }
 
-		if (days < _days || days < 0) {
+	public static void advance(int days) {
+
+		if (days < 0) {
 			throw new NotValidDateException();
 		}
-			_days += days; 
+
+		_now = new Date(_now.getDate() + days);
+
+
 	}
 
 
