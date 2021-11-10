@@ -5,7 +5,7 @@ public class SaleByCredit extends Sale {
     private int _paymentDate;
     private int _deadlineDate;
     
-    public SaleByCredit(int id, int transactionDate, double baseValue, int quantity, Product product, Partner partner) {
+    public SaleByCredit(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
         super(id, transactionDate, baseValue, quantity, product, partner);
     } 
 

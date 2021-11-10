@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class BreakdownSale extends Sale{
 
     private Map<String, Batch> _batches;
-    public BreakdownSale(int id, int transactionDate, double baseValue, int quantity, Product product, Partner partner) {
+    public BreakdownSale(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
         super(id, transactionDate, baseValue, quantity, product, partner);
         _batches = new HashMap<>();
 

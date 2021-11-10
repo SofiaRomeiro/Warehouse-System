@@ -2,7 +2,7 @@ package ggc.core;
 
 public class Acquisition extends Transaction {
     
-    public Acquisition(int id, int transactionDate, double baseValue, int quantity, Product product, Partner partner) {
+    public Acquisition(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
         super(id, transactionDate, baseValue, quantity, product, partner);
     }
 
