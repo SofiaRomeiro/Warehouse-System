@@ -37,7 +37,7 @@ public class WarehouseManager {
   private String _filename = "";
 
   /** The wharehouse itself. */
-   private Warehouse _warehouse;
+  private Warehouse _warehouse;
 
   public WarehouseManager() {
     _warehouse = new Warehouse();

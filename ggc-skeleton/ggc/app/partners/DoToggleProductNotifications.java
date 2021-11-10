@@ -31,7 +31,7 @@ class DoToggleProductNotifications extends Command<WarehouseManager> {
     catch (UnkProductKeyException upke) {
       throw new UnknownProductKeyException(productKey);
     }catch (UnkPartnerKeyException upke) {
-      throw new UnknownPartnerKeyException(productKey);
+      throw new UnknownPartnerKeyException(partnerKey);
     }
   }
 

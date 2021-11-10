@@ -223,7 +223,7 @@ public class Warehouse implements Serializable {
     return _partners.get(key.toLowerCase()).getAllNotifications();
   }
 
-  public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException{
+  public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException {
     if (!_products.containsKey(productKey.toLowerCase())) {
       throw new UnkProductKeyException();
     }
@@ -290,14 +290,83 @@ public class Warehouse implements Serializable {
       throw new UnkProductKeyException();
     }
 
-    Batch batch = new Batch(price, Amount, _products.get(productKey), _partners.get(partnerKey));
+    Batch batch = new Batch(price, Amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _products.get(productKey).addNewBatch(batch);
     _partners.get(partnerKey).addBatch(batch);
-    registerNewAcquisitionTransaction(_date.getDays(), price, Amount, _products.get(productKey),_partners.get(partnerKey));
+    registerNewAcquisitionTransaction(_date.getDays(), price, Amount, _products.get(productKey.toLowerCase()),_partners.get(partnerKey.toLowerCase()));
   }
 
   public void registNotification(Notification notification) {
     _notifications.add(notification);
+  }
+
+  private void importPartner(String[] fields) {
+    String id = fields[1];
+    String name = fields[2];
+    String address = fields[3];
+    _partners.put(id.toLowerCase(), new Partner(id, name, address));
+  }
+
+  private void importBatchS(String[] fields) {
+    String id = fields[1];
+    String partner = fields[2];
+    double price = Double.parseDouble(fields[3]);
+    int stock = Integer.parseInt(fields[4]);
+
+    // metodo para criar lote de produto simples
+    if (!(_products.containsKey(id.toLowerCase()))) {
+      addSimpleProduct(id);
+    }
+
+    SimpleProduct product = (SimpleProduct) _products.get(id.toLowerCase());
+    Partner prtnr = _partners.get(partner.toLowerCase());
+    Batch b = new Batch(price, stock, product, prtnr);
+    product.addNewBatch(b);
+
+    //adicionar o lote ao parceiro
+    Partner p = _partners.get(partner.toLowerCase());
+    p.addBatch(b);
+  }
+
+  private void importBatchM(String[] fields) {
+    String id = fields[1];
+    String partner = fields[2];
+    String[] idAndQuantity;
+    String componentId;
+    int quantity;
+    double price = Double.parseDouble(fields[3]);
+    int stock = Integer.parseInt(fields[4]);
+    double alpha = Double.parseDouble(fields[5]);
+
+    Recipe recipe = new Recipe(alpha);
+
+    String[] components = fields[6].split("#"); //contains each part of the division "<id> : <quantity>"          
+
+    for (String component: components) {
+      idAndQuantity = component.split(":");   
+      componentId = idAndQuantity[0];            
+      quantity = Integer.parseInt(idAndQuantity[1]);
+
+      if (!(_products.containsKey(componentId.toLowerCase()))) {
+        addSimpleProductWithQuantity(componentId, quantity);
+      }    
+
+      Component c = new Component(quantity, new SimpleProduct(componentId));
+      recipe.addComponent(c);
+    }
+  
+    //criar o produto derivado
+    if (!(_products.containsKey(id.toLowerCase()))) { //se ainda nao foi criado
+      addAggregateProduct(id, recipe);
+    }
+    AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
+    Partner prtnr = _partners.get(partner.toLowerCase());
+    Batch b = new Batch(price, stock, new AggregateProduct(id, recipe), prtnr);
+    product.addNewBatch(b);
+
+    //adicionar o lote ao parceiro
+    Partner p = _partners.get(partner.toLowerCase());
+    p.addBatch(b);
   }
 
   /**
@@ -308,17 +377,6 @@ public class Warehouse implements Serializable {
    */
   void importFile(String txtfile) throws IOException, BadEntryException {
 
-    String[] components;
-    String[] idAndQuantity;
-    String id;
-    String name, address;
-    String partner;
-    String componentId;
-    int quantity = 0;
-    double price;
-    double alpha;
-    int stock = 0;
-
     try (BufferedReader in = new BufferedReader(new FileReader(txtfile))) {
       
       String line;
@@ -328,78 +386,18 @@ public class Warehouse implements Serializable {
         String[] fields = line.split("\\|");
 
         if (fields[0].equals(Label.PARTNER)) {
-          id = fields[1];
-          name = fields[2];
-          address = fields[3];
-
-          // metodo para adicionar parceiro
-          _partners.put(id.toLowerCase(), new Partner(id, name, address));         
+          importPartner(fields);                   
         }
 
         else if (fields[0].equals(Label.BATCH_S)) {
-          id = fields[1];
-          partner = fields[2];
-          price = Double.parseDouble(fields[3]);
-          stock = Integer.parseInt(fields[4]);
-
-          // metodo para criar lote de produto simples
-          if (!(_products.containsKey(id.toLowerCase()))) {
-            addSimpleProduct(id);
-          }
-
-          SimpleProduct product = (SimpleProduct) _products.get(id.toLowerCase());
-          Partner prtnr = _partners.get(partner.toLowerCase());
-          Batch b = new Batch(price, stock, product, prtnr);
-          product.addNewBatch(b);
-
-          //adicionar o lote ao parceiro
-          Partner p = _partners.get(partner.toLowerCase());
-          p.addBatch(b);
+          importBatchS(fields);
         }
 
         else if (fields[0].equals(Label.BATCH_M)) {
-          id = fields[1];
-          partner = fields[2];
-          price = Double.parseDouble(fields[3]);
-          stock = Integer.parseInt(fields[4]);
-          alpha = Double.parseDouble(fields[5]);
-
-          Recipe recipe = new Recipe(alpha);
-
-          components = fields[6].split("#"); //contains each part of the division "<id> : <quantity>"          
-
-          for (String component: components) {
-            idAndQuantity = component.split(":");   
-            componentId = idAndQuantity[0];            
-            quantity = Integer.parseInt(idAndQuantity[1]);
-
-            if (!(_products.containsKey(componentId.toLowerCase()))) {
-              addSimpleProductWithQuantity(componentId, quantity);
-            }    
-
-            Component c = new Component(quantity, new SimpleProduct(componentId));
-            recipe.addComponent(c);
-          }
-        
-          //criar o produto derivado
-          if (!(_products.containsKey(id.toLowerCase()))) { //se ainda nao foi criado
-            addAggregateProduct(id, recipe);
-          }
-          AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
-          Partner prtnr = _partners.get(partner.toLowerCase());
-          Batch b = new Batch(price, stock, new AggregateProduct(id, recipe), prtnr);
-          product.addNewBatch(b);
-
-          //adicionar o lote ao parceiro
-          Partner p = _partners.get(partner.toLowerCase());
-          p.addBatch(b);
-
+          importBatchM(fields);
         }
-
       }
-
     }
-
     catch (IOException e) {
       throw e;
     }
