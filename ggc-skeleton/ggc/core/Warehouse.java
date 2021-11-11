@@ -15,6 +15,7 @@ import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.UnaProductException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
@@ -315,6 +316,7 @@ public class Warehouse implements Serializable {
       throw new UnkProductKeyException();
   }
 
+  // Acquisition
   public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
 
     Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
@@ -324,8 +326,60 @@ public class Warehouse implements Serializable {
     _transactionsIds++;
     _transations.add(transaction);
     _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
-    _balance.setCurrentAvailable(-price*amount);
-    _balance.setCurrentAccountant(-price*amount);
+    _balance.setCurrentAvailable(-price * amount);
+    _balance.setCurrentAccountant(-price * amount);
+  }
+
+  // BreakdownSale
+  public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
+    Product product = _products.get(productKey.toLowerCase());
+    Partner partner = _partners.get(partnerKey.toLowerCase());
+    if (product instanceof SimpleProduct) 
+      return;
+    if (product.getCurrentQuantity() < amount) 
+      throw new UnaProductException(product.getCurrentQuantity());
+    
+    Recipe recipe = ((AggregateProduct) product).getRecipe();
+    Double breakdownSalePrice = product.getBreakdownSalePrice();
+    Double totalTransactionPrice = 0.0;
+    Double totalAggregateProductPrice = 0.0;
+    Double transactionPrice = 0.0;
+
+    int createProductNum = 0;
+
+    List<Batch> batches = product.getAllBatchesByPrice();
+
+
+    for (int i = 0; createProductNum != amount; i++) {
+      int num = 0;
+      if (batches.get(i).getQuantity() >= (amount - createProductNum))
+        num = amount - createProductNum;
+      else 
+        num = (amount - createProductNum) - batches.get(i).getQuantity();
+        
+        totalAggregateProductPrice += batches.get(i).getPrice() * num;
+        Double componentsPrice = 0.0;
+
+      for (Component c : recipe.getComponents()) {
+        componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
+        Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
+        c.getProduct().addNewBatch(batch);
+        partner.addBatch(batch);
+      }
+      totalTransactionPrice += componentsPrice * num;
+      batches.get(i).decreaseQuantity(num);
+    }
+
+    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
+      transactionPrice = 0.0;
+
+    Transaction transaction = new BreakdownSale(_transactionsIds, _date.now(), transactionPrice, amount, product, partner);
+    _transactionsIds++;
+    _transations.add(transaction);
+    partner.addTransation(transaction);
+    _balance.setCurrentAvailable(-transactionPrice * amount);
+    _balance.setCurrentAccountant(-transactionPrice * amount);
+
   }
 
   public String showTransaction(int transactionKey) throws UnkTransactionKeyException{

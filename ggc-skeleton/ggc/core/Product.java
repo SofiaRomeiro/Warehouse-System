@@ -72,6 +72,12 @@ public abstract class Product implements Serializable {
 
 	public double getLowestPrice() { return _lowestPrice; }
 
+	public double getBreakdownSalePrice() {
+		if (_currentQuantity == 0) 
+			return _maxPrice;
+		return _lowestPrice;
+	}
+
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
 	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
@@ -129,11 +135,18 @@ public abstract class Product implements Serializable {
 	public void removeEmptyBatch() {
 		Iterator<Batch> iter = _batches.iterator();
 		while (iter.hasNext()) {
-			if (iter.next().getQuantity() == 0) {
+			if (iter.next().getQuantity() == 0) 
 				iter.remove();
-			}
 		}
+		setLowestPrice();
+	}
 
+	public void setLowestPrice() {
+		_lowestPrice = _batches.get(0).getPrice();
+		for (Batch b: _batches) {
+			if (b.getPrice() < _lowestPrice)
+				_lowestPrice =b.getPrice();
+		}
 	}
 
 	/**
@@ -145,6 +158,12 @@ public abstract class Product implements Serializable {
 	public List<Batch> getAllBatches() {
 
 		Collections.sort(_batches, new BatchesComparator());
+		return _batches;
+	}
+
+	public List<Batch> getAllBatchesByPrice() {
+
+		Collections.sort(_batches, new BatchesComparatorByPrice());
 		return _batches;
 	}
 
@@ -168,10 +187,23 @@ public abstract class Product implements Serializable {
 						return (int) (b1.getPrice() - b2.getPrice());
 					}
 					else {
-						return (int) (b1.getQuantity() - b2.getQuantity());
+						return (b1.getQuantity() - b2.getQuantity());
 					}
 				}
 			}
+	    }
+  	}
+
+	  protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
+
+	    @Override
+	    public int compare(Batch b1, Batch b2) {
+
+			if (b1.getPrice() != b2.getPrice()) 
+				return (int) (b1.getPrice() - b2.getPrice());			
+			else 
+				return (b1.getQuantity() - b2.getQuantity());
+			
 	    }
   	}
 

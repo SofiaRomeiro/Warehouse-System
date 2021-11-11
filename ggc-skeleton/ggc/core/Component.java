@@ -21,6 +21,8 @@ public class Component implements Serializable{
 
 	public String getId() { return _product.getId(); }
 
+	public Product getProduct() { return _product;}
+
 	public int getQuantity() { return _quantity; }
 
 	public String toString() {

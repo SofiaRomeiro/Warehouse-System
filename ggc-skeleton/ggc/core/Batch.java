@@ -47,6 +47,10 @@ public class Batch implements Serializable {
 	 */
 	public int getQuantity() { return _quantity; }
 
+	public void decreaseQuantity(int quantity) {
+		_quantity -= quantity;
+	}
+
 	/**
 	 * Returns the string representing a Batch.
 	 * idProduto|idParceiro|preco|stock-actual

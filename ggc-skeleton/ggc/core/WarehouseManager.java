@@ -20,6 +20,7 @@ import ggc.core.exception.UnavailableFileException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.UnaProductException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
@@ -151,17 +152,22 @@ public class WarehouseManager {
   }
 
   // Transaction
-
   public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
     _warehouse.validateParameters(partnerKey, productKey);
   }
 
+  // Acquisition
   public void registerAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
     _warehouse.addNewAcquisitionTransaction(partnerKey, productKey, price, amount);
   }
 
   public String showTransaction(int transactionKey) throws UnkTransactionKeyException {
     return _warehouse.showTransaction(transactionKey);
+  }
+
+  // BreakdownSale
+  public void registerBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException{
+    _warehouse.addNewBreakdownSaleTransaction(partnerKey, productKey, amount);
   }
 
   /**
