@@ -276,16 +276,18 @@ public class Warehouse implements Serializable {
   public void addSimpleProduct(String id) {
    
     if (!(_products.containsKey(id.toLowerCase()))) {
-      List<Partner> partners = new ArrayList<Partner>(_partners.values());
-      SimpleProduct product = new SimpleProduct(id, partners);
+      Product product = new SimpleProduct(id);
+
+      /*for (Partner p: new ArrayList<Partner>(_partners.values())) {
+        product.add(p);
+      }*/
       _products.put(id.toLowerCase(), product);
     }
   }
 
   public void addAggregateProduct(String id, Recipe recipe) {
     if (!(_products.containsKey(id.toLowerCase()))) {
-      List<Partner> partners = new ArrayList<Partner>(_partners.values());
-      AggregateProduct product = new AggregateProduct(id, partners, recipe); 
+      AggregateProduct product = new AggregateProduct(id, recipe); 
       _products.put(id.toLowerCase(), product);
     }
   }
