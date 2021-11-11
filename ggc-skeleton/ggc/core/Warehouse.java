@@ -18,6 +18,7 @@ import ggc.core.exception.NotValidDateException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
+import ggc.core.exception.UnkTransactionKeyException;
 
 
 /**
@@ -250,6 +251,23 @@ public class Warehouse implements Serializable {
     _partners.put(key.toLowerCase(), partner);
   }
 
+  public List<String> showAcquisitionTransactionByPartner(String key) throws UnkPartnerKeyException {
+    
+    ArrayList<String> transactions = new ArrayList<>();
+
+    if (!_partners.containsKey(key.toLowerCase())) {
+      throw new UnkPartnerKeyException();
+    }
+
+    Partner partner = _partners.get(key.toLowerCase());
+
+    for (Transaction t : partner.getAllTransactions()) {
+      if (t instanceof Acquisition)
+      transactions.add(t.toString());
+    }
+    return transactions;
+  }
+
 
   /**
    * Add a new simple product.
@@ -258,14 +276,16 @@ public class Warehouse implements Serializable {
   public void addSimpleProduct(String id) {
    
     if (!(_products.containsKey(id.toLowerCase()))) {
-      SimpleProduct product = new SimpleProduct(id);
+      List<Partner> partners = new ArrayList<Partner>(_partners.values());
+      SimpleProduct product = new SimpleProduct(id, partners);
       _products.put(id.toLowerCase(), product);
     }
   }
 
   public void addAggregateProduct(String id, Recipe recipe) {
     if (!(_products.containsKey(id.toLowerCase()))) {
-      AggregateProduct product = new AggregateProduct(id, recipe);
+      List<Partner> partners = new ArrayList<Partner>(_partners.values());
+      AggregateProduct product = new AggregateProduct(id, partners, recipe); 
       _products.put(id.toLowerCase(), product);
     }
   }
@@ -298,11 +318,19 @@ public class Warehouse implements Serializable {
     Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _products.get(productKey.toLowerCase()).addNewBatch(batch);
     _partners.get(partnerKey.toLowerCase()).addBatch(batch);
-    _transactionsIds++;
     Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    _transactionsIds++;
     _transations.add(transaction);
     _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
   }
+
+  public String showTransaction(int transactionKey) throws UnkTransactionKeyException{
+    if (_transations.size() <= transactionKey)
+      throw new UnkTransactionKeyException();
+    return _transations.get(transactionKey).toString();
+    
+  }
+
 
   public void registNotification(Notification notification) {
     _notifications.add(notification);

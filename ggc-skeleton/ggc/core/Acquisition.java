@@ -9,11 +9,8 @@ public class Acquisition extends Transaction {
     public  boolean isPaid() {
         return true;
     }
-    public  int getPaymentDate() {
-        return super.getTransactionDate();
-    }
 
     public String toString() {
-        return "COMPRA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + getBaseValue() + "|" + super.getTransactionDate();
+        return "COMPRA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) * super.getQuantity() + "|" + super.getTransactionDate().getDate();
     }
 }

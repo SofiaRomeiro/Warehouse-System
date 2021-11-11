@@ -19,10 +19,9 @@ public abstract class Transaction {
     }
 
     public abstract boolean isPaid();
-    public abstract int getPaymentDate();
 
     public int getId() { return _id;}
-    public int getTransactionDate() { return _transactionDate.getDate();}
+    public Date getTransactionDate() { return _transactionDate;}
     public double getBaseValue() { return _baseValue;}
     public int getQuantity() { return _quantity;}
     public Product getProduct(){ return _product;}

@@ -1,13 +1,15 @@
 package ggc.core;
 
+import java.util.List;
+
 public class SimpleProduct extends Product{
 
-    public SimpleProduct(String id) {
-        super(id);
+    public SimpleProduct(String id, List<Observer> observers) {
+        super(id, observers);
     }  
 
-    public SimpleProduct(String id, int quantity) {
-        super(id, quantity);
+    public SimpleProduct(String id, int quantity, List<Observer> observers) {
+        super(id, quantity, observers);
     }
 
     public String toString() {

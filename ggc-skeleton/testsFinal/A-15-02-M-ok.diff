@@ -1,7 +1,7 @@
-*** testsFinal/A-15-02-M-ok.out	2021-11-08 16:51:37.277598530 +0000
---- testsFinal/A-15-02-M-ok.outhyp	2021-11-11 00:17:54.941176878 +0000
+*** testsFinal/A-15-02-M-ok.out	Sun Nov  7 16:04:59 2021
+--- testsFinal/A-15-02-M-ok.outhyp	Thu Nov 11 10:30:50 2021
 ***************
-*** 16,29 ****
+*** 16,22 ****
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -9,95 +9,7 @@
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Identificador da transacção: Visualizar: Operação inválida: A transacção '0' não existe.
-  Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
---- 16,31 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-  Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-***************
-*** 31,92 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: GARRAFA|S1|1000|500
-! HIDROGENIO|S1|200|5000
-! ROLHA|M1|30|500
-! ROLHA|R1|20|500
-! SAL|S1|1000|500
-! VIDRO|M1|1000|500
-! Gestão de Produtos
-! 1 - Visualizar todos os produtos
-! 2 - Visualizar todos os lotes
-! 3 - Visualizar lotes fornecidos por parceiro
-! 4 - Visualizar lotes de um dado produto
-! 0 - Sair
-! Escolha uma opção: Menu Principal
-! 1 - Abrir
-! 2 - Guardar
-! 3 - Mostrar Data
-! 4 - Avançar Data
-! 5 - Gestão de Produtos
-! 6 - Gestão de Parceiros
-! 7 - Gestão de Transacções
-! 8 - Menu de Consultas
-! 9 - Ver Saldo Global
-! 0 - Sair
-! Escolha uma opção: Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-! 0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
-! Gestão de Parceiros
-! 1 - Mostrar parceiro
-! 2 - Mostrar parceiros
-! 3 - Registar parceiro
-! 4 - Activa/desactivar notificações de um produto
-! 5 - Mostrar compras com parceiro
-! 6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-  Escolha uma opção: Menu Principal
-  1 - Abrir
---- 33,44 ----
+--- 16,32 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -107,6 +19,11 @@
 ! 3 - Registar venda
 ! 4 - Registar compra
 ! 5 - Receber pagamento de venda
-  0 - Sair
-  Escolha uma opção: Menu Principal
-  1 - Abrir
+! 0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Opção inválida!
+! Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+  3 - Registar venda

@@ -31,7 +31,7 @@ public abstract class Product implements Serializable {
 	private double _highestPrice;
 	private int _currentQuantity;
 	private List<Batch> _batches;
-	private Set<Observer> _observers;
+	private List<Observer> _observers;
 
 
 	/**
@@ -43,14 +43,14 @@ public abstract class Product implements Serializable {
 	 * @param highestPrice
 	 * @param currentQuantity
 	 */
-	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity) {
+	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity, List<Observer> observers) {
 		_id = id;
 		_maxPrice = maxPrice;
 		_lowestPrice = lowestPrice;
 		_highestPrice = highestPrice;
 		_currentQuantity = currentQuantity;
 		_batches = new ArrayList<>();
-		_observers = new HashSet<>();
+		_observers = new ArrayList<>(observers);
 	}
 
 	/**
@@ -58,12 +58,12 @@ public abstract class Product implements Serializable {
 	 * 
 	 * @param id
 	 */
-	public Product (String id) {
-		this (id, 0, 0, 0, 0);
+	public Product (String id, List<Observer> observers) {
+		this (id, 0, 0, 0, 0, observers);
 	}
 
-	public Product (String id, int quantity) {
-		this (id, 0, 0, 0, quantity);
+	public Product (String id, int quantity, List<Observer> observers) {
+		this (id, 0, 0, 0, quantity, observers);
 	}
 
 	public String getId() { return _id; }

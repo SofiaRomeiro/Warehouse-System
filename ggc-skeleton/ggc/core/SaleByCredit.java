@@ -1,9 +1,6 @@
 package ggc.core;
 
 public class SaleByCredit extends Sale {
-
-    private int _paymentDate;
-    private int _deadlineDate;
     
     public SaleByCredit(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
         super(id, transactionDate, baseValue, quantity, product, partner);
@@ -12,11 +9,8 @@ public class SaleByCredit extends Sale {
     public  boolean isPaid() {
         return true;
     }
-    public  int getPaymentDate() {
-        return _paymentDate;
-    }
 
     public String toString() {
-        return "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + getBaseValue() + "|" + super.getValuePaid() + "|" + _deadlineDate + "|" + _paymentDate;
+        return "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getDealinePayment() + "|" + super.getTransactionDate().getPaymentDate();
     }
 }

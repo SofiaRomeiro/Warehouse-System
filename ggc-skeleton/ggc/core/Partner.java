@@ -57,6 +57,8 @@ public class Partner implements Serializable, Observer {
 
     public List<Batch> getAllBatches() { return _batches; }
 
+    public List<Transaction> getAllTransactions() { return _transactions;}
+
     public void addBatch(Batch b) { _batches.add(b); }
 
     public void addTransation(Transaction t) { 

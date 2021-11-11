@@ -16,6 +16,7 @@ public class Date implements Serializable {
 	private static Date _now = new Date();
 	private final int _date;
 	private int _deadlinePayment;
+	private int _paymentDate;
 	private static final long serialVersionUID = 257349192006L;
 
 	/**
@@ -40,6 +41,10 @@ public class Date implements Serializable {
 	public void setDeadlinePayment(int date) { _deadlinePayment = date; }
 
 	public int getDealinePayment() { return _deadlinePayment; }
+
+	public void setPaymentDate(int date) { _paymentDate = date; }
+
+	public int getPaymentDate() { return _paymentDate; }
 
 	public int difference(Date other) { return other.getDate() - _date; }
 

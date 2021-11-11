@@ -15,12 +15,10 @@ public class BreakdownSale extends Sale{
     public  boolean isPaid() {
         return true;
     }
-    public  int getPaymentDate() {
-        return super.getTransactionDate();
-    }
+  
 
     public String toString() {
-        return "DESAGREGAÇÃO|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + getBaseValue() + "|" + super.getValuePaid() + "|" + super.getTransactionDate() + "|" + ((AggregateProduct) super.getProduct()).getRecipe();
+        return "DESAGREGAÇÃO|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getPaymentDate() + "|" + ((AggregateProduct) super.getProduct()).getRecipe();
     }
     
 }
