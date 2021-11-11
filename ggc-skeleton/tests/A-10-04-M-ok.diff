@@ -1,0 +1,22 @@
+*** tests/A-10-04-M-ok.out	2021-11-07 16:04:59.120478830 +0000
+--- tests/A-10-04-M-ok.outhyp	2021-11-11 19:32:44.726085337 +0000
+***************
+*** 43,49 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 43,48 ----
+***************
+*** 62,68 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- BARGAIN|SAL|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 61,66 ----

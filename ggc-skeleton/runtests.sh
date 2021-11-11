@@ -3,7 +3,7 @@
 let total=0;
 let correct=0;
 
-for x in testsFinal/*.in; do
+for x in tests/*.in; do
     if [ -e ${x%.in}.import ]; then
         java -cp :po-uilib.jar:. -Dimport=${x%.in}.import -Din=$x -Dout=${x%.in}.outhyp ggc.app.App;
     else
