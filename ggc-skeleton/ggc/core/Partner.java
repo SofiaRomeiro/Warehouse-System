@@ -24,7 +24,7 @@ public class Partner implements Serializable, Observer {
     private String _name;
     private String _address;
     private String _status;
-    private float _points;
+    private StatusContext _status;
     private float _purchases;
     private float _sales;
     private float _paidSales;

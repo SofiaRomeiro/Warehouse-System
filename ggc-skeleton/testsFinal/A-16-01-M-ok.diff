@@ -1,5 +1,5 @@
-*** testsFinal/A-16-01-M-ok.out	Sun Nov  7 16:04:59 2021
---- testsFinal/A-16-01-M-ok.outhyp	Thu Nov 11 19:00:18 2021
+*** testsFinal/A-16-01-M-ok.out	2021-11-11 12:20:47.411020185 +0000
+--- testsFinal/A-16-01-M-ok.outhyp	2021-11-11 19:11:03.350030668 +0000
 ***************
 *** 16,29 ****
   4 - Registar compra
@@ -57,7 +57,7 @@
 ! 9 - Ver Saldo Global
 ! 0 - Sair
 ! Escolha uma opção: 
-\ No newline at end of file
+\ Sem newline no fim do ficheiro
 --- 32,42 ----
   4 - Registar compra
   5 - Receber pagamento de venda

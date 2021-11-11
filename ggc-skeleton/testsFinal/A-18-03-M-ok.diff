@@ -1,5 +1,5 @@
-*** testsFinal/A-18-03-M-ok.out	Wed Nov 10 23:23:51 2021
---- testsFinal/A-18-03-M-ok.outhyp	Thu Nov 11 19:00:19 2021
+*** testsFinal/A-18-03-M-ok.out	2021-11-11 12:20:47.411020185 +0000
+--- testsFinal/A-18-03-M-ok.outhyp	2021-11-11 19:11:03.958030694 +0000
 ***************
 *** 16,73 ****
   4 - Registar compra
@@ -60,10 +60,10 @@
 ! 9 - Ver Saldo Global
 ! 0 - Sair
 ! Escolha uma opção: 
-\ No newline at end of file
+\ Sem newline no fim do ficheiro
 --- 16,19 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Identificador do produto: Quantidade: 
-\ No newline at end of file
+\ Sem newline no fim do ficheiro

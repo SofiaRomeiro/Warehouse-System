@@ -1,5 +1,5 @@
-*** testsFinal/A-10-04-M-ok.out	Sun Nov  7 16:04:59 2021
---- testsFinal/A-10-04-M-ok.outhyp	Thu Nov 11 19:00:14 2021
+*** testsFinal/A-10-04-M-ok.out	2021-11-11 12:20:47.403020185 +0000
+--- testsFinal/A-10-04-M-ok.outhyp	2021-11-11 19:11:01.018030570 +0000
 ***************
 *** 43,49 ****
   6 - Mostrar vendas (e desagregações) com parceiro
