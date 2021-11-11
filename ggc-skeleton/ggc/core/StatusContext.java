@@ -2,25 +2,27 @@ package ggc.core;
 
 public class StatusContext {
      
-    private StatusState _currentState;
+    private StatusState _currentStatus;
     private int _currentPoints;
      
-    public StatusContext(StatusState currentState) 
+    /*public StatusContext(StatusState currentStatus) 
     {
-        //super();
-        _currentState = currentState;
-    }
+        _currentStatus = currentStatus;
+    }*/
 	
 	public StatusContext() {
-		_currentState = Normal.getNormalInstance();
+		_currentStatus = Normal.getNormalInstance();
+		_currentPoints = 0;
 	}
  
-    public StatusState getCurrentState() {
-        return _currentState;
+    public StatusState getCurrentStatus() {
+        return _currentStatus;
     }
+
+    public String statusToString() { return _currentStatus.getStatus(); }
  
-    public void setCurrentState(StatusState currentState) {
-        _currentState = currentState;
+    public void setCurrentStatus(StatusState currentStatus) {
+        _currentStatus = currentStatus;
     }
      
     public int getPoints() {
@@ -32,7 +34,7 @@ public class StatusContext {
     }
  
     public void update() {
-        _currentState.updateState(this);
+        _currentStatus.updateState(this);
     }
 	
 	private String getPeriod(Date date, String productType) {
@@ -65,23 +67,23 @@ public class StatusContext {
 	}
 
 	public double getFee(Date date, String productType) {
-		return _currentState.applyFee(date, getPeriod(date, productType));
+		return _currentStatus.applyFee(date, getPeriod(date, productType));
 	}
 
 	public double getDiscount(Date date, String productType) {
-		return _currentState.applyDiscount(date, getPeriod(date, productType));
+		return _currentStatus.applyDiscount(date, getPeriod(date, productType));
 	}
 	
 	private void handleDelay(Date date) {
 		int delay = date.getDate() - date.getDeadlinePayment();
 		
-		if (delay > 15 && "ELITE".equals(_currentState)) {
-			_currentState.depromote(this);
+		if (delay > 15 && "ELITE".equals(_currentStatus)) {
+			_currentStatus.depromote(this);
 			int points = (int) ( 0.25 * _currentPoints );
 			setPoints(points);
 		}
-		else if (delay > 2 && "SELECTION".equals(_currentState)) {
-			_currentState.depromote(this);
+		else if (delay > 2 && "SELECTION".equals(_currentStatus)) {
+			_currentStatus.depromote(this);
 			int points = (int) ( 0.10 * _currentPoints );
 			setPoints(points);
 		}
@@ -91,13 +93,13 @@ public class StatusContext {
 	
 	private void handlePointChanging() {
 		if (_currentPoints > 25000) {
-			setCurrentState(Elite.getEliteInstance());
+			setCurrentStatus(Elite.getEliteInstance());
 		}
 		else if (_currentPoints < 2500 && _currentPoints > 2000) {
-			setCurrentState(Selection.getSelectionInstance());
+			setCurrentStatus(Selection.getSelectionInstance());
 		}
 		else {
-			setCurrentState(Normal.getNormalInstance());
+			setCurrentStatus(Normal.getNormalInstance());
 		}
 	}
 	

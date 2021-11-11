@@ -13,15 +13,13 @@ public class Selection implements StatusState {
      
     //Business logic and state transition
     
-	public void updateState(StatusContext stctx)
-    {
-        stctx.setCurrentState(Elite.getEliteInstance());
+	public void updateState(StatusContext stctx) {
+        stctx.setCurrentStatus(Elite.getEliteInstance());
     }
 	
 	
-    public void depromote(StatusContext stctx) 
-    {
-        stctx.setCurrentState(Normal.getNormalInstance());
+    public void depromote(StatusContext stctx) {
+        stctx.setCurrentStatus(Normal.getNormalInstance());
     }
 	
 	

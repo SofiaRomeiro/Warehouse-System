@@ -14,13 +14,13 @@ public class Elite implements StatusState {
     //Business logic and state transition
     public void updateState(StatusContext stctx) 
     {
-        stctx.setCurrentState(this);
+        stctx.setCurrentStatus(this);
     }
 	
 	
     public void depromote(StatusContext stctx) 
     {
-        stctx.setCurrentState(Selection.getSelectionInstance());
+        stctx.setCurrentStatus(Selection.getSelectionInstance());
     }
 	
 	

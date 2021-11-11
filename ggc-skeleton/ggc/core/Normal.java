@@ -14,12 +14,12 @@ public class Normal implements StatusState {
     //Business logic and state transition
     
     public void updateState(StatusContext stctx) {
-        stctx.setCurrentState(Selection.getSelectionInstance());
+        stctx.setCurrentStatus(Selection.getSelectionInstance());
     }
 	
 	
     public void depromote(StatusContext stctx) {
-        stctx.setCurrentState(this);
+        stctx.setCurrentStatus(this);
     }
 	
 	

@@ -23,7 +23,6 @@ public class Partner implements Serializable, Observer {
     private String _key;
     private String _name;
     private String _address;
-    private String _status;
     private StatusContext _status;
     private float _purchases;
     private float _sales;
@@ -43,8 +42,7 @@ public class Partner implements Serializable, Observer {
         _key = key;
         _name = name;
         _address = address;
-        _status = "NORMAL";
-        _points = 0;
+        _status = new StatusContext();
         _purchases = 0;
         _sales = 0;
         _paidSales = 0;
@@ -79,7 +77,7 @@ public class Partner implements Serializable, Observer {
 	 * @return a string representing a Partner.
 	 */    
     public String toString() {
-        return _key + "|" + _name + "|" + _address + "|" + _status + "|" + Math.round (_points) + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
+        return _key + "|" + _name + "|" + _address + "|" + _status.statusToString() + "|" + _status.getPoints() + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
     }
 
     public void update(Notification notification) {
