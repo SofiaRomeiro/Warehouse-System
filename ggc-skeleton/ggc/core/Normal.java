@@ -1,9 +1,12 @@
 package ggc.core;
 
-public class Normal implements StatusState {
+import java.io.Serializable;
+
+public class Normal implements StatusState, Serializable {
 
 	private final String _status = "NORMAL";
 	private static Normal _normalInstance = new Normal();
+	private static final long serialVersionUID = 209629462006L;
 	
     private Normal() {}
 

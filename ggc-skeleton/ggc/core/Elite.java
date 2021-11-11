@@ -1,9 +1,12 @@
 package ggc.core;
 
-public class Elite implements StatusState {
+import java.io.Serializable;
+
+public class Elite implements StatusState, Serializable {
     
 	private final String _status = "ELITE";
 	private static Elite _eliteInstance = new Elite();
+	private static final long serialVersionUID = 109885192006L;
 	
 	private Elite() {}
 

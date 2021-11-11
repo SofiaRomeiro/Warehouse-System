@@ -53,7 +53,6 @@ public class Warehouse implements Serializable {
     _products = new TreeMap<>();
     _transations = new ArrayList<>();
     _notifications = new ArrayList<>();
-
   }
 
   /**

@@ -1,9 +1,13 @@
 package ggc.core;
 
-public class StatusContext {
+import java.io.Serializable;
+
+public class StatusContext implements Serializable {
      
     private StatusState _currentStatus;
     private int _currentPoints;
+    private static final long serialVersionUID = 209685192006L;
+
      
     /*public StatusContext(StatusState currentStatus) 
     {
