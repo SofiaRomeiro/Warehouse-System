@@ -11,6 +11,6 @@ public class SaleByCredit extends Sale {
     }
 
     public String toString() {
-        return "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getDealinePayment() + "|" + super.getTransactionDate().getPaymentDate();
+        return "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getDeadlinePayment() + "|" + super.getTransactionDate().getPaymentDate();
     }
 }
