@@ -1,5 +1,8 @@
 package ggc.core;
 
-public abstract class Points implements Rewards {
-	
+
+// serve para contabilização de pontos e aplicação de multas e descontos
+
+public class Points extends PointsSystem {
+
 }
