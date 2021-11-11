@@ -371,6 +371,9 @@ public class Warehouse implements Serializable {
       batches.get(i).decreaseQuantity(num);
     }
 
+    product.removeEmptyBatch();
+    partner.removeEmptyBatch();
+
     if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
       transactionPrice = 0.0;
 
