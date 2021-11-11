@@ -1,5 +1,7 @@
 package ggc.core;
 
-public class Discounts extends Points {
+//serve para lidar com todo o processo de aplicação de descontos
+
+public class Discounts extends PointsSystem {
 	
 }

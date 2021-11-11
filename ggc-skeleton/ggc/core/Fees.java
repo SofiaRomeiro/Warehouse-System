@@ -1,5 +1,7 @@
 package ggc.core;
 
-public class Fees extends Points {
+//serve para lidar com todo o processo de aplicação de multas
+
+public class Fees extends PointsSystem {
 	
 }
