@@ -4,7 +4,7 @@ package ggc.core;
 
 interface Rewards {
 	
-	void reward();
+	//void reward();
 
 
 
