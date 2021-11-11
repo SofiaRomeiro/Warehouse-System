@@ -1,5 +1,5 @@
-*** tests/A-01-08-M-ok.out	2021-11-11 19:22:31.466059575 +0000
---- tests/A-01-08-M-ok.outhyp	2021-11-11 19:32:40.430085156 +0000
+*** tests/A-01-08-M-ok.out	Wed Nov 10 23:42:05 2021
+--- tests/A-01-08-M-ok.outhyp	Thu Nov 11 19:38:33 2021
 ***************
 *** 9,15 ****
   8 - Menu de Consultas
@@ -62,7 +62,7 @@
   9 - Ver Saldo Global
   0 - Sair
 ! Escolha uma opção: 
-\ Sem newline no fim do ficheiro
+\ No newline at end of file
 --- 70,73 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global

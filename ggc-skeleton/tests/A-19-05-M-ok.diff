@@ -1,5 +1,5 @@
-*** tests/A-19-05-M-ok.out	2021-11-10 23:24:42.963767242 +0000
---- tests/A-19-05-M-ok.outhyp	2021-11-11 19:32:47.870085469 +0000
+*** tests/A-19-05-M-ok.out	Thu Nov 11 19:38:17 2021
+--- tests/A-19-05-M-ok.outhyp	Thu Nov 11 19:38:44 2021
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -31,7 +31,7 @@
   9 - Ver Saldo Global
   0 - Sair
 ! Escolha uma opção: 
-\ Sem newline no fim do ficheiro
+\ No newline at end of file
 --- 43,46 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
