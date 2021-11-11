@@ -6,6 +6,4 @@ interface Rewards {
 	
 	//void reward();
 
-
-
 }

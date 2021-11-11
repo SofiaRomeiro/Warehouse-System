@@ -40,7 +40,7 @@ public class Date implements Serializable {
 
 	public void setDeadlinePayment(int date) { _deadlinePayment = date; }
 
-	public int getDealinePayment() { return _deadlinePayment; }
+	public int getDeadlinePayment() { return _deadlinePayment; }
 
 	public void setPaymentDate(int date) { _paymentDate = date; }
 
