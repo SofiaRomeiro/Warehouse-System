@@ -1,5 +1,5 @@
-*** testsFinal/A-11-04-M-ok.out	2021-11-08 16:51:37.273596530 +0000
---- testsFinal/A-11-04-M-ok.outhyp	2021-11-10 23:33:02.141201274 +0000
+*** testsFinal/A-11-04-M-ok.out	Wed Nov 10 23:42:05 2021
+--- testsFinal/A-11-04-M-ok.outhyp	Thu Nov 11 00:16:39 2021
 ***************
 *** 42,49 ****
   5 - Mostrar compras com parceiro
@@ -28,20 +28,3 @@
   Escolha uma opção: Menu Principal
   1 - Abrir
   2 - Guardar
-***************
-*** 70,76 ****
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|70000|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 70,76 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros

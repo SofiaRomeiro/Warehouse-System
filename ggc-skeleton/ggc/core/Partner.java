@@ -59,7 +59,15 @@ public class Partner implements Serializable, Observer {
 
     public void addBatch(Batch b) { _batches.add(b); }
 
-    public void addTransation(Transaction t) { _transactions.add(t);}
+    public void addTransation(Transaction t) { 
+        _transactions.add(t);
+        if (t instanceof Acquisition) {
+            _purchases += t.getBaseValue() * t.getQuantity();
+        } 
+        else if (t instanceof SaleByCredit) {
+            _sales += t.getBaseValue() * t.getQuantity();
+        } 
+    }
     
     /**
 	 * Returns the string representing a Partner.

@@ -1,5 +1,5 @@
-*** testsFinal/A-15-06-M-ok.out	2021-11-08 16:51:37.277598530 +0000
---- testsFinal/A-15-06-M-ok.outhyp	2021-11-10 23:33:03.593201332 +0000
+*** testsFinal/A-15-06-M-ok.out	Wed Nov 10 23:42:05 2021
+--- testsFinal/A-15-06-M-ok.outhyp	Thu Nov 11 00:16:41 2021
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -45,19 +45,10 @@
   2 - Registar desagregação
   3 - Registar venda
 ***************
-*** 80,113 ****
+*** 89,120 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
   0 - Sair
-  Escolha uma opção: Menu Principal
-  1 - Abrir
-- 2 - Guardar
-- 3 - Mostrar Data
-- 4 - Avançar Data
-- 5 - Gestão de Produtos
-- 6 - Gestão de Parceiros
-- 7 - Gestão de Transacções
-- 8 - Menu de Consultas
-- 9 - Ver Saldo Global
-- 0 - Sair
 - Escolha uma opção: Gestão de Parceiros
 - 1 - Mostrar parceiro
 - 2 - Mostrar parceiros
@@ -77,7 +68,15 @@
 - 0 - Sair
 - Escolha uma opção: Menu Principal
 - 1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
-  4 - Avançar Data
---- 88,93 ----
+- 2 - Guardar
+- 3 - Mostrar Data
+- 4 - Avançar Data
+- 5 - Gestão de Produtos
+- 6 - Gestão de Parceiros
+- 7 - Gestão de Transacções
+- 8 - Menu de Consultas
+- 9 - Ver Saldo Global
+- 0 - Sair
+  Escolha uma opção: 
+\ No newline at end of file
+--- 97,100 ----
