@@ -6,8 +6,6 @@ import java.util.Iterator;
 
 import java.io.Serializable;
 
-import ggc.core.Notification;
-
 
 /**
  * Classe Partner

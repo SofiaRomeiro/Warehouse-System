@@ -1,5 +1,5 @@
-*** tests/A-19-02-M-ok.out	2021-11-10 23:24:42.958004856 +0000
---- tests/A-19-02-M-ok.outhyp	2021-11-11 20:29:52.414229328 +0000
+*** tests/A-19-02-M-ok.out	Thu Nov 11 19:38:17 2021
+--- tests/A-19-02-M-ok.outhyp	Thu Nov 11 20:55:39 2021
 ***************
 *** 16,29 ****
   4 - Registar compra
@@ -59,11 +59,16 @@
   1 - Visualizar
   2 - Registar desagregação
 ***************
-*** 51,56 ****
---- 45,62 ----
-  1 - Abrir
-  2 - Guardar
-  3 - Mostrar Data
+*** 58,61 ****
+--- 52,67 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
++ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '1'.
++ Menu Principal
++ 1 - Abrir
++ 2 - Guardar
++ 3 - Mostrar Data
 + 4 - Avançar Data
 + 5 - Gestão de Produtos
 + 6 - Gestão de Parceiros
@@ -71,11 +76,5 @@
 + 8 - Menu de Consultas
 + 9 - Ver Saldo Global
 + 0 - Sair
-+ Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '1'.
-+ Menu Principal
-+ 1 - Abrir
-+ 2 - Guardar
-+ 3 - Mostrar Data
-  4 - Avançar Data
-  5 - Gestão de Produtos
-  6 - Gestão de Parceiros
+  Escolha uma opção: 
+\ No newline at end of file

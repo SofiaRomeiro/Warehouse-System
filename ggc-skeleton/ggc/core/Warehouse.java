@@ -249,6 +249,10 @@ public class Warehouse implements Serializable {
 
     Partner partner = new Partner(key, name, address);
     _partners.put(key.toLowerCase(), partner);
+
+    for(Product p: _products.values()) {
+      p.toggleNotifications(partner);
+    }
   }
 
   public List<String> showAcquisitionTransactionByPartner(String key) throws UnkPartnerKeyException {

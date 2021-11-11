@@ -2,8 +2,6 @@ package ggc.core;
 
 import java.util.Comparator;
 
-import ggc.core.Product;
-
 public class ProductComparator implements Comparator<Product> {
 	    @Override
 	    public int compare(Product p1, Product p2) {

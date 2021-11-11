@@ -7,11 +7,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Set;
-import java.util.HashSet;
 import java.util.Iterator;
 
-import ggc.core.NotificationType;
 
 /**
  * Classe Product
@@ -59,7 +56,6 @@ public abstract class Product implements Serializable {
 	 */
 	public Product (String id, List<Observer> obs) {
 		this (id, 0, 0, 0, 0, obs);
-
 	}
 
 	public Product (String id, int quantity, List<Observer> obs) {
