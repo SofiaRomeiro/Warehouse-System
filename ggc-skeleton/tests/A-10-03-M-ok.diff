@@ -1,5 +1,5 @@
 *** tests/A-10-03-M-ok.out	Thu Nov 11 19:38:17 2021
---- tests/A-10-03-M-ok.outhyp	Thu Nov 11 20:55:34 2021
+--- tests/A-10-03-M-ok.outhyp	Thu Nov 11 22:38:23 2021
 ***************
 *** 43,49 ****
   6 - Mostrar vendas (e desagregações) com parceiro

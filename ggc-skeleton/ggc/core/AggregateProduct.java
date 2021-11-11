@@ -6,8 +6,8 @@ public class AggregateProduct extends Product {
 
     private Recipe _recipe;
 
-    public AggregateProduct (String id, List<Observer> obs, Recipe recipe) {
-        super(id, obs);
+    public AggregateProduct (String id, Recipe recipe) {
+        super(id);
         _recipe = recipe;
     }
 

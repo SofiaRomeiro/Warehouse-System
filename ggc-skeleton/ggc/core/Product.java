@@ -40,13 +40,13 @@ public abstract class Product implements Serializable {
 	 * @param highestPrice
 	 * @param currentQuantity
 	 */
-	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity, List<Observer> obs) {
+	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity) {
 		_id = id;
 		_maxPrice = maxPrice;
 		_lowestPrice = lowestPrice;
 		_highestPrice = highestPrice;
 		_currentQuantity = currentQuantity;
-		_observers = new ArrayList<>(obs);
+		_observers = new ArrayList<>();
 	}
 
 	/**
@@ -54,12 +54,12 @@ public abstract class Product implements Serializable {
 	 * 
 	 * @param id
 	 */
-	public Product (String id, List<Observer> obs) {
-		this (id, 0, 0, 0, 0, obs);
+	public Product (String id) {
+		this (id, 0, 0, 0, 0);
 	}
 
-	public Product (String id, int quantity, List<Observer> obs) {
-		this (id, 0, 0, 0, quantity, obs);
+	public Product (String id, int quantity) {
+		this (id, 0, 0, 0, quantity);
 	}
 
 	public String getId() { return _id; }
