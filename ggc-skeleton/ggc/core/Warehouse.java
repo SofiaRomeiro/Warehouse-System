@@ -277,7 +277,7 @@ public class Warehouse implements Serializable {
   public void addSimpleProduct(String id) {
    
     if (!(_products.containsKey(id.toLowerCase()))) {
-      Product product = new SimpleProduct(id);
+      Product product = new SimpleProduct(id, new ArrayList<Observer>(_partners.values()));
 
       /*for (Partner p: new ArrayList<Partner>(_partners.values())) {
         product.add(p);
@@ -286,9 +286,11 @@ public class Warehouse implements Serializable {
     }
   }
 
-  public void addAggregateProduct(String id, Recipe recipe) {
+
+
+  public void addAggregateProduct(String id, List<Observer> obs, Recipe recipe) {
     if (!(_products.containsKey(id.toLowerCase()))) {
-      AggregateProduct product = new AggregateProduct(id, recipe); 
+      AggregateProduct product = new AggregateProduct(id, obs, recipe); 
       _products.put(id.toLowerCase(), product);
     }
   }
@@ -302,7 +304,7 @@ public class Warehouse implements Serializable {
       }
       recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i).toLowerCase())));
     }
-    addAggregateProduct(productKey, recipe);
+    addAggregateProduct(productKey, new ArrayList<Observer>(_partners.values()), recipe);
   }
 
 
@@ -442,25 +444,33 @@ public class Warehouse implements Serializable {
       quantity = Integer.parseInt(idAndQuantity[1]);
 
       if (!(_products.containsKey(componentId.toLowerCase()))) {
-        addSimpleProductWithQuantity(componentId, quantity);
+        addSimpleProductWithQuantity(componentId, quantity, new ArrayList<Observer>(_partners.values()));
       }    
 
-      Component c = new Component(quantity, new SimpleProduct(componentId));
+      Component c = new Component(quantity, new SimpleProduct(componentId, new ArrayList<Observer>(_partners.values())));
       recipe.addComponent(c);
     }
   
     //criar o produto derivado
     if (!(_products.containsKey(id.toLowerCase()))) { //se ainda nao foi criado
-      addAggregateProduct(id, recipe);
+      addAggregateProduct(id,new ArrayList<Observer>(_partners.values()), recipe);
     }
     AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
     Partner prtnr = _partners.get(partner.toLowerCase());
-    Batch b = new Batch(price, stock, new AggregateProduct(id, recipe), prtnr);
+    Batch b = new Batch(price, stock, new AggregateProduct(id, new ArrayList<Observer>(_partners.values()), recipe), prtnr);
     product.addNewBatch(b);
 
     //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
     p.addBatch(b);
+  }
+
+  private void addSimpleProductWithQuantity(String id, int quantity, List<Observer> obs) {
+   
+    if (!(_products.containsKey(id.toLowerCase()))) {
+      SimpleProduct product = new SimpleProduct(id, quantity, obs);
+      _products.put(id.toLowerCase(), product);
+    }
   }
 
   /**
@@ -496,14 +506,6 @@ public class Warehouse implements Serializable {
       throw e;
     }
 
-  }
-
-  private void addSimpleProductWithQuantity(String id, int quantity) {
-   
-    if (!(_products.containsKey(id))) {
-      SimpleProduct product = new SimpleProduct(id, quantity);
-      _products.put(id, product);
-    }
   }
 
 }
