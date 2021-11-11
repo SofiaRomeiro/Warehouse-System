@@ -1,22 +1,46 @@
 *** testsFinal/A-11-01-M-ok.out	Sun Nov  7 16:04:59 2021
---- testsFinal/A-11-01-M-ok.outhyp	Thu Nov 11 11:58:00 2021
+--- testsFinal/A-11-01-M-ok.outhyp	Thu Nov 11 19:00:15 2021
 ***************
-*** 28,34 ****
+*** 9,15 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
   0 - Sair
-  Escolha uma opção: HIDROGENIO|2|5000
-  ROLHA|2|500
+! Escolha uma opção: Ficheiro a abrir: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 9,16 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir 'esgotado.ggc'.
+! Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+***************
+*** 26,35 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|2|5000
+! ROLHA|2|500
 ! SAL|1|0
-  VIDRO|1|500
+! VIDRO|1|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
---- 28,34 ----
+  2 - Visualizar todos os lotes
+--- 27,36 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
   0 - Sair
-  Escolha uma opção: HIDROGENIO|2|5000
-  ROLHA|2|500
-! SAL|1|10
-  VIDRO|1|500
+! Escolha uma opção: HIDROGENIO|200|5000
+! ROLHA|30|1000
+! SAL|1000|500
+! VIDRO|1000|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
 ***************
 *** 61,67 ****
   4 - Registar compra
@@ -26,7 +50,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 61,67 ----
+--- 62,68 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -43,7 +67,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 69,75 ----
+--- 70,76 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -52,29 +76,35 @@
   1 - Visualizar
   2 - Registar desagregação
 ***************
-*** 96,102 ****
+*** 94,103 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
   0 - Sair
-  Escolha uma opção: HIDROGENIO|2|5000
-  ROLHA|2|500
+! Escolha uma opção: HIDROGENIO|2|5000
+! ROLHA|2|500
 ! SAL|100|10
-  VIDRO|1|500
+! VIDRO|1|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
---- 96,102 ----
+  2 - Visualizar todos os lotes
+--- 95,104 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
   0 - Sair
-  Escolha uma opção: HIDROGENIO|2|5000
-  ROLHA|2|500
-! SAL|100|20
-  VIDRO|1|500
+! Escolha uma opção: HIDROGENIO|200|5000
+! ROLHA|30|1000
+! SAL|1000|510
+! VIDRO|1000|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
 ***************
 *** 105,110 ****
---- 105,111 ----
+--- 106,112 ----
   4 - Visualizar lotes de um dado produto
   0 - Sair
   Escolha uma opção: Identificador do produto: SAL|M1|100|10
-+ SAL|S1|1|10
++ SAL|S1|1000|500
   Gestão de Produtos
   1 - Visualizar todos os produtos
   2 - Visualizar todos os lotes

@@ -1,5 +1,5 @@
 *** testsFinal/A-15-06-M-ok.out	Sun Nov  7 16:04:59 2021
---- testsFinal/A-15-06-M-ok.outhyp	Thu Nov 11 11:58:03 2021
+--- testsFinal/A-15-06-M-ok.outhyp	Thu Nov 11 19:00:18 2021
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -9,20 +9,11 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 16,31 ----
+--- 16,22 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
+! Escolha uma opção: Identificador do parceiro: Identificador do produto: Quantidade: Registar desagregação: Operação inválida: Produto 'GARRAFA': pedido=6, existências=6
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
