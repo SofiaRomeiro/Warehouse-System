@@ -324,6 +324,8 @@ public class Warehouse implements Serializable {
     _transactionsIds++;
     _transations.add(transaction);
     _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
+    _balance.setCurrentAvailable(-price*amount);
+    _balance.setCurrentAccountant(-price*amount);
   }
 
   public String showTransaction(int transactionKey) throws UnkTransactionKeyException{
