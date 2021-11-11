@@ -1,0 +1,36 @@
+*** tests/A-14-01-M-ok.out	Thu Nov 11 19:38:17 2021
+--- tests/A-14-01-M-ok.outhyp	Thu Nov 11 20:55:37 2021
+***************
+*** 13,27 ****
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Facturas pagas por parceiro: Operação inválida: O parceiro 'nãoexiste' não existe.
+! Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 13,28 ----
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+  2 - Guardar

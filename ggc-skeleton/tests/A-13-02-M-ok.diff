@@ -1,0 +1,61 @@
+*** tests/A-13-02-M-ok.out	Thu Nov 11 19:38:17 2021
+--- tests/A-13-02-M-ok.outhyp	Thu Nov 11 20:55:36 2021
+***************
+*** 9,15 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+--- 9,16 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir 'esgotado.ggc'.
+! Menu Principal
+  1 - Abrir
+  2 - Guardar
+  3 - Mostrar Data
+***************
+*** 26,36 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: HIDROGENIO|2|5000
+! ROLHA|2|500
+! SAL|1|0
+! VIDRO|1|500
+! Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+--- 27,33 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+***************
+*** 51,60 ****
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Preço: HIDROGENIO|S1|2|5000
+! ROLHA|M1|2|500
+! VIDRO|M1|1|500
+! Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+--- 48,54 ----
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
+! Escolha uma opção: Preço: Consultas
+  1 - Produtos com Preço Abaixo de Limite
+  2 - Facturas pagas por parceiro
+  0 - Sair
