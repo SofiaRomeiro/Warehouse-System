@@ -2,6 +2,7 @@ package ggc.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import java.io.Serializable;
 
@@ -82,6 +83,7 @@ public class Partner implements Serializable, Observer {
 
     public void update(Notification notification) {
         _notifications.add(notification);
+        clearNotifications();
     }
 
     private void clearNotifications() {
@@ -97,6 +99,14 @@ public class Partner implements Serializable, Observer {
         }        
 
         return notsToString;
+    }
+
+    public void removeEmptyBatch() {
+        Iterator<Batch> iter = _batches.iterator();
+        while (iter.hasNext()) {
+            if (iter.next().getQuantity() == 0) 
+                iter.remove();
+        }
     }
 
     @Override
