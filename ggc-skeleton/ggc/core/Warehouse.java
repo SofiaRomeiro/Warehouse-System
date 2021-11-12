@@ -380,7 +380,8 @@ public class Warehouse implements Serializable {
 
         //procurar preco mais baixo 
 
-    List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
+    List<Batch> batches = new ArrayList<>(product.getAllBatches());
+    Collections.sort(batches, new BatchesComparatorByPrice());
 
     int quantityToSale = 0;
     int quantityAvailable = 0;
@@ -445,13 +446,13 @@ public class Warehouse implements Serializable {
 
   }
 
-  /*protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
+  protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
 
     @Override
     public int compare(Batch b1, Batch b2) {
       return (int) (b1.getPrice() - b2.getPrice());
     }
-  } */
+  } 
 
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
