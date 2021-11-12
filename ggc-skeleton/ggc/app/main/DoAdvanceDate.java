@@ -26,8 +26,7 @@ class DoAdvanceDate extends Command<WarehouseManager> {
 
 		try {
 			_receiver.advanceDate(days);
-		}
-		catch (NotValidDateException nvde){
+		}catch (NotValidDateException nvde){
 			throw new InvalidDateException(days);
 		}
 

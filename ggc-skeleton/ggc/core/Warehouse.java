@@ -217,7 +217,9 @@ public class Warehouse implements Serializable {
    * @param key
    * @return
    */
-  public String getPartnerById(String key) {
+  public String getPartnerById(String key) throws UnkPartnerKeyException{
+    if (!_partners.containsKey(key.toLowerCase()))
+      throw new UnkPartnerKeyException();
     return _partners.get(key.toLowerCase()).toString();
   }
 

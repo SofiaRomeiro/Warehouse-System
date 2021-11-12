@@ -127,7 +127,7 @@ public class WarehouseManager {
     return _warehouse.showAllPartners();
   }
 
-  public String showPartner(String key) {
+  public String showPartner(String key) throws UnkPartnerKeyException{
     return _warehouse.getPartnerById(key);
   }
 
@@ -141,10 +141,6 @@ public class WarehouseManager {
 
   public void toggleProductNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException {
     _warehouse.toggleNotifications(partnerKey, productKey);
-  }
-
-  public boolean hasPartner(String key ){
-    return _warehouse.hasPartner(key);
   }
 
   

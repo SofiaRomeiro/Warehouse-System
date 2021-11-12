@@ -4,6 +4,8 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 
+import javax.naming.CommunicationException;
+
 import ggc.app.exception.DuplicatePartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 
