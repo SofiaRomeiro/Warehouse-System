@@ -38,6 +38,7 @@ public class Partner implements Serializable, Observer {
      * @param address
      */
     public Partner (String key, String name, String address){
+
         _key = key;
         _name = name;
         _address = address;
@@ -80,21 +81,21 @@ public class Partner implements Serializable, Observer {
     }
 
     public void update(Notification notification) {
-        _notifications.add(notification);
-        clearNotifications();
+        _notifications.add(notification);        
     }
 
     private void clearNotifications() {
         _notifications.clear();
     }
 
-    public List<String> getAllNotifications(){
+    public List<String> getAllNotifications() {
 
         ArrayList<String> notsToString = new ArrayList<>();
 
         for (Notification n : _notifications) {
             notsToString.add(n.toString());
-        }        
+        }           
+        clearNotifications();
 
         return notsToString;
     }
@@ -120,9 +121,4 @@ public class Partner implements Serializable, Observer {
     public int hashCode() {
         return _key.toLowerCase().hashCode();
     }
-
-    
-
-
-
 }

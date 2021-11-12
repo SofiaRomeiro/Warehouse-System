@@ -131,7 +131,7 @@ public class WarehouseManager {
     return _warehouse.getPartnerById(key);
   }
 
-  public List<String> showParterNotifications(String key) {
+  public List<String> showPartnerNotifications(String key) {
     return _warehouse.getPartnerNotificationsById(key);
   }
 
@@ -216,6 +216,7 @@ public class WarehouseManager {
       } catch (IOException e) {
         throw new UnavailableFileException(filename);
       }
+
   }
 
   /**

@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -39,6 +41,7 @@ public abstract class Product implements Serializable {
 	 * @param lowestPrice
 	 * @param highestPrice
 	 * @param currentQuantity
+	 * @param observers
 	 */
 	public Product(String id, double maxPrice, double lowestPrice, double highestPrice, int currentQuantity) {
 		_id = id;
@@ -68,6 +71,15 @@ public abstract class Product implements Serializable {
 
 	public double getLowestPrice() { return _lowestPrice; }
 
+	public String getObserversToString() { 
+		String s = new String();
+		for (Observer o : _observers) {
+			Partner p = (Partner) o;
+			s += "| " + p.getKey() + " | ";
+		}
+		return s; 
+	}
+
 	public double getBreakdownSalePrice() {
 		if (_currentQuantity == 0) 
 			return _maxPrice;
@@ -91,12 +103,13 @@ public abstract class Product implements Serializable {
 			return;
 		remove(obs);
 	}
-	
-	  // may be public or private
-	  private void notifyObservers(Notification notification) {
+
+
+	// may be public or private
+	private void notifyObservers(Notification notification) {
 		for (Observer obs : _observers)
-		  obs.update(notification);
-	  }
+		  	obs.update(notification);
+	}
 
 	/**
 	 * Update the product prices
@@ -108,6 +121,10 @@ public abstract class Product implements Serializable {
 		if (price > _maxPrice) { 
 			_maxPrice = price;
 			_highestPrice = price;
+		}
+
+		if (_batches.size() == 0) {
+			_lowestPrice = price;
 		}
 
 		if (price < _lowestPrice) {

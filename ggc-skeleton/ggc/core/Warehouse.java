@@ -104,6 +104,7 @@ public class Warehouse implements Serializable {
     for (Product p : toSort){
       list.add(p.toString());
     }
+
     return list;
   }
 
@@ -250,7 +251,7 @@ public class Warehouse implements Serializable {
     Partner partner = new Partner(key, name, address);
     _partners.put(key.toLowerCase(), partner);
 
-    for(Product p: _products.values()) {
+    for (Product p: _products.values()) {
       p.toggleNotifications(partner);
     }
   }
@@ -282,20 +283,34 @@ public class Warehouse implements Serializable {
     if (!(_products.containsKey(id.toLowerCase()))) {
       Product product = new SimpleProduct(id);
 
-      /*for (Partner p: new ArrayList<Partner>(_partners.values())) {
-        product.add(p);
-      }*/
       _products.put(id.toLowerCase(), product);
+      for (Partner p : _partners.values()) {
+        product.toggleNotifications(p);
+      }  
     }
   }
 
+  private void addSimpleProductWithQuantity(String id, int quantity, List<Observer> obs) {
+   
+    if (!(_products.containsKey(id.toLowerCase()))) {
+      SimpleProduct product = new SimpleProduct(id, quantity, obs);
+      _products.put(id.toLowerCase(), product);
 
+      for (Partner p : _partners.values()) {
+        product.toggleNotifications(p);
+      } 
+    }    
+  }
 
   public void addAggregateProduct(String id, Recipe recipe) {
     if (!(_products.containsKey(id.toLowerCase()))) {
       AggregateProduct product = new AggregateProduct(id, recipe); 
       _products.put(id.toLowerCase(), product);
-    }
+
+      for (Partner p : _partners.values()) {
+        product.toggleNotifications(p);
+      }
+    }     
   }
 
 
@@ -326,6 +341,9 @@ public class Warehouse implements Serializable {
 
     Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _products.get(productKey.toLowerCase()).addNewBatch(batch);
+
+    Product p = _products.get(productKey.toLowerCase());
+
     _partners.get(partnerKey.toLowerCase()).addBatch(batch);
     Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _transactionsIds++;
@@ -402,11 +420,17 @@ public class Warehouse implements Serializable {
     _notifications.add(notification);
   }
 
-  private void importPartner(String[] fields) {
+  private void importPartner(String[] fields)  {
     String id = fields[1];
     String name = fields[2];
     String address = fields[3];
-    _partners.put(id.toLowerCase(), new Partner(id, name, address));
+
+    Partner partner = new Partner(id, name, address);
+    _partners.put(id.toLowerCase(), partner);
+
+    for (Product p: _products.values()) {
+      p.toggleNotifications(partner);
+    }
   }
 
   private void importBatchS(String[] fields) {
@@ -469,14 +493,6 @@ public class Warehouse implements Serializable {
     //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
     p.addBatch(b);
-  }
-
-  private void addSimpleProductWithQuantity(String id, int quantity, List<Observer> obs) {
-   
-    if (!(_products.containsKey(id.toLowerCase()))) {
-      SimpleProduct product = new SimpleProduct(id, quantity, obs);
-      _products.put(id.toLowerCase(), product);
-    }
   }
 
   /**

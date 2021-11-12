@@ -26,21 +26,6 @@ public class Notification implements Serializable {
 		_product = product;
 	}
 
-	/*public void addNotification(String notification) {
-		_notifications.add(notification);
-	} 
-
-	public void clearNotifications() {
-		_notifications.clear();
-	} */
-
-	/*
-	public String displayNotifications() {
-		String displayText = toString();
-		clearNotifications();
-		return displayText;
-	} */
-
 	@Override
 	public String toString() {
 		return _notificationType +"|" + _product.getId() + "|" + Math.round(_product.getLowestPrice());
