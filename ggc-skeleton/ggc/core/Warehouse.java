@@ -530,6 +530,18 @@ public class Warehouse implements Serializable {
         _balance.setCurrentAccountant(finalPrice * amount);
       }
 
+      else if (product.getCurrentQuantity() < amount && product.getCurrentQuantity() > 0) {
+
+        int currentQuantityToSale = 0;
+        int quantityTokenToSaleByBatch = 0;
+        int quantityAvailableByEachBatch = 0;
+        double finalPrice = 0.0;
+
+        while (product.getCurrentQuantity() )
+
+
+      }
+
       else {
         Recipe recipe = ((AggregateProduct) product).getRecipe();
         List<Component> components = recipe.getComponents();
@@ -541,15 +553,8 @@ public class Warehouse implements Serializable {
           Product productSimple = c.getProduct();
           int productAmount = c.getQuantity() * amount;
 
-          System.out.println("[SALE BY CREDIT] Amount needed: " + productAmount);
-          System.out.println("[SALE BY CREDIT] Amount available: " + productSimple.getCurrentQuantity());
-
           if (productSimple.getCurrentQuantity() < productAmount) {
-
-            System.out.println("[SALE BY CREDIT] SOU FEIO E REBENTO.....");
-
             throw new UnaProductException(productSimple.getCurrentQuantity(), productSimple.getId());
-
           }
 
           else {
