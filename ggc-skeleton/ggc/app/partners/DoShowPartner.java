@@ -5,6 +5,7 @@ import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.core.exception.UnkPartnerKeyException;
 
 /**
  * Show partner.
@@ -22,15 +23,16 @@ class DoShowPartner extends Command<WarehouseManager> {
 
     String key = stringField("partnerId");
 
-    if (!(_receiver.hasPartner(key)))
-        throw new UnknownPartnerKeyException(key);
-
-    _display.addLine(_receiver.showPartner(key));
-    for(String notification: _receiver.showPartnerNotifications(key)) {
-      _display.addLine(notification);
+    try {
+      _display.addLine(_receiver.showPartner(key));
+      for(String notification: _receiver.showPartnerNotifications(key)) {
+        _display.addLine(notification);
+      }
+      _display.display();
     }
-    _display.display();
-
+    catch (UnkPartnerKeyException upke) {
+      throw new UnknownPartnerKeyException(key);
+    }
   }
 
 }

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import ggc.core.WarehouseManager;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.app.exception.UnknownProductKeyException;
-//FIXME import classes
 
 /**
  * Show all products.
@@ -26,7 +25,7 @@ public class DoShowBatchesByProduct  extends Command<WarehouseManager> {
     String key = stringField("key");
 
     try {
-        ArrayList<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByProduct(key));
+        List<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByProduct(key));
 
         for (String b : batchesByProduct) {
           _display.addLine(b);

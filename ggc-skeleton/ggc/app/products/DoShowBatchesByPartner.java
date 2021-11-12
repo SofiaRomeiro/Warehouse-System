@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import ggc.core.WarehouseManager;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.app.exception.UnknownPartnerKeyException;
-//FIXME import classes
 
 /**
  * Show batches supplied by partner.
@@ -26,17 +25,12 @@ class DoShowBatchesByPartner extends Command<WarehouseManager> {
     String key = stringField("key");
 
     try {
-
-      ArrayList<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByPartner(key));
-
+      List<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByPartner(key));
       for (String b : batchesByProduct) {
         _display.addLine(b);
       }
       _display.display();
-
-    }
-
-    catch (UnkPartnerKeyException upke) {
+    }catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(key);
     }
   }
