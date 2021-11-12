@@ -1,5 +1,5 @@
-*** tests/A-19-06-M-ok.out	Fri Nov 12 09:03:28 2021
---- tests/A-19-06-M-ok.outhyp	Fri Nov 12 13:06:20 2021
+*** tests/A-19-06-M-ok.out	2021-11-12 12:29:46.373589477 +0000
+--- tests/A-19-06-M-ok.outhyp	2021-11-12 15:33:18.681994823 +0000
 ***************
 *** 16,29 ****
   4 - Registar compra
@@ -33,10 +33,19 @@
   1 - Visualizar
   2 - Registar desagregação
 ***************
-*** 42,72 ****
-  8 - Menu de Consultas
-  9 - Ver Saldo Global
+*** 33,65 ****
   0 - Sair
+  Escolha uma opção: Menu Principal
+  1 - Abrir
+- 2 - Guardar
+- 3 - Mostrar Data
+- 4 - Avançar Data
+- 5 - Gestão de Produtos
+- 6 - Gestão de Parceiros
+- 7 - Gestão de Transacções
+- 8 - Menu de Consultas
+- 9 - Ver Saldo Global
+- 0 - Sair
 - Escolha uma opção: Gestão de Produtos
 - 1 - Visualizar todos os produtos
 - 2 - Visualizar todos os lotes
@@ -55,15 +64,7 @@
 - 0 - Sair
 - Escolha uma opção: Menu Principal
 - 1 - Abrir
-- 2 - Guardar
-- 3 - Mostrar Data
-- 4 - Avançar Data
-- 5 - Gestão de Produtos
-- 6 - Gestão de Parceiros
-- 7 - Gestão de Transacções
-- 8 - Menu de Consultas
-- 9 - Ver Saldo Global
-- 0 - Sair
-  Escolha uma opção: 
-\ No newline at end of file
---- 43,46 ----
+  2 - Guardar
+  3 - Mostrar Data
+  4 - Avançar Data
+--- 34,39 ----

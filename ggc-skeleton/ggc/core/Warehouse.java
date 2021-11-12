@@ -74,6 +74,10 @@ public class Warehouse implements Serializable {
     _date = _date.advance(days);
   }
 
+  public void setDate(int days) {
+    _date = _date.setDate(days);
+  }
+
   /**
    * Returns available balance.
    * 
@@ -217,8 +221,8 @@ public class Warehouse implements Serializable {
    * @param key
    * @return
    */
-  public String getPartnerById(String key) throws UnkPartnerKeyException{
-    if (!_partners.containsKey(key.toLowerCase()))
+  public String getPartnerById(String key) throws UnkPartnerKeyException {
+    if (!hasPartner(key))
       throw new UnkPartnerKeyException();
     return _partners.get(key.toLowerCase()).toString();
   }
@@ -274,6 +278,25 @@ public class Warehouse implements Serializable {
     }
     return transactions;
   }
+
+  public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
+    
+    ArrayList<String> transactions = new ArrayList<>();
+
+    if (!_partners.containsKey(key.toLowerCase())) {
+      throw new UnkPartnerKeyException();
+    }
+
+    Partner partner = _partners.get(key.toLowerCase());
+
+    for (Transaction t : partner.getAllTransactions()) {
+      if (t instanceof Sale)
+      transactions.add(t.toString());
+    }
+    return transactions;
+  }
+
+
 
 
   /**
@@ -436,7 +459,7 @@ public class Warehouse implements Serializable {
 
     product.removeEmptyBatch();
 
-    Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now(), deadlinePayment), /*falta colocar o preco */ amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
+    //Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), /*falta colocar o preco */ amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
 
     
 

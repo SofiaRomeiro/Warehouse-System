@@ -1,5 +1,5 @@
-*** tests/A-16-02-M-ok.out	Fri Nov 12 09:03:28 2021
---- tests/A-16-02-M-ok.outhyp	Fri Nov 12 13:06:18 2021
+*** tests/A-16-02-M-ok.out	2021-11-12 12:29:46.373589477 +0000
+--- tests/A-16-02-M-ok.outhyp	2021-11-12 15:33:17.761994823 +0000
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -102,11 +102,12 @@
   1 - Abrir
   2 - Guardar
   3 - Mostrar Data
---- 95,101 ----
+--- 95,102 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair
-! Escolha uma opção: Ficheiro a abrir: Menu Principal
+! Escolha uma opção: Ficheiro a abrir: Abrir: Operação inválida: Problema ao abrir '0'.
+! Menu Principal
   1 - Abrir
   2 - Guardar
   3 - Mostrar Data

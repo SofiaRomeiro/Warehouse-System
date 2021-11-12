@@ -185,7 +185,10 @@ public class WarehouseManager {
     }
 
     try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
+
       objOut.writeObject(_warehouse);
+      objOut.writeObject(_warehouse.getDate());
+
     } catch (FileNotFoundException fnfe) { 
       throw fnfe; 
     } catch (IOException e) {
@@ -212,8 +215,11 @@ public class WarehouseManager {
 
       try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
         Object anObject = objIn.readObject();
+        int days = (Integer) objIn.readObject();
         _warehouse = (Warehouse) anObject;
         _filename = filename;
+        _warehouse.setDate(days);
+
       } catch (ClassNotFoundException cnfe) {
         throw cnfe;
       } catch (IOException e) {

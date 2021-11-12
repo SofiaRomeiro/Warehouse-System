@@ -63,5 +63,9 @@ public class Date implements Serializable {
 
 	}
 
+	public Date setDate(int days) {
+		return _now = new Date(days);
+	}
+
 
 }
