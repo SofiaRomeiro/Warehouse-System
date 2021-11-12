@@ -34,6 +34,11 @@ public class Date implements Serializable {
 		_deadlinePayment = 0;
 	}
 
+	public Date(int days, int deadlinePayment) {
+		_date = days;
+		_deadlinePayment = deadlinePayment;
+	}
+
 	public static Date now() { return _now; }
 
 	public int getDate() { return _date; }

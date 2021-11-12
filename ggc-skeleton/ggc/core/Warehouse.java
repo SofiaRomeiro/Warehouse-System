@@ -353,6 +353,107 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
+  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException {
+
+    Product product = _products.get(productKey.toLowerCase());
+    Partner partner = _partners.get(partnerKey.toLowerCase());
+
+    //verificar se é possivel vender
+    
+    if (product instanceof SimpleProduct && product.getCurrentQuantity() < amount) 
+      throw new UnaProductException(product.getCurrentQuantity());
+
+    else if (product instanceof AggregateProduct && product.getCurrentQuantity() < amount) {
+      Recipe recipe = ((AggregateProduct) product).getRecipe();
+      List<Component> components = recipe.getComponents();
+
+      //para cada um dos componentes da receita verificar se tem quantidade suficiente
+      for (Component c : components) {
+        if (c.getProduct().getCurrentQuantity() < amount) 
+          throw new UnaProductException(c.getProduct().getCurrentQuantity());
+      }
+    }
+
+    // se o produto for simples, vende se diretamente -> VENDA SIMPLE PRODUCT <-
+
+    Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now(), deadlinePayment), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
+
+        //procurar preco mais baixo 
+
+    List<Batch> batches = new ArrayList<>(product.getAllBatches());
+    Collections.sort(batches, new BatchesComparatorByPrice());
+
+    int quantityToSale = 0;
+    int quantityAvailable = 0;
+
+    while (quantityToSale < amount) {
+      for (Batch b : batches) {
+
+        quantityAvailable = b.getQuantity();
+
+        if (quantityAvailable >= amount) 
+          b.decreaseQuantity(amount);
+        else {
+          quantityToSale += quantityAvailable;
+          b.decreaseQuantity(amount);
+          product.removeEmptyBatch();
+        }
+
+        //calcular os precos dos produtos
+      }
+    }
+    
+
+
+    // se o produto for agregado, e nao houver quantidade suficiente, pode fabricar-se
+    
+    Recipe recipe = ((AggregateProduct) product).getRecipe();
+    Double breakdownSalePrice = product.getBreakdownSalePrice();
+    Double totalTransactionPrice = 0.0;
+    Double totalAggregateProductPrice = 0.0;
+    Double transactionPrice = 0.0;
+
+    int createProductNum = 0;
+
+    List<Batch> batches = product.getAllBatchesByPrice();
+
+
+    for (int i = 0; createProductNum != amount; i++) {
+      int num = 0;
+      if (batches.get(i).getQuantity() >= (amount - createProductNum))
+        num = amount - createProductNum;
+      else 
+        num = (amount - createProductNum) - batches.get(i).getQuantity();
+        
+        totalAggregateProductPrice += batches.get(i).getPrice() * num;
+        Double componentsPrice = 0.0;
+
+      for (Component c : recipe.getComponents()) {
+        componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
+        Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
+        c.getProduct().addNewBatch(batch);
+        partner.addBatch(batch);
+      }
+      totalTransactionPrice += componentsPrice * num;
+      batches.get(i).decreaseQuantity(num);
+    }
+
+    product.removeEmptyBatch();
+    partner.removeEmptyBatch();
+
+    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
+      transactionPrice = 0.0;
+
+  }
+
+  protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
+
+    @Override
+    public int compare(Batch b1, Batch b2) {
+      return (int) (b1.getPrice() - b2.getPrice());
+    }
+  }
+
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
     Product product = _products.get(productKey.toLowerCase());
