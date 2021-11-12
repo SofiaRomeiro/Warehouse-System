@@ -1,5 +1,5 @@
-*** tests/A-18-02-M-ok.out	2021-11-10 23:23:51.359926033 +0000
---- tests/A-18-02-M-ok.outhyp	2021-11-12 02:06:36.487421584 +0000
+*** tests/A-18-02-M-ok.out	Fri Nov 12 09:03:28 2021
+--- tests/A-18-02-M-ok.outhyp	Fri Nov 12 11:52:12 2021
 ***************
 *** 27,33 ****
   4 - Registar compra
@@ -49,35 +49,7 @@
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
-! Escolha uma opção: Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
-  3 - Registar parceiro
-***************
-*** 80,86 ****
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
 ! Escolha uma opção: Identificador do parceiro: Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
   3 - Registar parceiro
---- 97,104 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
-  3 - Registar parceiro
-***************
-*** 88,93 ****
---- 106,112 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-+ Escolha uma opção: Número inválido!
-  Escolha uma opção: Menu Principal
-  1 - Abrir
-  2 - Guardar

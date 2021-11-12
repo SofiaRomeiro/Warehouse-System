@@ -273,6 +273,23 @@ public class Warehouse implements Serializable {
     return transactions;
   }
 
+  public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
+    
+    ArrayList<String> transactions = new ArrayList<>();
+
+    if (!_partners.containsKey(key.toLowerCase())) {
+      throw new UnkPartnerKeyException();
+    }
+
+    Partner partner = _partners.get(key.toLowerCase());
+
+    for (Transaction t : partner.getAllTransactions()) {
+      if (t instanceof Sale)
+      transactions.add(t.toString());
+    }
+    return transactions;
+  }
+
 
   /**
    * Add a new simple product.
@@ -353,7 +370,8 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
-  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException {
+  // SaleByCredit
+/*  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException {
 
     Product product = _products.get(productKey.toLowerCase());
     Partner partner = _partners.get(partnerKey.toLowerCase());
@@ -452,7 +470,7 @@ public class Warehouse implements Serializable {
     public int compare(Batch b1, Batch b2) {
       return (int) (b1.getPrice() - b2.getPrice());
     }
-  }
+  }*/
 
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
@@ -464,10 +482,12 @@ public class Warehouse implements Serializable {
       throw new UnaProductException(product.getCurrentQuantity());
     
     Recipe recipe = ((AggregateProduct) product).getRecipe();
-    Double breakdownSalePrice = product.getBreakdownSalePrice();
+    
     Double totalTransactionPrice = 0.0;
     Double totalAggregateProductPrice = 0.0;
     Double transactionPrice = 0.0;
+    
+    List<String> componentsString = new ArrayList<>();
 
     int createProductNum = 0;
 
@@ -485,24 +505,38 @@ public class Warehouse implements Serializable {
         Double componentsPrice = 0.0;
 
       for (Component c : recipe.getComponents()) {
-        componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
+        Double breakdownSalePrice = c.getProduct().getBreakdownSalePrice();
+
+        componentsPrice = c.getQuantity() * num * breakdownSalePrice;
+
         Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
         c.getProduct().addNewBatch(batch);
         partner.addBatch(batch);
+        totalTransactionPrice += componentsPrice;
       }
-      totalTransactionPrice += componentsPrice * num;
+      createProductNum += num;
+      
       batches.get(i).decreaseQuantity(num);
     }
 
     product.removeEmptyBatch();
     partner.removeEmptyBatch();
 
-    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
+    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0) {
       transactionPrice = 0.0;
+    }
+
+    for (Component c : recipe.getComponents()) {
+      componentsString.add(c.getId() + ":" + (c.getQuantity()* amount) + ":" + (c.getQuantity() * amount * c.getProduct().getBreakdownSalePrice()));
+    }
 
     Transaction transaction = new BreakdownSale(_transactionsIds, _date.now(), transactionPrice, amount, product, partner);
+    ((Sale)transaction).setValuePaid(transactionPrice);
+    ((BreakdownSale)transaction).setComponentsString(componentsString);
     _transactionsIds++;
     _transations.add(transaction);
+
+
     partner.addTransation(transaction);
     _balance.setCurrentAvailable(-transactionPrice * amount);
     _balance.setCurrentAccountant(-transactionPrice * amount);
@@ -578,7 +612,7 @@ public class Warehouse implements Serializable {
         addSimpleProductWithQuantity(componentId, quantity, new ArrayList<Observer>(_partners.values()));
       }    
 
-      Component c = new Component(quantity, new SimpleProduct(componentId));
+      Component c = new Component(quantity, _products.get(componentId.toLowerCase()) /*new SimpleProduct(componentId)*/);
       recipe.addComponent(c);
     }
   

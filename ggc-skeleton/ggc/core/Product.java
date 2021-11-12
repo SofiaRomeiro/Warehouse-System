@@ -143,6 +143,7 @@ public abstract class Product implements Serializable {
 		updateCurrentQuantity(b.getQuantity());
 		updatePrices(b.getPrice());
 		_batches.add(b);
+
 	}
 
 	public void removeEmptyBatch() {

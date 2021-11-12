@@ -147,13 +147,15 @@ public class WarehouseManager {
     return _warehouse.hasPartner(key);
   }
 
-  public List<String> showAcquisitionTransactionByPartner(String key) throws UnkPartnerKeyException {
-    return _warehouse.showAcquisitionTransactionByPartner(key);
-  }
+  
 
   // Transaction
   public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
     _warehouse.validateParameters(partnerKey, productKey);
+  }
+
+  public String showTransaction(int transactionKey) throws UnkTransactionKeyException {
+    return _warehouse.showTransaction(transactionKey);
   }
 
   // Acquisition
@@ -161,13 +163,18 @@ public class WarehouseManager {
     _warehouse.addNewAcquisitionTransaction(partnerKey, productKey, price, amount);
   }
 
-  public String showTransaction(int transactionKey) throws UnkTransactionKeyException {
-    return _warehouse.showTransaction(transactionKey);
+  public List<String> showAcquisitionTransactionByPartner(String key) throws UnkPartnerKeyException {
+    return _warehouse.showAcquisitionTransactionByPartner(key);
   }
 
+  //Sale
   // BreakdownSale
   public void registerBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException{
     _warehouse.addNewBreakdownSaleTransaction(partnerKey, productKey, amount);
+  }
+
+  public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
+    return _warehouse.showSaleTransactionByPartner(key);
   }
 
   /**
