@@ -1,5 +1,5 @@
 *** tests/A-19-05-M-ok.out	2021-11-12 12:29:46.373589477 +0000
---- tests/A-19-05-M-ok.outhyp	2021-11-12 18:25:24.177346219 +0000
+--- tests/A-19-05-M-ok.outhyp	2021-11-12 19:00:38.089774516 +0000
 ***************
 *** 16,22 ****
   4 - Registar compra
@@ -13,7 +13,7 @@
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador do parceiro: Data limite de pagamento: Identificador do produto: Quantidade: Registar venda: Operação inválida: Produto 'GARRAFA': pedido=10, existências=0
+! Escolha uma opção: Identificador do parceiro: Data limite de pagamento: Identificador do produto: Quantidade: Registar venda: Operação inválida: Produto 'GARRAFA': pedido=10, existências=75
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação

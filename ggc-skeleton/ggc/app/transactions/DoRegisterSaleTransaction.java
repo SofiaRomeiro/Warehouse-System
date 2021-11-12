@@ -43,7 +43,7 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
       throw new UnknownProductKeyException(productKey);
     }
     catch (UnaProductException upe) {
-      throw new UnavailableProductException(productKey, amount, upe.getAvailable());
+      throw new UnavailableProductException(upe.getProductComponent(), amount, upe.getAvailable());
     }
 
 
