@@ -527,7 +527,7 @@ public class Warehouse implements Serializable {
     }
 
     for (Component c : recipe.getComponents()) {
-      componentsString.add(c.getId() + ":" + (c.getQuantity()* amount) + ":" + (c.getQuantity() * amount * c.getProduct().getBreakdownSalePrice()));
+      componentsString.add(c.getId() + ":" + (c.getQuantity()* amount) + ":" + (c.getQuantity() * Math.round(amount * c.getProduct().getBreakdownSalePrice())));
     }
 
     Transaction transaction = new BreakdownSale(_transactionsIds, _date.now(), transactionPrice, amount, product, partner);
