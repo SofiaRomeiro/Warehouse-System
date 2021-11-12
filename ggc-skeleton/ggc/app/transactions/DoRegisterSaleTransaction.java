@@ -10,7 +10,6 @@ import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.UnaProductException;
 import ggc.core.WarehouseManager;
 
-//FIXME import classes
 
 /**
  * 
@@ -22,13 +21,13 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     addStringField("partnerKey", Message.requestPartnerKey());
     addIntegerField("deadline", Message.requestPaymentDeadline());
     addStringField("productKey", Message.requestProductKey());
-    addIntegerField("amount", Message.requestAmount());  
+    addIntegerField("amount", Message.requestAmount());
   }
 
 
   @Override
   public final void execute() throws CommandException {
-    
+
     String partnerKey = stringField("partnerKey");
     Integer paymentDeadline = integerField("deadline");
     String productKey = stringField("productKey");
@@ -40,7 +39,7 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     catch (UnkPartnerKeyException upke){
       throw new UnknownPartnerKeyException(partnerKey);
     } 
-    catch (UnkProductKeyException upke){  
+    catch (UnkProductKeyException upke){
       throw new UnknownProductKeyException(productKey);
     }
     catch (UnaProductException upe) {

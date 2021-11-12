@@ -2,6 +2,7 @@ package ggc.core;
 
 import java.util.List;
 
+
 public class SimpleProduct extends Product{
 
     public SimpleProduct(String id) {

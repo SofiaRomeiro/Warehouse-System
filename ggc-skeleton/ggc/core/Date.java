@@ -39,6 +39,10 @@ public class Date implements Serializable {
 		_deadlinePayment = deadlinePayment;
 	}
 
+	public Date setDate(int days) {
+        return _now = new Date(days);
+} 
+
 	public static Date now() { return _now; }
 
 	public int getDate() { return _date; }
@@ -61,10 +65,6 @@ public class Date implements Serializable {
 
 		return _now = new Date(_now.getDate() + days);	
 
-	}
-
-	public Date setDate(int days) {
-		return _now = new Date(days);
 	}
 
 

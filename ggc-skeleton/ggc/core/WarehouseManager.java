@@ -164,84 +164,86 @@ public class WarehouseManager {
   }
 
   //Sale
+  public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
+    return _warehouse.showSaleTransactionByPartner(key);
+  }
+
   // BreakdownSale
   public void registerBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException{
     _warehouse.addNewBreakdownSaleTransaction(partnerKey, productKey, amount);
   }
 
+  //SaleByCredit
   public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount) throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException {
     _warehouse.addNewSaleTransaction(partnerKey,paymentDeadline, productKey, amount);
   }
 
-  public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
-    return _warehouse.showSaleTransactionByPartner(key);
-  }
 
-  /**
-   * @@throws IOException
-   * @@throws FileNotFoundException
-   * @@throws MissingFileAssociationException
-   */
-  public void save(String filename) throws IOException, FileNotFoundException {
+  /*
+  * @@throws IOException
+  * @@throws FileNotFoundException
+  * @@throws MissingFileAssociationException
+  */
+ public void save(String filename) throws IOException, FileNotFoundException {
 
-    if (!hasFilename()) {
-      _filename = filename;
-    }
+   if (!hasFilename()) {
+     _filename = filename;
+   }
 
-    try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
+   try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
 
-      objOut.writeObject(_warehouse);
-      objOut.writeObject(_warehouse.getDate());
+     objOut.writeObject(_warehouse);
+     objOut.writeObject(_warehouse.getDate());
 
-    } catch (FileNotFoundException fnfe) { 
-      throw fnfe; 
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+   } catch (FileNotFoundException fnfe) { 
+     throw fnfe; 
+   } catch (IOException e) {
+     e.printStackTrace();
+   }
+ }
 
-  /**
-   * @@param filename
-   * @@throws MissingFileAssociationException
-   * @@throws IOException
-   * @@throws FileNotFoundException
-   */
-  public void saveAs(String filename) throws MissingFileAssociationException, FileNotFoundException, IOException {
-    _filename = filename;
-    save(filename);
-  }
+ /*
+  * @@param filename
+  * @@throws MissingFileAssociationException
+  * @@throws IOException
+  * @@throws FileNotFoundException
+  */
+ public void saveAs(String filename) throws MissingFileAssociationException, FileNotFoundException, IOException {
+   _filename = filename;
+   save(filename);
+ }
 
-  /**
-   * @@param filename
-   * @@throws UnavailableFileException
-   */
-  public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
+ /*
+  * @@param filename
+  * @@throws UnavailableFileException
+  */
+ public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
 
-      try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
-        Object anObject = objIn.readObject();
-        int days = (Integer) objIn.readObject();
-        _warehouse = (Warehouse) anObject;
-        _filename = filename;
-        _warehouse.setDate(days);
+     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
+       Object anObject = objIn.readObject();
+       int days = (Integer) objIn.readObject();
+       _warehouse = (Warehouse) anObject;
+       _filename = filename;
+       _warehouse.setDate(days);
 
-      } catch (ClassNotFoundException cnfe) {
-        throw cnfe;
-      } catch (IOException e) {
-        throw new UnavailableFileException(filename);
-      }
+     } catch (ClassNotFoundException cnfe) {
+       throw cnfe;
+     } catch (IOException e) {
+       throw new UnavailableFileException(filename);
+     }
 
-  }
+ }
 
-  /**
-   * @param textfile
-   * @throws ImportFileException
-   */
-  public void importFile(String textfile) throws ImportFileException {
-    try {
-      _warehouse.importFile(textfile);
-    } catch (IOException | BadEntryException e) {
-      throw new ImportFileException(textfile, e);
-    }
-  }
+ /*
+  * @param textfile
+  * @throws ImportFileException
+  */
+ public void importFile(String textfile) throws ImportFileException {
+   try {
+     _warehouse.importFile(textfile);
+   } catch (IOException | BadEntryException e) {
+     throw new ImportFileException(textfile, e);
+   }
+ }
 
 }

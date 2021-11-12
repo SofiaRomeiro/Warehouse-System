@@ -1,10 +1,14 @@
 package ggc.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BreakdownSale extends Sale{
+import java.io.Serializable;
 
+public class BreakdownSale extends Sale implements Serializable{
+
+    private static final long serialVersionUID = 928404186756L;
     private List<String> _componentsString;
 
     public BreakdownSale(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {

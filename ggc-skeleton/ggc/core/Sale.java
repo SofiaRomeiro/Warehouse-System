@@ -1,7 +1,10 @@
 package ggc.core;
 
-public abstract class Sale extends Transaction {
+import java.io.Serializable;
 
+public abstract class Sale extends Transaction implements Serializable {
+
+    private static final long serialVersionUID = 123416392006L;
     private double _valuePaid;
 
     public Sale(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {

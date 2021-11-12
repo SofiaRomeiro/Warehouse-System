@@ -52,7 +52,7 @@ Escolha uma opção: Gestão de Transacções
 4 - Registar compra
 5 - Receber pagamento de venda
 0 - Sair
-Escolha uma opção: Identificador da transacção: Visualizar: Operação inválida: A transacção '0' não existe.
+Escolha uma opção: Identificador da transacção: VENDA|0|S1|SAL|5|25|25|10
 Gestão de Transacções
 1 - Visualizar
 2 - Registar desagregação

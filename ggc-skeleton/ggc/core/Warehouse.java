@@ -10,7 +10,6 @@ import java.util.TreeMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Comparator;
 import java.util.Collections;
 
 import ggc.core.exception.BadEntryException;
@@ -221,8 +220,8 @@ public class Warehouse implements Serializable {
    * @param key
    * @return
    */
-  public String getPartnerById(String key) throws UnkPartnerKeyException {
-    if (!hasPartner(key))
+  public String getPartnerById(String key) throws UnkPartnerKeyException{
+    if (!_partners.containsKey(key.toLowerCase()))
       throw new UnkPartnerKeyException();
     return _partners.get(key.toLowerCase()).toString();
   }
@@ -295,8 +294,6 @@ public class Warehouse implements Serializable {
     }
     return transactions;
   }
-
-
 
 
   /**
@@ -378,6 +375,7 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
+  // SaleByCredit
   public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException, UnkPartnerKeyException, UnkProductKeyException {
 
     if (!_products.containsKey(productKey.toLowerCase()))
@@ -466,7 +464,10 @@ public class Warehouse implements Serializable {
       product.removeEmptyBatch();
 
       Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
-
+      ((Sale)transaction).setValuePaid(finalPrice);
+      _transactionsIds++;
+      _transations.add(transaction);
+      partner.addTransation(transaction);
       product.updateCurrentQuantity(-amount);
 
     }
@@ -517,15 +518,6 @@ public class Warehouse implements Serializable {
     } 
   }
 
-  /*protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
-
-    @Override
-    public int compare(Batch b1, Batch b2) {
-      return (int) (b1.getPrice() - b2.getPrice());
-    }
-  } */
-
-
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
     Product product = _products.get(productKey.toLowerCase());
@@ -536,10 +528,12 @@ public class Warehouse implements Serializable {
       throw new UnaProductException(product.getCurrentQuantity());
     
     Recipe recipe = ((AggregateProduct) product).getRecipe();
-    Double breakdownSalePrice = product.getBreakdownSalePrice();
+    
     Double totalTransactionPrice = 0.0;
     Double totalAggregateProductPrice = 0.0;
     Double transactionPrice = 0.0;
+    
+    List<String> componentsString = new ArrayList<>();
 
     int createProductNum = 0;
 
@@ -557,24 +551,38 @@ public class Warehouse implements Serializable {
         Double componentsPrice = 0.0;
 
       for (Component c : recipe.getComponents()) {
-        componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
+        Double breakdownSalePrice = c.getProduct().getBreakdownSalePrice();
+
+        componentsPrice = c.getQuantity() * num * breakdownSalePrice;
+
         Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
         c.getProduct().addNewBatch(batch);
         partner.addBatch(batch);
+        totalTransactionPrice += componentsPrice;
       }
-      totalTransactionPrice += componentsPrice * num;
+      createProductNum += num;
+      
       batches.get(i).decreaseQuantity(num);
     }
 
     product.removeEmptyBatch();
     partner.removeEmptyBatch();
 
-    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
+    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0) {
       transactionPrice = 0.0;
+    }
+
+    for (Component c : recipe.getComponents()) {
+      componentsString.add(c.getId() + ":" + (c.getQuantity()* amount) + ":" + (c.getQuantity() * Math.round(amount * c.getProduct().getBreakdownSalePrice())));
+    }
 
     Transaction transaction = new BreakdownSale(_transactionsIds, _date.now(), transactionPrice, amount, product, partner);
+    ((Sale)transaction).setValuePaid(transactionPrice);
+    ((BreakdownSale)transaction).setComponentsString(componentsString);
     _transactionsIds++;
     _transations.add(transaction);
+
+
     partner.addTransation(transaction);
     _balance.setCurrentAvailable(-transactionPrice * amount);
     _balance.setCurrentAccountant(-transactionPrice * amount);
@@ -650,7 +658,7 @@ public class Warehouse implements Serializable {
         addSimpleProductWithQuantity(componentId, quantity, new ArrayList<Observer>(_partners.values()));
       }    
 
-      Component c = new Component(quantity, new SimpleProduct(componentId));
+      Component c = new Component(quantity, _products.get(componentId.toLowerCase()) /*new SimpleProduct(componentId)*/);
       recipe.addComponent(c);
     }
   
