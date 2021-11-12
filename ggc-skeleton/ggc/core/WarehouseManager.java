@@ -169,6 +169,10 @@ public class WarehouseManager {
     _warehouse.addNewBreakdownSaleTransaction(partnerKey, productKey, amount);
   }
 
+  public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount) throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException {
+    _warehouse.addNewSaleTransaction(partnerKey,paymentDeadline, productKey, amount);
+  }
+
   public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
     return _warehouse.showSaleTransactionByPartner(key);
   }

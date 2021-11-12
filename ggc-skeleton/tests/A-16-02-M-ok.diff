@@ -1,39 +1,5 @@
 *** tests/A-16-02-M-ok.out	2021-11-12 12:29:46.373589477 +0000
---- tests/A-16-02-M-ok.outhyp	2021-11-12 15:33:17.761994823 +0000
-***************
-*** 16,22 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: Data limite de pagamento: Identificador do produto: Quantidade: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
---- 16,39 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Opção inválida!
-! Gestão de Transacções
-! 1 - Visualizar
-! 2 - Registar desagregação
-! 3 - Registar venda
-! 4 - Registar compra
-! 5 - Receber pagamento de venda
-! 0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
-  3 - Registar venda
+--- tests/A-16-02-M-ok.outhyp	2021-11-12 16:14:52.197994823 +0000
 ***************
 *** 52,58 ****
   4 - Registar compra
@@ -43,7 +9,7 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
---- 69,75 ----
+--- 52,58 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -68,7 +34,7 @@
   1 - Visualizar
   2 - Registar desagregação
   3 - Registar venda
---- 77,83 ----
+--- 60,66 ----
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
@@ -102,7 +68,7 @@
   1 - Abrir
   2 - Guardar
   3 - Mostrar Data
---- 95,102 ----
+--- 78,85 ----
   8 - Menu de Consultas
   9 - Ver Saldo Global
   0 - Sair

@@ -88,7 +88,7 @@ public abstract class Product implements Serializable {
 
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
-	private void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
+	public void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
 
 	private boolean add(Observer obs) {
 		return _observers.add(obs);
@@ -156,10 +156,12 @@ public abstract class Product implements Serializable {
 	}
 
 	public void setLowestPrice() {
-		_lowestPrice = _batches.get(0).getPrice();
-		for (Batch b: _batches) {
-			if (b.getPrice() < _lowestPrice)
-				_lowestPrice =b.getPrice();
+		if (_batches.size() != 0) {
+			_lowestPrice = _batches.get(0).getPrice();
+			for (Batch b: _batches) {
+				if (b.getPrice() < _lowestPrice)
+					_lowestPrice =b.getPrice();
+			}
 		}
 	}
 

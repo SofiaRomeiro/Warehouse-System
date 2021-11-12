@@ -378,13 +378,17 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
-  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException {
+  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException, UnkPartnerKeyException, UnkProductKeyException {
+
+    if (!_products.containsKey(productKey.toLowerCase()))
+      throw new UnkProductKeyException();
+
+    if (!_partners.containsKey(partnerKey.toLowerCase()))
+      throw new UnkPartnerKeyException();
 
     Product product = _products.get(productKey.toLowerCase());
     Partner partner = _partners.get(partnerKey.toLowerCase());
-
-    //verificar se é possivel vender
-    
+   
     if (product instanceof SimpleProduct && product.getCurrentQuantity() < amount) 
       throw new UnaProductException(product.getCurrentQuantity());
 
@@ -402,107 +406,115 @@ public class Warehouse implements Serializable {
     // se o produto for simples, vende se diretamente -> VENDA SIMPLE PRODUCT <-
 
     //procurar preco mais baixo 
+    if (product instanceof SimpleProduct) {
 
-    List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
 
-    int currentQuantityToSale = 0;
-    int quantityTokenToSaleByBatch = 0;
-    int quantityAvailableByEachBatch = 0;
+      List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
 
-    while (currentQuantityToSale < amount) {      
+      int currentQuantityToSale = 0;
+      int quantityTokenToSaleByBatch = 0;
+      int quantityAvailableByEachBatch = 0;
+      double finalPrice = 0.0;
 
-      for (Batch b : batches) {
+      while (currentQuantityToSale < amount) {      
 
-        quantityAvailableByEachBatch = b.getQuantity();
+        for (Batch b : batches) {
 
-        //CAS0 1 -> O LOTE TEM QUANTIDADE SUFICIENTE
+          quantityAvailableByEachBatch = b.getQuantity();
 
-          // verificar se a quantidade disponivel no lote é suficiente para preencher as necessidades do cliente
-          // nao pode entrar aqui sem ser logo no início, ou seja, currentQuantityToSale é igual a 0
-          // tirar essa quantidade ao lote e verificar o caso de remoção
-          // vender
+          //CAS0 1 -> O LOTE TEM QUANTIDADE SUFICIENTE
 
-        if (quantityAvailableByEachBatch >= amount && currentQuantityToSale == 0) { 
-          b.decreaseQuantity(amount);
-          //product.removeEmptyBatch();
-          currentQuantityToSale += amount;
-          break;
+            // verificar se a quantidade disponivel no lote é suficiente para preencher as necessidades do cliente
+            // nao pode entrar aqui sem ser logo no início, ou seja, currentQuantityToSale é igual a 0
+            // tirar essa quantidade ao lote e verificar o caso de remoção
+            // vender
+
+          if (quantityAvailableByEachBatch >= amount && currentQuantityToSale == 0) { 
+            b.decreaseQuantity(amount);
+            currentQuantityToSale += amount;
+            finalPrice += (amount * b.getPrice());
+            break;
+          }
+
+          // CASO 2 -> O LOTE TEM EM PARTE O QUE FALTA PARA COMPLETAR
+          
+              // verificar se a quantidade que existe atualmente para venda pode ser completada pelo dado lote
+              // retirar essa mesma quantidade do lote
+              // sair do ciclo
+
+          else if ((quantityAvailableByEachBatch + currentQuantityToSale) >= amount ) {
+            quantityTokenToSaleByBatch = amount - currentQuantityToSale;                  //a quantidade a retirar corresponde à diferença entre o total necessario (amount) e a quantidade já disponivel
+            b.decreaseQuantity(quantityTokenToSaleByBatch);
+            currentQuantityToSale += quantityTokenToSaleByBatch;
+            finalPrice += (quantityTokenToSaleByBatch * b.getPrice());
+          }
+
+          // CASO 3 -> O LOTE ESGOTA A QUANTIDADE E FICA A FALTAR PRODUTO 
+
+              // verificar se a quantidade que existe atualmente para venda nao pode ser completada pelo dado lote
+              // retirar essa mesma quantidade do lote, esgotando-o
+              // sair do ciclo
+
+          else {
+            currentQuantityToSale += quantityAvailableByEachBatch;
+            b.decreaseQuantity(quantityAvailableByEachBatch); 
+            finalPrice += (quantityAvailableByEachBatch * b.getPrice());
+          }
         }
-
-        // CASO 2 -> O LOTE TEM EM PARTE O QUE FALTA PARA COMPLETAR
-        
-            // verificar se a quantidade que existe atualmente para venda pode ser completada pelo dado lote
-            // retirar essa mesma quantidade do lote
-            // sair do ciclo
-
-        else if ((quantityAvailableByEachBatch + currentQuantityToSale) >= amount ) {
-          quantityTokenToSaleByBatch = amount - currentQuantityToSale;                  //a quantidade a retirar corresponde à diferença entre o total necessario (amount) e a quantidade já disponivel
-          b.decreaseQuantity(quantityTokenToSaleByBatch);
-          currentQuantityToSale += quantityTokenToSaleByBatch;
-          //product.removeEmptyBatch();
-        }
-
-        // CASO 3 -> O LOTE ESGOTA A QUANTIDADE E FICA A FALTAR PRODUTO 
-
-            // verificar se a quantidade que existe atualmente para venda nao pode ser completada pelo dado lote
-            // retirar essa mesma quantidade do lote, esgotando-o
-            // sair do ciclo
-
-        else {
-          currentQuantityToSale += quantityAvailableByEachBatch;
-          b.decreaseQuantity(quantityAvailableByEachBatch); 
-        }
-
-        //calcular os precos dos produtos
       }
+
+      product.removeEmptyBatch();
+
+      Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
+
+      product.updateCurrentQuantity(-amount);
+
     }
-
-    product.removeEmptyBatch();
-
-    //Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), /*falta colocar o preco */ amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
-
     
-
+    // PRODUTO AGREGADO
+    else {
 
     // se o produto for agregado, e nao houver quantidade suficiente, pode fabricar-se
     
-    Recipe recipe = ((AggregateProduct) product).getRecipe();
-    Double breakdownSalePrice = product.getBreakdownSalePrice();
-    Double totalTransactionPrice = 0.0;
-    Double totalAggregateProductPrice = 0.0;
-    Double transactionPrice = 0.0;
+      /*Recipe recipe = ((AggregateProduct) product).getRecipe();
+      Double breakdownSalePrice = product.getBreakdownSalePrice();
+      Double totalTransactionPrice = 0.0;
+      Double totalAggregateProductPrice = 0.0;
+      Double transactionPrice = 0.0;
 
-    int createProductNum = 0;
+      int createProductNum = 0;
 
-    batches = product.getAllBatchesByPrice();
+      batches = product.getAllBatchesByPrice();
 
 
-    for (int i = 0; createProductNum != amount; i++) {
-      int num = 0;
-      if (batches.get(i).getQuantity() >= (amount - createProductNum))
-        num = amount - createProductNum;
-      else 
-        num = (amount - createProductNum) - batches.get(i).getQuantity();
-        
-        totalAggregateProductPrice += batches.get(i).getPrice() * num;
-        Double componentsPrice = 0.0;
+      for (int i = 0; createProductNum != amount; i++) {
+        int num = 0;
+        if (batches.get(i).getQuantity() >= (amount - createProductNum))
+          num = amount - createProductNum;
+        else 
+          num = (amount - createProductNum) - batches.get(i).getQuantity();
+          
+          totalAggregateProductPrice += batches.get(i).getPrice() * num;
+          Double componentsPrice = 0.0;
 
-      for (Component c : recipe.getComponents()) {
-        componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
-        Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
-        c.getProduct().addNewBatch(batch);
-        partner.addBatch(batch);
+        for (Component c : recipe.getComponents()) {
+          componentsPrice += c.getQuantity() * num * batches.get(i).getPrice();
+          Batch batch = new Batch(breakdownSalePrice, c.getQuantity() * num , product, partner);
+          c.getProduct().addNewBatch(batch);
+          partner.addBatch(batch);
+        }
+        totalTransactionPrice += componentsPrice * num;
+        batches.get(i).decreaseQuantity(num);
       }
-      totalTransactionPrice += componentsPrice * num;
-      batches.get(i).decreaseQuantity(num);
-    }
 
-    product.removeEmptyBatch();
-    partner.removeEmptyBatch();
+      product.removeEmptyBatch();
+      partner.removeEmptyBatch();
 
-    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
-      transactionPrice = 0.0;
+      if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0)
+        transactionPrice = 0.0;
+    }*/
 
+    } 
   }
 
   /*protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
@@ -512,6 +524,7 @@ public class Warehouse implements Serializable {
       return (int) (b1.getPrice() - b2.getPrice());
     }
   } */
+
 
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {

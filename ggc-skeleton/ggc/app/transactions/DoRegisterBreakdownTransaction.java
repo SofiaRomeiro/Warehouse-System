@@ -21,7 +21,8 @@ public class DoRegisterBreakdownTransaction extends Command<WarehouseManager> {
     super(Label.REGISTER_BREAKDOWN_TRANSACTION, receiver);
     addStringField("partnerKey", Message.requestPartnerKey());
     addStringField("productKey", Message.requestProductKey());
-    addIntegerField("amount", Message.requestAmount());  }
+    addIntegerField("amount", Message.requestAmount());  
+  }
 
   @Override
   public final void execute() throws CommandException, UnknownPartnerKeyException, UnknownProductKeyException, UnavailableProductException {
