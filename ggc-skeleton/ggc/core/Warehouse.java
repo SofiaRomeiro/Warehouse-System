@@ -376,32 +376,66 @@ public class Warehouse implements Serializable {
 
     // se o produto for simples, vende se diretamente -> VENDA SIMPLE PRODUCT <-
 
-    Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now(), deadlinePayment), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
+    //procurar preco mais baixo 
 
-        //procurar preco mais baixo 
+    List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
 
-    List<Batch> batches = new ArrayList<>(product.getAllBatches());
-    Collections.sort(batches, new BatchesComparatorByPrice());
+    int currentQuantityToSale = 0;
+    int quantityTokenToSaleByBatch = 0;
+    int quantityAvailableByEachBatch = 0;
 
-    int quantityToSale = 0;
-    int quantityAvailable = 0;
+    while (currentQuantityToSale < amount) {      
 
-    while (quantityToSale < amount) {
       for (Batch b : batches) {
 
-        quantityAvailable = b.getQuantity();
+        quantityAvailableByEachBatch = b.getQuantity();
 
-        if (quantityAvailable >= amount) 
+        //CAS0 1 -> O LOTE TEM QUANTIDADE SUFICIENTE
+
+          // verificar se a quantidade disponivel no lote é suficiente para preencher as necessidades do cliente
+          // nao pode entrar aqui sem ser logo no início, ou seja, currentQuantityToSale é igual a 0
+          // tirar essa quantidade ao lote e verificar o caso de remoção
+          // vender
+
+        if (quantityAvailableByEachBatch >= amount && currentQuantityToSale == 0) { 
           b.decreaseQuantity(amount);
+          //product.removeEmptyBatch();
+          currentQuantityToSale += amount;
+          break;
+        }
+
+        // CASO 2 -> O LOTE TEM EM PARTE O QUE FALTA PARA COMPLETAR
+        
+            // verificar se a quantidade que existe atualmente para venda pode ser completada pelo dado lote
+            // retirar essa mesma quantidade do lote
+            // sair do ciclo
+
+        else if ((quantityAvailableByEachBatch + currentQuantityToSale) >= amount ) {
+          quantityTokenToSaleByBatch = amount - currentQuantityToSale;                  //a quantidade a retirar corresponde à diferença entre o total necessario (amount) e a quantidade já disponivel
+          b.decreaseQuantity(quantityTokenToSaleByBatch);
+          currentQuantityToSale += quantityTokenToSaleByBatch;
+          //product.removeEmptyBatch();
+        }
+
+        // CASO 3 -> O LOTE ESGOTA A QUANTIDADE E FICA A FALTAR PRODUTO 
+
+            // verificar se a quantidade que existe atualmente para venda nao pode ser completada pelo dado lote
+            // retirar essa mesma quantidade do lote, esgotando-o
+            // sair do ciclo
+
         else {
-          quantityToSale += quantityAvailable;
-          b.decreaseQuantity(amount);
-          product.removeEmptyBatch();
+          currentQuantityToSale += quantityAvailableByEachBatch;
+          b.decreaseQuantity(quantityAvailableByEachBatch); 
         }
 
         //calcular os precos dos produtos
       }
     }
+
+    product.removeEmptyBatch();
+
+    Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now(), deadlinePayment), /*falta colocar o preco */ amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
+
     
 
 
@@ -446,13 +480,13 @@ public class Warehouse implements Serializable {
 
   }
 
-  protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
+  /*protected final static class BatchesComparatorByPrice implements Comparator<Batch> {
 
     @Override
     public int compare(Batch b1, Batch b2) {
       return (int) (b1.getPrice() - b2.getPrice());
     }
-  } 
+  } */
 
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
