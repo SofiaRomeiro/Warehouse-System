@@ -1,0 +1,12 @@
+*** tests/A-04-08-M-ok.out	2021-10-24 17:46:04.420193738 +0100
+--- tests/A-04-08-M-ok.outhyp	2021-11-14 23:11:18.928096224 +0000
+***************
+*** 44,49 ****
+--- 44,50 ----
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: HIDROGENIO|S1|2|5000
++ SAL|S1|1|0
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes

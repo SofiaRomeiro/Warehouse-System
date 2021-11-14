@@ -1,0 +1,12 @@
+*** tests/A-01-10-M-ok.out	2021-11-06 09:33:54.132364465 +0000
+--- tests/A-01-10-M-ok.outhyp	2021-11-14 23:11:17.572096168 +0000
+***************
+*** 61,67 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+- NEW|ROLHA|10
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 61,66 ----

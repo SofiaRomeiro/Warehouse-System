@@ -4,10 +4,10 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import pt.tecnico.uilib.forms.Form;
 
+import javax.sound.midi.Receiver;
+
 import java.util.List;
 import java.util.ArrayList;
-
-import javax.sound.midi.Receiver;
 
 import ggc.core.WarehouseManager;
 

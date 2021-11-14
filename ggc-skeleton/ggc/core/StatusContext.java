@@ -8,11 +8,6 @@ public class StatusContext implements Serializable {
     private int _currentPoints;
     private static final long serialVersionUID = 209685192006L;
 
-     
-    /*public StatusContext(StatusState currentStatus) 
-    {
-        _currentStatus = currentStatus;
-    }*/
 	
 	public StatusContext() {
 		_currentStatus = Normal.getNormalInstance();
@@ -60,13 +55,15 @@ public class StatusContext implements Serializable {
 		return "P1".equals(getPeriod(date, productType)) || "P2".equals(getPeriod(date, productType));
 	}
 	
-	public void pay(Date date, double payedPrice, String productType) {
+	public double pay(Date date, double payedPrice, String productType) {
 		if (inPaymentPeriod(date, productType)) {
 			_currentPoints += (10 * payedPrice);
 			handlePointChanging();
+			return payedPrice -= payedPrice * getDiscount(date, productType);
 		}
 		else {
 			handleDelay(date);
+			return payedPrice += payedPrice * getFee(date, productType);
 		}
 	}
 

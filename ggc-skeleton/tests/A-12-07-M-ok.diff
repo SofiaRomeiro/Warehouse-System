@@ -1,0 +1,38 @@
+*** tests/A-12-07-M-ok.out	2021-11-13 19:06:51.801424382 +0000
+--- tests/A-12-07-M-ok.outhyp	2021-11-14 23:11:25.424096491 +0000
+***************
+*** 81,87 ****
+  9 - Ver Saldo Global
+  0 - Sair
+  Escolha uma opção: Saldo disponível: 20
+! Saldo contabilístico: 238
+  Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 81,87 ----
+  9 - Ver Saldo Global
+  0 - Sair
+  Escolha uma opção: Saldo disponível: 20
+! Saldo contabilístico: 3300
+  Menu Principal
+  1 - Abrir
+  2 - Guardar
+***************
+*** 118,125 ****
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Saldo disponível: 53
+! Saldo contabilístico: 238
+  Menu Principal
+  1 - Abrir
+  2 - Guardar
+--- 118,125 ----
+  8 - Menu de Consultas
+  9 - Ver Saldo Global
+  0 - Sair
+! Escolha uma opção: Saldo disponível: 50
+! Saldo contabilístico: 3300
+  Menu Principal
+  1 - Abrir
+  2 - Guardar

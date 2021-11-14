@@ -1,0 +1,41 @@
+*** tests/A-05-07-M-ok.out	2021-10-25 12:04:51.309262621 +0100
+--- tests/A-05-07-M-ok.outhyp	2021-11-14 23:11:19.592096251 +0000
+***************
+*** 15,32 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: ROLHA|M1|200|10
+  ROLHA|M1|200|100
+  ROLHA|M1|200|1000
+  ROLHA|M1|400|100
+- ROLHA|M1|2000|500
+- TRALHA|M1|2|500
+- TRALHA|M1|10|100
+  TRALHA|M1|25|500
+! TRALHA|M1|40|10
+  TRALHA|M1|40|100
+  TRALHA|M1|40|410
+  TRALHA|M1|100|50
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+--- 15,32 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: ROLHA|M1|2000|500
+  ROLHA|M1|200|100
++ ROLHA|M1|200|10
+  ROLHA|M1|200|1000
+  ROLHA|M1|400|100
+  TRALHA|M1|25|500
+! TRALHA|M1|10|100
+  TRALHA|M1|40|100
++ TRALHA|M1|40|10
+  TRALHA|M1|40|410
+  TRALHA|M1|100|50
++ TRALHA|M1|2|500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes

@@ -88,7 +88,13 @@ public abstract class Product implements Serializable {
 
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
-	public void updateCurrentQuantity(int quantity) {_currentQuantity += quantity; }
+	public void updateCurrentQuantity(int quantity) {
+		if (_currentQuantity == 0 && quantity != 0) {
+			Notification newN = new Notification(NotificationType.NEW, this);
+			notifyObservers(newN);
+		}
+		_currentQuantity += quantity; 
+	}
 
 	private boolean add(Observer obs) {
 		return _observers.add(obs);
@@ -116,7 +122,7 @@ public abstract class Product implements Serializable {
 	 * 
 	 * @param price
 	 */
-	private void updatePrices(double price) {
+	public void updatePrices(double price) {
 
 		if (price > _maxPrice) { 
 			_maxPrice = price;

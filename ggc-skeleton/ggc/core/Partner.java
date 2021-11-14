@@ -1,6 +1,7 @@
 package ggc.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Iterator;
 
@@ -23,12 +24,13 @@ public class Partner implements Serializable, Observer {
     private String _name;
     private String _address;
     private StatusContext _status;
-    private float _purchases;
-    private float _sales;
-    private float _paidSales;
+    private double _purchases;
+    private double _sales;
+    private double _paidSales;
     private List<Notification> _notifications;
     private List<Batch> _batches;
     private List<Transaction> _transactions;
+    private SendMessageMode _messageMode;
     
     /**
      * Constructor.
@@ -65,8 +67,12 @@ public class Partner implements Serializable, Observer {
             _purchases += t.getBaseValue() * t.getQuantity();
         } 
         else if (t instanceof SaleByCredit) {
-            _sales += t.getBaseValue() * t.getQuantity();
+            _sales += t.getBaseValue() /* t.getQuantity()*/;
         } 
+    }
+
+    public double pay(Date date, double payedPrice, String productType) {
+        return _status.pay(date, payedPrice, productType);
     }
     
     /**
@@ -106,6 +112,35 @@ public class Partner implements Serializable, Observer {
             if (iter.next().getQuantity() == 0) 
                 iter.remove();
         }
+    }
+
+    public void setSendMessageMode(SendMessageMode mM) {
+        _messageMode = mM;
+    }
+
+    public void sendMessage() {
+         _messageMode.SendMessage(_notifications);
+    }
+
+    public List<String> getAllPaidTransaction() {
+        List<String> transactions = new ArrayList<>();
+        for (Transaction t: _transactions) {
+            if ( t instanceof Sale ) {
+                if (t instanceof BreakdownSale)
+                    transactions.add(t.toString());
+                else if (t.isPaid())
+                    transactions.add(t.toString());
+            }
+        }
+        return transactions;
+    }
+
+    public void setPaidSales(double value) {
+        _paidSales += value;
+    }
+
+    public double getPaidSales() {
+        return _paidSales;
     }
 
     @Override

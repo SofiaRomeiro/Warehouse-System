@@ -1,0 +1,60 @@
+*** tests/A-10-20-M-ok.out	2021-11-05 13:01:36.152472805 +0000
+--- tests/A-10-20-M-ok.outhyp	2021-11-14 23:11:23.560096415 +0000
+***************
+*** 180,188 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! NEW|SAL|10
+! BARGAIN|ROLHA|100
+! NEW|SAL|20
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+--- 180,186 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! BARGAIN|ROLHA|50
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+***************
+*** 193,201 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! NEW|SAL|10
+! BARGAIN|ROLHA|100
+! NEW|SAL|20
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+--- 191,197 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+! BARGAIN|ROLHA|50
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+***************
+*** 206,212 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M3|M3|M3 add|NORMAL|0|0|0|0
+- NEW|SAL|20
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+--- 202,207 ----
+***************
+*** 217,223 ****
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M4|M4|M4 end|NORMAL|0|0|0|0
+- NEW|SAL|20
+  BARGAIN|ROLHA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+--- 212,217 ----

@@ -8,6 +8,7 @@ import ggc.app.exception.UnavailableProductException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.UnaProductException;
+import ggc.core.exception.UnaComponentException;
 import ggc.core.WarehouseManager;
 
 
@@ -44,6 +45,9 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     }
     catch (UnaProductException upe) {
       throw new UnavailableProductException(upe.getProductComponent(), amount, upe.getAvailable());
+    }
+    catch (UnaComponentException uce) {
+      throw new UnavailableProductException(uce.getProductComponent(), uce.getRequested(), uce.getAvailable());
     }
 
 

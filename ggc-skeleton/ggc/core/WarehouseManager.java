@@ -20,10 +20,12 @@ import ggc.core.exception.UnavailableFileException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.MissingFileAssociationException;
 import ggc.core.exception.NotValidDateException;
+import ggc.core.exception.UnaComponentException;
 import ggc.core.exception.UnaProductException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
+import ggc.core.exception.NoPaymentsByPartner;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -143,6 +145,10 @@ public class WarehouseManager {
     _warehouse.toggleNotifications(partnerKey, productKey);
   }
 
+  public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException, NoPaymentsByPartner {
+    return _warehouse.lookupPaymentsByPartner(partnerKey);
+  }
+
   
 
   // Transaction
@@ -174,10 +180,14 @@ public class WarehouseManager {
   }
 
   //SaleByCredit
-  public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount) throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException {
+  public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount) throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException, UnaComponentException {
     _warehouse.addNewSaleTransaction(partnerKey,paymentDeadline, productKey, amount);
   }
 
+  //ReceivePayment
+  public void receivePayment(int transactionKey) throws UnkTransactionKeyException{
+    _warehouse.receivePayment(transactionKey); 
+  }
 
   /*
   * @@throws IOException

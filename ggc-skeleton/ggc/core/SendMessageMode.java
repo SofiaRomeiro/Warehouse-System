@@ -1,5 +1,7 @@
 package ggc.core;
 
+import java.util.Collection;
+
 public interface SendMessageMode {
-    void SendMessage(String message);
+    void SendMessage(Collection<Notification> notifications);
 }

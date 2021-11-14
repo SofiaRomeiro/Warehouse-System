@@ -1,0 +1,42 @@
+*** tests/A-15-03-M-ok.out	2021-10-31 18:59:44.776533162 +0000
+--- tests/A-15-03-M-ok.outhyp	2021-11-14 23:11:27.196096564 +0000
+***************
+*** 50,59 ****
+  0 - Sair
+  Escolha uma opção: GARRAFA|S1|200|499
+  HIDROGENIO|S1|200|5000
+! ROLHA|M1|2|1
+  ROLHA|R1|2|500
+  SAL|S1|1000|500
+! VIDRO|M1|10|10
+  VIDRO|M1|10|500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+--- 50,59 ----
+  0 - Sair
+  Escolha uma opção: GARRAFA|S1|200|499
+  HIDROGENIO|S1|200|5000
+! GARRAFA|M1|2|1
+  ROLHA|R1|2|500
+  SAL|S1|1000|500
+! GARRAFA|M1|10|10
+  VIDRO|M1|10|500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+***************
+*** 80,86 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|980|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 80,86 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros

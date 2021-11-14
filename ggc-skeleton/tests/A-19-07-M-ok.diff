@@ -1,0 +1,59 @@
+*** tests/A-19-07-M-ok.out	2021-11-11 09:51:24.671709929 +0000
+--- tests/A-19-07-M-ok.outhyp	2021-11-14 23:11:30.568096703 +0000
+***************
+*** 38,44 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|GARRAFA|1|39|39|2
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 38,44 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|GARRAFA|1|77|77|2
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 63,81 ****
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: GARRAFA|39|0|ROLHA:10#VIDRO:5
+! ROLHA|2|35
+  SAL|40|500
+! VIDRO|3|5
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: ROLHA|M1|2|35
+  SAL|S1|40|500
+- VIDRO|M1|3|5
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+--- 63,80 ----
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: GARRAFA|33|-3|ROLHA:10#VIDRO:5
+! ROLHA|2|45
+  SAL|40|500
+! VIDRO|3|10
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes
+  3 - Visualizar lotes fornecidos por parceiro
+  4 - Visualizar lotes de um dado produto
+  0 - Sair
+! Escolha uma opção: ROLHA|M1|2|25
+  SAL|S1|40|500
+  Gestão de Produtos
+  1 - Visualizar todos os produtos
+  2 - Visualizar todos os lotes

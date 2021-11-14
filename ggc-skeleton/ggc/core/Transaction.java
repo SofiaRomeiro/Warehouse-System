@@ -29,5 +29,9 @@ public abstract class Transaction implements Serializable{
     public int getQuantity() { return _quantity;}
     public Product getProduct(){ return _product;}
     public Partner getPartner() { return _partner;}
+    public String getProductType() {
+        if (_product instanceof SimpleProduct) { return "Simple";}
+        else {return "Aggregate"; }
+    }
     
 }
