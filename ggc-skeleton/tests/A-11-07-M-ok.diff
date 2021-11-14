@@ -1,5 +1,5 @@
 *** tests/A-11-07-M-ok.out	2021-10-22 08:55:30.342525766 +0100
---- tests/A-11-07-M-ok.outhyp	2021-11-14 23:11:24.404096449 +0000
+--- tests/A-11-07-M-ok.outhyp	2021-11-14 23:31:25.000145839 +0000
 ***************
 *** 16,30 ****
   4 - Registar compra
@@ -59,11 +59,13 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
---- 91,97 ----
+--- 91,99 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|1000|0|0
+! NEW|ROLHA|20
+! NEW|NOVO|25
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
@@ -76,7 +78,7 @@
   S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
   Gestão de Parceiros
   1 - Mostrar parceiro
---- 100,106 ----
+--- 102,108 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair

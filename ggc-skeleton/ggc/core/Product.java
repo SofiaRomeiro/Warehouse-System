@@ -89,10 +89,6 @@ public abstract class Product implements Serializable {
 	public int getCurrentQuantity() { return _currentQuantity; } 
 
 	public void updateCurrentQuantity(int quantity) {
-		if (_currentQuantity == 0 && quantity != 0) {
-			Notification newN = new Notification(NotificationType.NEW, this);
-			notifyObservers(newN);
-		}
 		_currentQuantity += quantity; 
 	}
 
@@ -112,7 +108,7 @@ public abstract class Product implements Serializable {
 
 
 	// may be public or private
-	private void notifyObservers(Notification notification) {
+	public void notifyObservers(Notification notification) {
 		for (Observer obs : _observers)
 		  	obs.update(notification);
 	}

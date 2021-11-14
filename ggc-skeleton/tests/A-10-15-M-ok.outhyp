@@ -108,6 +108,11 @@ Escolha uma opção: Identificador do parceiro: Identificador do produto: Gestã
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|2000
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|8
+NEW|SAL|8
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros
@@ -117,6 +122,12 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|2000
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|8
+NEW|SAL|8
+NEW|SAL|8
 Gestão de Parceiros
 1 - Mostrar parceiro
 2 - Mostrar parceiros

@@ -375,9 +375,14 @@ public class Warehouse implements Serializable {
   public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
 
     Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
-    _products.get(productKey.toLowerCase()).addNewBatch(batch);
-
     Product p = _products.get(productKey.toLowerCase());
+    if (p.getCurrentQuantity() == 0 && amount != 0) {
+      Notification newN = new Notification(NotificationType.NEW, p);
+      p.notifyObservers(newN);
+    }
+    p.addNewBatch(batch);
+
+    //Product p = _products.get(productKey.toLowerCase());
 
     _partners.get(partnerKey.toLowerCase()).addBatch(batch);
     Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));

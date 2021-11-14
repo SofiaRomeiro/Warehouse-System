@@ -180,7 +180,13 @@ Escolha uma opção: Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|50
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|20
+NEW|SAL|20
 BARGAIN|ROLHA|50
+NEW|SAL|20
 BARGAIN|ROLHA|50
 Gestão de Parceiros
 1 - Mostrar parceiro
@@ -191,7 +197,13 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|50
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|20
+NEW|SAL|20
 BARGAIN|ROLHA|50
+NEW|SAL|20
 BARGAIN|ROLHA|50
 Gestão de Parceiros
 1 - Mostrar parceiro
@@ -202,6 +214,7 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M3|M3|M3 add|NORMAL|0|0|0|0
+NEW|SAL|20
 BARGAIN|ROLHA|50
 Gestão de Parceiros
 1 - Mostrar parceiro
@@ -212,6 +225,7 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M4|M4|M4 end|NORMAL|0|0|0|0
+NEW|SAL|20
 BARGAIN|ROLHA|50
 Gestão de Parceiros
 1 - Mostrar parceiro

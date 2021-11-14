@@ -1,22 +1,28 @@
 *** tests/A-10-13-M-ok.out	2021-11-05 13:01:33.837853183 +0000
---- tests/A-10-13-M-ok.outhyp	2021-11-14 23:11:22.460096369 +0000
+--- tests/A-10-13-M-ok.outhyp	2021-11-14 23:31:22.872145751 +0000
 ***************
-*** 61,67 ****
+*** 61,66 ****
+--- 61,70 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-- NEW|SAL|5
++ NEW|ROLHA|2000
++ NEW|HIDROGENIO|200
++ NEW|VIDRO|1000
++ NEW|SAL|5
+  NEW|SAL|5
   Gestão de Parceiros
   1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 61,66 ----
 ***************
-*** 71,77 ****
+*** 71,76 ****
+--- 75,84 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-- NEW|SAL|5
++ NEW|ROLHA|2000
++ NEW|HIDROGENIO|200
++ NEW|VIDRO|1000
++ NEW|SAL|5
+  NEW|SAL|5
   Gestão de Parceiros
   1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 70,75 ----

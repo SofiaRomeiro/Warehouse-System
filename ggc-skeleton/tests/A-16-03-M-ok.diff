@@ -1,5 +1,5 @@
 *** tests/A-16-03-M-ok.out	2021-11-01 17:27:24.282421656 +0000
---- tests/A-16-03-M-ok.outhyp	2021-11-14 23:11:28.540096620 +0000
+--- tests/A-16-03-M-ok.outhyp	2021-11-14 23:31:29.532146025 +0000
 ***************
 *** 71,77 ****
   4 - Registar compra
@@ -62,11 +62,15 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
---- 126,132 ----
+--- 126,136 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|300|0|30|27
+! NEW|ROLHA|2
+! NEW|HIDROGENIO|200
+! NEW|VIDRO|4
+! NEW|SAL|5
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
@@ -79,7 +83,7 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
---- 137,143 ----
+--- 141,147 ----
   0 - Sair
   Escolha uma opção: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
   R1|António Figueiredo|Lisboa|NORMAL|0|0|0|0

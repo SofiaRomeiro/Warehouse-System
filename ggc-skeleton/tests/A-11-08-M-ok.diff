@@ -1,0 +1,14 @@
+*** tests/A-11-08-M-ok.out	2021-10-26 19:16:21.143782047 +0100
+--- tests/A-11-08-M-ok.outhyp	2021-11-14 23:31:25.156145845 +0000
+***************
+*** 77,82 ****
+--- 77,85 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|10000|0|0
++ NEW|ROLHA|20
++ NEW|VIDRO|90
++ NEW|GARRAFA|50
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros

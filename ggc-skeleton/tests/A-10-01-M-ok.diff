@@ -1,0 +1,28 @@
+*** tests/A-10-01-M-ok.out	2021-11-02 18:35:46.279464203 +0000
+--- tests/A-10-01-M-ok.outhyp	2021-11-14 23:31:21.432145692 +0000
+***************
+*** 67,72 ****
+--- 67,76 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
++ NEW|ROLHA|2000
++ NEW|HIDROGENIO|200
++ NEW|VIDRO|1000
++ NEW|SAL|1000
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+***************
+*** 76,81 ****
+--- 80,89 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|97000|0|0
++ NEW|ROLHA|2000
++ NEW|HIDROGENIO|200
++ NEW|VIDRO|1000
++ NEW|SAL|1000
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros

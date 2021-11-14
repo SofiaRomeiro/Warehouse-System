@@ -51,6 +51,10 @@ Escolha uma opção: Identificador do parceiro: Nome do parceiro: Endereço do p
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|500|0|0
+NEW|ROLHA|2000
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|50
 BARGAIN|SAL|50
 Gestão de Parceiros
 1 - Mostrar parceiro
@@ -61,6 +65,10 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|2000
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|50
 BARGAIN|SAL|50
 Gestão de Parceiros
 1 - Mostrar parceiro
@@ -144,6 +152,10 @@ Gestão de Parceiros
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
 Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+NEW|ROLHA|2000
+NEW|HIDROGENIO|200
+NEW|VIDRO|1000
+NEW|SAL|10
 BARGAIN|SAL|10
 BARGAIN|SAL|10
 Gestão de Parceiros

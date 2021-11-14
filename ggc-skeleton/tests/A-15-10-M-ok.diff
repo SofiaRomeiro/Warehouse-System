@@ -1,5 +1,5 @@
 *** tests/A-15-10-M-ok.out	2021-10-31 23:57:26.927950104 +0000
---- tests/A-15-10-M-ok.outhyp	2021-11-14 23:11:28.108096602 +0000
+--- tests/A-15-10-M-ok.outhyp	2021-11-14 23:31:29.028146005 +0000
 ***************
 *** 23,29 ****
   4 - Registar compra
@@ -85,3 +85,17 @@
   HIDROGENIO|200|5000
   ROLHA|2|510
   SAL|16|550
+***************
+*** 107,112 ****
+--- 107,117 ----
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+  Escolha uma opção: Identificador do parceiro: R1|António Figueiredo|Lisboa|NORMAL|0|0|0|0
++ NEW|ROLHA|2
++ NEW|HIDROGENIO|200
++ NEW|VIDRO|10
++ NEW|SAL|16
++ NEW|GARRAFA|100
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
