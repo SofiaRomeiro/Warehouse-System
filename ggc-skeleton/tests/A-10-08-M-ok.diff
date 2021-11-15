@@ -1,5 +1,5 @@
 *** tests/A-10-08-M-ok.out	2021-11-05 13:01:32.123886058 +0000
---- tests/A-10-08-M-ok.outhyp	2021-11-14 23:31:22.188145723 +0000
+--- tests/A-10-08-M-ok.outhyp	2021-11-14 23:59:40.632215593 +0000
 ***************
 *** 147,153 ****
   6 - Mostrar vendas (e desagregações) com parceiro
@@ -9,14 +9,10 @@
   BARGAIN|SAL|2
   Gestão de Parceiros
   1 - Mostrar parceiro
---- 147,161 ----
+--- 147,157 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! NEW|ROLHA|2000
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|1000
-! NEW|SAL|2
 ! BARGAIN|SAL|2
 ! BARGAIN|SAL|2
 ! BARGAIN|SAL|2
@@ -35,14 +31,10 @@
   BARGAIN|SAL|2
   Gestão de Parceiros
   1 - Mostrar parceiro
---- 166,177 ----
+--- 162,169 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! NEW|ROLHA|2000
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|1000
-! NEW|SAL|2
 ! BARGAIN|SAL|2
 ! BARGAIN|SAL|2
   BARGAIN|SAL|2

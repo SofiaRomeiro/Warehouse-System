@@ -1,5 +1,5 @@
 *** tests/A-15-05-M-ok.out	2021-10-31 21:59:41.505087763 +0000
---- tests/A-15-05-M-ok.outhyp	2021-11-14 23:31:28.372145978 +0000
+--- tests/A-15-05-M-ok.outhyp	2021-11-14 23:59:46.712215843 +0000
 ***************
 *** 48,54 ****
   3 - Visualizar lotes fornecidos por parceiro
@@ -53,16 +53,11 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
---- 91,102 ----
+--- 91,97 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: R1|António Figueiredo|Lisboa|NORMAL|0|0|0|0
-! NEW|ROLHA|2
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|10
-! NEW|SAL|16
-! NEW|GARRAFA|200
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros

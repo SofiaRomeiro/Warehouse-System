@@ -1,5 +1,5 @@
 *** tests/A-10-14-M-ok.out	2021-11-05 13:01:34.145334175 +0000
---- tests/A-10-14-M-ok.outhyp	2021-11-14 23:31:23.036145758 +0000
+--- tests/A-10-14-M-ok.outhyp	2021-11-14 23:59:41.508215629 +0000
 ***************
 *** 68,74 ****
   6 - Mostrar vendas (e desagregações) com parceiro
@@ -9,14 +9,10 @@
   NEW|SAL|20
   Gestão de Parceiros
   1 - Mostrar parceiro
---- 68,78 ----
+--- 68,74 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! NEW|ROLHA|2000
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|1000
-! NEW|SAL|20
 ! NEW|SAL|20
   NEW|SAL|20
   Gestão de Parceiros
@@ -30,14 +26,10 @@
   NEW|SAL|20
   Gestão de Parceiros
   1 - Mostrar parceiro
---- 83,93 ----
+--- 79,85 ----
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
   Escolha uma opção: Identificador do parceiro: M2|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
-! NEW|ROLHA|2000
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|1000
-! NEW|SAL|20
 ! NEW|SAL|20
   NEW|SAL|20
   Gestão de Parceiros

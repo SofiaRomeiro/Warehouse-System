@@ -1,0 +1,36 @@
+*** tests/A-20-06-M-ok.out	2021-11-11 10:05:58.329349024 +0000
+--- tests/A-20-06-M-ok.outhyp	2021-11-14 23:59:55.264216195 +0000
+***************
+*** 23,29 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|VIDRO|202|202|182|10
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 23,29 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|VIDRO|202|202|202|10
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 65,71 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|1818|0|202|182
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros
+--- 65,71 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|SELECTION|2020|0|202|182
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+  2 - Mostrar parceiros

@@ -1,5 +1,5 @@
 *** tests/A-15-04-M-ok.out	2021-10-31 18:58:50.933418737 +0000
---- tests/A-15-04-M-ok.outhyp	2021-11-14 23:31:28.236145972 +0000
+--- tests/A-15-04-M-ok.outhyp	2021-11-14 23:59:46.556215837 +0000
 ***************
 *** 50,60 ****
   0 - Sair
@@ -34,16 +34,11 @@
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros
---- 81,92 ----
+--- 81,87 ----
   5 - Mostrar compras com parceiro
   6 - Mostrar vendas (e desagregações) com parceiro
   0 - Sair
 ! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|0|0
-! NEW|ROLHA|2
-! NEW|HIDROGENIO|200
-! NEW|VIDRO|10
-! NEW|SAL|16
-! NEW|GARRAFA|200
   Gestão de Parceiros
   1 - Mostrar parceiro
   2 - Mostrar parceiros

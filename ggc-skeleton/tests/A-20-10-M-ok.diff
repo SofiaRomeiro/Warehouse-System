@@ -1,0 +1,89 @@
+*** tests/A-20-10-M-ok.out	2021-11-11 10:51:16.419534400 +0000
+--- tests/A-20-10-M-ok.outhyp	2021-11-14 23:59:55.744216215 +0000
+***************
+*** 59,65 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|3750|2
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 59,65 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|3000|2
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 74,80 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|3300|5
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 74,80 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|3000|5
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 82,88 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|3750|2|7
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 82,88 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|2700|2|7
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 126,132 ****
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|4800|5|11
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+--- 126,132 ----
+  4 - Registar compra
+  5 - Receber pagamento de venda
+  0 - Sair
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|2700|5|11
+  Gestão de Transacções
+  1 - Visualizar
+  2 - Registar desagregação
+***************
+*** 153,160 ****
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: M1|Rohit Figueiredo|New Delhi, India|NORMAL|0|0|3000|3750
+! M2|Toshiba|Tokyo, Japan|NORMAL|0|0|3000|4800
+  S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
+--- 153,160 ----
+  5 - Mostrar compras com parceiro
+  6 - Mostrar vendas (e desagregações) com parceiro
+  0 - Sair
+! Escolha uma opção: M1|Rohit Figueiredo|New Delhi, India|ELITE|30000|0|3000|2700
+! M2|Toshiba|Tokyo, Japan|ELITE|30000|0|3000|2700
+  S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
+  Gestão de Parceiros
+  1 - Mostrar parceiro
