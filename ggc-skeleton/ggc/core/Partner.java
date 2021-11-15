@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Iterator;
-
+import java.util.Collections;
 import java.io.Serializable;
-
 
 /**
  * Classe Partner
@@ -55,7 +54,10 @@ public class Partner implements Serializable, Observer {
 
     public String getKey() { return _key; }
 
-    public List<Batch> getAllBatches() { return _batches; }
+    public List<Batch> getAllBatches() { 
+        Collections.sort(_batches, new BatchesComparator());
+        return _batches; 
+    }
 
     public List<Transaction> getAllTransactions() { return _transactions;}
 
