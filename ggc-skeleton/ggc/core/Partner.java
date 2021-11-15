@@ -92,7 +92,7 @@ public class Partner implements Serializable, Observer {
         _notifications.add(notification);        
     }
 
-    private void clearNotifications() {
+    public void clearNotifications() {
         _notifications.clear();
     }
 

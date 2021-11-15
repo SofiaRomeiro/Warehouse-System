@@ -101,9 +101,11 @@ public abstract class Product implements Serializable {
 	  }
 
 	public void toggleNotifications(Observer obs) {
-		if (add(obs))
-			return;
-		remove(obs);
+		if (!_observers.contains(obs)) {
+			add(obs);
+		}
+		else 
+			remove(obs);
 	}
 
 
@@ -119,6 +121,13 @@ public abstract class Product implements Serializable {
 	 * @param price
 	 */
 	public void updatePrices(double price) {
+
+		//produto acabado de criar
+		if (_maxPrice == 0 && _highestPrice == 0 && _lowestPrice == 0) {
+			_maxPrice = price;
+			_highestPrice = price;
+			_lowestPrice = price;
+		}
 
 		if (price > _maxPrice) { 
 			_maxPrice = price;

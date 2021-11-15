@@ -16,6 +16,7 @@ public class Notification implements Serializable {
 
 	String _notificationType;
 	Product _product;
+	double _price;
 	private static final long serialVersionUID = 202109190000L;
 
 	/**
@@ -24,10 +25,11 @@ public class Notification implements Serializable {
 	public Notification(String type, Product product) {
 		_notificationType = type;
 		_product = product;
+		_price = product.getLowestPrice();
 	}
 
 	@Override
 	public String toString() {
-		return _notificationType +"|" + _product.getId() + "|" + Math.round(_product.getLowestPrice());
+		return _notificationType +"|" + _product.getId() + "|" + Math.round(_price);
 	}
 }

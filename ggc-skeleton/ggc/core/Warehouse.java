@@ -242,7 +242,7 @@ public class Warehouse implements Serializable {
     if (!_partners.containsKey(partnerKey.toLowerCase())) {
       throw new UnkPartnerKeyException();
     }
-    _products.get(productKey.toLowerCase()).toggleNotifications(_partners.get(partnerKey.toLowerCase()));;
+    _products.get(productKey.toLowerCase()).toggleNotifications(_partners.get(partnerKey.toLowerCase()));
   }
 
   /**
@@ -379,6 +379,7 @@ public class Warehouse implements Serializable {
 
     Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     Product p = _products.get(productKey.toLowerCase());
+    p.updatePrices(price);
     if (p.getCurrentQuantity() == 0 && amount != 0) {
       Notification newN = new Notification(NotificationType.NEW, p);
       p.notifyObservers(newN);
@@ -719,6 +720,7 @@ public class Warehouse implements Serializable {
     Partner prtnr = _partners.get(partner.toLowerCase());
     Batch b = new Batch(price, stock, product, prtnr);
     product.addNewBatch(b);
+    //product.updatePrices(price);
 
     //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
@@ -758,8 +760,11 @@ public class Warehouse implements Serializable {
     }
     AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
     Partner prtnr = _partners.get(partner.toLowerCase());
-    Batch b = new Batch(price, stock, new AggregateProduct(id, recipe, alpha), prtnr);
+    AggregateProduct ap = new AggregateProduct(id, recipe, alpha);
+    //ap.updatePrices(price);
+    Batch b = new Batch(price, stock, ap, prtnr);
     product.addNewBatch(b);
+    //product.updatePrices(price);
 
     //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
