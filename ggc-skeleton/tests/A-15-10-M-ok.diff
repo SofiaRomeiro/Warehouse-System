@@ -1,22 +1,5 @@
-*** tests/A-15-10-M-ok.out	2021-10-31 23:57:26.927950104 +0000
---- tests/A-15-10-M-ok.outhyp	2021-11-14 23:59:47.400215871 +0000
-***************
-*** 23,29 ****
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Identificador da transacção: DESAGREGAÇÃO|0|R1|GARRAFA|10|-820|0|0|ROLHA:10:20#SAL:50:800#VIDRO:100:1000
-  Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
---- 23,29 ----
-  4 - Registar compra
-  5 - Receber pagamento de venda
-  0 - Sair
-! Escolha uma opção: Identificador da transacção: DESAGREGAÇÃO|0|R1|GARRAFA|10|0|0|0|ROLHA:10:20#SAL:50:800#VIDRO:100:1000
-  Gestão de Transacções
-  1 - Visualizar
-  2 - Registar desagregação
+*** tests/A-15-10-M-ok.out	2021-11-15 00:51:59.680344726 +0000
+--- tests/A-15-10-M-ok.outhyp	2021-11-15 01:21:52.624418483 +0000
 ***************
 *** 50,61 ****
   0 - Sair

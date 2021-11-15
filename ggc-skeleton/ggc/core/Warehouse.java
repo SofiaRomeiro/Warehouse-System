@@ -131,7 +131,7 @@ public class Warehouse implements Serializable {
     return allBatches;
   }
 
-  /**
+  /*
    * Returns a list of all batches description by product.
    * 
    * @return
@@ -139,22 +139,23 @@ public class Warehouse implements Serializable {
 
   public List<String> showBatchesByProduct(String key) throws UnkProductKeyException {
 
-    ArrayList<String> batches = new ArrayList<>();    
+    ArrayList<String> batches = new ArrayList<>();
 
     if (!(_products.containsKey(key.toLowerCase()))) {
-      throw new UnkProductKeyException();        
+      throw new UnkProductKeyException();
     }
 
     Product p = _products.get(key.toLowerCase());
-    
+
     for (Batch b : p.getAllBatches()) {
-      batches.add(b.toString());
+      if (b.getQuantity() > 0)
+        batches.add(b.toString());
     }
 
     return batches;
   }
 
-  /**
+  /*
    * Returns a list of all batches by partner.
    * 
    * @return
@@ -170,11 +171,13 @@ public class Warehouse implements Serializable {
     Partner partner = _partners.get(key.toLowerCase());
 
     for (Batch b : partner.getAllBatches()) {
+      if (b.getQuantity() > 0)
         batches.add(b.toString());
     }
 
     return batches;
   }
+
 
   /**
    * Returns a list of all batches under given price.
@@ -445,6 +448,9 @@ public class Warehouse implements Serializable {
           currentQuantityToSale += quantityAvailableByEachBatch;
           b.decreaseQuantity(b.getQuantity()); 
           finalPrice += (quantityAvailableByEachBatch * b.getPrice());
+
+          // RECURSION
+
         }
 
       }
@@ -490,9 +496,7 @@ public class Warehouse implements Serializable {
     else {
 
       if (product.getCurrentQuantity() > amount) { 
-
         double finalPrice = calculateFinalSalePrice(product, amount);
-
         Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, product, partner);
         handleNewTransaction(finalPrice, transaction, amount, partner, product);
 
@@ -586,6 +590,7 @@ public class Warehouse implements Serializable {
     } 
   }
 
+  
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException {
     Product product = _products.get(productKey.toLowerCase());
@@ -636,24 +641,23 @@ public class Warehouse implements Serializable {
     product.removeEmptyBatch();
     partner.removeEmptyBatch();
 
-    if ((transactionPrice = totalAggregateProductPrice - totalTransactionPrice) < 0) {
-      transactionPrice = 0.0;
-    }
+    transactionPrice = totalAggregateProductPrice - totalTransactionPrice;
 
     for (Component c : recipe.getComponents()) {
       componentsString.add(c.getId() + ":" + (c.getQuantity()* amount) + ":" + (c.getQuantity() * Math.round(amount * c.getProduct().getBreakdownSalePrice())));
     }
 
     Transaction transaction = new BreakdownSale(_transactionsIds, _date.now(), transactionPrice, amount, product, partner);
-    ((Sale)transaction).setValuePaid(transactionPrice);
     ((BreakdownSale)transaction).setComponentsString(componentsString);
     _transactionsIds++;
     _transations.add(transaction);
 
-
     partner.addTransation(transaction);
-    _balance.setCurrentAvailable(transactionPrice * amount);
-    _balance.setCurrentAccountant(transactionPrice * amount);
+    if (transactionPrice > 0) {
+      ((Sale)transaction).setValuePaid(transactionPrice);
+      _balance.setCurrentAvailable(transactionPrice * amount);
+      _balance.setCurrentAccountant(transactionPrice * amount);
+    }
 
   }
 
