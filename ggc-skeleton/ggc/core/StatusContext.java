@@ -107,20 +107,24 @@ public class StatusContext implements Serializable {
 	}
 	
 	private void handleDelay(Date date) {
-		int delay = date.getDate() - date.getDeadlinePayment();
+		int delay = Date.now().getDate() - date.getDeadlinePayment();
+
+		//System.out.println("[HANDLE DELAY] delay : " + delay);
+		//System.out.println("[HANDLE DELAY] status : " + _currentStatus.getStatus());
 		
-		if (delay > 15 && "ELITE".equals(_currentStatus)) {
+		if (delay > 15 && "ELITE".equals(_currentStatus.getStatus())) {
 			_currentStatus.depromote(this);
 			int points = (int) ( 0.25 * _currentPoints);
 			setPoints(points);
 		}
-		else if (delay > 2 && "SELECTION".equals(_currentStatus)) {
+		else if (delay > 2 && "SELECTION".equals(_currentStatus.getStatus())) {
 			_currentStatus.depromote(this);
 			int points = (int) ( 0.10 * _currentPoints );
 			setPoints(points);
 		}
-		else
+		else if ("NORMAL".equals(_currentStatus.getStatus())){
 			setPoints(0);
+		}
 	}
 	
 	private void handlePointChanging() {
