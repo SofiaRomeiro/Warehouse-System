@@ -31,7 +31,7 @@ public class Selection implements StatusState, Serializable {
 		if ("P1".equals(period))
 			return 0.1;
 		else if ("P2".equals(period)) {
-			if ((date.getDate() - date.getDeadlinePayment()) >= 2)
+			if (( Date.now().getDate() - date.getDeadlinePayment()) >= 2)
 				return 0.05;
 			else 
 				return 0;
@@ -44,14 +44,14 @@ public class Selection implements StatusState, Serializable {
 	
 	public double applyFee(Date date, String period) {
 
-		int daysPassedSinceDeadline = date.getDate() - date.getDeadlinePayment();
+		int daysPassedSinceDeadline = Date.now().getDate() - date.getDeadlinePayment();
 
 		if ("P1".equals(period))
 			return 0.0;
 		else if ("P2".equals(period))
 			return 0.0;
 		else if ("P3".equals(period)) {
-			if ((date.getDeadlinePayment() - date.getDate()) == 1)
+			if ((date.getDeadlinePayment() - Date.now().getDate()) == 1)
 				return 0.0;
 			else {
 				Double days = Double.valueOf(daysPassedSinceDeadline);

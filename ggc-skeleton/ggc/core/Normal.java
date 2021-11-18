@@ -41,7 +41,7 @@ public class Normal implements StatusState, Serializable {
 	
 	public double applyFee(Date date, String period) {
 
-		int daysPassedSinceDeadline = date.getDate() - date.getDeadlinePayment();
+		int daysPassedSinceDeadline = Date.now().getDate() - date.getDeadlinePayment();
 
 		if ("P1".equals(period))
 			return 0.0;

@@ -47,8 +47,9 @@ public class StatusContext implements Serializable {
 		}
 		
 		if ((date.getDeadlinePayment() - Date.now().getDate()) >= N) { return "P1"; }
-		else if ((date.getDeadlinePayment() - Date.now().getDate() < N )) { return "P2"; }
-		else if ((Date.now().getDate() - date.getDeadlinePayment()) <= N ) { return "P3"; }
+		else if (date.getDeadlinePayment() - Date.now().getDate() < N && date.getDeadlinePayment() - Date.now().getDate() >= 0) { 
+			return "P2"; }
+		else if (Date.now().getDate() - date.getDeadlinePayment() <= N ) { return "P3"; }
 		else { return "P4"; }	
 		
 	}
@@ -58,6 +59,7 @@ public class StatusContext implements Serializable {
 	}
 
 	public double getValueToBePaid(Date date, Sale sale, String productType) {
+
 		if (inPaymentPeriod(date, productType)) {
 			return sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
 		}
