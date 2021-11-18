@@ -98,7 +98,16 @@ public class Warehouse implements Serializable {
    * @return
    */
   public double getAccountantBalance() {
-    return _balance.getCurrentAccountant();
+    double accountBalance = _balance.getCurrentAccountant();
+    for (Transaction t : _transations) {
+      if (t instanceof SaleByCredit && !((SaleByCredit) t).isPaid()) {
+        t.getTransactionDate().setPaymentDate(Date.now().getDate());
+        Partner partner = t.getPartner();
+        Double value = partner.pay(t.getTransactionDate(), ((Sale) t), t.getProductType());
+        accountBalance += value - ((SaleByCredit) t).getBaseValue();
+      }
+    }
+    return accountBalance;
   }
 
   /**
@@ -578,23 +587,24 @@ public class Warehouse implements Serializable {
   }
 
   // ReceivePayment
-  public void receivePayment(int transactionKey) throws UnkTransactionKeyException{
-    if ( 0 > transactionKey || transactionKey > _transactionsIds)
+  public void receivePayment(int transactionKey) throws UnkTransactionKeyException {
+    if (0 > transactionKey || transactionKey > _transactionsIds)
       throw new UnkTransactionKeyException();
     if (!(_transations.get(transactionKey) instanceof SaleByCredit))
       return;
-    SaleByCredit transaction =  (SaleByCredit)_transations.get(transactionKey);
+    SaleByCredit transaction = (SaleByCredit) _transations.get(transactionKey);
     if (transaction.isPaid())
       return;
 
     transaction.getTransactionDate().setPaymentDate(Date.now().getDate());
     Partner partner = transaction.getPartner();
-    Double value = partner.pay(transaction.getTransactionDate(), ((Sale)transaction), transaction.getProductType());
-    
+    Double value = partner.pay(transaction.getTransactionDate(), ((Sale) transaction), transaction.getProductType());
+
     transaction.setValuePaid(value);
     transaction.pay();
     transaction.getTransactionDate().setPaymentDate(_date.getDate());
     _balance.setCurrentAvailable(value);
+    _balance.setCurrentAccountant(value - transaction.getBaseValue());
     partner.setPaidSales(value);
   }
 
