@@ -127,8 +127,8 @@ Escolha uma opção: Gestão de Parceiros
 5 - Mostrar compras com parceiro
 6 - Mostrar vendas (e desagregações) com parceiro
 0 - Sair
-Escolha uma opção: M1|Rohit Figueiredo|New Delhi, India|NORMAL|12100|0|1210|1210
-M2|Toshiba|Tokyo, Japan|NORMAL|12100|0|1210|1210
+Escolha uma opção: M1|Rohit Figueiredo|New Delhi, India|SELECTION|12100|0|1210|1210
+M2|Toshiba|Tokyo, Japan|SELECTION|12100|0|1210|1210
 S1|Toshiba|Tokyo, Japan|NORMAL|0|0|0|0
 Gestão de Parceiros
 1 - Mostrar parceiro

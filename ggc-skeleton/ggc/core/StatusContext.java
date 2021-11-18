@@ -49,15 +49,25 @@ public class StatusContext implements Serializable {
 		if ((date.getDeadlinePayment() - Date.now().getDate()) >= N) { return "P1"; }
 		else if ((date.getDeadlinePayment() - Date.now().getDate() < N )) { return "P2"; }
 		else if ((Date.now().getDate() - date.getDeadlinePayment()) <= N ) { return "P3"; }
-		else {return "P4"; }	
+		else { return "P4"; }	
 		
 	}
 	
 	private boolean inPaymentPeriod(Date date, String productType) {
 		return "P1".equals(getPeriod(date, productType)) || "P2".equals(getPeriod(date, productType));
 	}
+
+	public double getValueToBePaid(Date date, Sale sale, String productType) {
+		if (inPaymentPeriod(date, productType)) {
+			return sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
+		}
+		else {
+			return sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType));
+		}
+	}
 	
 	public double pay(Date date, Sale sale, String productType) {
+
 		if (inPaymentPeriod(date, productType)) {
 			double payedPrice = sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
 			sale.setValuePaid(payedPrice);
@@ -86,7 +96,7 @@ public class StatusContext implements Serializable {
 		
 		if (delay > 15 && "ELITE".equals(_currentStatus)) {
 			_currentStatus.depromote(this);
-			int points = (int) ( 0.25 * _currentPoints );
+			int points = (int) ( 0.25 * _currentPoints);
 			setPoints(points);
 		}
 		else if (delay > 2 && "SELECTION".equals(_currentStatus)) {
@@ -102,7 +112,7 @@ public class StatusContext implements Serializable {
 		if (_currentPoints > 25000) {
 			setCurrentStatus(Elite.getEliteInstance());
 		}
-		else if (_currentPoints < 2500 && _currentPoints > 2000) {
+		else if (_currentPoints < 25000 && _currentPoints > 2000) {
 			setCurrentStatus(Selection.getSelectionInstance());
 		}
 		else {

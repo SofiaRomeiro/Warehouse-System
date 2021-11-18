@@ -19,6 +19,10 @@ public abstract class Sale extends Transaction implements Serializable {
     public double getBaseValue() { return super.getBaseValue(); }
 
     public double getValuePaid() { return _valuePaid;}
+
+    public double getValueToBePaid() { 
+        return super.getPartner().getValueToBePaid(super.getTransactionDate(), this ,super.getProductType());
+    }
     
     
 

@@ -75,7 +75,7 @@ Escolha uma opção: Gestão de Transacções
 4 - Registar compra
 5 - Receber pagamento de venda
 0 - Sair
-Escolha uma opção: Identificador da transacção: VENDA|1|M1|SAL|10|1000|1000|1
+Escolha uma opção: Identificador da transacção: VENDA|1|M1|SAL|10|1000|900|1
 Gestão de Transacções
 1 - Visualizar
 2 - Registar desagregação
@@ -112,7 +112,7 @@ Escolha uma opção: Gestão de Transacções
 4 - Registar compra
 5 - Receber pagamento de venda
 0 - Sair
-Escolha uma opção: Identificador da transacção: VENDA|1|M1|SAL|10|1000|1000|1
+Escolha uma opção: Identificador da transacção: VENDA|1|M1|SAL|10|1000|900|1
 Gestão de Transacções
 1 - Visualizar
 2 - Registar desagregação

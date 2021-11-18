@@ -26,7 +26,7 @@ public class SaleByCredit extends Sale implements Serializable{
             setValuePaid(super.getBaseValue());
         }
         
-        String message = "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getDeadlinePayment();
+        String message = "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValueToBePaid()) + "|" + super.getTransactionDate().getDeadlinePayment();
         if (isPaid())
             return message + "|" + super.getTransactionDate().getPaymentDate();
         return message;

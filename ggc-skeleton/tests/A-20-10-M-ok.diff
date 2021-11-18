@@ -1,5 +1,5 @@
 *** tests/A-20-10-M-ok.out	2021-11-15 03:04:18.553096305 +0000
---- tests/A-20-10-M-ok.outhyp	2021-11-18 01:17:15.201107597 +0000
+--- tests/A-20-10-M-ok.outhyp	2021-11-18 02:43:26.614476505 +0000
 ***************
 *** 59,65 ****
   4 - Registar compra
@@ -47,7 +47,7 @@
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|3000|2|7
+! Escolha uma opção: Identificador da transacção: VENDA|0|M1|SAL|30|3000|2700|2|7
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
@@ -64,7 +64,7 @@
   4 - Registar compra
   5 - Receber pagamento de venda
   0 - Sair
-! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|3000|5|11
+! Escolha uma opção: Identificador da transacção: VENDA|1|M2|SAL|30|3000|2700|5|11
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
