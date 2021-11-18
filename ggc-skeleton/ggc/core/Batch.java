@@ -51,6 +51,8 @@ public class Batch implements Serializable {
 		_quantity -= quantity;
 	}
 
+	public void setQuantity(int quantity) { _quantity = quantity; }
+
 	/**
 	 * Returns the string representing a Batch.
 	 * idProduto|idParceiro|preco|stock-actual
@@ -70,13 +72,15 @@ public class Batch implements Serializable {
 		return _partner.getKey();
 	}
 
+	public Partner getPartner() { return _partner; }
+
 	/**
 	 * Returns the Batch id.
 	 * 
 	 * @return
 	 */
-	public String getId() {return _product.getId(); }
+	public String getId() { return _product.getId(); }
 
-
+	public Product getProduct() { return _product; }
 	
 }

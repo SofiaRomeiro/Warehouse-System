@@ -120,7 +120,7 @@ public class WarehouseManager {
     _warehouse.addSimpleProduct(productKey);
   }
 
-  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) {
+  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) throws UnaComponentException {
     _warehouse.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
   }
 

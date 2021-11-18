@@ -13,7 +13,9 @@ import ggc.core.WarehouseManager;
 
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.app.exception.UnknownProductKeyException;
 import ggc.core.exception.UnkProductKeyException;
+import ggc.core.exception.UnaComponentException;
 
 
 /**
@@ -68,7 +70,11 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
           componentsProductKey.add(request2.parse().stringField("componentsKey"));
           componentsProductAmount.add(request2.integerField("componentAmount"));
         }
-        _receiver.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
+        try {
+          _receiver.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
+        } catch (UnaComponentException uce) {
+          throw new UnknownProductKeyException(uce.getProductComponent());
+        }
       }
       _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
     } 

@@ -1,5 +1,5 @@
 *** tests/A-20-06-M-ok.out	2021-11-15 03:04:18.553096305 +0000
---- tests/A-20-06-M-ok.outhyp	2021-11-15 03:55:57.385866994 +0000
+--- tests/A-20-06-M-ok.outhyp	2021-11-18 01:17:14.428721565 +0000
 ***************
 *** 23,29 ****
   4 - Registar compra
@@ -17,20 +17,3 @@
   Gestão de Transacções
   1 - Visualizar
   2 - Registar desagregação
-***************
-*** 65,71 ****
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|NORMAL|1818|0|202|182
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros
---- 65,71 ----
-  5 - Mostrar compras com parceiro
-  6 - Mostrar vendas (e desagregações) com parceiro
-  0 - Sair
-! Escolha uma opção: Identificador do parceiro: M1|Rohit Figueiredo|New Delhi, India|SELECTION|2020|0|202|182
-  Gestão de Parceiros
-  1 - Mostrar parceiro
-  2 - Mostrar parceiros

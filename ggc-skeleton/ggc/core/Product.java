@@ -140,7 +140,7 @@ public abstract class Product implements Serializable {
 
 		if (price < _lowestPrice) {
 			_lowestPrice = price;			
-			Notification brg = new Notification(NotificationType.BARGAIN, this);
+			Notification brg = new Notification(NotificationType.BARGAIN, this, price);
 			notifyObservers(brg);
 		}
 	}
@@ -219,12 +219,12 @@ public abstract class Product implements Serializable {
     }
 
 	public String newNotification() {
-		Notification newNot = new Notification(NotificationType.NEW, this);
+		Notification newNot = new Notification(NotificationType.NEW, this, _lowestPrice);
 		return newNot.toString();
 	}
 
 	public String bargainNotification() {
-		Notification bargainNot = new Notification(NotificationType.BARGAIN, this);
+		Notification bargainNot = new Notification(NotificationType.BARGAIN, this, _lowestPrice);
 		return bargainNot.toString();
 	}
 }

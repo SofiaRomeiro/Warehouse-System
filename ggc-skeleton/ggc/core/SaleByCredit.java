@@ -19,7 +19,7 @@ public class SaleByCredit extends Sale implements Serializable{
         _paid = true;
     }
 
-
+    public double getValuePaid() { return super.getValuePaid(); }
 
     public String toString() {
         if (super.getValuePaid() == 0) {

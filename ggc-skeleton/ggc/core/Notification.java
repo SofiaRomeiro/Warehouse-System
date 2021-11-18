@@ -22,10 +22,10 @@ public class Notification implements Serializable {
 	/**
 	 * Constructor.
 	 */
-	public Notification(String type, Product product) {
+	public Notification(String type, Product product, double price) {
 		_notificationType = type;
 		_product = product;
-		_price = product.getLowestPrice();
+		_price = /*product.getLowestPrice()*/ price;
 	}
 
 	@Override

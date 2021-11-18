@@ -73,8 +73,8 @@ public class Partner implements Serializable, Observer {
         } 
     }
 
-    public double pay(Date date, double payedPrice, String productType) {
-        return _status.pay(date, payedPrice, productType);
+    public double pay(Date date, Sale sale, String productType) {
+        return _status.pay(date, sale, productType);
     }
     
     /**

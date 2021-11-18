@@ -39,14 +39,16 @@ public class StatusContext implements Serializable {
 	private String getPeriod(Date date, String productType) {
 		int N = 0;
 		
-		if ("Simple".equals(productType))
+		if ("Simple".equals(productType)) {
 			N = 5;
-		else 
+		}
+		else {
 			N = 3;
+		}
 		
-		if ((date.getDeadlinePayment() - date.getDate()) >= N) { return "P1"; }
-		else if ((date.getDeadlinePayment() - date.getDate() < N )) { return "P2"; }
-		else if ((date.getDate() - date.getDeadlinePayment()) <= N ) { return "P3"; }
+		if ((date.getDeadlinePayment() - Date.now().getDate()) >= N) { return "P1"; }
+		else if ((date.getDeadlinePayment() - Date.now().getDate() < N )) { return "P2"; }
+		else if ((Date.now().getDate() - date.getDeadlinePayment()) <= N ) { return "P3"; }
 		else {return "P4"; }	
 		
 	}
@@ -55,15 +57,19 @@ public class StatusContext implements Serializable {
 		return "P1".equals(getPeriod(date, productType)) || "P2".equals(getPeriod(date, productType));
 	}
 	
-	public double pay(Date date, double payedPrice, String productType) {
+	public double pay(Date date, Sale sale, String productType) {
 		if (inPaymentPeriod(date, productType)) {
+			double payedPrice = sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
+			sale.setValuePaid(payedPrice);
 			_currentPoints += (10 * payedPrice);
 			handlePointChanging();
-			return payedPrice -= payedPrice * getDiscount(date, productType);
+			return payedPrice;
 		}
 		else {
 			handleDelay(date);
-			return payedPrice += payedPrice * getFee(date, productType);
+			double payedPrice = sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType));
+			sale.setValuePaid(payedPrice);
+			return payedPrice;
 		}
 	}
 
