@@ -29,8 +29,6 @@ public class Elite implements StatusState, Serializable {
 	
 	public double applyDiscount(Date date, String period) {
 
-		
-
 		if ("P1".equals(period))
 			return 0.1;
 		else if ("P2".equals(period)) 
