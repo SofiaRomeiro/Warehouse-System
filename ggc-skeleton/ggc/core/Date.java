@@ -27,16 +27,19 @@ public class Date implements Serializable {
 	public Date() {
 		_date = 0;
 		_deadlinePayment = 0;
+		_paymentDate = 0;
 	}
 
 	public Date(int days) {
 		_date = days;
 		_deadlinePayment = 0;
+		_paymentDate = 0;
 	}
 
 	public Date(int days, int deadlinePayment) {
 		_date = days;
 		_deadlinePayment = deadlinePayment;
+		_paymentDate = 0;
 	}
 
 	public Date(int days, int deadlinePayment, int paymentDate) {

@@ -23,11 +23,18 @@ public class DoLookupProductBatchesUnderGivenPrice extends Command<WarehouseMana
     Double price = realField("price");
     List<String> batchesUnderPrice = new ArrayList<>(_receiver.showBatchesUnderPrice(price));
 
-    for (String b : batchesUnderPrice) {
+    //try {
+      for (String b : batchesUnderPrice) {
         _display.addLine(b);
-    }
+      }
       _display.display();
 
+    //}
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
+
+    
   }
 
 }

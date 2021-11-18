@@ -36,6 +36,9 @@ public class DoShowBatchesByProduct  extends Command<WarehouseManager> {
     catch (UnkProductKeyException upke) {
         throw new UnknownProductKeyException(key);
     }
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
   }
 
 }

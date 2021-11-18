@@ -43,6 +43,9 @@ public class DoRegisterBreakdownTransaction extends Command<WarehouseManager> {
     catch (UnaProductException upe) {
       throw new UnavailableProductException(productKey, amount, upe.getAvailable());
     }
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
   }
 
 }

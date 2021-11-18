@@ -912,6 +912,8 @@ public class Warehouse implements Serializable {
   public String showTransaction(int transactionKey) throws UnkTransactionKeyException{
     if (_transations.size() <= transactionKey || transactionKey < 0) 
       throw new UnkTransactionKeyException();
+    //System.out.println("[SHOW TRANSACTION] ("+transactionKey+") payment date = "+ _transations.get(transactionKey).getTransactionDate().getPaymentDate());
+    //System.out.println("SHOW TRANSACTION] To String: "+ _transations.get(transactionKey).toString());
     return _transations.get(transactionKey).toString();
     
   }
@@ -926,8 +928,13 @@ public class Warehouse implements Serializable {
     if (transaction.isPaid())
       return;
 
+    transaction.getTransactionDate().setPaymentDate(Date.now().getDate());
     Partner partner = transaction.getPartner();
     Double value = partner.pay(transaction.getTransactionDate(), ((Sale)transaction), transaction.getProductType());
+    
+    //System.out.println("[RECEIVE PAYMENT] to pay = " + value);
+    //System.out.println("[RECEIVE PAYMENT] base value = " + transaction.getBaseValue());
+
     transaction.setValuePaid(value);
     transaction.pay();
     transaction.getTransactionDate().setPaymentDate(_date.getDate());

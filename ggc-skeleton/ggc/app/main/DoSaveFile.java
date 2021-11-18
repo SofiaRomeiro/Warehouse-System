@@ -39,7 +39,11 @@ class DoSaveFile extends Command<WarehouseManager> {
 
     try{
     _receiver.save(filename);
-    } catch (IOException e) {
+    } 
+    /*catch (ClassNotFoundException e)  { 
+      e.printStackTrace(); 
+    }*/
+    catch (IOException e) {
       e.printStackTrace();
     }
   }

@@ -44,8 +44,8 @@ public class Selection implements StatusState, Serializable {
 	
 	public double applyFee(Date date, String period) {
 
-		int daysPassedSinceDeadline = Date.now().getDate() - date.getDeadlinePayment();
-
+		int daysPassedSinceDeadline = date.getPaymentDate() - date.getDeadlinePayment();
+		
 		if ("P1".equals(period))
 			return 0.0;
 		else if ("P2".equals(period))

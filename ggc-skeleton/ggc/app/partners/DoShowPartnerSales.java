@@ -36,6 +36,9 @@ class DoShowPartnerSales extends Command<WarehouseManager> {
     catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
     }
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
   }
 
 }

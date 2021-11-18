@@ -49,6 +49,9 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     catch (UnaComponentException uce) {
       throw new UnavailableProductException(uce.getProductComponent(), uce.getRequested(), uce.getAvailable());
     }
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
 
 
 

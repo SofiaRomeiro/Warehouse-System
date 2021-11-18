@@ -24,11 +24,13 @@ public class DoShowTransaction extends Command<WarehouseManager> {
  
     try {
       _display.addLine(_receiver.showTransaction(transactionKey));
+      _display.display();
     }
     catch (UnkTransactionKeyException urke){
       throw new UnknownTransactionKeyException(transactionKey);
     }
-
-    _display.display();
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/    
   }  
 }

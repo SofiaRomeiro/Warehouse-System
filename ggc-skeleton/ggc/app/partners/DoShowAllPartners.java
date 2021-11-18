@@ -21,10 +21,16 @@ class DoShowAllPartners extends Command<WarehouseManager> {
     
     List<String> partners = new LinkedList<>(_receiver.showAllPartners());
 
-    for (String p: partners){
-      _display.addLine(p);
-    }
-    _display.display();
+    //try {
+      for (String p: partners){
+        _display.addLine(p);
+      }
+      _display.display();
+    //}
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
+    
 
   }
 

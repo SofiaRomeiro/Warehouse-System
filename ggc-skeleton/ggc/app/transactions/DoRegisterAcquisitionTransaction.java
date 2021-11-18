@@ -75,9 +75,13 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
         } catch (UnaComponentException uce) {
           throw new UnknownProductKeyException(uce.getProductComponent());
         }
+        
       }
       _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
     } 
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
 
   }
 

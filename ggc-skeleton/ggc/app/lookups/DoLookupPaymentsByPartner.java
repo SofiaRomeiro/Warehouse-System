@@ -34,11 +34,17 @@ public class DoLookupPaymentsByPartner extends Command<WarehouseManager> {
         _display.addLine(b);
       }
       _display.display();
-    }catch (UnkPartnerKeyException upke) {
-      throw new UnknownPartnerKeyException(partnerKey);
-    }catch (NoPaymentsByPartner npbp) {
-      
     }
+    catch (UnkPartnerKeyException upke) {
+      throw new UnknownPartnerKeyException(partnerKey);
+    }
+    catch (NoPaymentsByPartner npbp) {      
+    }
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
+
+
   }
 
 }

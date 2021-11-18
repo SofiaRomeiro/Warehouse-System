@@ -31,8 +31,9 @@ class DoOpenFile extends Command<WarehouseManager> {
       _receiver.load(filename);
     } catch (UnavailableFileException ufe) {
       throw new FileOpenFailedException(ufe.getFilename());
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
+    } 
+    catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
     }
     
   }

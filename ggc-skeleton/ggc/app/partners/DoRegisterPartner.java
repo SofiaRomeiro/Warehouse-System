@@ -35,6 +35,9 @@ class DoRegisterPartner extends Command<WarehouseManager> {
       catch (DuplPartnerKeyException dpke) {
         throw new DuplicatePartnerKeyException(key);
       }
+      /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
 
     }
 

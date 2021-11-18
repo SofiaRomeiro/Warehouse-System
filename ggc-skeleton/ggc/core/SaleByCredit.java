@@ -22,10 +22,13 @@ public class SaleByCredit extends Sale implements Serializable{
     public double getValuePaid() { return super.getValuePaid(); }
 
     public String toString() {
-        if (super.getValuePaid() == 0) {
+        if (super.getValueToBePaid() == 0) {
             setValuePaid(super.getBaseValue());
-        }
-        
+        }   
+
+        //System.out.println("[SHOW SALE] Sale " + super.getId());
+        //System.out.println("[SHOW SALE] value = " + super.getValueToBePaid());
+
         String message = "VENDA|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValueToBePaid()) + "|" + super.getTransactionDate().getDeadlinePayment();
         if (isPaid())
             return message + "|" + super.getTransactionDate().getPaymentDate();

@@ -18,7 +18,13 @@ class DoShowGlobalBalance extends Command<WarehouseManager> {
 
     double accountant = _receiver.getAccountantBalance();
     double available = _receiver.getAvailableBalance();
-
-    _display.popup(Message.currentBalance(available, accountant));
+    
+    //try {
+      _display.popup(Message.currentBalance(available, accountant));
+    //}
+    /*catch (ClassNotFoundException e)  { 
+       e.printStackTrace(); 
+    }*/
+    
   }
 }

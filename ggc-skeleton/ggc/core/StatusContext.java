@@ -60,15 +60,27 @@ public class StatusContext implements Serializable {
 
 	public double getValueToBePaid(Date date, Sale sale, String productType) {
 
+		if (sale.getValuePaid() != 0) {
+			//System.out.println("[GET VALUE PAY - STATUS] known value = " + sale.getValuePaid());
+			return sale.getValuePaid();
+		}
+
 		if (inPaymentPeriod(date, productType)) {
 			return sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
 		}
 		else {
+			if (date.getPaymentDate() == 0){
+				date.setPaymentDate(Date.now().getDate());
+			}			
+			//System.out.println("[GET VALUE PAY - STATUS] payed = " + (sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType))));
 			return sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType));
 		}
 	}
 	
 	public double pay(Date date, Sale sale, String productType) {
+
+		//System.out.println("SALE " + sale.getId());
+		//System.out.println("Period " + getPeriod(date, productType));
 
 		if (inPaymentPeriod(date, productType)) {
 			double payedPrice = sale.getBaseValue() - (sale.getBaseValue() * getDiscount(date, productType));
@@ -80,6 +92,7 @@ public class StatusContext implements Serializable {
 		else {
 			handleDelay(date);
 			double payedPrice = sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType));
+			//System.out.println("[PAY - STATUS] payed = " + payedPrice);
 			sale.setValuePaid(payedPrice);
 			return payedPrice;
 		}
