@@ -90,10 +90,11 @@ public class StatusContext implements Serializable {
 			return payedPrice;
 		}
 		else {
-			handleDelay(date);
+			
 			double payedPrice = sale.getBaseValue() + (sale.getBaseValue() * getFee(date, productType));
 			//System.out.println("[PAY - STATUS] payed = " + payedPrice);
 			sale.setValuePaid(payedPrice);
+			handleDelay(date);
 			return payedPrice;
 		}
 	}

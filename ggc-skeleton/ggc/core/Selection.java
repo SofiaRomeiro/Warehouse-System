@@ -53,7 +53,7 @@ public class Selection implements StatusState, Serializable {
 		else if ("P2".equals(period))
 			return 0.0;
 		else if ("P3".equals(period)) {
-			if ((date.getPaymentDate() - date.getDeadlinePayment()) == 1)
+			if ((date.getPaymentDate() - date.getDeadlinePayment()) <= 1)
 				return 0.0;
 			else {
 				Double days = Double.valueOf(daysPassedSinceDeadline);
