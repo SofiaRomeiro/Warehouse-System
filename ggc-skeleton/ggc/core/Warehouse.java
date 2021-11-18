@@ -360,7 +360,6 @@ public class Warehouse implements Serializable {
     for (int i = 0; i < componentsProductAmount.size(); i++) {
       if (!_products.containsKey(componentsProductKey.get(i).toLowerCase())) {
         throw new UnaComponentException(0, 0, componentsProductKey.get(i));
-        //addSimpleProduct(productKey);
       }
       recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i).toLowerCase())));
     }
@@ -399,198 +398,7 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
-  // SaleByCredit
-  private void handleNewTransaction(double finalPrice, Transaction transaction, int amount, Partner partner, Product product) {
-    ((Sale)transaction).setValuePaid(finalPrice);
-    _transactionsIds++;
-    _transations.add(transaction);
-    partner.addTransation(transaction);
-    product.updateCurrentQuantity(-amount);
-    _balance.setCurrentAccountant(finalPrice * amount);
-  }
-
-  private void handleNewTransactionAggregation(int quantityManufactured, double finalPrice, Transaction transaction, int amount, Partner partner, Product product) {
-    ((Sale)transaction).setValuePaid(finalPrice);
-    _transactionsIds++;
-    _transations.add(transaction);
-    partner.addTransation(transaction);
-    product.updateCurrentQuantity(-quantityManufactured);
-    _balance.setCurrentAccountant(finalPrice * amount);
-  }
-
-
-  /*
- private double calculateFinalSalePrice(Product product, int amount) {
-
-    List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
-    int currentQuantityToSale = 0;
-    int quantityTokenToSaleByBatch = 0;
-    int quantityAvailableByEachBatch = 0;
-    double finalPrice = 0.0;
-
-    while (currentQuantityToSale < amount) {    
-
-      for (Batch b : batches) {
-
-        quantityAvailableByEachBatch = b.getQuantity();
-        if (quantityAvailableByEachBatch >= amount && currentQuantityToSale == 0) { 
-          b.decreaseQuantity(amount);
-          currentQuantityToSale += amount;
-          finalPrice += (amount * b.getPrice());
-          break;
-        }
-
-        else if ((quantityAvailableByEachBatch + currentQuantityToSale) >= amount ) {
-          quantityTokenToSaleByBatch = amount - currentQuantityToSale;                  //a quantidade a retirar corresponde à diferença entre o total necessario (amount) e a quantidade já disponivel
-          b.decreaseQuantity(quantityTokenToSaleByBatch);
-          currentQuantityToSale += quantityTokenToSaleByBatch;
-          finalPrice += (quantityTokenToSaleByBatch * b.getPrice());
-        }
-
-        else {
-          currentQuantityToSale += quantityAvailableByEachBatch;
-          b.decreaseQuantity(b.getQuantity()); 
-          finalPrice += (quantityAvailableByEachBatch * b.getPrice());
-
-          // RECURSION
-
-        }
-
-      }
-
-    }
-
-    product.removeEmptyBatch();
-    return finalPrice;
-  } 
-  */
-
-  // SaleByCredit
-  /*
-  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException, UnaComponentException, UnkPartnerKeyException, UnkProductKeyException {
-
-    if (!_products.containsKey(productKey.toLowerCase()))
-      throw new UnkProductKeyException();
-
-    if (!_partners.containsKey(partnerKey.toLowerCase()))
-      throw new UnkPartnerKeyException();
-
-    Product product = _products.get(productKey.toLowerCase());
-    Partner partner = _partners.get(partnerKey.toLowerCase());
-
-    if (product instanceof SimpleProduct ) { 
-
-      double finalPrice = 0.0;     
-
-      if (product.getCurrentQuantity() < amount)
-        throw new UnaProductException(product.getCurrentQuantity(), product.getId());
-
-      else {
-
-        finalPrice = calculateFinalSalePrice(product, amount);    
-      }        
-
-      Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
-      handleNewTransaction(finalPrice, transaction, amount, partner, product);
-
-    }   
-
-    else {
-
-      if (product.getCurrentQuantity() > amount) { 
-        double finalPrice = calculateFinalSalePrice(product, amount);
-        Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, product, partner);
-        handleNewTransaction(finalPrice, transaction, amount, partner, product);
-
-      }
-
-      else if (product.getCurrentQuantity() > 0 && product.getCurrentQuantity() < amount) { 
-
-        int productAmountAvailable = product.getCurrentQuantity();
-        int leftQuantityToManufacture = amount - productAmountAvailable;
-        double finalPrice = 0.0; 
-
-        while (productAmountAvailable != 0 ) {  
-
-          List<Batch> batchesAvailable = new ArrayList<>(product.getAllBatchesByPrice());
-          int currentQuantityTokenToSale = 0;
-          int quantityTokenFromBatch = 0;         
-
-          for (Batch batch : batchesAvailable) {          
-
-            quantityTokenFromBatch = batch.getQuantity();
-            batch.decreaseQuantity(quantityTokenFromBatch);              
-            product.removeEmptyBatch(); 
-            productAmountAvailable -= quantityTokenFromBatch;
-            currentQuantityTokenToSale += quantityTokenFromBatch;
-            finalPrice += (batch.getPrice() * quantityTokenFromBatch);
-          }                   
-        }        
-        
-
-        Recipe recipe = ((AggregateProduct) product).getRecipe();
-        double alpha = ((AggregateProduct)product).getAlpha();
-        List<Component> components = recipe.getComponents();
-        double baseSalePrice = finalPrice;
-
-        for (Component c : components) {
-
-          Product component = c.getProduct();
-
-          int componentAmountNeeded = c.getQuantity() * leftQuantityToManufacture;
-
-          if (component.getCurrentQuantity() < componentAmountNeeded) {
-            throw new UnaComponentException(component.getCurrentQuantity(), componentAmountNeeded, component.getId());
-          }
-
-          baseSalePrice += calculateFinalSalePrice(component, componentAmountNeeded);
-          component.updateCurrentQuantity(-componentAmountNeeded);
-        }
-
-        double manufacturePrice = (1 + alpha) * (baseSalePrice - finalPrice);
-
-        double priceWithAlpha = (finalPrice + (manufacturePrice));
-
-        
-        Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), priceWithAlpha, amount, product, partner);
-        handleNewTransactionAggregation(leftQuantityToManufacture, priceWithAlpha, transaction, amount, partner, product);
-        product.updatePrices(manufacturePrice / leftQuantityToManufacture);
-
-
-      }
-      else {
-
-        int productAmountAvailable = product.getCurrentQuantity();
-        int leftQuantityToManufacture = amount - productAmountAvailable;
-        double finalPrice = 0.0;
-        Recipe recipe = ((AggregateProduct) product).getRecipe();
-        double alpha = ((AggregateProduct)product).getAlpha();
-        List<Component> components = recipe.getComponents();
-        double baseSalePrice = finalPrice;
-
-        for (Component c : components) {
-
-          Product component = c.getProduct();
-
-          int componentAmountNeeded = c.getQuantity() * leftQuantityToManufacture;
-
-          if (component.getCurrentQuantity() < componentAmountNeeded) {
-            throw new UnaComponentException(component.getCurrentQuantity(), componentAmountNeeded, component.getId());
-          }
-
-          baseSalePrice += calculateFinalSalePrice(component, componentAmountNeeded);            
-
-        }
-
-        double manufacturePrice = baseSalePrice - finalPrice;
-        double priceWithAlpha = (finalPrice + ((1 + alpha) * manufacturePrice));
-
-        Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), priceWithAlpha, amount, product, partner);
-        handleNewTransactionAggregation(leftQuantityToManufacture, priceWithAlpha, transaction, amount, partner, product);
-      }
-    } 
-  } */
-
+  // SaleByCredit 
   public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount)
       throws UnaProductException, UnaComponentException, UnkPartnerKeyException, UnkProductKeyException {
 
@@ -690,153 +498,6 @@ public class Warehouse implements Serializable {
     product.updatePrices(cost);
     return cost;
   }
-
-  /*
-  public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount) throws UnaProductException, UnaComponentException, UnkPartnerKeyException, UnkProductKeyException {
-
-    if (!_products.containsKey(productKey.toLowerCase()))
-      throw new UnkProductKeyException();
-
-    if (!_partners.containsKey(partnerKey.toLowerCase()))
-      throw new UnkPartnerKeyException();
-
-    Product product = _products.get(productKey.toLowerCase());
-    Partner partner = _partners.get(partnerKey.toLowerCase());
-    double finalPrice = 0.0;
-
-    if (product instanceof SimpleProduct ) {      
-
-      if (product.getCurrentQuantity() < amount)
-        throw new UnaProductException(product.getCurrentQuantity(), product.getId());
-
-      else {
-
-        finalPrice = calculateFinalSalePrice(product, amount);    
-      }        
-
-      Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
-      handleNewTransaction(finalPrice, transaction, amount, partner, product);
-    }
-
-    else {
-
-      try {
-        //List<String> l = new LinkedList<>();
-        finalPrice = want(product, amount);
-        //manufacture(product, amount);
-      }
-      catch (UnaProductException upe) {
-        restore();
-        throw new UnaProductException(product.getCurrentQuantity(), product.getId());
-      }
-
-      Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment), finalPrice, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase())); 
-      handleNewTransaction(finalPrice, transaction, amount, partner, product);
-    }
-  }
-
-  private void backup(Product product, Batch b, int quantity) { 
-    _restore.add(new Batch(b.getPrice(), quantity, product, b.getPartner()));
-  }
-
-  private double calculateFinalSalePrice(Product product, int amount) {    
-
-    List<Batch> batches = new ArrayList<>(product.getAllBatchesByPrice());
-    int quantity = 0;
-    double price = 0.0;
-
-    //por cada lote
-    for (Batch b : batches) {
-      if (b.getQuantity() + quantity >= amount) {
-        backup(product, b, amount - quantity);
-        b.decreaseQuantity(amount - quantity);
-        product.updateCurrentQuantity(-(amount - quantity));
-        product.removeEmptyBatch();
-        return (b.getPrice() * (amount - quantity)) + price;
-      }
-      
-      else {
-        quantity += b.getQuantity();
-        backup(product, b, b.getQuantity());
-        b.decreaseQuantity(b.getQuantity());
-        product.updateCurrentQuantity(-(b.getQuantity()));
-        price += b.getPrice() * b.getQuantity();
-      }
-    }
-
-    product.removeEmptyBatch();
-    return price;
-  } 
-
-  private double want(Product product, int amount) throws UnaProductException {
-    int missing = amount - product.getCurrentQuantity();
-    int produced = 0;
-    double salePrice = 0.0;
-
-    if (product.getCurrentQuantity() > amount) {
-      salePrice += calculateFinalSalePrice(product, amount);
-    } 
-    else {
-      salePrice += calculateFinalSalePrice(product, product.getCurrentQuantity());
-    }
-
-    if (product instanceof SimpleProduct) {
-        if (missing > 0) 
-          throw new UnaProductException(product.getCurrentQuantity(), product.getId());
-        
-        return salePrice;
-    } 
-
-    double alpha = ((AggregateProduct) product).getAlpha();
-    Recipe recipe = ((AggregateProduct) product).getRecipe();
-    List<Component> components = recipe.getComponents();
-
-    while (produced < missing) {       
-
-        for (Component c : components) {
-
-          try {
-
-            salePrice += (1 + alpha) * want(c.getProduct(), c.getQuantity());
-          }
-          catch (UnaProductException upe) {
-            throw upe;
-          }
-        }
-
-      produced++;
-    }
-    return salePrice;
-  }
-
-  private void restore() {
-
-    for (Batch batch : _restore) {
-      Product p = _products.get(batch.getProduct().getId().toLowerCase());
-      List<Batch> batches = p.getAllBatches();
-
-      for (Batch b : batches) {
-        if (b.equals(batch)) {
-          p.updateCurrentQuantity(b.getQuantity());
-          b.setQuantity(batch.getQuantity());
-        }
-        else {
-          p.addNewBatch(new Batch(batch.getPrice(), batch.getQuantity(), batch.getProduct(), batch.getPartner()));
-          p.updateCurrentQuantity(batch.getQuantity());
-        }
-      }
-    }
-
-    // por cada lote na lista para restaurar
-      //vou procurar o produto original respetivo e verificar se o lote existe nesse produto
-      // se nao existir, crio esse lote de novo no produto original
-      // se existir numa quantidade inferior, reponho apenas a quantidade
-
-      //indepentemente da situacao, atualizar as existencias do produto respetivo do lote
-
-    _restore.clear();    
-  }
-  */
   
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount)
@@ -960,7 +621,6 @@ public class Warehouse implements Serializable {
     double price = Double.parseDouble(fields[3]);
     int stock = Integer.parseInt(fields[4]);
 
-    // metodo para criar lote de produto simples
     if (!(_products.containsKey(id.toLowerCase()))) {
       addSimpleProduct(id);
     }
@@ -969,9 +629,6 @@ public class Warehouse implements Serializable {
     Partner prtnr = _partners.get(partner.toLowerCase());
     Batch b = new Batch(price, stock, product, prtnr);
     product.addNewBatch(b);
-    //product.updatePrices(price);
-
-    //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
     p.addBatch(b);
   }
@@ -988,7 +645,7 @@ public class Warehouse implements Serializable {
 
     Recipe recipe = new Recipe(alpha);
 
-    String[] components = fields[6].split("#"); //contains each part of the division "<id> : <quantity>"          
+    String[] components = fields[6].split("#");          
 
     for (String component: components) {
       idAndQuantity = component.split(":");   
@@ -999,23 +656,18 @@ public class Warehouse implements Serializable {
         addSimpleProductWithQuantity(componentId, quantity, new ArrayList<Observer>(_partners.values()));
       }    
 
-      Component c = new Component(quantity, _products.get(componentId.toLowerCase()) /*new SimpleProduct(componentId)*/);
+      Component c = new Component(quantity, _products.get(componentId.toLowerCase()));
       recipe.addComponent(c);
     }
-  
-    //criar o produto derivado
-    if (!(_products.containsKey(id.toLowerCase()))) { //se ainda nao foi criado
+
+    if (!(_products.containsKey(id.toLowerCase()))) {
       addAggregateProduct(id, recipe, alpha);
     }
     AggregateProduct product = (AggregateProduct) _products.get(id.toLowerCase());
     Partner prtnr = _partners.get(partner.toLowerCase());
     AggregateProduct ap = new AggregateProduct(id, recipe, alpha);
-    //ap.updatePrices(price);
     Batch b = new Batch(price, stock, ap, prtnr);
     product.addNewBatch(b);
-    //product.updatePrices(price);
-
-    //adicionar o lote ao parceiro
     Partner p = _partners.get(partner.toLowerCase());
     p.addBatch(b);
   }

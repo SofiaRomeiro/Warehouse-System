@@ -13,8 +13,6 @@ public class Selection implements StatusState, Serializable {
     public static Selection getSelectionInstance() { return _selectionInstance; }  
  
  	public String getStatus() { return _status; }
-     
-    //Business logic and state transition
     
 	public void updateState(StatusContext stctx) {
         stctx.setCurrentStatus(Elite.getEliteInstance());
@@ -27,8 +25,6 @@ public class Selection implements StatusState, Serializable {
 	
 	
 	public double applyDiscount(Date date, String period) {
-
-		//System.out.println("[APPLY DISCOUNT] Period " + period);
 
 		if ("P1".equals(period))
 			return 0.1;

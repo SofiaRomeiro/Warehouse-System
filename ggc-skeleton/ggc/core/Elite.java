@@ -13,8 +13,7 @@ public class Elite implements StatusState, Serializable {
     public static Elite getEliteInstance() { return _eliteInstance; }
 
     public String getStatus() { return _status; }
-     
-    //Business logic and state transition
+    
     public void updateState(StatusContext stctx) 
     {
         stctx.setCurrentStatus(this);

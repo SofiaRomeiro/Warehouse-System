@@ -25,7 +25,7 @@ public class Notification implements Serializable {
 	public Notification(String type, Product product, double price) {
 		_notificationType = type;
 		_product = product;
-		_price = /*product.getLowestPrice()*/ price;
+		_price =  price;
 	}
 
 	@Override

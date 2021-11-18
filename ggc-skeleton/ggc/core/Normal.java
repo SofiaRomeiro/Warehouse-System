@@ -14,8 +14,6 @@ public class Normal implements StatusState, Serializable {
 
     public String getStatus() { return _status; }
       
-    //Business logic and state transition
-    
     public void updateState(StatusContext stctx) {
         stctx.setCurrentStatus(Selection.getSelectionInstance());
     }
@@ -41,12 +39,6 @@ public class Normal implements StatusState, Serializable {
 	public double applyFee(Date date, String period) {
 
 		int daysPassedSinceDeadline = date.getPaymentDate() - date.getDeadlinePayment();
-
-		/*System.out.println("[APPLY FEE] payment date = " + date.getPaymentDate());
-		System.out.println("[APPLY FEE] deadline = " + date.getDeadlinePayment());
-		System.out.println("[APPLY FEE] delay = " + daysPassedSinceDeadline);
-		System.out.println("[APPLY FEE] Period " + period);
-		*/
 
 		if ("P1".equals(period))
 			return 0.0;
