@@ -28,10 +28,12 @@ public class Selection implements StatusState, Serializable {
 	
 	public double applyDiscount(Date date, String period) {
 
+		//System.out.println("[APPLY DISCOUNT] Period " + period);
+
 		if ("P1".equals(period))
 			return 0.1;
 		else if ("P2".equals(period)) {
-			if (( Date.now().getDate() - date.getDeadlinePayment()) >= 2)
+			if ((date.getDeadlinePayment() - date.getPaymentDate()) >= 2)
 				return 0.05;
 			else 
 				return 0;
