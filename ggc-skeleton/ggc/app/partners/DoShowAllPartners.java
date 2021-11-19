@@ -3,7 +3,7 @@ package ggc.app.partners;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
- 
+
 import java.util.List;
 import java.util.LinkedList;
 
@@ -18,19 +18,13 @@ class DoShowAllPartners extends Command<WarehouseManager> {
 
   @Override
   public void execute() throws CommandException {
-    
+
     List<String> partners = new LinkedList<>(_receiver.showAllPartners());
 
-    //try {
-      for (String p: partners){
-        _display.addLine(p);
-      }
-      _display.display();
-    //}
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
-    
+    for (String p : partners) {
+      _display.addLine(p);
+    }
+    _display.display();
 
   }
 

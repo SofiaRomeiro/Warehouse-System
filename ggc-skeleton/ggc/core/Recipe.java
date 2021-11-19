@@ -6,8 +6,7 @@ import java.util.Iterator;
 import java.io.Serializable;
 
 /**
- * Classe Recipe
- * This class presents the behavior of a Recipe.
+ * Classe Recipe This class presents the behavior of a Recipe.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
@@ -29,7 +28,9 @@ public class Recipe implements Serializable {
 		_components = new ArrayList<>();
 	}
 
-	public double getAlpha() { return _alpha; }
+	public double getAlpha() {
+		return _alpha;
+	}
 
 	public List<Component> getComponents() {
 		return _components;
@@ -44,11 +45,11 @@ public class Recipe implements Serializable {
 
 		String recipe = new String();
 
-		Iterator<Component> iter = _components.iterator(); 
+		Iterator<Component> iter = _components.iterator();
 		while (iter.hasNext()) {
 			recipe += iter.next().toString();
 			if (iter.hasNext())
-				recipe += "#"; 
+				recipe += "#";
 		}
 		return "|" + recipe;
 	}

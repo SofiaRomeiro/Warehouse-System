@@ -1,18 +1,12 @@
 package ggc.core;
 
-import java.io.Serializable;
-import java.io.OutputStream;
 import java.io.ObjectOutputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-
-import ggc.app.exception.FileOpenFailedException;
 
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.ImportFileException;
@@ -27,12 +21,7 @@ import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
 import ggc.core.exception.NoPaymentsByPartner;
 
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 
 /** Façade for access. */
 public class WarehouseManager {
@@ -65,7 +54,7 @@ public class WarehouseManager {
     _warehouse.advanceDate(days);
   }
 
-  //Balance
+  // Balance
   /**
    * 
    * @return
@@ -82,7 +71,7 @@ public class WarehouseManager {
     return _warehouse.getAccountantBalance();
   }
 
-  //File
+  // File
   /**
    * 
    * @return
@@ -120,7 +109,8 @@ public class WarehouseManager {
     _warehouse.addSimpleProduct(productKey);
   }
 
-  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) throws UnaComponentException {
+  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey,
+      List<Integer> componentsProductAmount) throws UnaComponentException {
     _warehouse.createAggregateProduct(productKey, alpha, componentsProductKey, componentsProductAmount);
   }
 
@@ -129,7 +119,7 @@ public class WarehouseManager {
     return _warehouse.showAllPartners();
   }
 
-  public String showPartner(String key) throws UnkPartnerKeyException{
+  public String showPartner(String key) throws UnkPartnerKeyException {
     return _warehouse.getPartnerById(key);
   }
 
@@ -141,7 +131,8 @@ public class WarehouseManager {
     _warehouse.addPartner(key, name, address);
   }
 
-  public void toggleProductNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException {
+  public void toggleProductNotifications(String partnerKey, String productKey)
+      throws UnkProductKeyException, UnkPartnerKeyException {
     _warehouse.toggleNotifications(partnerKey, productKey);
   }
 
@@ -149,10 +140,9 @@ public class WarehouseManager {
     return _warehouse.lookupPaymentsByPartner(partnerKey);
   }
 
-  
-
   // Transaction
-  public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
+  public void validateParameters(String partnerKey, String productKey)
+      throws UnkPartnerKeyException, UnkProductKeyException {
     _warehouse.validateParameters(partnerKey, productKey);
   }
 
@@ -169,91 +159,101 @@ public class WarehouseManager {
     return _warehouse.showAcquisitionTransactionByPartner(key);
   }
 
-  //Sale
+  // Sale
   public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
     return _warehouse.showSaleTransactionByPartner(key);
   }
 
   // BreakdownSale
-  public void registerBreakdownSaleTransaction(String partnerKey, String productKey, int amount) throws UnaProductException{
+  public void registerBreakdownSaleTransaction(String partnerKey, String productKey, int amount)
+      throws UnaProductException {
     _warehouse.addNewBreakdownSaleTransaction(partnerKey, productKey, amount);
   }
 
-  //SaleByCredit
-  public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount) throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException, UnaComponentException {
-    _warehouse.addNewSaleTransaction(partnerKey,paymentDeadline, productKey, amount);
+  // SaleByCredit
+  public void registerSaleTransaction(String partnerKey, int paymentDeadline, String productKey, int amount)
+      throws UnkPartnerKeyException, UnkProductKeyException, UnaProductException, UnaComponentException {
+    _warehouse.addNewSaleTransaction(partnerKey, paymentDeadline, productKey, amount);
   }
 
-  //ReceivePayment
-  public void receivePayment(int transactionKey) throws UnkTransactionKeyException{
-    _warehouse.receivePayment(transactionKey); 
+  // ReceivePayment
+  public void receivePayment(int transactionKey) throws UnkTransactionKeyException {
+    _warehouse.receivePayment(transactionKey);
   }
 
   /*
-  * @@throws IOException
-  * @@throws FileNotFoundException
-  * @@throws MissingFileAssociationException
-  */
- public void save(String filename) throws IOException, FileNotFoundException {
+   * @@throws IOException
+   * 
+   * @@throws FileNotFoundException
+   * 
+   * @@throws MissingFileAssociationException
+   */
+  public void save(String filename) throws IOException, FileNotFoundException {
 
-   if (!hasFilename()) {
-     _filename = filename;
-   }
+    if (!hasFilename()) {
+      _filename = filename;
+    }
 
-   try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
+    try (
+        ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
 
-     objOut.writeObject(_warehouse);
-     objOut.writeObject(_warehouse.getDate());
+      objOut.writeObject(_warehouse);
+      objOut.writeObject(_warehouse.getDate());
 
-   } catch (FileNotFoundException fnfe) { 
-     throw fnfe; 
-   } catch (IOException e) {
-     e.printStackTrace();
-   }
- }
+    } catch (FileNotFoundException fnfe) {
+      throw fnfe;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
- /*
-  * @@param filename
-  * @@throws MissingFileAssociationException
-  * @@throws IOException
-  * @@throws FileNotFoundException
-  */
- public void saveAs(String filename) throws MissingFileAssociationException, FileNotFoundException, IOException {
-   _filename = filename;
-   save(filename);
- }
+  /*
+   * @@param filename
+   * 
+   * @@throws MissingFileAssociationException
+   * 
+   * @@throws IOException
+   * 
+   * @@throws FileNotFoundException
+   */
+  public void saveAs(String filename) throws MissingFileAssociationException, FileNotFoundException, IOException {
+    _filename = filename;
+    save(filename);
+  }
 
- /*
-  * @@param filename
-  * @@throws UnavailableFileException
-  */
- public void load(String filename) throws UnavailableFileException, ClassNotFoundException  {
+  /*
+   * @@param filename
+   * 
+   * @@throws UnavailableFileException
+   */
+  public void load(String filename) throws UnavailableFileException, ClassNotFoundException {
 
-     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
-       Object anObject = objIn.readObject();
-       int days = (Integer) objIn.readObject();
-       _warehouse = (Warehouse) anObject;
-       _filename = filename;
-       _warehouse.setDate(days);
+    try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
+      Object anObject = objIn.readObject();
+      int days = (Integer) objIn.readObject();
+      _warehouse = (Warehouse) anObject;
+      _filename = filename;
+      _warehouse.setDate(days);
 
-     } catch (ClassNotFoundException cnfe) {
-       throw cnfe;
-     } catch (IOException e) {
-       throw new UnavailableFileException(filename);
-     }
+    } catch (ClassNotFoundException cnfe) {
+      throw cnfe;
+    } catch (IOException e) {
+      throw new UnavailableFileException(filename);
+    }
 
- }
+  }
 
- /*
-  * @param textfile
-  * @throws ImportFileException
-  */
- public void importFile(String textfile) throws ImportFileException {
-   try {
-     _warehouse.importFile(textfile);
-   } catch (IOException | BadEntryException e) {
-     throw new ImportFileException(textfile, e);
-   }
- }
+  /*
+   * @param textfile
+   * 
+   * @throws ImportFileException
+   */
+  public void importFile(String textfile) throws ImportFileException {
+    try {
+      _warehouse.importFile(textfile);
+    } catch (IOException | BadEntryException e) {
+      throw new ImportFileException(textfile, e);
+    }
+  }
 
 }

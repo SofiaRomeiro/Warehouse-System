@@ -10,8 +10,6 @@ import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.UnaProductException;
 import ggc.core.WarehouseManager;
 
-
-
 /**
  * Register order.
  */
@@ -21,31 +19,28 @@ public class DoRegisterBreakdownTransaction extends Command<WarehouseManager> {
     super(Label.REGISTER_BREAKDOWN_TRANSACTION, receiver);
     addStringField("partnerKey", Message.requestPartnerKey());
     addStringField("productKey", Message.requestProductKey());
-    addIntegerField("amount", Message.requestAmount());  }
+    addIntegerField("amount", Message.requestAmount());
+  }
 
   @Override
-  public final void execute() throws CommandException, UnknownPartnerKeyException, UnknownProductKeyException, UnavailableProductException {
-    
+  public final void execute()
+      throws CommandException, UnknownPartnerKeyException, UnknownProductKeyException, UnavailableProductException {
+
     String partnerKey = stringField("partnerKey");
     String productKey = stringField("productKey");
     Integer amount = integerField("amount");
 
     try {
       _receiver.validateParameters(partnerKey, productKey);
-      _receiver.registerBreakdownSaleTransaction(partnerKey, productKey, amount);;
-    }
-    catch (UnkPartnerKeyException upke){
+      _receiver.registerBreakdownSaleTransaction(partnerKey, productKey, amount);
+      ;
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
-    } 
-    catch (UnkProductKeyException upke){  
+    } catch (UnkProductKeyException upke) {
       throw new UnknownProductKeyException(productKey);
-    }
-    catch (UnaProductException upe) {
+    } catch (UnaProductException upe) {
       throw new UnavailableProductException(productKey, amount, upe.getAvailable());
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
   }
 
 }

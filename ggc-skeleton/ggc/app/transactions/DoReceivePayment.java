@@ -25,9 +25,6 @@ public class DoReceivePayment extends Command<WarehouseManager> {
     } catch (UnkTransactionKeyException utke) {
       throw new UnknownTransactionKeyException(transactionKey);
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
   }
 
 }

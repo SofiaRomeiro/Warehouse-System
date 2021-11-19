@@ -1,15 +1,13 @@
 package ggc.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Iterator;
 import java.util.Collections;
 import java.io.Serializable;
 
 /**
- * Classe Partner
- * This class presents the behavior of a Partner.
+ * Classe Partner This class presents the behavior of a Partner.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
@@ -18,7 +16,7 @@ import java.io.Serializable;
 public class Partner implements Serializable, Observer {
 
     private static final long serialVersionUID = 207564192006L;
-    
+
     private String _key;
     private String _name;
     private String _address;
@@ -30,7 +28,7 @@ public class Partner implements Serializable, Observer {
     private List<Batch> _batches;
     private List<Transaction> _transactions;
     private SendMessageMode _messageMode;
-    
+
     /**
      * Constructor.
      * 
@@ -38,7 +36,7 @@ public class Partner implements Serializable, Observer {
      * @param name
      * @param address
      */
-    public Partner (String key, String name, String address){
+    public Partner(String key, String name, String address) {
 
         _key = key;
         _name = name;
@@ -52,25 +50,30 @@ public class Partner implements Serializable, Observer {
         _transactions = new ArrayList<>();
     }
 
-    public String getKey() { return _key; }
-
-    public List<Batch> getAllBatches() { 
-        Collections.sort(_batches, new BatchesComparator());
-        return _batches; 
+    public String getKey() {
+        return _key;
     }
 
-    public List<Transaction> getAllTransactions() { return _transactions;}
+    public List<Batch> getAllBatches() {
+        Collections.sort(_batches, new BatchesComparator());
+        return _batches;
+    }
 
-    public void addBatch(Batch b) { _batches.add(b); }
+    public List<Transaction> getAllTransactions() {
+        return _transactions;
+    }
 
-    public void addTransation(Transaction t) { 
+    public void addBatch(Batch b) {
+        _batches.add(b);
+    }
+
+    public void addTransation(Transaction t) {
         _transactions.add(t);
         if (t instanceof Acquisition) {
             _purchases += t.getBaseValue() * t.getQuantity();
-        } 
-        else if (t instanceof SaleByCredit) {
-            _sales += t.getBaseValue() /* t.getQuantity()*/;
-        } 
+        } else if (t instanceof SaleByCredit) {
+            _sales += t.getBaseValue() /* t.getQuantity() */;
+        }
     }
 
     public double pay(Date date, Sale sale, String productType) {
@@ -80,20 +83,21 @@ public class Partner implements Serializable, Observer {
     public double getValueToBePaid(Date date, Sale sale, String productType) {
         return _status.getValueToBePaid(date, sale, productType);
     }
-    
+
     /**
-	 * Returns the string representing a Partner.
-	 * id|nome|enderecco|estatuto|pontos|valor-compras|valor-vendas-efectuadas|valor-vendas-pagas
-	 * 
-	 * @Override
-	 * @return a string representing a Partner.
-	 */    
+     * Returns the string representing a Partner.
+     * id|nome|enderecco|estatuto|pontos|valor-compras|valor-vendas-efectuadas|valor-vendas-pagas
+     * 
+     * @Override
+     * @return a string representing a Partner.
+     */
     public String toString() {
-        return _key + "|" + _name + "|" + _address + "|" + _status.statusToString() + "|" + _status.getPoints() + "|" + Math.round (_purchases) + "|" + Math.round (_sales) + "|" + Math.round (_paidSales);
+        return _key + "|" + _name + "|" + _address + "|" + _status.statusToString() + "|" + _status.getPoints() + "|"
+                + Math.round(_purchases) + "|" + Math.round(_sales) + "|" + Math.round(_paidSales);
     }
 
     public void update(Notification notification) {
-        _notifications.add(notification);        
+        _notifications.add(notification);
     }
 
     public void clearNotifications() {
@@ -106,7 +110,7 @@ public class Partner implements Serializable, Observer {
 
         for (Notification n : _notifications) {
             notsToString.add(n.toString());
-        }           
+        }
         clearNotifications();
 
         return notsToString;
@@ -115,7 +119,7 @@ public class Partner implements Serializable, Observer {
     public void removeEmptyBatch() {
         Iterator<Batch> iter = _batches.iterator();
         while (iter.hasNext()) {
-            if (iter.next().getQuantity() == 0) 
+            if (iter.next().getQuantity() == 0)
                 iter.remove();
         }
     }
@@ -125,13 +129,13 @@ public class Partner implements Serializable, Observer {
     }
 
     public void sendMessage() {
-         _messageMode.SendMessage(_notifications);
+        _messageMode.SendMessage(_notifications);
     }
 
     public List<String> getAllPaidTransaction() {
         List<String> transactions = new ArrayList<>();
-        for (Transaction t: _transactions) {
-            if ( t instanceof Sale ) {
+        for (Transaction t : _transactions) {
+            if (t instanceof Sale) {
                 if (t instanceof BreakdownSale)
                     transactions.add(t.toString());
                 else if (t.isPaid())

@@ -1,6 +1,5 @@
 package ggc.core;
 
-
 interface Label {
 
 	/* String partner */
@@ -11,6 +10,4 @@ interface Label {
 
 	/* String Aggregate Product Batch */
 	String BATCH_M = "BATCH_M";
-
-
 }

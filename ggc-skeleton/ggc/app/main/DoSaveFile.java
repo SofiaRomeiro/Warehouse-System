@@ -1,6 +1,5 @@
 package ggc.app.main;
 
-
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import pt.tecnico.uilib.forms.Form;
@@ -14,7 +13,7 @@ import ggc.core.WarehouseManager;
  */
 class DoSaveFile extends Command<WarehouseManager> {
 
-  String filename;  
+  String filename;
 
   /**
    * 
@@ -32,18 +31,13 @@ class DoSaveFile extends Command<WarehouseManager> {
       Form request = new Form();
       request.addStringField("answer", Message.newSaveAs());
       filename = request.parse().stringField("answer");
-    }
-    else {
+    } else {
       filename = _receiver.getFilename();
     }
 
-    try{
-    _receiver.save(filename);
-    } 
-    /*catch (ClassNotFoundException e)  { 
-      e.printStackTrace(); 
-    }*/
-    catch (IOException e) {
+    try {
+      _receiver.save(filename);
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }

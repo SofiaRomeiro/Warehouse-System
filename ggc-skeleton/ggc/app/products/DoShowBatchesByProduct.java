@@ -13,7 +13,7 @@ import ggc.app.exception.UnknownProductKeyException;
 /**
  * Show all products.
  */
-public class DoShowBatchesByProduct  extends Command<WarehouseManager> {
+public class DoShowBatchesByProduct extends Command<WarehouseManager> {
 
   DoShowBatchesByProduct(WarehouseManager receiver) {
     super(Label.SHOW_BATCHES_BY_PRODUCT, receiver);
@@ -25,20 +25,15 @@ public class DoShowBatchesByProduct  extends Command<WarehouseManager> {
     String key = stringField("key");
 
     try {
-        List<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByProduct(key));
+      List<String> batchesByProduct = new ArrayList<>(_receiver.showBatchesByProduct(key));
 
-        for (String b : batchesByProduct) {
-          _display.addLine(b);
-        }
-        _display.display();
+      for (String b : batchesByProduct) {
+        _display.addLine(b);
+      }
+      _display.display();
+    } catch (UnkProductKeyException upke) {
+      throw new UnknownProductKeyException(key);
     }
-
-    catch (UnkProductKeyException upke) {
-        throw new UnknownProductKeyException(key);
-    }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
   }
 
 }

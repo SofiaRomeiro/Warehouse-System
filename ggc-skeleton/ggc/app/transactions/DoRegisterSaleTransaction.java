@@ -11,10 +11,6 @@ import ggc.core.exception.UnaProductException;
 import ggc.core.exception.UnaComponentException;
 import ggc.core.WarehouseManager;
 
-
-/**
- * 
- */
 public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
 
   public DoRegisterSaleTransaction(WarehouseManager receiver) {
@@ -25,7 +21,6 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     addIntegerField("amount", Message.requestAmount());
   }
 
-
   @Override
   public final void execute() throws CommandException {
 
@@ -35,26 +30,17 @@ public class DoRegisterSaleTransaction extends Command<WarehouseManager> {
     Integer amount = integerField("amount");
 
     try {
-      _receiver.registerSaleTransaction(partnerKey,paymentDeadline, productKey, amount);;
-    }
-    catch (UnkPartnerKeyException upke){
+      _receiver.registerSaleTransaction(partnerKey, paymentDeadline, productKey, amount);
+      ;
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
-    } 
-    catch (UnkProductKeyException upke){
+    } catch (UnkProductKeyException upke) {
       throw new UnknownProductKeyException(productKey);
-    }
-    catch (UnaProductException upe) {
+    } catch (UnaProductException upe) {
       throw new UnavailableProductException(upe.getProductComponent(), amount, upe.getAvailable());
-    }
-    catch (UnaComponentException uce) {
+    } catch (UnaComponentException uce) {
       throw new UnavailableProductException(uce.getProductComponent(), uce.getRequested(), uce.getAvailable());
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
-
-
-
   }
 
 }

@@ -1,12 +1,9 @@
 package ggc.core;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.LinkedList;
 
 /**
- * Classe Notifications
- * This class presents the behavior of a Notification.
+ * Classe Notifications This class presents the behavior of a Notification.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
@@ -25,11 +22,11 @@ public class Notification implements Serializable {
 	public Notification(String type, Product product, double price) {
 		_notificationType = type;
 		_product = product;
-		_price =  price;
+		_price = price;
 	}
 
 	@Override
 	public String toString() {
-		return _notificationType +"|" + _product.getId() + "|" + Math.round(_price);
+		return _notificationType + "|" + _product.getId() + "|" + Math.round(_price);
 	}
 }

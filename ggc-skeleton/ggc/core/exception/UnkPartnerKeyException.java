@@ -1,5 +1,5 @@
 package ggc.core.exception;
 
-public class UnkPartnerKeyException extends Exception{
-    
+public class UnkPartnerKeyException extends Exception {
+
 }

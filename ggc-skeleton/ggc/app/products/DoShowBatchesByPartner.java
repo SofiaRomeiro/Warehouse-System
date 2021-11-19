@@ -30,12 +30,9 @@ class DoShowBatchesByPartner extends Command<WarehouseManager> {
         _display.addLine(b);
       }
       _display.display();
-    }catch (UnkPartnerKeyException upke) {
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(key);
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
   }
 
 }

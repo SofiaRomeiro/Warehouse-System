@@ -3,7 +3,7 @@ package ggc.app.transactions;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
-import ggc.app.exception.UnknownTransactionKeyException; 
+import ggc.app.exception.UnknownTransactionKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
 
 import ggc.core.WarehouseManager;
@@ -21,16 +21,12 @@ public class DoShowTransaction extends Command<WarehouseManager> {
   @Override
   public final void execute() throws CommandException {
     Integer transactionKey = integerField("transactionKey");
- 
+
     try {
       _display.addLine(_receiver.showTransaction(transactionKey));
       _display.display();
-    }
-    catch (UnkTransactionKeyException urke){
+    } catch (UnkTransactionKeyException urke) {
       throw new UnknownTransactionKeyException(transactionKey);
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/    
-  }  
+  }
 }

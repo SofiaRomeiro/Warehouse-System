@@ -1,5 +1,4 @@
 package ggc.core.exception;
 
-public class UnkTransactionKeyException extends Exception{
-    
+public class UnkTransactionKeyException extends Exception {
 }

@@ -11,8 +11,6 @@ import ggc.app.exception.UnknownPartnerKeyException;
 import ggc.core.exception.UnkPartnerKeyException;
 import ggc.core.exception.NoPaymentsByPartner;
 
-
-
 /**
  * Lookup payments by given partner.
  */
@@ -24,9 +22,9 @@ public class DoLookupPaymentsByPartner extends Command<WarehouseManager> {
   }
 
   @Override
-  public void execute() throws CommandException, UnknownPartnerKeyException{
+  public void execute() throws CommandException, UnknownPartnerKeyException {
     String partnerKey = stringField("partnerKey");
-  List<String> transactions = new ArrayList<>();
+    List<String> transactions = new ArrayList<>();
 
     try {
       transactions = _receiver.lookupPaymentsByPartner(partnerKey);
@@ -34,16 +32,10 @@ public class DoLookupPaymentsByPartner extends Command<WarehouseManager> {
         _display.addLine(b);
       }
       _display.display();
-    }
-    catch (UnkPartnerKeyException upke) {
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
+    } catch (NoPaymentsByPartner npbp) {
     }
-    catch (NoPaymentsByPartner npbp) {      
-    }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
-
 
   }
 

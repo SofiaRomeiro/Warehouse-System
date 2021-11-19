@@ -6,18 +6,19 @@ import java.util.List;
 
 import java.io.Serializable;
 
-public class BreakdownSale extends Sale implements Serializable{
+public class BreakdownSale extends Sale implements Serializable {
 
     private static final long serialVersionUID = 928404186756L;
     private List<String> _componentsString;
 
-    public BreakdownSale(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
+    public BreakdownSale(int id, Date transactionDate, double baseValue, int quantity, Product product,
+            Partner partner) {
         super(id, transactionDate, baseValue, quantity, product, partner);
         _componentsString = new ArrayList<>();
-        
-    } 
 
-    public  boolean isPaid() {
+    }
+
+    public boolean isPaid() {
         return true;
     }
 
@@ -25,8 +26,6 @@ public class BreakdownSale extends Sale implements Serializable{
         _componentsString = componentsString;
     }
 
-    
-  
     public String toString() {
 
         String recipe = new String();
@@ -36,8 +35,10 @@ public class BreakdownSale extends Sale implements Serializable{
             if (i != _componentsString.size() - 1)
                 recipe += "#";
         }
-       
-        return "DESAGREGAÇÃO|" + super.getId() + "|" + super.getPartner().getKey() + "|"  + super.getProduct().getId() + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid()) + "|" + super.getTransactionDate().getPaymentDate() + "|" + recipe;
+
+        return "DESAGREGAÇÃO|" + super.getId() + "|" + super.getPartner().getKey() + "|" + super.getProduct().getId()
+                + "|" + super.getQuantity() + "|" + Math.round(getBaseValue()) + "|" + Math.round(super.getValuePaid())
+                + "|" + super.getTransactionDate().getPaymentDate() + "|" + recipe;
     }
-    
+
 }

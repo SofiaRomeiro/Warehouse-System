@@ -21,16 +21,10 @@ class DoShowAvailableBatches extends Command<WarehouseManager> {
 
     List<String> batches = new ArrayList<>(_receiver.showAllBatches());
 
-    //try {
-      for (String b: batches){
-            _display.addLine(b);
-      }
-      _display.display();
-    //}
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
+    for (String b : batches) {
+      _display.addLine(b);
+    }
+    _display.display();
 
-    
   }
 }

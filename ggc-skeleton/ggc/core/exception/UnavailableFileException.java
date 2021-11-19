@@ -12,10 +12,10 @@ public class UnavailableFileException extends Exception {
 	String _filename;
 
 	/**
-	 * @param filename 
+	 * @param filename
 	 */
 	public UnavailableFileException(String filename) {
-	  _filename = filename;
+		_filename = filename;
 	}
 
 	/**

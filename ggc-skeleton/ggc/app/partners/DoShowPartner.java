@@ -25,17 +25,13 @@ class DoShowPartner extends Command<WarehouseManager> {
 
     try {
       _display.addLine(_receiver.showPartner(key));
-      for(String notification: _receiver.showPartnerNotifications(key)) {
+      for (String notification : _receiver.showPartnerNotifications(key)) {
         _display.addLine(notification);
       }
       _display.display();
-    }
-    catch (UnkPartnerKeyException upke) {
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(key);
     }
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
   }
 
 }

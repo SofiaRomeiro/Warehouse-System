@@ -10,7 +10,7 @@ public class App {
 
   /**
    * 
-   * @param args command line arguments. 
+   * @param args command line arguments.
    */
   public static void main(String[] args) {
     try (var ui = Dialog.UI) {
@@ -31,7 +31,3 @@ public class App {
     }
   }
 }
-
-
-
-

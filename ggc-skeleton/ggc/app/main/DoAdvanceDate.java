@@ -8,8 +8,8 @@ import ggc.core.exception.NotValidDateException;
 import ggc.core.WarehouseManager;
 
 /**
-* Advance current date.
-*/
+ * Advance current date.
+ */
 
 class DoAdvanceDate extends Command<WarehouseManager> {
 
@@ -21,18 +21,14 @@ class DoAdvanceDate extends Command<WarehouseManager> {
 
 	@Override
 	public final void execute() throws CommandException, InvalidDateException {
-		
+
 		Integer days = integerField("days");
 
 		try {
 			_receiver.advanceDate(days);
-		}
-		catch (NotValidDateException nvde){
+		} catch (NotValidDateException nvde) {
 			throw new InvalidDateException(days);
 		}
-		/*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
 
 	}
 }

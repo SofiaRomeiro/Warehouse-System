@@ -21,17 +21,11 @@ class DoShowAllProducts extends Command<WarehouseManager> {
 
     List<String> products = new LinkedList<>(_receiver.showAllProducts());
 
-    //try {
-      for (String p: products){
-        _display.addLine(p);
-      }
-      _display.display();
-    //}
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
+    for (String p : products) {
+      _display.addLine(p);
+    }
+    _display.display();
 
-    
   }
 
 }

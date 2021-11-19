@@ -4,8 +4,6 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import pt.tecnico.uilib.forms.Form;
 
-import javax.sound.midi.Receiver;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,7 +14,6 @@ import ggc.app.exception.UnknownPartnerKeyException;
 import ggc.app.exception.UnknownProductKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnaComponentException;
-
 
 /**
  * Register order.
@@ -33,7 +30,7 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
 
   @Override
   public final void execute() throws CommandException, UnknownPartnerKeyException {
-    
+
     String partnerKey = stringField("partnerKey");
     String productKey = stringField("productKey");
     Double price = realField("price");
@@ -42,11 +39,9 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
     try {
       _receiver.validateParameters(partnerKey, productKey);
       _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
-    }
-    catch (UnkPartnerKeyException upke){
+    } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
-    } 
-    catch (UnkProductKeyException upke){
+    } catch (UnkProductKeyException upke) {
 
       Form request = new Form();
       request.addStringField("answer", Message.requestAddRecipe());
@@ -75,14 +70,10 @@ public class DoRegisterAcquisitionTransaction extends Command<WarehouseManager> 
         } catch (UnaComponentException uce) {
           throw new UnknownProductKeyException(uce.getProductComponent());
         }
-        
+
       }
       _receiver.registerAcquisitionTransaction(partnerKey, productKey, price, amount);
-    } 
-    /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
-
+    }
   }
 
 }

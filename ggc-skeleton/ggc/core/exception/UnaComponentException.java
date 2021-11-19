@@ -1,13 +1,13 @@
 package ggc.core.exception;
 
-public class UnaComponentException extends Exception{
+public class UnaComponentException extends Exception {
 
-    int _available;
-    int _requested;
-    String _product;
+	int _available;
+	int _requested;
+	String _product;
 
 	/**
-	 * @param filename 
+	 * @param filename
 	 */
 
 	public UnaComponentException(int available, int requested, String productKey) {
@@ -15,8 +15,6 @@ public class UnaComponentException extends Exception{
 		_requested = requested;
 		_product = productKey;
 	}
-
-
 
 	/**
 	 * @return the requested filename
@@ -32,5 +30,5 @@ public class UnaComponentException extends Exception{
 	public String getProductComponent() {
 		return _product;
 	}
-    
+
 }

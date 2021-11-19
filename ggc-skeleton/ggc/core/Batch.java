@@ -3,8 +3,7 @@ package ggc.core;
 import java.io.Serializable;
 
 /**
- * Classe Batch
- * This class presents the behavior of a Batch.
+ * Classe Batch This class presents the behavior of a Batch.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
@@ -38,20 +37,26 @@ public class Batch implements Serializable {
 	 * 
 	 * @return
 	 */
-	public double getPrice() {return _price; }
+	public double getPrice() {
+		return _price;
+	}
 
 	/**
 	 * Returns the prouct quantity.
 	 * 
 	 * @return
 	 */
-	public int getQuantity() { return _quantity; }
+	public int getQuantity() {
+		return _quantity;
+	}
 
 	public void decreaseQuantity(int quantity) {
 		_quantity -= quantity;
 	}
 
-	public void setQuantity(int quantity) { _quantity = quantity; }
+	public void setQuantity(int quantity) {
+		_quantity = quantity;
+	}
 
 	/**
 	 * Returns the string representing a Batch.
@@ -72,15 +77,21 @@ public class Batch implements Serializable {
 		return _partner.getKey();
 	}
 
-	public Partner getPartner() { return _partner; }
+	public Partner getPartner() {
+		return _partner;
+	}
 
 	/**
 	 * Returns the Batch id.
 	 * 
 	 * @return
 	 */
-	public String getId() { return _product.getId(); }
+	public String getId() {
+		return _product.getId();
+	}
 
-	public Product getProduct() { return _product; }
-	
+	public Product getProduct() {
+		return _product;
+	}
+
 }

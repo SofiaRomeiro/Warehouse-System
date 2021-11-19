@@ -22,9 +22,9 @@ import ggc.core.exception.UnkTransactionKeyException;
 import ggc.core.exception.UnaComponentException;
 import ggc.core.exception.NoPaymentsByPartner;
 
-
 /**
- * Class Warehouse implements a warehouse and is responsible for all business management.
+ * Class Warehouse implements a warehouse and is responsible for all business
+ * management.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
@@ -43,8 +43,6 @@ public class Warehouse implements Serializable {
   private List<Transaction> _transations;
   private List<Notification> _notifications;
 
-  private List<Batch> _restore;
-
   /**
    * Constructor.
    */
@@ -56,8 +54,6 @@ public class Warehouse implements Serializable {
     _products = new TreeMap<>();
     _transations = new ArrayList<>();
     _notifications = new ArrayList<>();
-
-    _restore = new LinkedList<>();
   }
 
   /**
@@ -119,7 +115,7 @@ public class Warehouse implements Serializable {
     List<String> list = new LinkedList<String>();
     List<Product> toSort = new LinkedList<Product>(_products.values());
     Collections.sort(toSort, new ProductComparator());
-    for (Product p : toSort){
+    for (Product p : toSort) {
       list.add(p.toString());
     }
 
@@ -134,7 +130,7 @@ public class Warehouse implements Serializable {
   public List<String> showAllBatches() {
 
     ArrayList<String> allBatches = new ArrayList<>();
-    
+
     for (Product p : _products.values()) {
       for (Batch b : p.getAllBatches()) {
         allBatches.add(b.toString());
@@ -191,7 +187,6 @@ public class Warehouse implements Serializable {
     return batches;
   }
 
-
   /**
    * Returns a list of all batches under given price.
    * 
@@ -201,12 +196,11 @@ public class Warehouse implements Serializable {
 
     ArrayList<String> batchesUnderPrice = new ArrayList<>();
 
-    
     for (Product p : _products.values()) {
       for (Batch b : p.getAllBatches()) {
         if (b.getPrice() < price) {
           batchesUnderPrice.add(b.toString());
-        }        
+        }
       }
     }
 
@@ -221,7 +215,7 @@ public class Warehouse implements Serializable {
    */
   public List<String> showAllPartners() {
     LinkedList<String> list = new LinkedList<String>();
-    for (Partner p : _partners.values()){
+    for (Partner p : _partners.values()) {
       list.add(p.toString());
     }
     return list;
@@ -231,14 +225,13 @@ public class Warehouse implements Serializable {
     return _partners.containsKey(key.toLowerCase());
   }
 
- 
   /**
    * Returns the partner according to the key.
    * 
    * @param key
    * @return
    */
-  public String getPartnerById(String key) throws UnkPartnerKeyException{
+  public String getPartnerById(String key) throws UnkPartnerKeyException {
     if (!_partners.containsKey(key.toLowerCase()))
       throw new UnkPartnerKeyException();
     return _partners.get(key.toLowerCase()).toString();
@@ -248,7 +241,8 @@ public class Warehouse implements Serializable {
     return _partners.get(key.toLowerCase()).getAllNotifications();
   }
 
-  public void toggleNotifications(String partnerKey, String productKey) throws UnkProductKeyException, UnkPartnerKeyException {
+  public void toggleNotifications(String partnerKey, String productKey)
+      throws UnkProductKeyException, UnkPartnerKeyException {
     if (!_products.containsKey(productKey.toLowerCase())) {
       throw new UnkProductKeyException();
     }
@@ -274,13 +268,13 @@ public class Warehouse implements Serializable {
     Partner partner = new Partner(key, name, address);
     _partners.put(key.toLowerCase(), partner);
 
-    for (Product p: _products.values()) {
+    for (Product p : _products.values()) {
       p.toggleNotifications(partner);
     }
   }
 
   public List<String> showAcquisitionTransactionByPartner(String key) throws UnkPartnerKeyException {
-    
+
     ArrayList<String> transactions = new ArrayList<>();
 
     if (!_partners.containsKey(key.toLowerCase())) {
@@ -291,13 +285,13 @@ public class Warehouse implements Serializable {
 
     for (Transaction t : partner.getAllTransactions()) {
       if (t instanceof Acquisition)
-      transactions.add(t.toString());
+        transactions.add(t.toString());
     }
     return transactions;
   }
 
   public List<String> showSaleTransactionByPartner(String key) throws UnkPartnerKeyException {
-    
+
     ArrayList<String> transactions = new ArrayList<>();
 
     if (!_partners.containsKey(key.toLowerCase())) {
@@ -308,7 +302,7 @@ public class Warehouse implements Serializable {
 
     for (Transaction t : partner.getAllTransactions()) {
       if (t instanceof Sale)
-      transactions.add(t.toString());
+        transactions.add(t.toString());
     }
     return transactions;
   }
@@ -316,7 +310,7 @@ public class Warehouse implements Serializable {
   public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException, NoPaymentsByPartner {
     if (!_partners.containsKey(partnerKey.toLowerCase()))
       throw new UnkPartnerKeyException();
-    
+
     Partner p = _partners.get(partnerKey.toLowerCase());
     List<String> transactions = p.getAllPaidTransaction();
     if (p.getPaidSales() == 0.0)
@@ -324,72 +318,75 @@ public class Warehouse implements Serializable {
     return transactions;
   }
 
-
   /**
    * Add a new simple product.
+   * 
    * @param id
    */
   public void addSimpleProduct(String id) {
-   
+
     if (!(_products.containsKey(id.toLowerCase()))) {
       Product product = new SimpleProduct(id);
 
       _products.put(id.toLowerCase(), product);
       for (Partner p : _partners.values()) {
         product.toggleNotifications(p);
-      }  
+      }
     }
   }
 
   private void addSimpleProductWithQuantity(String id, int quantity, List<Observer> obs) {
-   
+
     if (!(_products.containsKey(id.toLowerCase()))) {
       SimpleProduct product = new SimpleProduct(id, quantity, obs);
       _products.put(id.toLowerCase(), product);
 
       for (Partner p : _partners.values()) {
         product.toggleNotifications(p);
-      } 
-    }    
+      }
+    }
   }
 
   public void addAggregateProduct(String id, Recipe recipe, double alpha) {
     if (!(_products.containsKey(id.toLowerCase()))) {
-      AggregateProduct product = new AggregateProduct(id, recipe, alpha); 
+      AggregateProduct product = new AggregateProduct(id, recipe, alpha);
       _products.put(id.toLowerCase(), product);
 
       for (Partner p : _partners.values()) {
         product.toggleNotifications(p);
       }
-    }     
+    }
   }
 
-  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey, List<Integer> componentsProductAmount) throws UnaComponentException {
+  public void createAggregateProduct(String productKey, Double alpha, List<String> componentsProductKey,
+      List<Integer> componentsProductAmount) throws UnaComponentException {
     Recipe recipe = new Recipe(alpha);
     for (int i = 0; i < componentsProductAmount.size(); i++) {
       if (!_products.containsKey(componentsProductKey.get(i).toLowerCase())) {
         throw new UnaComponentException(0, 0, componentsProductKey.get(i));
       }
-      recipe.addComponent(new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i).toLowerCase())));
+      recipe.addComponent(
+          new Component(componentsProductAmount.get(i), _products.get(componentsProductKey.get(i).toLowerCase())));
     }
     addAggregateProduct(productKey, recipe, alpha);
   }
-  
 
   // Transaction
 
-  public void validateParameters(String partnerKey, String productKey) throws UnkPartnerKeyException, UnkProductKeyException {
-    if (!_partners.containsKey(partnerKey.toLowerCase())) 
+  public void validateParameters(String partnerKey, String productKey)
+      throws UnkPartnerKeyException, UnkProductKeyException {
+    if (!_partners.containsKey(partnerKey.toLowerCase()))
       throw new UnkPartnerKeyException();
 
-    if (!_products.containsKey(productKey.toLowerCase())) 
+    if (!_products.containsKey(productKey.toLowerCase()))
       throw new UnkProductKeyException();
   }
 
   // Acquisition
   public void addNewAcquisitionTransaction(String partnerKey, String productKey, double price, int amount) {
 
-    Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    Batch batch = new Batch(price, amount, _products.get(productKey.toLowerCase()),
+        _partners.get(partnerKey.toLowerCase()));
     Product p = _products.get(productKey.toLowerCase());
     if (p.getCurrentQuantity() == 0 && amount != 0 && p.getMaxPrice() != 0) {
       Notification newN = new Notification(NotificationType.NEW, p, price);
@@ -399,7 +396,8 @@ public class Warehouse implements Serializable {
     p.addNewBatch(batch);
 
     _partners.get(partnerKey.toLowerCase()).addBatch(batch);
-    Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    Transaction transaction = new Acquisition(_transactionsIds, _date.now(), price, amount,
+        _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _transactionsIds++;
     _transations.add(transaction);
     _partners.get(partnerKey.toLowerCase()).addTransation(transaction);
@@ -407,7 +405,7 @@ public class Warehouse implements Serializable {
     _balance.setCurrentAccountant(-price * amount);
   }
 
-  // SaleByCredit 
+  // SaleByCredit
   public void addNewSaleTransaction(String partnerKey, int deadlinePayment, String productKey, int amount)
       throws UnaProductException, UnaComponentException, UnkPartnerKeyException, UnkProductKeyException {
 
@@ -448,8 +446,9 @@ public class Warehouse implements Serializable {
     for (int i = 0; i < lacking; i++) {
       cost += aggregateProduct((AggregateProduct) product);
     }
-    Transaction transaction = new SaleByCredit(_transactionsIds, new Date(_date.now().getDate(), deadlinePayment, _date.now().getDate()), cost,
-        amount, _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
+    Transaction transaction = new SaleByCredit(_transactionsIds,
+        new Date(_date.now().getDate(), deadlinePayment, _date.now().getDate()), cost, amount,
+        _products.get(productKey.toLowerCase()), _partners.get(partnerKey.toLowerCase()));
     _transactionsIds++;
     _transations.add(transaction);
     partner.addTransation(transaction);
@@ -507,7 +506,7 @@ public class Warehouse implements Serializable {
     product.updatePrices(cost);
     return cost;
   }
-  
+
   // BreakdownSale
   public void addNewBreakdownSaleTransaction(String partnerKey, String productKey, int amount)
       throws UnaProductException {
@@ -574,16 +573,16 @@ public class Warehouse implements Serializable {
       ((Sale) transaction).setValuePaid(transactionPrice);
       _balance.setCurrentAvailable(transactionPrice);
       _balance.setCurrentAccountant(transactionPrice);
-      partner.pay(_date.now(), ((Sale)transaction) , "Aggregate");
+      partner.pay(_date.now(), ((Sale) transaction), "Aggregate");
     }
 
   }
 
-  public String showTransaction(int transactionKey) throws UnkTransactionKeyException{
-    if (_transations.size() <= transactionKey || transactionKey < 0) 
+  public String showTransaction(int transactionKey) throws UnkTransactionKeyException {
+    if (_transations.size() <= transactionKey || transactionKey < 0)
       throw new UnkTransactionKeyException();
     return _transations.get(transactionKey).toString();
-    
+
   }
 
   // ReceivePayment
@@ -612,7 +611,7 @@ public class Warehouse implements Serializable {
     _notifications.add(notification);
   }
 
-  private void importPartner(String[] fields)  {
+  private void importPartner(String[] fields) {
     String id = fields[1];
     String name = fields[2];
     String address = fields[3];
@@ -620,7 +619,7 @@ public class Warehouse implements Serializable {
     Partner partner = new Partner(id, name, address);
     _partners.put(id.toLowerCase(), partner);
 
-    for (Product p: _products.values()) {
+    for (Product p : _products.values()) {
       p.toggleNotifications(partner);
     }
   }
@@ -655,16 +654,16 @@ public class Warehouse implements Serializable {
 
     Recipe recipe = new Recipe(alpha);
 
-    String[] components = fields[6].split("#");          
+    String[] components = fields[6].split("#");
 
-    for (String component: components) {
-      idAndQuantity = component.split(":");   
-      componentId = idAndQuantity[0];            
+    for (String component : components) {
+      idAndQuantity = component.split(":");
+      componentId = idAndQuantity[0];
       quantity = Integer.parseInt(idAndQuantity[1]);
 
       if (!(_products.containsKey(componentId.toLowerCase()))) {
         addSimpleProductWithQuantity(componentId, quantity, new ArrayList<Observer>(_partners.values()));
-      }    
+      }
 
       Component c = new Component(quantity, _products.get(componentId.toLowerCase()));
       recipe.addComponent(c);
@@ -691,7 +690,7 @@ public class Warehouse implements Serializable {
   void importFile(String txtfile) throws IOException, BadEntryException {
 
     try (BufferedReader in = new BufferedReader(new FileReader(txtfile))) {
-      
+
       String line;
 
       while ((line = in.readLine()) != null) {
@@ -699,7 +698,7 @@ public class Warehouse implements Serializable {
         String[] fields = line.split("\\|");
 
         if (fields[0].equals(Label.PARTNER)) {
-          importPartner(fields);                   
+          importPartner(fields);
         }
 
         else if (fields[0].equals(Label.BATCH_S)) {
@@ -710,8 +709,7 @@ public class Warehouse implements Serializable {
           importBatchM(fields);
         }
       }
-    }
-    catch (IOException e) {
+    } catch (IOException e) {
       throw e;
     }
 

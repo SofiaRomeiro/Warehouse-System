@@ -19,6 +19,6 @@ public class Mail implements SendMessageMode {
 
     @Override
     public void SendMessage(Collection<Notification> notifications) {
-        System.out.println(_address + "Novo correio postal" );
+        System.out.println(_address + "Novo correio postal");
     }
 }

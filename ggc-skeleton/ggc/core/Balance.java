@@ -3,14 +3,13 @@ package ggc.core;
 import java.io.Serializable;
 
 /**
- * Classe Balance
- * This class presents the behavior of a Balance.
+ * Classe Balance This class presents the behavior of a Balance.
  * 
  * @author Edson da Veiga 100731
  * @author Sofia Romeiro 98968
  * @version 1.0
  */
-public class Balance implements Serializable{
+public class Balance implements Serializable {
 
 	private static final long serialVersionUID = 202987692006L;
 	private double _available;
@@ -34,6 +33,7 @@ public class Balance implements Serializable{
 		}
 		return _balance;
 	}
+
 	/**
 	 * Returns the current available balance.
 	 * 
@@ -69,6 +69,5 @@ public class Balance implements Serializable{
 	public void setCurrentAccountant(double balance) {
 		_accountant += balance;
 	}
-
 
 }

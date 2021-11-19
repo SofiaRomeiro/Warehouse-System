@@ -4,8 +4,6 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import ggc.core.WarehouseManager;
 
-import javax.naming.CommunicationException;
-
 import ggc.app.exception.DuplicatePartnerKeyException;
 import ggc.core.exception.DuplPartnerKeyException;
 
@@ -25,22 +23,16 @@ class DoRegisterPartner extends Command<WarehouseManager> {
   @Override
   public void execute() throws CommandException, DuplicatePartnerKeyException {
 
-      String key = stringField("key");
-      String name = stringField("name");
-      String address = stringField("address");
+    String key = stringField("key");
+    String name = stringField("name");
+    String address = stringField("address");
 
-      try {
-        _receiver.registerPartner(key, name, address);
-      }
-      catch (DuplPartnerKeyException dpke) {
-        throw new DuplicatePartnerKeyException(key);
-      }
-      /*catch (ClassNotFoundException e)  { 
-       e.printStackTrace(); 
-    }*/
-
+    try {
+      _receiver.registerPartner(key, name, address);
+    } catch (DuplPartnerKeyException dpke) {
+      throw new DuplicatePartnerKeyException(key);
     }
 
   }
 
-
+}
