@@ -95,11 +95,11 @@ public class Warehouse implements Serializable {
   public double getAccountantBalance() {
     double accountBalance = _balance.getCurrentAccountant();
     for (Transaction t : _transations) {
-      if (t instanceof SaleByCredit && !((SaleByCredit) t).isPaid()) {
+      if (!t.isPaid()) {
         t.getTransactionDate().setPaymentDate(Date.now().getDate());
         Partner partner = t.getPartner();
         Double value = partner.pay(t.getTransactionDate(), ((Sale) t), t.getProductType());
-        accountBalance += value - ((SaleByCredit) t).getBaseValue();
+        accountBalance += value - t.getBaseValue();
       }
     }
     return accountBalance;
@@ -283,7 +283,7 @@ public class Warehouse implements Serializable {
     Partner partner = _partners.get(key.toLowerCase());
 
     for (Transaction t : partner.getAllTransactions()) {
-      if (t instanceof Acquisition)
+      if (Label.ACQUISITION.equals(t.getType()))
         transactions.add(t.toString());
     }
     return transactions;
@@ -300,7 +300,7 @@ public class Warehouse implements Serializable {
     Partner partner = _partners.get(key.toLowerCase());
 
     for (Transaction t : partner.getAllTransactions()) {
-      if (t instanceof Sale)
+      if (Label.BREAKDOWN_SALE.equals(t.getType()) || Label.SALE_BY_CREDIT.equals(t.getType()))
         transactions.add(t.toString());
     }
     return transactions;

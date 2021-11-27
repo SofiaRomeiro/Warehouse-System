@@ -57,11 +57,11 @@ public class Partner implements Serializable, Observer {
 
     public Collection<Batch> getAllBatches() {
         Collections.sort(_batches, new BatchesComparator());
-        return _batches;
+        return Collections.unmodifiableCollection(_batches);
     }
 
     public Collection<Transaction> getAllTransactions() {
-        return _transactions;
+        return Collections.unmodifiableCollection(_transactions);
     }
 
     public void addBatch(Batch b) {
@@ -70,11 +70,12 @@ public class Partner implements Serializable, Observer {
 
     public void addTransation(Transaction t) {
         _transactions.add(t);
-        if (t instanceof Acquisition) {
+        if (Label.ACQUISITION.equals(t.getType())) {
             _purchases += t.getBaseValue() * t.getQuantity();
-        } else if (t instanceof SaleByCredit) {
+        } else if (Label.SALE_BY_CREDIT.equals(t.getType())) {
             _sales += t.getBaseValue();
         }
+
     }
 
     public double pay(Date date, Sale sale, String productType) {
@@ -136,12 +137,10 @@ public class Partner implements Serializable, Observer {
     public List<String> getAllPaidTransaction() {
         List<String> transactions = new ArrayList<>();
         for (Transaction t : _transactions) {
-            if (t instanceof Sale) {
-                if (t instanceof BreakdownSale)
-                    transactions.add(t.toString());
-                else if (t.isPaid())
-                    transactions.add(t.toString());
-            }
+            if (Label.BREAKDOWN_SALE.equals(t.getType()))
+                transactions.add(t.toString());
+            else if (Label.SALE_BY_CREDIT.equals(t.getType()) && t.isPaid())
+                transactions.add(t.toString());
         }
         return transactions;
     }

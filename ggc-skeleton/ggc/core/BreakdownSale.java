@@ -6,14 +6,14 @@ import java.util.List;
 
 import java.io.Serializable;
 
-public class BreakdownSale extends Sale implements Serializable {
+public class BreakdownSale extends Sale implements Serializable, Label {
 
     private static final long serialVersionUID = 928404186756L;
     private List<String> _componentsString;
 
     public BreakdownSale(int id, Date transactionDate, double baseValue, int quantity, Product product,
             Partner partner) {
-        super(id, transactionDate, baseValue, quantity, product, partner);
+        super(id, transactionDate, baseValue, quantity, product, partner, Label.BREAKDOWN_SALE);
         _componentsString = new ArrayList<>();
 
     }

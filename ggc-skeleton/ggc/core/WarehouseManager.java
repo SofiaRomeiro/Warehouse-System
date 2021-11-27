@@ -200,7 +200,7 @@ public class WarehouseManager {
       objOut.writeObject(_warehouse.getDate());
 
     } catch (FileNotFoundException fnfe) {
-      throw fnfe;
+      System.out.println(fnfe.getMessage());
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -235,7 +235,7 @@ public class WarehouseManager {
       _warehouse.setDate(days);
 
     } catch (ClassNotFoundException cnfe) {
-      throw cnfe;
+      System.out.println(cnfe.getMessage()) ;
     } catch (IOException e) {
       throw new UnavailableFileException(filename);
     }

@@ -1,9 +1,9 @@
 package ggc.core;
 
-public class Acquisition extends Transaction {
+public class Acquisition extends Transaction implements Label {
 
     public Acquisition(int id, Date transactionDate, double baseValue, int quantity, Product product, Partner partner) {
-        super(id, transactionDate, baseValue, quantity, product, partner);
+        super(id, transactionDate, baseValue, quantity, product, partner, Label.ACQUISITION);
     }
 
     public boolean isPaid() {

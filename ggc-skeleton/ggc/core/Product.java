@@ -185,13 +185,13 @@ public abstract class Product implements Serializable {
 	public Collection<Batch> getAllBatches() {
 
 		Collections.sort(_batches, new BatchesComparator());
-		return _batches;
+		return Collections.unmodifiableCollection(_batches);
 	}
 
 	public Collection<Batch> getAllBatchesByPrice() {
-
+		
 		Collections.sort(_batches, new BatchesComparatorByPrice());
-		return _batches;
+		return Collections.unmodifiableCollection(_batches);
 	}
 
 	protected final static class BatchesComparatorByPrice implements Comparator<Batch> {

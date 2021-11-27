@@ -3,6 +3,9 @@ package ggc.core;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Collections;
+import java.util.Collection;
+
 import java.io.Serializable;
 
 /**
@@ -32,8 +35,8 @@ public class Recipe implements Serializable {
 		return _alpha;
 	}
 
-	public List<Component> getComponents() {
-		return _components;
+	public Collection<Component> getComponents() {
+		return Collections.unmodifiableCollection(_components);
 	}
 
 	public void addComponent(Component c) {

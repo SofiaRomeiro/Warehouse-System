@@ -12,10 +12,6 @@ public class SimpleProduct extends Product {
         super(id, quantity);
     }
 
-    public String toString() {
-        return super.toString();
-    }
-
     public boolean isSimple() {
         return true;
     }

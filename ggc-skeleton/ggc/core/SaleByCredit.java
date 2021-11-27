@@ -2,13 +2,13 @@ package ggc.core;
 
 import java.io.Serializable;
 
-public class SaleByCredit extends Sale implements Serializable {
+public class SaleByCredit extends Sale implements Serializable, Label {
     private boolean _paid;
     private static final long serialVersionUID = 123402752006L;
 
     public SaleByCredit(int id, Date transactionDate, double baseValue, int quantity, Product product,
             Partner partner) {
-        super(id, transactionDate, baseValue, quantity, product, partner);
+        super(id, transactionDate, baseValue, quantity, product, partner, Label.SALE_BY_CREDIT);
         _paid = false;
     }
 
