@@ -19,7 +19,6 @@ import ggc.core.exception.UnaProductException;
 import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
-import ggc.core.exception.NoPaymentsByPartner;
 
 import java.util.List;
 
@@ -136,7 +135,7 @@ public class WarehouseManager {
     _warehouse.toggleNotifications(partnerKey, productKey);
   }
 
-  public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException, NoPaymentsByPartner {
+  public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException {
     return _warehouse.lookupPaymentsByPartner(partnerKey);
   }
 

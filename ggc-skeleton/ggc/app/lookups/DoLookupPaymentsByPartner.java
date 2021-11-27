@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import ggc.app.exception.UnknownPartnerKeyException;
 import ggc.core.exception.UnkPartnerKeyException;
-import ggc.core.exception.NoPaymentsByPartner;
 
 /**
  * Lookup payments by given partner.
@@ -34,9 +33,7 @@ public class DoLookupPaymentsByPartner extends Command<WarehouseManager> {
       _display.display();
     } catch (UnkPartnerKeyException upke) {
       throw new UnknownPartnerKeyException(partnerKey);
-    } catch (NoPaymentsByPartner npbp) {
     }
-
   }
 
 }

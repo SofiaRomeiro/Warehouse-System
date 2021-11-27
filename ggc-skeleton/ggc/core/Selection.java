@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Selection implements StatusState, Serializable {
 
-	public final String _status = "SELECTION";
+	private final String _status = "SELECTION";
 	private static Selection _selectionInstance = new Selection();
 	private static final long serialVersionUID = 209685654806L;
 

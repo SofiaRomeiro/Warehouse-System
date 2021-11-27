@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Collection;
 import java.util.Iterator;
 
 /**
@@ -181,13 +182,13 @@ public abstract class Product implements Serializable {
 	 * 
 	 * @return
 	 */
-	public List<Batch> getAllBatches() {
+	public Collection<Batch> getAllBatches() {
 
 		Collections.sort(_batches, new BatchesComparator());
 		return _batches;
 	}
 
-	public List<Batch> getAllBatchesByPrice() {
+	public Collection<Batch> getAllBatchesByPrice() {
 
 		Collections.sort(_batches, new BatchesComparatorByPrice());
 		return _batches;
@@ -226,4 +227,6 @@ public abstract class Product implements Serializable {
 		Notification bargainNot = new Notification(NotificationType.BARGAIN, this, _lowestPrice);
 		return bargainNot.toString();
 	}
+
+	public abstract boolean isSimple();
 }

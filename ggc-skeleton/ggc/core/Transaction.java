@@ -48,7 +48,7 @@ public abstract class Transaction implements Serializable {
     }
 
     public String getProductType() {
-        if (_product instanceof SimpleProduct) {
+        if (_product.isSimple()) {
             return "Simple";
         } else {
             return "Aggregate";

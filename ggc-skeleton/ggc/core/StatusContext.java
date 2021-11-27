@@ -38,20 +38,20 @@ public class StatusContext implements Serializable {
 	}
 
 	private String getPeriod(Date date, String productType) {
-		int N = 0;
+		int num = 0;
 
 		if ("Simple".equals(productType)) {
-			N = 5;
+			num = 5;
 		} else {
-			N = 3;
+			num = 3;
 		}
 
-		if ((date.getDeadlinePayment() - Date.now().getDate()) >= N) {
+		if ((date.getDeadlinePayment() - Date.now().getDate()) >= num) {
 			return "P1";
-		} else if (date.getDeadlinePayment() - Date.now().getDate() < N
+		} else if (date.getDeadlinePayment() - Date.now().getDate() < num
 				&& date.getDeadlinePayment() - Date.now().getDate() >= 0) {
 			return "P2";
-		} else if (Date.now().getDate() - date.getDeadlinePayment() <= N) {
+		} else if (Date.now().getDate() - date.getDeadlinePayment() <= num) {
 			return "P3";
 		} else {
 			return "P4";

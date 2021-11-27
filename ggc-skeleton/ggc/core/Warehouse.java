@@ -20,7 +20,6 @@ import ggc.core.exception.DuplPartnerKeyException;
 import ggc.core.exception.UnkProductKeyException;
 import ggc.core.exception.UnkTransactionKeyException;
 import ggc.core.exception.UnaComponentException;
-import ggc.core.exception.NoPaymentsByPartner;
 
 /**
  * Class Warehouse implements a warehouse and is responsible for all business
@@ -307,14 +306,12 @@ public class Warehouse implements Serializable {
     return transactions;
   }
 
-  public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException, NoPaymentsByPartner {
+  public List<String> lookupPaymentsByPartner(String partnerKey) throws UnkPartnerKeyException {
     if (!_partners.containsKey(partnerKey.toLowerCase()))
       throw new UnkPartnerKeyException();
 
     Partner p = _partners.get(partnerKey.toLowerCase());
     List<String> transactions = p.getAllPaidTransaction();
-    if (p.getPaidSales() == 0.0)
-      throw new NoPaymentsByPartner();
     return transactions;
   }
 
@@ -419,7 +416,7 @@ public class Warehouse implements Serializable {
     Partner partner = _partners.get(partnerKey.toLowerCase());
     double cost = 0;
 
-    if (product instanceof SimpleProduct) {
+    if (product.isSimple()) {
       if (product.getCurrentQuantity() < amount)
         throw new UnaProductException(product.getCurrentQuantity(), product.getId());
     } else {
@@ -463,7 +460,7 @@ public class Warehouse implements Serializable {
 
     for (Component c : product.getRecipe().getComponents()) {
       int lacking2 = 0;
-      if (c.getProduct() instanceof SimpleProduct) {
+      if (c.getProduct().isSimple()) {
         if (c.getProduct().getCurrentQuantity() < (lacking * c.getQuantity()))
           throw new UnaComponentException(c.getProduct().getCurrentQuantity(), lacking * c.getQuantity(),
               c.getProduct().getId());
@@ -512,7 +509,7 @@ public class Warehouse implements Serializable {
       throws UnaProductException {
     Product product = _products.get(productKey.toLowerCase());
     Partner partner = _partners.get(partnerKey.toLowerCase());
-    if (product instanceof SimpleProduct)
+    if (product.isSimple())
       return;
     if (product.getCurrentQuantity() < amount)
       throw new UnaProductException(product.getCurrentQuantity());
@@ -529,7 +526,7 @@ public class Warehouse implements Serializable {
     int createProductNum = 0;
 
     List<Batch> batches = new ArrayList<>();
-    batches = product.getAllBatchesByPrice();
+    batches = new ArrayList<>(product.getAllBatchesByPrice());
 
     for (Component c : recipe.getComponents()) {
       Double breakdownSalePrice = c.getProduct().getBreakdownSalePrice();
@@ -589,11 +586,11 @@ public class Warehouse implements Serializable {
   public void receivePayment(int transactionKey) throws UnkTransactionKeyException {
     if (0 > transactionKey || transactionKey > _transactionsIds)
       throw new UnkTransactionKeyException();
-    if (!(_transations.get(transactionKey) instanceof SaleByCredit))
+
+    if (_transations.get(transactionKey).isPaid())
       return;
+
     SaleByCredit transaction = (SaleByCredit) _transations.get(transactionKey);
-    if (transaction.isPaid())
-      return;
 
     transaction.getTransactionDate().setPaymentDate(Date.now().getDate());
     Partner partner = transaction.getPartner();

@@ -11,9 +11,9 @@ import java.io.Serializable;
  */
 public class Notification implements Serializable {
 
-	String _notificationType;
-	Product _product;
-	double _price;
+	private String _notificationType;
+	private Product _product;
+	private double _price;
 	private static final long serialVersionUID = 202109190000L;
 
 	/**

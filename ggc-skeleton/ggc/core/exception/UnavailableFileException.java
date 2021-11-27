@@ -9,7 +9,7 @@ public class UnavailableFileException extends Exception {
 	private static final long serialVersionUID = 202009192006L;
 
 	/** The requested filename. */
-	String _filename;
+	private String _filename;
 
 	/**
 	 * @param filename

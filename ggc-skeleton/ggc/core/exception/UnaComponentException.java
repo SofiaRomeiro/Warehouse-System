@@ -2,9 +2,9 @@ package ggc.core.exception;
 
 public class UnaComponentException extends Exception {
 
-	int _available;
-	int _requested;
-	String _product;
+	private int _available;
+	private int _requested;
+	private String _product;
 
 	/**
 	 * @param filename

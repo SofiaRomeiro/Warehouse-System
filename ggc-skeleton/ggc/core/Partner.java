@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 import java.util.Collections;
+import java.util.Collection;
 import java.io.Serializable;
 
 /**
@@ -54,12 +55,12 @@ public class Partner implements Serializable, Observer {
         return _key;
     }
 
-    public List<Batch> getAllBatches() {
+    public Collection<Batch> getAllBatches() {
         Collections.sort(_batches, new BatchesComparator());
         return _batches;
     }
 
-    public List<Transaction> getAllTransactions() {
+    public Collection<Transaction> getAllTransactions() {
         return _transactions;
     }
 
@@ -72,7 +73,7 @@ public class Partner implements Serializable, Observer {
         if (t instanceof Acquisition) {
             _purchases += t.getBaseValue() * t.getQuantity();
         } else if (t instanceof SaleByCredit) {
-            _sales += t.getBaseValue() /* t.getQuantity() */;
+            _sales += t.getBaseValue();
         }
     }
 
@@ -129,7 +130,7 @@ public class Partner implements Serializable, Observer {
     }
 
     public void sendMessage() {
-        _messageMode.SendMessage(_notifications);
+        _messageMode.sendMessage(_notifications);
     }
 
     public List<String> getAllPaidTransaction() {

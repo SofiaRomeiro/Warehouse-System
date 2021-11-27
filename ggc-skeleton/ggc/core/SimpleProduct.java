@@ -15,4 +15,8 @@ public class SimpleProduct extends Product {
     public String toString() {
         return super.toString();
     }
+
+    public boolean isSimple() {
+        return true;
+    }
 }

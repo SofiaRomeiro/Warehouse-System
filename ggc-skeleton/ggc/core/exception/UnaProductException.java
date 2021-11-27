@@ -2,8 +2,8 @@ package ggc.core.exception;
 
 public class UnaProductException extends Exception {
 
-    int _available;
-    String _product;
+    private int _available;
+    private String _product;
 
     /*
      * @param filename

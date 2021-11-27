@@ -13,7 +13,7 @@ import ggc.core.WarehouseManager;
  */
 class DoSaveFile extends Command<WarehouseManager> {
 
-  String filename;
+  private String fileName;
 
   /**
    * 
@@ -30,13 +30,13 @@ class DoSaveFile extends Command<WarehouseManager> {
 
       Form request = new Form();
       request.addStringField("answer", Message.newSaveAs());
-      filename = request.parse().stringField("answer");
+      fileName = request.parse().stringField("answer");
     } else {
-      filename = _receiver.getFilename();
+      fileName = _receiver.getFilename();
     }
 
     try {
-      _receiver.save(filename);
+      _receiver.save(fileName);
     } catch (IOException e) {
       e.printStackTrace();
     }

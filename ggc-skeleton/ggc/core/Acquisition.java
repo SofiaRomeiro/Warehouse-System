@@ -15,4 +15,5 @@ public class Acquisition extends Transaction {
                 + super.getQuantity() + "|" + Math.round(getBaseValue()) * super.getQuantity() + "|"
                 + super.getTransactionDate().getDate();
     }
+
 }
